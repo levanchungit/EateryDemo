@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EateryDemo">
         <activity
+            android:name=".fragment.fragment_QuanLyTaiKhoan"
+            android:exported="false" />
+        <activity
+            android:name=".fragment.fragment_QuanLyCuaHang"
+            android:exported="false" />
+        <activity
+            android:name=".fragment.fragment_QuanTriHeThong"
+            android:exported="false" />
+        <activity
             android:name=".DoiMK"
             android:exported="false" />
         <activity
