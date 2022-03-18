@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="170dp">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:cardCornerRadius="50dp"
+        android:layout_margin="10dp"
+        app:cardElevation="10dp">
+
+         <RelativeLayout
+             android:layout_width="match_parent"
+             android:layout_height="match_parent">
+
+             <androidx.cardview.widget.CardView
+                 android:id="@+id/imgNhaHang"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_marginTop="13dp"
+                 android:layout_marginLeft="25dp"
+                 android:layout_marginRight="12dp"
+                 app:cardCornerRadius="100dp">
+
+                 <ImageView
+                     android:scaleType="center"
+                     android:src="@drawable/demo_nhahang"
+                     android:layout_width="125dp"
+                     android:layout_height="125dp"/>
+             </androidx.cardview.widget.CardView>
+
+             <TextView
+                 android:id="@+id/txtTenNhaHang"
+                 android:layout_width="wrap_content"
+                 android:layout_height="22dp"
+                 android:layout_alignParentTop="true"
+                 android:layout_marginTop="20dp"
+                 android:layout_marginBottom="8dp"
+                 android:layout_toRightOf="@+id/imgNhaHang"
+                 android:fontFamily="@font/montserrat_extrabold"
+                 android:text="Tên nhà hàng"
+                 android:textSize="20dp" />
+
+             <TextView
+                 android:id="@+id/txtLoaiNhaHang"
+                 android:layout_width="wrap_content"
+                 android:layout_height="18dp"
+                 android:layout_below="@+id/txtTenNhaHang"
+                 android:layout_marginBottom="8dp"
+                 android:layout_toRightOf="@id/imgNhaHang"
+                 android:text="Loại nhà hàng"
+                 android:fontFamily="@font/montserrat_light" />
+
+             <TextView
+                 android:id="@+id/txtDiaChi"
+                 android:layout_width="140dp"
+                 android:layout_height="match_parent"
+                 android:layout_below="@id/txtLoaiNhaHang"
+                 android:layout_toRightOf="@id/imgNhaHang"
+                 android:fontFamily="@font/montserrat_regular"
+                 android:text="Nàm Kỳ Khởi Nghĩa - Quận 19, TP. HCM"
+                 android:textSize="15dp" />
+
+             <TextView
+                 android:id="@+id/txtDanhGia"
+                 android:layout_width="57dp"
+                 android:layout_height="24dp"
+                 android:layout_alignParentRight="true"
+                 android:layout_alignParentBottom="true"
+                 android:layout_marginRight="20dp"
+                 android:layout_marginBottom="14dp"
+                 android:background="@drawable/danhgia"
+                 android:drawableRight="@drawable/ic_baseline_star_24"
+                 android:gravity="center"
+                 android:paddingRight="5dp"
+                 android:text="5.0"
+                 android:textColor="@android:color/white"
+                 android:textSize="15dp"
+                 android:textStyle="bold" />
+
+         </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+
+
+</RelativeLayout>
