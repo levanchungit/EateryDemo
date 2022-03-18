@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/imgMonAn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        app:cardElevation="10dp"
+        app:cardCornerRadius="100dp">
+
+        <ImageView
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:scaleType="center"
+            android:src="@drawable/demo_nhahang" />
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewMonAn"
+        android:layout_width="175dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        app:cardBackgroundColor="@color/white"
+
+        app:cardCornerRadius="50dp"
+        app:cardElevation="5dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/txtTenMonAn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="70dp"
+                android:fontFamily="@font/montserrat_medium"
+                android:gravity="center"
+                android:text="Mỳ Ý sốt Spaghetti yum yum"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/txtMoTaMonAn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/txtTenMonAn"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="Mô tả" />
+
+            <TextView
+                android:id="@+id/txtGiaMonAn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtMoTaMonAn"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="23dp"
+                android:fontFamily="@font/montserrat_extrabold"
+                android:text="120.000đ" />
+
+            <ImageView
+                android:id="@+id/imgAddMonAn"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:layout_below="@+id/txtGiaMonAn"
+                android:layout_toRightOf="@id/txtGiaMonAn"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="15dp"
+                android:clickable="true"
+                app:srcCompat="@drawable/ic_baseline_add_circle_outline_24" />
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+
+
+
+</RelativeLayout>

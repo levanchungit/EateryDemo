@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/imgMonAnChiTiet"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_alignParentTop="true"
+        app:cardElevation="5dp"
+        android:layout_centerHorizontal="true">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="center"
+            android:src="@drawable/demo_nhahang" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="@android:color/transparent"
+        app:cardElevation="10dp"
+        android:clickable="true">
+
+        <ImageView
+            android:id="@+id/imgBack"
+            android:layout_width="46dp"
+            android:layout_height="46dp"
+            android:clickable="true"
+            android:src="@drawable/ic_baseline_arrow_back_white_24" />
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/txtTenMonAnChiTiet"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imgMonAnChiTiet"
+        android:layout_marginLeft="21dp"
+        android:layout_marginTop="14dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="Mỳ Ý Spaghetti yum yum"
+        android:textSize="24dp" />
+
+    <TextView
+        android:id="@+id/txtTenNhaHangChiTiet2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtTenMonAnChiTiet"
+        android:layout_marginLeft="21dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/montserrat_medium"
+        android:text="Nhà hàng sushi"
+        android:textSize="16dp" />
+
+    <TextView
+        android:id="@+id/txtGiaMonAnChiTiet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/imgMonAnChiTiet"
+        android:layout_marginTop="14dp"
+        android:layout_marginRight="21dp"
+        android:textSize="24dp"
+        android:text="300.000đ" />
+
+    <ImageView
+        android:id="@+id/line2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:layout_below="@id/txtTenNhaHangChiTiet2"
+        app:srcCompat="@drawable/line2" />
+
+    <TextView
+        android:id="@+id/txt2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/line2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="Món ăn gần đây: "
+        android:textSize="16dp"
+        android:textStyle="bold" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycleViewChiTiet"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/txt2"
+        android:layout_centerHorizontal="true" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewSoLuongChiTiet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@id/btnAddMonAn"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="25dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="30dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imgRemoveSoLuong"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_remove_24" />
+
+
+            <TextView
+                android:id="@+id/txtSoLuongChiTiet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_toRightOf="@+id/imgRemoveSoLuong"
+                android:text="1"
+                android:textSize="18dp" />
+
+            <ImageView
+                android:id="@+id/imgAddSoLuong"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/txtSoLuongChiTiet"
+                android:src="@drawable/ic_baseline_add_24" />
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/btnAddMonAn"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:fontFamily="@font/montserrat_semibold"
+        android:backgroundTint="@android:color/background_dark"
+        android:textSize="14dp"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="10dp"
+        android:elevation="20dp"
+        android:textAllCaps="false"
+        android:text="Thêm vào giỏ hàng" />
+
+</RelativeLayout>

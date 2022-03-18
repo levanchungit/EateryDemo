@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="@android:color/transparent"
+        app:cardElevation="10dp"
+        android:clickable="true">
+
+        <ImageView
+            android:id="@+id/imgBack"
+            android:layout_width="46dp"
+            android:layout_height="46dp"
+            android:clickable="true"
+            android:src="@drawable/ic_baseline_arrow_back_white_24" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:clickable="true"
+        app:cardElevation="20dp"
+        android:backgroundTint="@android:color/transparent"
+        android:layout_toLeftOf="@+id/imgSearch">
+
+        <ImageView
+            android:id="@+id/imgFav"
+            android:layout_width="46dp"
+            android:layout_height="46dp"
+            app:srcCompat="@drawable/ic_baseline_favorite_24" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/imgSearch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_alignParentRight="true"
+        android:backgroundTint="@android:color/transparent"
+        app:cardElevation="20dp"
+        android:clickable="true">
+
+        <ImageView
+            android:layout_width="46dp"
+            android:layout_height="46dp"
+            app:srcCompat="@drawable/ic_baseline_search_24" />
+
+    </androidx.cardview.widget.CardView>
+
+
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/imgNhaHangChiTiet"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        app:cardElevation="5dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="center"
+            android:src="@drawable/demo_nhahang" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewNhaHang"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="140dp"
+        app:cardElevation="10dp"
+        app:cardCornerRadius="20dp"
+        app:cardBackgroundColor="@color/white"
+        app:cardPreventCornerOverlap="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/layoutDoiTac"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_centerHorizontal="true">
+                <ImageView
+                    android:id="@+id/imgDoiTac"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_toLeftOf="@id/txtDoiTac"
+                    android:layout_marginRight="10dp"
+                    app:srcCompat="@drawable/check_doitac" />
+
+                <TextView
+                    android:id="@+id/txtDoiTac"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dp"
+                    android:text="Đối tác của Eatery"
+                    android:textSize="20dp"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:textColor="#8E80DF" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txtTenNhaHangChiTiet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/layoutDoiTac"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/montserrat_extrabold"
+                android:gravity="center"
+                android:text="Nhà hàng Eatery"
+                android:textSize="36dp" />
+
+            <RelativeLayout
+                android:id="@+id/layoutDiaChi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtTenNhaHangChiTiet"
+                android:layout_centerHorizontal="true">
+
+                <ImageView
+                    android:id="@+id/imgMark"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginTop="20dp"
+
+                    app:srcCompat="@drawable/ic_baseline_location_on_24" />
+
+                <TextView
+                    android:id="@+id/txtDiaChiChiTiet"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:layout_toRightOf="@id/imgMark"
+                    android:text="Nam kỳ khởi nghĩa - Q.12, TP.HCM"
+                    android:textSize="16dp" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/txtDanhGiaChiTiet"
+                android:layout_width="57dp"
+                android:layout_height="24dp"
+                android:layout_marginRight="11dp"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/danhgia"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/layoutDiaChi"
+                android:layout_centerHorizontal="true"
+                android:drawableRight="@drawable/ic_baseline_star_24"
+                android:gravity="center"
+                android:paddingRight="5dp"
+                android:text="5.0"
+                android:textColor="@android:color/white"
+                android:textSize="15dp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <ImageView
+        android:id="@+id/line2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:layout_below="@id/cardViewNhaHang"
+        app:srcCompat="@drawable/line2" />
+
+    <TextView
+        android:id="@+id/txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/line2"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="Món ăn của quán: " />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycleViewChiTiet"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/txt"
+        android:layout_centerHorizontal="true" />
+</RelativeLayout>
