@@ -1,27 +1,32 @@
-package com.example.eaterydemo.activities;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
+package com.example.eaterydemo.fragments;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 
-import com.example.eaterydemo.R;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.NavDirections;
+import androidx.navigation.Navigation;
+
 import com.example.eaterydemo.databinding.FragmentEditProfileBinding;
 
-public class EditProfileActivity extends AppCompatActivity {
+public class EditProfileFM extends Fragment {
     FragmentEditProfileBinding fmEditProfileBinding;
     NavController navController;
+
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         fmEditProfileBinding = FragmentEditProfileBinding.inflate(getLayoutInflater());
-
-        setContentView(fmEditProfileBinding.getRoot());
-
+        initClick();
+        initNavController(container);
+        return fmEditProfileBinding.getRoot();
     }
-
 
     private void initNavController(View viewEditProfileBinding) {
         navController = Navigation.findNavController(viewEditProfileBinding);
@@ -31,7 +36,8 @@ public class EditProfileActivity extends AppCompatActivity {
         fmEditProfileBinding.ivBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                NavDirections action = EditProfileFMDirections.actionEditProfileFMToProfileFM();
+                navController.navigate(action);
             }
         });
     }
