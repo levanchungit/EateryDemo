@@ -27,9 +27,26 @@
         <entry key="..\:/FPT/Github/EateryDemo/app/src/main/res/layout/monan_item.xml" value="0.37864583333333335" />
         <entry key="..\:/FPT/Github/EateryDemo/app/src/main/res/layout/slide_images.xml" value="0.14114583333333333" />
         <entry key="..\:/FPT/Github/EateryDemo/app/src/main/res/menu/item_menu_bottom_navigation.xml" value="0.25462962962962965" />
+        <entry key="app/src/main/res/layout/activity_edit_profile.xml" value="0.1890625" />
+        <entry key="app/src/main/res/layout/activity_favourite.xml" value="0.1890625" />
+        <entry key="app/src/main/res/layout/activity_home.xml" value="0.1890625" />
+        <entry key="app/src/main/res/layout/activity_monanchitiet.xml" value="0.1890625" />
+        <entry key="app/src/main/res/layout/activity_nhahangchitiet.xml" value="0.1890625" />
+        <entry key="app/src/main/res/layout/activity_profile.xml" value="0.2776268115942029" />
+        <entry key="app/src/main/res/layout/fragment_edit_profile.xml" value="0.1890625" />
+        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.1890625" />
+        <entry key="app/src/main/res/layout/item_dathang.xml" value="0.1890625" />
+        <entry key="app/src/main/res/layout/item_khuyenmai_chunhat.xml" value="0.1890625" />
+        <entry key="app/src/main/res/layout/item_quanan_vuong.xml" value="0.1890625" />
+        <entry key="app/src/main/res/layout/main_activity.xml" value="0.2776268115942029" />
+        <entry key="app/src/main/res/layout/monan_item.xml" value="0.1890625" />
+        <entry key="app/src/main/res/layout/nhahang_item.xml" value="0.1890625" />
+        <entry key="app/src/main/res/layout/oder_detail.xml" value="0.1890625" />
+        <entry key="app/src/main/res/layout/payment.xml" value="0.1890625" />
       </map>
     </option>
   </component>
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
         <entry key="..\:/Github/EateryDemo/app/src/main/res/drawable/butonlogin.xml" value="0.2265" />
         <entry key="..\:/Github/EateryDemo/app/src/main/res/drawable/buttonlogin.xml" value="0.2265" />

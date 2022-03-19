@@ -12,10 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EateryDemo">
         <activity
-            android:name=".EditProfileActivity"
+            android:name=".activities.EditProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".ProfileActivity"
+            android:name=".activities.ProfileActivity"
             android:exported="false" />
         <activity
             android:name=".activities.HomeActivity"
@@ -38,6 +38,7 @@
             android:exported="false" />
         <activity
             android:name=".Mhcho"
+            android:name=".activities.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
