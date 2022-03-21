@@ -12,10 +12,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EateryDemo">
         <activity
+<<<<<<< HEAD
             android:name=".activities.EditProfileActivity"
             android:name=".fragment.fragment_quan_ly_danh_sach_mon_an"
             android:exported="false" />
         <activity
+=======
+            android:name=".EditProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.HomeActivity"
+>>>>>>> parent of 01fcdb4 (Merge branch 'main' of https://github.com/levanchung0808/EateryDemo)
             android:name=".fragment.fragment_QuanLyTaiKhoan"
             android:exported="false" />
         <activity
@@ -35,7 +45,11 @@
             android:name=".activities.HomeActivity"
             android:exported="false" />
         <activity
+<<<<<<< HEAD
             android:name=".activities.MainActivity"
+=======
+            android:name=".Mhcho"
+>>>>>>> parent of 01fcdb4 (Merge branch 'main' of https://github.com/levanchung0808/EateryDemo)
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

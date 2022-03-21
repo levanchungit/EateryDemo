@@ -5,8 +5,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Intent;
+import android.net.IpSecManager;
 import android.os.Bundle;
 import android.os.Handler;
+import android.widget.ArrayAdapter;
+import android.widget.SimpleAdapter;
+import android.widget.Toast;
 
 import com.example.eaterydemo.R;
 import com.example.eaterydemo.adapter.KhuyenMaiAdapter;
