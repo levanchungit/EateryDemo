@@ -11,6 +11,6 @@ public class fragment_QuanLyTaiKhoan extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_fragment_quan_ly_tai_khoan);
+        setContentView(R.layout.fragment_admin_quanlytaikhoan);
     }
 }

@@ -13,9 +13,9 @@ public class ProfileActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_profile);
+        setContentView(R.layout.fragment_thongtin);
 
 
-        setContentView(R.layout.monan_item);
+        setContentView(R.layout.item_monan);
     }
 }

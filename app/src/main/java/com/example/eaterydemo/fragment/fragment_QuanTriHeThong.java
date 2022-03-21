@@ -11,6 +11,6 @@ public class fragment_QuanTriHeThong extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_fragment_quan_tri_he_thong);
+        setContentView(R.layout.fragment_admin_quantrihethong);
     }
 }

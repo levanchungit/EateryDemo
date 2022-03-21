@@ -5,15 +5,15 @@ import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.eaterydemo.R;
-import com.example.eaterydemo.databinding.MainActivityBinding;
+import com.example.eaterydemo.databinding.ActivityMainBinding;
+
 
 public class MainActivity extends AppCompatActivity {
-    MainActivityBinding mainActivityBinding;
+    ActivityMainBinding mainActivityBinding;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mainActivityBinding = MainActivityBinding.inflate(getLayoutInflater());
+        mainActivityBinding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(mainActivityBinding.getRoot());
     }
 }

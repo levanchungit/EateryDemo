@@ -1,6 +1,7 @@
 package com.example.eaterydemo.fragments;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,20 +13,42 @@ import androidx.navigation.NavController;
 import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 
-import com.example.eaterydemo.databinding.FragmentThongtinBinding;
+import com.example.eaterydemo.R;
+import com.example.eaterydemo.databinding.FragmentSplashBinding;
+
+import java.util.List;
 
 
-public class ProfileFM extends Fragment {
-    FragmentThongtinBinding fmProfileBinding;
+public class SplashFM extends Fragment {
+    FragmentSplashBinding fmSplashBinding;
     NavController navController;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        fmProfileBinding = FragmentThongtinBinding.inflate(getLayoutInflater());
+        fmSplashBinding = FragmentSplashBinding.inflate(getLayoutInflater());
         initClick();
         initNavController(container);
-        return fmProfileBinding.getRoot();
+
+        for (int i = 0; i < 8000; i++) {
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+
+                }
+            }, 1000);
+        }
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                NavDirections action = SplashFMDirections.actionSplashFMToIntroFM();
+                navController.navigate(action);
+            }
+        }, 3000);
+
+
+        return fmSplashBinding.getRoot();
     }
 
     private void initNavController(View viewFmProfileBinding) {
@@ -33,12 +56,6 @@ public class ProfileFM extends Fragment {
     }
 
     private void initClick() {
-        fmProfileBinding.ivThongTin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                NavDirections action = ProfileFMDirections.actionProfileFMToEditProfileFM();
-                navController.navigate(action);
-            }
-        });
+
     }
 }

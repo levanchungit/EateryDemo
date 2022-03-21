@@ -32,7 +32,7 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.fragment_trangchu);
 
         rvKhao20ValentineTrang = findViewById(R.id.rvKhao20ValentineTrang);
         rvMonAnKemNuocSaiGon = findViewById(R.id.rvMonAnKemNuocSaiGon);

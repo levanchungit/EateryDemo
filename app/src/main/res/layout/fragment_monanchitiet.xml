@@ -65,20 +65,20 @@
         android:id="@+id/txtGiaMonAnChiTiet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
         android:layout_below="@+id/imgMonAnChiTiet"
+        android:layout_alignParentRight="true"
         android:layout_marginTop="14dp"
         android:layout_marginRight="21dp"
-        android:textSize="24dp"
-        android:text="300.000đ" />
+        android:text="300.000đ"
+        android:textSize="24dp" />
 
     <ImageView
         android:id="@+id/line2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/txtTenNhaHangChiTiet2"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="25dp"
-        android:layout_below="@id/txtTenNhaHangChiTiet2"
         app:srcCompat="@drawable/line2" />
 
     <TextView
@@ -137,7 +137,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@id/txtSoLuongChiTiet"
-                android:src="@drawable/ic_baseline_add_24" />
+                android:src="@drawable/ic_them" />
 
         </RelativeLayout>
     </androidx.cardview.widget.CardView>

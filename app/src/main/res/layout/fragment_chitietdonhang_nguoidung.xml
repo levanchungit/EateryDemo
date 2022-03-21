@@ -18,9 +18,9 @@
             android:orientation="vertical">
 
             <TextView
-                android:layout_width="300dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Cơm Tấm và Bún Thịt Nướng _ Sài Gòn"
+                android:text="Cơm Tấm và Bún Thịt Nướng - Sài Gòn"
                 android:textSize="25dp"
                 android:textStyle="bold"
                 android:textAlignment="center"
@@ -32,17 +32,6 @@
                 android:text="20 tháng 10 2022"
                 android:textAlignment="center"
                 android:textSize="20dp"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="right">
-            <ImageView
-                android:layout_gravity="center"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:src="@drawable/ic_baseline_chevron_right_24"/>
         </LinearLayout>
     </LinearLayout>
 <LinearLayout

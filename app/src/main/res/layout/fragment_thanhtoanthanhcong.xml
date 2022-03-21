@@ -20,8 +20,8 @@
         android:id="@+id/imgChecked"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_below="@+id/imgBack"
+        android:layout_centerHorizontal="true"
         app:srcCompat="@drawable/checked" />
 
     <TextView

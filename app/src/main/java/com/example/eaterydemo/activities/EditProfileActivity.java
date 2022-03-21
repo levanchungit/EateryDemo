@@ -7,16 +7,16 @@ import androidx.navigation.Navigation;
 import android.os.Bundle;
 import android.view.View;
 
-import com.example.eaterydemo.R;
-import com.example.eaterydemo.databinding.FragmentEditProfileBinding;
+import com.example.eaterydemo.databinding.FragmentChinhsuaThongtinBinding;
+
 
 public class EditProfileActivity extends AppCompatActivity {
-    FragmentEditProfileBinding fmEditProfileBinding;
+    FragmentChinhsuaThongtinBinding fmEditProfileBinding;
     NavController navController;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        fmEditProfileBinding = FragmentEditProfileBinding.inflate(getLayoutInflater());
+        fmEditProfileBinding = FragmentChinhsuaThongtinBinding.inflate(getLayoutInflater());
 
         setContentView(fmEditProfileBinding.getRoot());
 

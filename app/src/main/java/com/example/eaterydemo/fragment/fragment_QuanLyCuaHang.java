@@ -11,6 +11,6 @@ public class fragment_QuanLyCuaHang extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_fragment_quan_ly_cua_hang);
+        setContentView(R.layout.fragment_admin_quanlycuahang);
     }
 }

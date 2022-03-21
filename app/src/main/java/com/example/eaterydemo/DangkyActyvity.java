@@ -9,6 +9,6 @@ public class DangkyActyvity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dangky_actyvity);
+        setContentView(R.layout.fragment_dangky);
     }
 }
