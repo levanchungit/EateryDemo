@@ -13,16 +13,10 @@
         android:theme="@style/Theme.EateryDemo">
         <activity
             android:name=".activities.EditProfileActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activities.ProfileActivity"
+            android:name=".fragment.fragment_quan_ly_danh_sach_mon_an"
             android:exported="false" />
         <activity
             android:name=".fragment.fragment_QuanLyTaiKhoan"
-            android:exported="false" />
-
-        <activity
-            android:name=".activities.HomeActivity"
             android:exported="false" />
         <activity
             android:name=".fragment.fragment_QuanLyCuaHang"
@@ -34,13 +28,11 @@
             android:name=".DoiMK"
             android:exported="false" />
         <activity
-            android:name=".DangkyActyvity"
+            android:name=".activities.ProfileActivity"
             android:exported="false" />
+
         <activity
-            android:name=".Login"
-            android:exported="false" />
-        <activity
-            android:name=".Mhcho"
+            android:name=".activities.HomeActivity"
             android:exported="false" />
         <activity
             android:name=".activities.MainActivity"

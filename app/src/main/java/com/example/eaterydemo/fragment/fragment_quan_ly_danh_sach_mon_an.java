@@ -6,11 +6,11 @@ import android.os.Bundle;
 
 import com.example.eaterydemo.R;
 
-public class fragment_QuanTriHeThong extends AppCompatActivity {
+public class fragment_quan_ly_danh_sach_mon_an extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_admin_quantrihethong);
+        setContentView(R.layout.activity_fragment_quan_ly_danh_sach_mon_an);
     }
 }

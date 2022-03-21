@@ -58,13 +58,16 @@
         <entry key="..\:/Github/EateryDemo/app/src/main/res/layout/activity_dangky_actyvity.xml" value="0.176" />
         <entry key="..\:/Github/EateryDemo/app/src/main/res/layout/activity_doi_mk.xml" value="0.25416666666666665" />
         <entry key="..\:/Github/EateryDemo/app/src/main/res/layout/activity_fragment_quan_ly_cua_hang.xml" value="0.2" />
+        <entry key="..\:/Github/EateryDemo/app/src/main/res/layout/activity_fragment_quan_ly_danh_sach_mon_an.xml" value="0.264" />
         <entry key="..\:/Github/EateryDemo/app/src/main/res/layout/activity_fragment_quan_ly_tai_khoan.xml" value="0.25416666666666665" />
         <entry key="..\:/Github/EateryDemo/app/src/main/res/layout/activity_fragment_quan_tri_he_thong.xml" value="0.264" />
         <entry key="..\:/Github/EateryDemo/app/src/main/res/layout/activity_login.xml" value="0.264" />
         <entry key="..\:/Github/EateryDemo/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="..\:/Github/EateryDemo/app/src/main/res/layout/activity_mhcho.xml" value="0.25416666666666665" />
         <entry key="..\:/Github/EateryDemo/app/src/main/res/layout/item_quan.xml" value="0.25416666666666665" />
+        <entry key="..\:/Github/EateryDemo/app/src/main/res/layout/item_quan_ly_danh_sach_mon_an.xml" value="0.264" />
         <entry key="..\:/Github/EateryDemo/app/src/main/res/layout/item_quanlycuahang.xml" value="0.264" />
+        <entry key="..\:/Github/EateryDemo/app/src/main/res/layout/item_quanlytaikhoan.xml" value="0.264" />
       </map>
     </option>
   </component>
