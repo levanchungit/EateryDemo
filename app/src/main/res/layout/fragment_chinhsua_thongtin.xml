@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".activities.EditProfileActivity">
+        <ImageView
+            android:id="@+id/ivBack"
+            android:src="@drawable/ic_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <ImageView
+            android:id="@+id/ivAvatar_EditProfile"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            android:src="@drawable/avatar" />
+
+        <TextView
+            android:id="@+id/tvFullName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ivAvatar_EditProfile"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/montserrat_medium"
+            android:text="Lalisa"
+
+            android:textColor="#000"
+            android:textSize="10pt" />
+
+        <EditText
+            android:id="@+id/edtSDT"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvFullName"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="10dp"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/montserrat_regular"
+            android:gravity=""
+            android:inputType="textAutoComplete"
+            android:padding="10dp"
+            android:singleLine="true"
+            android:text="0978457323"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black" />
+
+        <EditText
+            android:id="@+id/edtEmail"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edtSDT"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="10dp"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/montserrat_regular"
+            android:gravity=""
+            android:inputType="textAutoComplete"
+            android:padding="10dp"
+            android:singleLine="true"
+            android:text="email@gmail.com"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black" />
+
+        <EditText
+            android:id="@+id/edtGioiTinh"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edtEmail"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="10dp"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/montserrat_regular"
+            android:gravity=""
+            android:inputType="textAutoComplete"
+            android:padding="10dp"
+            android:singleLine="true"
+            android:text="Nữ"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black" />
+
+        <EditText
+            android:id="@+id/edtNgaySinh"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edtGioiTinh"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="10dp"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/montserrat_regular"
+            android:gravity=""
+            android:inputType="textAutoComplete"
+            android:padding="10dp"
+            android:singleLine="true"
+            android:text="01/06/2000"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black" />
+
+        <EditText
+            android:id="@+id/edtDiaChi"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edtNgaySinh"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="10dp"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/montserrat_regular"
+            android:gravity=""
+            android:inputType="textAutoComplete"
+            android:padding="10dp"
+            android:singleLine="true"
+            android:text="South Korean"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black" />
+
+        <ImageView
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edtDiaChi"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/editprofile_btn_chinhsua" />
+
+    </RelativeLayout>
+</layout>
