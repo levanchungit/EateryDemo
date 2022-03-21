@@ -14,11 +14,8 @@ public class ProfileActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-<<<<<<< HEAD
         setContentView(R.layout.fragment_thongtin);
-=======
         setContentView(R.layout.activity_profile);
->>>>>>> parent of 01fcdb4 (Merge branch 'main' of https://github.com/levanchung0808/EateryDemo)
 
 
         setContentView(R.layout.item_monan);
