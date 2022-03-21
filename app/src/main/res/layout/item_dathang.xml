@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp">
+
+        <ImageView
+            android:id="@+id/ivDone"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/ic_baseline_done_24" />
+
+        <TextView
+            android:id="@+id/tvTrangThaiDatHang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:layout_toRightOf="@+id/ivDone"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:text="Đã giao"/>
+
+        <TextView
+            android:id="@+id/tvDateDatHang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/tvTrangThaiDatHang"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:text="16 tháng 4"/>
+
+        <TextView
+            android:id="@+id/tvTenQuanDatHang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvTrangThaiDatHang"
+            android:layout_marginTop="5dp"
+            android:text="Cơm Tấm Và Bún Thịt Nướng_Sài Gòn"
+            android:textSize="20dp" />
+
+        <ImageView
+            android:id="@+id/ivDetailDatHang"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="5dp"
+            android:layout_below="@+id/tvDateDatHang"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/ic_baseline_chevron_right_24" />
+
+        <TextView
+            android:id="@+id/tvTienDatHang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvTenQuanDatHang"
+            android:text="50.000đ"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="5dp"
+            android:textSize="20dp"/>
+
+        <TextView
+            android:id="@+id/tvSoMon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvTenQuanDatHang"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@+id/tvTienDatHang"
+            android:text="5 món"
+            android:textSize="20dp" />
+
+
+    </RelativeLayout>
+
+</LinearLayout>
