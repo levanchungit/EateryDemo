@@ -13,6 +13,19 @@
         android:theme="@style/Theme.EateryDemo">
         <activity
             android:name=".activities.EditProfileActivity"
+            android:name=".fragment.fragment_quan_ly_danh_sach_mon_an"
+            android:exported="false" />
+        <activity
+            android:name=".fragment.fragment_QuanLyTaiKhoan"
+            android:exported="false" />
+        <activity
+            android:name=".fragment.fragment_QuanLyCuaHang"
+            android:exported="false" />
+        <activity
+            android:name=".fragment.fragment_QuanTriHeThong"
+            android:exported="false" />
+        <activity
+            android:name=".DoiMK"
             android:exported="false" />
         <activity
             android:name=".activities.ProfileActivity"
