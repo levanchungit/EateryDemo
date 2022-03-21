@@ -7,7 +7,7 @@
     <fragment
         android:id="@+id/profileFM"
         tools:layout="@layout/fragment_thongtin"
-        android:name="com.example.eaterydemo.fragments.ProfileFM"
+        android:name="com.example.eaterydemo.fragments.ThongTinFM"
         android:label="ProfileFM">
         <action
             android:id="@+id/action_profileFM_to_editProfileFM"
@@ -16,7 +16,7 @@
     <fragment
         android:id="@+id/editProfileFM"
         tools:layout="@layout/fragment_chinhsua_thongtin"
-        android:name="com.example.eaterydemo.fragments.EditProfileFM"
+        android:name="com.example.eaterydemo.fragments.ChinhSuaThongTinFM"
         android:label="EditProfileFM">
         <action
             android:id="@+id/action_editProfileFM_to_profileFM"
@@ -33,11 +33,20 @@
     </fragment>
     <fragment
         android:id="@+id/introFM"
-        tools:layout="@layout/fragment_intro"
-        android:name="com.example.eaterydemo.fragments.IntroFM"
+        tools:layout="@layout/fragment_gioithieu"
+        android:name="com.example.eaterydemo.fragments.LoadingFM"
         android:label="IntroFM" >
         <action
-            android:id="@+id/action_introFM_to_profileFM"
+            android:id="@+id/action_introFM_to_homeFM"
+            app:destination="@id/homeFM" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeFM"
+        tools:layout="@layout/fragment_trangchu"
+        android:name="com.example.eaterydemo.fragments.TrangChuFM"
+        android:label="HomeFM" >
+        <action
+            android:id="@+id/action_homeFM_to_profileFM"
             app:destination="@id/profileFM" />
     </fragment>
 </navigation>
