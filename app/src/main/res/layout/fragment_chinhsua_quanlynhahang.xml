@@ -7,34 +7,34 @@
         android:layout_height="match_parent"
         tools:context=".activities.EditProfileActivity">
         <ImageView
-            android:id="@+id/ivBack"
+            android:id="@+id/ivBackEditQlNhaHang"
             android:src="@drawable/ic_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
         <ImageView
-            android:id="@+id/ivAvatar_EditProfile"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:id="@+id/ivAvatar_EditQLNhaHang"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="50dp"
-            android:src="@drawable/avatar" />
+            android:src="@drawable/qlnhahang" />
 
         <TextView
             android:id="@+id/tvFullName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/ivAvatar_EditProfile"
+            android:layout_below="@+id/ivAvatar_EditQLNhaHang"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
             android:fontFamily="@font/montserrat_medium"
-            android:text="Lalisa"
+            android:text="TÊN NHÀ HÀNG"
 
             android:textColor="#000"
             android:textSize="10pt" />
 
         <EditText
-            android:id="@+id/edtSDT"
+            android:id="@+id/edtTenChuNhaHang"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tvFullName"
@@ -48,84 +48,92 @@
             android:inputType="textAutoComplete"
             android:padding="10dp"
             android:singleLine="true"
-            android:text="0978457323"
+            android:text="Tên chủ nhà hàng"
             android:textColor="@color/black"
             android:textColorHint="@color/black" />
 
         <EditText
-            android:id="@+id/edtEmail"
+            android:id="@+id/edtTenChuCuaHang"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/edtSDT"
+            android:layout_below="@+id/edtTenChuNhaHang"
             android:layout_centerHorizontal="true"
-            android:layout_margin="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
             android:fontFamily="@font/montserrat_regular"
             android:gravity=""
             android:inputType="textAutoComplete"
             android:padding="10dp"
             android:singleLine="true"
-            android:text="email@gmail.com"
+            android:text="Tên chủ cửa hàng"
             android:textColor="@color/black"
             android:textColorHint="@color/black" />
 
         <EditText
-            android:id="@+id/edtGioiTinh"
+            android:id="@+id/edtDiaChiEditQLNhaHang"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/edtEmail"
+            android:layout_below="@+id/edtTenChuCuaHang"
             android:layout_centerHorizontal="true"
-            android:layout_margin="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
             android:fontFamily="@font/montserrat_regular"
             android:gravity=""
             android:inputType="textAutoComplete"
             android:padding="10dp"
             android:singleLine="true"
-            android:text="Nữ"
+            android:text="Địa chỉ"
             android:textColor="@color/black"
             android:textColorHint="@color/black" />
 
         <EditText
-            android:id="@+id/edtNgaySinh"
+            android:id="@+id/edtMoTaEditQLNhaHang"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/edtGioiTinh"
+            android:layout_below="@+id/edtDiaChiEditQLNhaHang"
             android:layout_centerHorizontal="true"
-            android:layout_margin="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
             android:fontFamily="@font/montserrat_regular"
             android:gravity=""
             android:inputType="textAutoComplete"
             android:padding="10dp"
             android:singleLine="true"
-            android:text="01/06/2000"
+            android:text="Mô tả"
             android:textColor="@color/black"
             android:textColorHint="@color/black" />
 
         <EditText
-            android:id="@+id/edtDiaChi"
+            android:id="@+id/edtMaLoaiEditQLNhaHang"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/edtNgaySinh"
+            android:layout_below="@+id/edtMoTaEditQLNhaHang"
             android:layout_centerHorizontal="true"
-            android:layout_margin="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
             android:fontFamily="@font/montserrat_regular"
             android:gravity=""
             android:inputType="textAutoComplete"
             android:padding="10dp"
             android:singleLine="true"
-            android:text="South Korean"
+            android:text="Mã loại nhà hàng"
             android:textColor="@color/black"
             android:textColorHint="@color/black" />
 
         <ImageView
+            android:layout_marginTop="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/edtDiaChi"
+            android:layout_below="@+id/edtMaLoaiEditQLNhaHang"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
             android:src="@drawable/editprofile_btn_chinhsua" />
 
     </RelativeLayout>
