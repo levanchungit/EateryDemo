@@ -38,7 +38,7 @@ public class LoadingFM extends Fragment {
                 NavDirections action = LoadingFMDirections.actionIntroFMToHomeFM();
                 navController.navigate(action);
             }
-        },3000);
+        },2000);
 
         return fmIntroBinding.getRoot();
     }

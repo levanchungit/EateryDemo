@@ -4,20 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/edtTimKiem"
-        android:layout_width="299dp"
-        android:layout_height="46dp"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="30dp"
-        android:background="@drawable/round"
-        android:drawableRight="@drawable/vector"
-        android:hint="Search..."
-        android:inputType="textPersonName"
-        android:paddingLeft="50dp"
-        android:paddingRight="20dp" />
-
     <androidx.cardview.widget.CardView
         android:id="@+id/imgUser"
         android:layout_width="wrap_content"
@@ -38,8 +24,8 @@
         android:id="@+id/recycleView"
         android:layout_width="match_parent"
         android:layout_height="550dp"
-        android:layout_below="@+id/edtTimKiem"
-        android:layout_marginTop="30dp"
+        android:layout_below="@+id/imgUser"
+        android:layout_marginTop="10dp"
         android:padding="10dp" />
 
 

@@ -106,7 +106,7 @@
                     android:layout_marginTop="20dp"
                     android:layout_toLeftOf="@id/txtDoiTac"
                     android:layout_marginRight="10dp"
-                    app:srcCompat="@drawable/check_doitac" />
+                    app:srcCompat="@drawable/ic_verify" />
 
                 <TextView
                     android:id="@+id/txtDoiTac"
