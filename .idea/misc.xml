@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+<<<<<<< HEAD
         <entry key="..\:/Github/EateryDemo/app/src/main/res/drawable/danhgia.xml" value="0.227" />
         <entry key="..\:/Github/EateryDemo/app/src/main/res/drawable/ic_baseline_remove_24.xml" value="0.227" />
         <entry key="..\:/Github/EateryDemo/app/src/main/res/drawable/item_dangxuat.xml" value="0.227" />
@@ -48,6 +49,32 @@
         <entry key="..\:/Github/EateryDemo/app/src/main/res/layout/oder_detail.xml" value="0.264" />
         <entry key="..\:/Github/EateryDemo/app/src/main/res/layout/payment.xml" value="0.25" />
         <entry key="..\:/Github/EateryDemo/app/src/main/res/layout/thanh_toan.xml" value="0.25" />
+=======
+        <entry key="..\:/FPT/Github/EateryDemo/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.3355" />
+        <entry key="..\:/FPT/Github/EateryDemo/app/src/main/res/drawable/avatar.xml" value="0.193" />
+        <entry key="..\:/FPT/Github/EateryDemo/app/src/main/res/drawable/cart.xml" value="0.2075" />
+        <entry key="..\:/FPT/Github/EateryDemo/app/src/main/res/drawable/cart_selector.xml" value="0.341" />
+        <entry key="..\:/FPT/Github/EateryDemo/app/src/main/res/drawable/cart_stroke.xml" value="0.2075" />
+        <entry key="..\:/FPT/Github/EateryDemo/app/src/main/res/drawable/favorites_selector.xml" value="0.341" />
+        <entry key="..\:/FPT/Github/EateryDemo/app/src/main/res/drawable/home.xml" value="0.2075" />
+        <entry key="..\:/FPT/Github/EateryDemo/app/src/main/res/drawable/home_selector.xml" value="0.341" />
+        <entry key="..\:/FPT/Github/EateryDemo/app/src/main/res/drawable/home_stroke.xml" value="0.2075" />
+        <entry key="..\:/FPT/Github/EateryDemo/app/src/main/res/drawable/ic_verify.xml" value="0.2075" />
+        <entry key="..\:/FPT/Github/EateryDemo/app/src/main/res/drawable/item_profile.xml" value="0.193" />
+        <entry key="..\:/FPT/Github/EateryDemo/app/src/main/res/drawable/item_selector.xml" value="0.3675" />
+        <entry key="..\:/FPT/Github/EateryDemo/app/src/main/res/drawable/profile.xml" value="0.2075" />
+        <entry key="..\:/FPT/Github/EateryDemo/app/src/main/res/drawable/profile_selector.xml" value="0.2075" />
+        <entry key="..\:/FPT/Github/EateryDemo/app/src/main/res/drawable/profile_stroke.xml" value="0.2075" />
+        <entry key="..\:/FPT/Github/EateryDemo/app/src/main/res/drawable/round_corner.xml" value="0.3675" />
+        <entry key="..\:/FPT/Github/EateryDemo/app/src/main/res/layout/activity_edit_profile.xml" value="0.37864583333333335" />
+        <entry key="..\:/FPT/Github/EateryDemo/app/src/main/res/layout/activity_home.xml" value="0.25" />
+        <entry key="..\:/FPT/Github/EateryDemo/app/src/main/res/layout/activity_profile.xml" value="0.33" />
+        <entry key="..\:/FPT/Github/EateryDemo/app/src/main/res/layout/item_khuyenmai_chunhat.xml" value="0.67" />
+        <entry key="..\:/FPT/Github/EateryDemo/app/src/main/res/layout/item_quanan_vuong.xml" value="0.67" />
+        <entry key="..\:/FPT/Github/EateryDemo/app/src/main/res/layout/monan_item.xml" value="0.37864583333333335" />
+        <entry key="..\:/FPT/Github/EateryDemo/app/src/main/res/layout/slide_images.xml" value="0.14114583333333333" />
+        <entry key="..\:/FPT/Github/EateryDemo/app/src/main/res/menu/item_menu_bottom_navigation.xml" value="0.25462962962962965" />
+>>>>>>> 3977eb9e887e3e3b3d3e5213819c060e2352b023
       </map>
     </option>
   </component>
