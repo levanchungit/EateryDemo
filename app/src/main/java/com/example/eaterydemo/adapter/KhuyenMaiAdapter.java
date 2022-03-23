@@ -50,7 +50,7 @@ public class KhuyenMaiAdapter extends RecyclerView.Adapter<KhuyenMaiAdapter.View
     @Override
     public void onBindViewHolder(@NonNull KhuyenMaiAdapter.ViewHolder holder, int position) {
         KhuyenMai model = arr.get(position);
-        Glide.with(context).load("https://res.cloudinary.com/dq7xnkfde/image/upload/v1647938606/khuyenmai1_yyso59.jpg").into(ivImage_KhuyenMai);
+        Glide.with(context).load(model.getHinhAnh()).into(ivImage_KhuyenMai);
         tvMaKhuyenMai_KhuyenMai.setText("Nhập "+model.getMaKM());
     }
 

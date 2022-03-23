@@ -38,10 +38,11 @@
         app:menu="@menu/item_menu_bottom_navigation" />
 
     <ScrollView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:fillViewport="true"
-        app:layout_constraintTop_toBottomOf="@+id/svTimKiem">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent">
 
         <TableLayout
             android:layout_width="wrap_content"
@@ -172,10 +173,18 @@
 
             <TableRow>
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rvKhao20ValentineTrang"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                <ScrollView>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvKhao20ValentineTrang"
+                        android:orientation="horizontal"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        android:layout_width="390dp"
+                        android:layout_height="wrap_content" />
+
+                </ScrollView>
+
+
             </TableRow>
 
             <TableRow>
@@ -204,7 +213,9 @@
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rvMonAnKemNuocSaiGon"
-                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    android:layout_width="390dp"
                     android:layout_height="wrap_content" />
             </TableRow>
 
@@ -255,10 +266,10 @@
         android:layout_height="wrap_content">
 
         <AutoCompleteTextView
-            android:id="@+id/svTimKiem"
+            android:id="@+id/actvTimKiem_TrangChu"
             style="@style/Widget.AppCompat.Spinner.DropDown"
             android:layout_width="335dp"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_margin="10dp"
             app:layout_constraintEnd_toStartOf="@+id/cardView"
             app:layout_constraintLeft_toLeftOf="@+id/ivAvatar"

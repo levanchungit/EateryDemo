@@ -11,14 +11,16 @@ public class KhuyenMai {
     private int SL;
     private String TenMaKhuyenMai;
     private int TienKM;
+    private String HinhAnh;
 
-    public KhuyenMai(String maKM, int maNH, NhaHang NHAHANG, int SL, String tenMaKhuyenMai, int tienKM) {
+    public KhuyenMai(String maKM, int maNH, NhaHang NHAHANG, int SL, String tenMaKhuyenMai, int tienKM, String HinhAnh) {
         MaKM = maKM;
         MaNH = maNH;
         this.NHAHANG = NHAHANG;
         this.SL = SL;
         TenMaKhuyenMai = tenMaKhuyenMai;
         TienKM = tienKM;
+        this.HinhAnh = HinhAnh;
     }
 
     public String getMaKM() {
@@ -31,6 +33,14 @@ public class KhuyenMai {
 
     public int getMaNH() {
         return MaNH;
+    }
+
+    public String getHinhAnh() {
+        return HinhAnh;
+    }
+
+    public void setHinhAnh(String hinhAnh) {
+        HinhAnh = hinhAnh;
     }
 
     public void setMaNH(int maNH) {

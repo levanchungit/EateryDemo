@@ -123,14 +123,14 @@ public class TrangChuFM extends Fragment {
     }
 
     private void getAllKhuyenMai() {
-        //Gọi API trả về danh sách mã khuyến mãi
+        //Gọi API trả về danh sách khuyến mãi
         ServiceAPI requestInterface = new Retrofit.Builder()
                 .baseUrl(BASE_Service)
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build().create(ServiceAPI.class);
 
-        new CompositeDisposable().add(requestInterface.GetAllMaKhuyenMai()
+        new CompositeDisposable().add(requestInterface.GetAllKhuyenMai()
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(this::handleResponse1, this::handleError1)

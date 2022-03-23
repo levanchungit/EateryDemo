@@ -18,8 +18,8 @@ import java.util.List;
 
 public class NhaHangHCNAdapter extends RecyclerView.Adapter<NhaHangHCNAdapter.ViewHolder> {
 
-    ImageView imgImage_NhaHang, imgDanhGia_NhaHang;
-    TextView tvTenNhaHang_NhaHang, tvLoaiNhaHang_NhaHang, tvDiaChi_NhaHang;
+    ImageView ivImage_NhaHang, ivDanhGia_ItemNhaHang;
+    TextView tvTenNhaHang_ItemNhaHang, tvLoaiNhaHang_ItemNhaHang, tvDiaChi_ItemNhaHang;
     List<NhaHang> arr;
     Context context;
 
@@ -32,11 +32,11 @@ public class NhaHangHCNAdapter extends RecyclerView.Adapter<NhaHangHCNAdapter.Vi
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            imgImage_NhaHang = itemView.findViewById(R.id.imgImage_NhaHang);
-            imgDanhGia_NhaHang = itemView.findViewById(R.id.imgDanhGia_NhaHang);
-            tvTenNhaHang_NhaHang = itemView.findViewById(R.id.tvTenNhaHang_NhaHang);
-            tvLoaiNhaHang_NhaHang = itemView.findViewById(R.id.tvLoaiNhaHang_NhaHang);
-            tvDiaChi_NhaHang = itemView.findViewById(R.id.tvDiaChi_NhaHang);
+            ivImage_NhaHang = itemView.findViewById(R.id.ivImage_NhaHang);
+            ivDanhGia_ItemNhaHang = itemView.findViewById(R.id.ivDanhGia_ItemNhaHang);
+            tvTenNhaHang_ItemNhaHang = itemView.findViewById(R.id.tvTenNhaHang_ItemNhaHang);
+            tvLoaiNhaHang_ItemNhaHang = itemView.findViewById(R.id.tvLoaiNhaHang_ItemNhaHang);
+            tvDiaChi_ItemNhaHang = itemView.findViewById(R.id.tvDiaChi_ItemNhaHang);
         }
     }
 
@@ -52,20 +52,20 @@ public class NhaHangHCNAdapter extends RecyclerView.Adapter<NhaHangHCNAdapter.Vi
     @Override
     public void onBindViewHolder(@NonNull NhaHangHCNAdapter.ViewHolder holder, int position) {
         NhaHang model = arr.get(position);
-        Glide.with(context).load(model.getHinhAnh()).centerCrop().placeholder(R.drawable.img_error).into(imgImage_NhaHang);
-        tvTenNhaHang_NhaHang.setText(model.getTenNH());
-        tvLoaiNhaHang_NhaHang.setText(model.getLoaiNH() + "");
-        tvDiaChi_NhaHang.setText(model.getDiaChi());
+        Glide.with(context).load(model.getHinhAnh()).centerCrop().placeholder(R.drawable.img_error).into(ivImage_NhaHang);
+        tvTenNhaHang_ItemNhaHang.setText(model.getTenNH());
+        tvLoaiNhaHang_ItemNhaHang.setText(model.getLoaiNH() + "");
+        tvDiaChi_ItemNhaHang.setText(model.getDiaChi());
         if (model.getDanhGia() < 10) {
-            imgDanhGia_NhaHang.setImageResource(R.drawable._1sao);
+            ivDanhGia_ItemNhaHang.setImageResource(R.drawable._1sao);
         } else if (model.getDanhGia() < 20) {
-            imgDanhGia_NhaHang.setImageResource(R.drawable._2sao);
+            ivDanhGia_ItemNhaHang.setImageResource(R.drawable._2sao);
         } else if (model.getDanhGia() < 30) {
-            imgDanhGia_NhaHang.setImageResource(R.drawable._3sao);
+            ivDanhGia_ItemNhaHang.setImageResource(R.drawable._3sao);
         } else if (model.getDanhGia() < 40) {
-            imgDanhGia_NhaHang.setImageResource(R.drawable._4sao);
+            ivDanhGia_ItemNhaHang.setImageResource(R.drawable._4sao);
         } else {
-            imgDanhGia_NhaHang.setImageResource(R.drawable._5sao);
+            ivDanhGia_ItemNhaHang.setImageResource(R.drawable._5sao);
         }
     }
 

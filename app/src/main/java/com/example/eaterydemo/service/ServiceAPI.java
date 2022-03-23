@@ -1,6 +1,7 @@
 package com.example.eaterydemo.service;
 
 import com.example.eaterydemo.model.KhuyenMai;
+import com.example.eaterydemo.model.Message;
 import com.example.eaterydemo.model.NhaHang;
 import com.example.eaterydemo.model.TaiKhoan;
 
@@ -19,11 +20,14 @@ public interface ServiceAPI {
     @GET("api/nhahang")
     Observable<ArrayList<NhaHang>> GetAllNhaHang();
 
-    @GET("api/makhuyenmai")
-    Observable<ArrayList<KhuyenMai>> GetAllMaKhuyenMai();
+    @GET("api/khuyenmai")
+    Observable<ArrayList<KhuyenMai>> GetAllKhuyenMai();
 
     @GET("api/taikhoan")
     Observable<ArrayList<TaiKhoan>> GetAllTaiKhoan();
+
+    @POST("api/add-taikhoan")
+    Observable<Message> AddTaiKhoan(@Body TaiKhoan taiKhoan);
 
 
 //    @GET("api/product-detail")

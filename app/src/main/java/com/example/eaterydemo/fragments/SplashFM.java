@@ -30,15 +30,6 @@ public class SplashFM extends Fragment {
         initClick();
         initNavController(container);
 
-        for (int i = 0; i < 8000; i++) {
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-
-                }
-            }, 1000);
-        }
-
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
