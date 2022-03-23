@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    tools:context=".activities.HomeActivity">
+    android:fitsSystemWindows="true">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
@@ -166,7 +165,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/montserrat_regular"
-                    android:text="Áp dụng cho đơn hàng từ 45K"
+                    android:text="Nhập mã KHAOSG20. Duy nhất 14/03"
                     android:textColor="#808080"
                     android:textSize="7pt" />
             </TableRow>
@@ -188,6 +187,17 @@
                     android:text="Món Ngon Kèm Nước Sài Gòn"
                     android:textColor="#000"
                     android:textSize="8pt" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="Áp dụng cho đơn hàng từ 45K"
+                    android:textColor="#808080"
+                    android:textSize="7pt" />
             </TableRow>
 
             <TableRow>
@@ -237,15 +247,24 @@
 
     </ScrollView>
 
-    <androidx.appcompat.widget.SearchView
-        android:id="@+id/svTimKiem"
-        android:layout_width="335dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        app:layout_constraintEnd_toStartOf="@+id/cardView"
-        app:layout_constraintLeft_toLeftOf="@+id/ivAvatar"
+    <com.google.android.material.textfield.TextInputLayout
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="NotSibling" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <AutoCompleteTextView
+            android:id="@+id/svTimKiem"
+            style="@style/Widget.AppCompat.Spinner.DropDown"
+            android:layout_width="335dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            app:layout_constraintEnd_toStartOf="@+id/cardView"
+            app:layout_constraintLeft_toLeftOf="@+id/ivAvatar"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="NotSibling" />
+    </com.google.android.material.textfield.TextInputLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

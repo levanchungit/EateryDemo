@@ -48,5 +48,13 @@
         <action
             android:id="@+id/action_homeFM_to_profileFM"
             app:destination="@id/profileFM" />
+        <action
+            android:id="@+id/action_homeFM_to_NhaHangFM2"
+            app:destination="@id/NhaHangFM" />
     </fragment>
+    <fragment
+        android:id="@+id/NhaHangFM"
+        tools:layout="@layout/fragment_nhahang"
+        android:name="com.example.eaterydemo.fragments.NhaHangFM"
+        android:label="LoaiNhaHangFM" />
 </navigation>
