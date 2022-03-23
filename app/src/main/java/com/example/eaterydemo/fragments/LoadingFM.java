@@ -35,10 +35,10 @@ public class LoadingFM extends Fragment {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                NavDirections action = LoadingFMDirections.actionIntroFMToHomeFM();
+                NavDirections action = LoadingFMDirections.actionIntroFMToDangNhapFM();
                 navController.navigate(action);
             }
-        },3000);
+        },2000);
 
         return fmIntroBinding.getRoot();
     }

@@ -96,7 +96,7 @@
             android:id="@+id/ivDangXuat"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
-            android:src="@drawable/item_dangxuat"
+            android:src="@drawable/item_dangxuatqlnhahang"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 

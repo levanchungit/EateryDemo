@@ -1,5 +1,6 @@
 package com.example.eaterydemo.adapter;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.eaterydemo.R;
 import com.example.eaterydemo.model.KhuyenMai;
 import com.example.eaterydemo.model.NhaHang;
@@ -17,20 +19,22 @@ import java.util.List;
 
 public class KhuyenMaiAdapter extends RecyclerView.Adapter<KhuyenMaiAdapter.ViewHolder> {
 
-    TextView tvTenKhuyenMai;
-    ImageView ivHinhKhuyenMai_ChuNhat;
+    TextView tvMaKhuyenMai_KhuyenMai;
+    ImageView ivImage_KhuyenMai;
     List<KhuyenMai> arr;
+    Context context;
 
-    public KhuyenMaiAdapter(List<KhuyenMai> arr){
+    public KhuyenMaiAdapter(List<KhuyenMai> arr, Context context){
         this.arr = arr;
+        this.context = context;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            tvTenKhuyenMai = itemView.findViewById(R.id.tvTenKhuyenMai);
-            ivHinhKhuyenMai_ChuNhat = itemView.findViewById(R.id.ivHinhKhuyenMai_ChuNhat);
+            tvMaKhuyenMai_KhuyenMai = itemView.findViewById(R.id.tvMaKhuyenMai_KhuyenMai);
+            ivImage_KhuyenMai = itemView.findViewById(R.id.ivImage_KhuyenMai);
         }
     }
 
@@ -46,7 +50,8 @@ public class KhuyenMaiAdapter extends RecyclerView.Adapter<KhuyenMaiAdapter.View
     @Override
     public void onBindViewHolder(@NonNull KhuyenMaiAdapter.ViewHolder holder, int position) {
         KhuyenMai model = arr.get(position);
-        tvTenKhuyenMai.setText(model.getTenMaKhuyenMai());
+        Glide.with(context).load(model.getHinhAnh()).into(ivImage_KhuyenMai);
+        tvMaKhuyenMai_KhuyenMai.setText("Nhập "+model.getMaKM());
     }
 
     @Override

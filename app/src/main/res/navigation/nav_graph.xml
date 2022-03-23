@@ -37,8 +37,8 @@
         android:name="com.example.eaterydemo.fragments.LoadingFM"
         android:label="IntroFM" >
         <action
-            android:id="@+id/action_introFM_to_homeFM"
-            app:destination="@id/homeFM" />
+            android:id="@+id/action_introFM_to_dangNhapFM"
+            app:destination="@id/dangNhapFM" />
     </fragment>
     <fragment
         android:id="@+id/homeFM"
@@ -48,5 +48,34 @@
         <action
             android:id="@+id/action_homeFM_to_profileFM"
             app:destination="@id/profileFM" />
+        <action
+            android:id="@+id/action_homeFM_to_NhaHangFM2"
+            app:destination="@id/NhaHangFM" />
+    </fragment>
+    <fragment
+        android:id="@+id/NhaHangFM"
+        tools:layout="@layout/fragment_nhahang"
+        android:name="com.example.eaterydemo.fragments.NhaHangFM"
+        android:label="LoaiNhaHangFM" />
+    <fragment
+        android:id="@+id/dangKyFM"
+        tools:layout="@layout/fragment_dangky"
+        android:name="com.example.eaterydemo.fragments.DangKyFM"
+        android:label="DangKyFM" >
+        <action
+            android:id="@+id/action_dangKyFM_to_dangNhapFM"
+            app:destination="@id/dangNhapFM" />
+    </fragment>
+    <fragment
+        android:id="@+id/dangNhapFM"
+        tools:layout="@layout/fragment_dangnhap"
+        android:name="com.example.eaterydemo.fragments.DangNhapFM"
+        android:label="DangNhapFM" >
+        <action
+            android:id="@+id/action_dangNhapFM_to_dangKyFM"
+            app:destination="@id/dangKyFM" />
+        <action
+            android:id="@+id/action_dangNhapFM_to_homeFM"
+            app:destination="@id/homeFM" />
     </fragment>
 </navigation>

@@ -16,7 +16,7 @@
         app:cardCornerRadius="5dp">
 
         <ImageView
-            android:id="@+id/ivHinhKhuyenMai_ChuNhat"
+            android:id="@+id/ivImage_KhuyenMai"
             android:src="@drawable/khuyenmai1"
             android:layout_width="match_parent"
             android:scaleType="fitXY"
@@ -25,7 +25,7 @@
     </androidx.cardview.widget.CardView>
 
     <TextView
-        android:id="@+id/tvTenKhuyenMai"
+        android:id="@+id/tvMaKhuyenMai_KhuyenMai"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/montserrat_bold"
