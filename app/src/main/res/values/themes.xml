@@ -17,6 +17,12 @@
 
 
     </style>
+    <style name="Theme.EateryDemo.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="Theme.EateryDemo.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.EateryDemo.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
-    
+
 </resources>

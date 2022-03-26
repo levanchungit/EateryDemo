@@ -1,5 +1,6 @@
 package com.example.eaterydemo.fragments;
 
+
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,31 +12,34 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
-import com.example.eaterydemo.databinding.FragmentChinhsuaThongtinBinding;
+import com.example.eaterydemo.databinding.FragmentTimkiemnhahangBinding;
 
-public class ChinhSuaThongTinFM extends Fragment {
-    FragmentChinhsuaThongtinBinding fmEditProfileBinding;
+
+public class TimKiemNhaHangFM extends Fragment {
+    FragmentTimkiemnhahangBinding fmBinding;
     NavController navController;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        fmEditProfileBinding = FragmentChinhsuaThongtinBinding.inflate(getLayoutInflater());
+        fmBinding = FragmentTimkiemnhahangBinding.inflate(getLayoutInflater());
         initClick();
         initNavController(container);
-        return fmEditProfileBinding.getRoot();
+
+        fmBinding.svTimKiemTimKiemNhaHang.requestFocus();
+
+        return fmBinding.getRoot();
     }
 
-    private void initNavController(View viewEditProfileBinding) {
-        navController = Navigation.findNavController(viewEditProfileBinding);
+    private void initNavController(View viewFmProfileBinding) {
+        navController = Navigation.findNavController(viewFmProfileBinding);
     }
 
     private void initClick() {
-        fmEditProfileBinding.ivBack.setOnClickListener(new View.OnClickListener() {
+        fmBinding.ivBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                NavDirections action = ChinhSuaThongTinFMDirections.actionEditProfileFMToProfileFM();
-//                navController.navigate(action);
+
             }
         });
     }

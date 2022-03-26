@@ -1,5 +1,6 @@
 package com.example.eaterydemo.fragments;
 
+
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,22 +10,23 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
+import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 
-import com.example.eaterydemo.databinding.FragmentThongtinBinding;
+import com.example.eaterydemo.databinding.FragmentQuenmatkhauDoimatkhaumoiBinding;
 
-
-public class ThongTinFM extends Fragment {
-    FragmentThongtinBinding fmProfileBinding;
+public class QuenMatKhau_DoiMatKhauMoiFM extends Fragment {
+    FragmentQuenmatkhauDoimatkhaumoiBinding fmBinding;
     NavController navController;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        fmProfileBinding = FragmentThongtinBinding.inflate(getLayoutInflater());
+        fmBinding = FragmentQuenmatkhauDoimatkhaumoiBinding.inflate(getLayoutInflater());
         initClick();
         initNavController(container);
-        return fmProfileBinding.getRoot();
+
+        return fmBinding.getRoot();
     }
 
     private void initNavController(View viewFmProfileBinding) {
@@ -32,12 +34,13 @@ public class ThongTinFM extends Fragment {
     }
 
     private void initClick() {
-        fmProfileBinding.ivThongTin.setOnClickListener(new View.OnClickListener() {
+        fmBinding.btnDoiMatKhauDoiMatKhauMoi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                NavDirections action = ThongTinFMDirections.actionProfileFMToEditProfileFM();
-//                navController.navigate(action);
+                NavDirections action = QuenMatKhau_DoiMatKhauMoiFMDirections.actionQuenMatKhauDoiMatKhauMoiFMToDangNhapFM();
+                navController.navigate(action);
             }
         });
     }
+
 }

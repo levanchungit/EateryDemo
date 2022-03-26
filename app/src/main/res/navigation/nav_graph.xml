@@ -3,54 +3,35 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/splashFM">
+    app:startDestination="@id/menu_TrangChu">
     <fragment
         android:id="@+id/profileFM"
         tools:layout="@layout/fragment_thongtin"
         android:name="com.example.eaterydemo.fragments.ThongTinFM"
         android:label="ProfileFM">
         <action
-            android:id="@+id/action_profileFM_to_editProfileFM"
-            app:destination="@id/editProfileFM" />
+            android:id="@+id/action_profileFM_to_homeFM"
+            app:destination="@id/menu_TrangChu" />
     </fragment>
     <fragment
         android:id="@+id/editProfileFM"
         tools:layout="@layout/fragment_chinhsua_thongtin"
         android:name="com.example.eaterydemo.fragments.ChinhSuaThongTinFM"
-        android:label="EditProfileFM">
-        <action
-            android:id="@+id/action_editProfileFM_to_profileFM"
-            app:destination="@id/profileFM" />
-    </fragment>
+        android:label="EditProfileFM"/>
     <fragment
-        android:id="@+id/splashFM"
-        tools:layout="@layout/fragment_splash"
-        android:name="com.example.eaterydemo.fragments.SplashFM"
-        android:label="SplashFM" >
-        <action
-            android:id="@+id/action_splashFM_to_introFM"
-            app:destination="@id/introFM" />
-    </fragment>
-    <fragment
-        android:id="@+id/introFM"
-        tools:layout="@layout/fragment_gioithieu"
-        android:name="com.example.eaterydemo.fragments.LoadingFM"
-        android:label="IntroFM" >
-        <action
-            android:id="@+id/action_introFM_to_dangNhapFM"
-            app:destination="@id/dangNhapFM" />
-    </fragment>
-    <fragment
-        android:id="@+id/homeFM"
+        android:id="@+id/menu_TrangChu"
         tools:layout="@layout/fragment_trangchu"
         android:name="com.example.eaterydemo.fragments.TrangChuFM"
         android:label="HomeFM" >
         <action
-            android:id="@+id/action_homeFM_to_profileFM"
-            app:destination="@id/profileFM" />
+            android:id="@+id/action_homeFM_to_timKiemNhaHangFM2"
+            app:destination="@id/timKiemNhaHangFM" />
         <action
-            android:id="@+id/action_homeFM_to_NhaHangFM2"
+            android:id="@+id/action_homeFM_to_NhaHangFM"
             app:destination="@id/NhaHangFM" />
+        <action
+            android:id="@+id/action_homeFM_to_profileFM2"
+            app:destination="@id/profileFM" />
     </fragment>
     <fragment
         android:id="@+id/NhaHangFM"
@@ -58,24 +39,31 @@
         android:name="com.example.eaterydemo.fragments.NhaHangFM"
         android:label="LoaiNhaHangFM" />
     <fragment
-        android:id="@+id/dangKyFM"
-        tools:layout="@layout/fragment_dangky"
-        android:name="com.example.eaterydemo.fragments.DangKyFM"
-        android:label="DangKyFM" >
+        android:id="@+id/doiMatKhauFM"
+        tools:layout="@layout/fragment_doimatkhau"
+        android:name="com.example.eaterydemo.fragments.DoiMatKhauFM"
+        android:label="DoiMatKhauFM" />
+    <fragment
+        android:id="@+id/timKiemNhaHangFM"
+        tools:layout="@layout/fragment_timkiemnhahang"
+        android:name="com.example.eaterydemo.fragments.TimKiemNhaHangFM"
+        android:label="TimKiemNhaHangFM" >
         <action
-            android:id="@+id/action_dangKyFM_to_dangNhapFM"
-            app:destination="@id/dangNhapFM" />
+            android:id="@+id/action_timKiemNhaHangFM_to_nhaHangChiTietFM"
+            app:destination="@id/nhaHangChiTietFM" />
     </fragment>
     <fragment
-        android:id="@+id/dangNhapFM"
-        tools:layout="@layout/fragment_dangnhap"
-        android:name="com.example.eaterydemo.fragments.DangNhapFM"
-        android:label="DangNhapFM" >
+        android:id="@+id/nhaHangChiTietFM"
+        tools:layout="@layout/fragment_nhahangchitiet"
+        android:name="com.example.eaterydemo.fragments.NhaHangChiTietFM"
+        android:label="NhaHangChiTietFM" >
         <action
-            android:id="@+id/action_dangNhapFM_to_dangKyFM"
-            app:destination="@id/dangKyFM" />
-        <action
-            android:id="@+id/action_dangNhapFM_to_homeFM"
-            app:destination="@id/homeFM" />
+            android:id="@+id/action_nhaHangChiTietFM_to_NhaHangFM"
+            app:destination="@id/NhaHangFM" />
     </fragment>
+    <fragment
+        android:id="@+id/menu_YeuThich"
+        tools:layout="@layout/fragment_nhahangyeuthich"
+        android:name="com.example.eaterydemo.fragments.NhaHangYeuThichFM"
+        android:label="NhaHangYeuThichFM" />
 </navigation>

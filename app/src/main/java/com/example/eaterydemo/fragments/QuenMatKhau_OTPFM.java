@@ -1,5 +1,6 @@
 package com.example.eaterydemo.fragments;
 
+
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,34 +10,37 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
+import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 
-import com.example.eaterydemo.databinding.FragmentChinhsuaThongtinBinding;
+import com.example.eaterydemo.databinding.FragmentQuenmatkhauotpBinding;
 
-public class ChinhSuaThongTinFM extends Fragment {
-    FragmentChinhsuaThongtinBinding fmEditProfileBinding;
+public class QuenMatKhau_OTPFM extends Fragment {
+    FragmentQuenmatkhauotpBinding fmBinding;
     NavController navController;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        fmEditProfileBinding = FragmentChinhsuaThongtinBinding.inflate(getLayoutInflater());
+        fmBinding = FragmentQuenmatkhauotpBinding.inflate(getLayoutInflater());
         initClick();
         initNavController(container);
-        return fmEditProfileBinding.getRoot();
+
+        return fmBinding.getRoot();
     }
 
-    private void initNavController(View viewEditProfileBinding) {
-        navController = Navigation.findNavController(viewEditProfileBinding);
+    private void initNavController(View viewFmProfileBinding) {
+        navController = Navigation.findNavController(viewFmProfileBinding);
     }
 
     private void initClick() {
-        fmEditProfileBinding.ivBack.setOnClickListener(new View.OnClickListener() {
+        fmBinding.btnTiepTucQuenMatKhauOTP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                NavDirections action = ChinhSuaThongTinFMDirections.actionEditProfileFMToProfileFM();
-//                navController.navigate(action);
+                NavDirections action = QuenMatKhau_OTPFMDirections.actionQuenMatKhauOTPFMToQuenMatKhauDoiMatKhauMoiFM();
+                navController.navigate(action);
             }
         });
     }
+
 }

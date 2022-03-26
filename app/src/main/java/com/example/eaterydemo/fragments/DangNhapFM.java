@@ -2,9 +2,9 @@ package com.example.eaterydemo.fragments;
 
 
 import static com.example.eaterydemo.others.ShowNotifyUser.dismissProgressDialog;
-import static com.example.eaterydemo.others.ShowNotifyUser.showProgressDialog;
-import static com.example.eaterydemo.service.ServiceAPI.BASE_Service;
+import static com.example.eaterydemo.service.GetRetrofit.getRetrofit;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,18 +18,15 @@ import androidx.navigation.NavController;
 import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 
-import com.example.eaterydemo.databinding.FragmentDangkyBinding;
+import com.example.eaterydemo.activities.DrawerLayoutActivity;
 import com.example.eaterydemo.databinding.FragmentDangnhapBinding;
+import com.example.eaterydemo.model.DangNhapModel;
 import com.example.eaterydemo.model.Message;
-import com.example.eaterydemo.model.TaiKhoan;
 import com.example.eaterydemo.service.ServiceAPI;
-import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.schedulers.Schedulers;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class DangNhapFM extends Fragment {
     FragmentDangnhapBinding fmBinding;
@@ -54,8 +51,7 @@ public class DangNhapFM extends Fragment {
         fmBinding.btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavDirections action = DangNhapFMDirections.actionDangNhapFMToHomeFM();
-                navController.navigate(action);
+                DangNhap()
             }
         });
 
@@ -64,6 +60,36 @@ public class DangNhapFM extends Fragment {
             public void onClick(View view) {
                 NavDirections action = DangNhapFMDirections.actionDangNhapFMToDangKyFM();
                 navController.navigate(action);
+            }
+        });
+
+        fmBinding.tvQuenMatKhauDangNhap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavDirections action = DangNhapFMDirections.actionDangNhapFMToQuenMatKhauFM();
+                navController.navigate(action);
+            }
+        });
+    }
+
+    private void DangNhap(DangNhapModel dangNhapModel) {
+        ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
+        Call call = serviceAPI.DangNhap(dangNhapModel);
+        call.enqueue(new Callback() {
+            @Override
+            public void onResponse(Call call, Response response) {
+                Message message = (Message) response.body();
+                Toast.makeText(getContext(), message.getNotification(), Toast.LENGTH_SHORT).show();
+                if (message.getStatus() == 1) {
+                    startActivity(new Intent(requireContext(), DrawerLayoutActivity.class));
+                }
+                dismissProgressDialog();
+            }
+
+            @Override
+            public void onFailure(Call call, Throwable t) {
+                dismissProgressDialog();
+                Toast.makeText(getContext(), "Lỗi", Toast.LENGTH_SHORT).show();
             }
         });
     }
