@@ -1,6 +1,5 @@
 package com.example.eaterydemo.service;
 
-import com.example.eaterydemo.model.DangNhapModel;
 import com.example.eaterydemo.model.KhuyenMai;
 import com.example.eaterydemo.model.Message;
 import com.example.eaterydemo.model.NhaHang;
@@ -13,6 +12,7 @@ import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 public interface ServiceAPI {
     String BASE_Service = "https://eatery.congtydacap.club/";
@@ -37,13 +37,6 @@ public interface ServiceAPI {
     Call<Message> AddTaiKhoan(@Body TaiKhoan taiKhoan);
 
     @POST("api/dangnhap")
-    Call<Message> DangNhap(@Body DangNhapModel dangNhapModel);
+    Call<Message> DangNhap(@Query("TenTK") String TenTK, @Query("MatKhau") String MatKhau);
 
-
-
-//    @GET("api/product-detail")
-//    Observable<Product> GetDetailProduct(@Query("id") int id);
-//
-//    @POST("api/add-product")
-//    Observable<Message> AddProduct(@Body Product product);
 }

@@ -24,14 +24,14 @@
         android:name="com.example.eaterydemo.fragments.TrangChuFM"
         android:label="HomeFM" >
         <action
-            android:id="@+id/action_homeFM_to_timKiemNhaHangFM2"
-            app:destination="@id/timKiemNhaHangFM" />
-        <action
             android:id="@+id/action_homeFM_to_NhaHangFM"
             app:destination="@id/NhaHangFM" />
         <action
             android:id="@+id/action_homeFM_to_profileFM2"
             app:destination="@id/profileFM" />
+        <action
+            android:id="@+id/action_menu_TrangChu_to_timKiemNhaHangFM"
+            app:destination="@id/timKiemNhaHangFM" />
     </fragment>
     <fragment
         android:id="@+id/NhaHangFM"
@@ -51,6 +51,9 @@
         <action
             android:id="@+id/action_timKiemNhaHangFM_to_nhaHangChiTietFM"
             app:destination="@id/nhaHangChiTietFM" />
+        <action
+            android:id="@+id/action_timKiemNhaHangFM_to_menu_TrangChu2"
+            app:destination="@id/menu_TrangChu" />
     </fragment>
     <fragment
         android:id="@+id/nhaHangChiTietFM"

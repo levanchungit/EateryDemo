@@ -16,6 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
+import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 import androidx.viewpager.widget.ViewPager;
 
@@ -86,8 +87,8 @@ public class TrangChuFM extends Fragment {
         fmBinding.ivTimKiemNhaHangTrangChu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                NavDirections action = TrangChuFMDirections.actionHomeFMToTimKiemNhaHangFM();
-////                Navigation.findNavController(view).navigate(action);
+                NavDirections action = TrangChuFMDirections.actionMenuTrangChuToTimKiemNhaHangFM();
+                navController.navigate(action);
             }
         });
     }

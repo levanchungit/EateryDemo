@@ -42,7 +42,7 @@ public class NhaHangChiTietFM extends Fragment {
 //                NavDirections action = NhaHangFMDirections.actionNhaHangFMToHomeFM();
 //                navController.navigate(action);
                 NavDirections action = NhaHangChiTietFMDirections.actionNhaHangChiTietFMToNhaHangFM();
-                Navigation.findNavController(view).navigate(action);
+                navController.navigate(action);
             }
         });
     }

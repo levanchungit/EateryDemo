@@ -2,10 +2,12 @@ package com.example.eaterydemo.fragments;
 
 
 import static com.example.eaterydemo.others.ShowNotifyUser.dismissProgressDialog;
+import static com.example.eaterydemo.others.ShowNotifyUser.showProgressDialog;
 import static com.example.eaterydemo.service.GetRetrofit.getRetrofit;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,7 +22,6 @@ import androidx.navigation.Navigation;
 
 import com.example.eaterydemo.activities.DrawerLayoutActivity;
 import com.example.eaterydemo.databinding.FragmentDangnhapBinding;
-import com.example.eaterydemo.model.DangNhapModel;
 import com.example.eaterydemo.model.Message;
 import com.example.eaterydemo.service.ServiceAPI;
 
@@ -51,7 +52,9 @@ public class DangNhapFM extends Fragment {
         fmBinding.btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                DangNhap()
+                String _TenTK = fmBinding.edtEmailDangNhap.getText().toString().trim();
+                String _MatKhau = fmBinding.edtMatKhauDangNhap.getText().toString().trim();
+                DangNhap(_TenTK, _MatKhau);
             }
         });
 
@@ -72,14 +75,16 @@ public class DangNhapFM extends Fragment {
         });
     }
 
-    private void DangNhap(DangNhapModel dangNhapModel) {
+    private void DangNhap(String _TenTK, String _MatKhau) {
+        showProgressDialog(getContext(),"Đang đăng nhập...");
         ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
-        Call call = serviceAPI.DangNhap(dangNhapModel);
+        Call call = serviceAPI.DangNhap(_TenTK, _MatKhau);
         call.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
                 Message message = (Message) response.body();
                 Toast.makeText(getContext(), message.getNotification(), Toast.LENGTH_SHORT).show();
+                Log.e("LOGIN",message.getNotification());
                 if (message.getStatus() == 1) {
                     startActivity(new Intent(requireContext(), DrawerLayoutActivity.class));
                 }

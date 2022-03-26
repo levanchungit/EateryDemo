@@ -10,6 +10,9 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:fillViewport="true"
+        android:overScrollMode="never"
+        android:scrollbars="none"
+        android:clipToPadding="false"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintLeft_toLeftOf="parent">
 
@@ -172,7 +175,6 @@
             <TableRow>
 
                 <ScrollView>
-
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rvKhao20ValentineTrang"
                         android:orientation="horizontal"
@@ -182,7 +184,6 @@
                         android:clipToPadding="false"
                         android:layout_width="390dp"
                         android:layout_height="wrap_content" />
-
                 </ScrollView>
 
 

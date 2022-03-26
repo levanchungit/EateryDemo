@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
+import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 
 import com.example.eaterydemo.databinding.FragmentTimkiemnhahangBinding;
@@ -39,7 +40,8 @@ public class TimKiemNhaHangFM extends Fragment {
         fmBinding.ivBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                NavDirections action = TimKiemNhaHangFMDirections.actionTimKiemNhaHangFMToMenuTrangChu2();
+                navController.navigate(action);
             }
         });
     }
