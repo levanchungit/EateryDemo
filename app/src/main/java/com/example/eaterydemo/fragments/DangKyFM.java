@@ -51,7 +51,7 @@ public class DangKyFM extends Fragment {
 
     private void initClick() {
 
-        fmBinding.btnDangKyDangKy.setOnClickListener(new View.OnClickListener() {
+        fmBinding.btnLoginDangKy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 showProgressDialog(getContext(), "Đang thêm sản phẩm");

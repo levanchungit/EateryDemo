@@ -8,12 +8,11 @@
     android:orientation="vertical">
 
     <ImageView
-        android:id="@+id/imglogo"
+        android:id="@+id/imglogo_DangNhap"
         android:layout_width="wrap_content"
         android:layout_height="150dp"
         app:layout_constraintHeight_percent=".27"
-        android:layout_marginTop="10dp"
-
+        android:layout_marginTop="30dp"
         android:src="@drawable/logo_light"
         app:layout_constraintVertical_bias="0"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -21,81 +20,68 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/txtEmail"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="220dp"
-        android:text="Email"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.505"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilEmail_DangNhap"
         android:layout_width="300dp"
         android:layout_height="50dp"
-        android:layout_marginTop="4dp"
-        android:background="@drawable/butonlogin"
+        android:layout_marginTop="80dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:textColor="@color/white"
-        app:boxStrokeWidth="0dp"
+        app:boxBackgroundMode="outline"
+        app:boxCornerRadiusBottomEnd="10dp"
+        app:boxCornerRadiusTopEnd="10dp"
+        app:boxCornerRadiusBottomStart="10dp"
+        app:boxCornerRadiusTopStart="10dp"
+        app:boxStrokeColor="#000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtEmail">
+        app:layout_constraintTop_toBottomOf="@+id/imglogo_DangNhap">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edtEmail_DangNhap"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:background="@drawable/butonlogin"
-            android:hint="" />
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            tools:layout_editor_absoluteX="47dp"
+            tools:layout_editor_absoluteY="255dp" />
+
     </com.google.android.material.textfield.TextInputLayout>
 
-    <TextView
-        android:id="@+id/txtPassword"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="308dp"
-        android:text="Passwrod"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.505"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tilMatKhau_DangNhap"
+        android:id="@+id/tilPass_DangNhap"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginTop="4dp"
-        app:boxStrokeWidth="0dp"
-        android:background="@drawable/butonlogin"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:textColor="@color/white"
+        app:boxBackgroundMode="outline"
+        app:boxCornerRadiusBottomEnd="10dp"
+        app:boxCornerRadiusTopEnd="10dp"
+        app:boxCornerRadiusBottomStart="10dp"
+        app:boxCornerRadiusTopStart="10dp"
+        app:boxStrokeColor="#000"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtPassword">
+        app:layout_constraintTop_toBottomOf="@+id/tilEmail_DangNhap">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edtPassWord"
+            android:id="@+id/edtPassgNhap"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:background="@drawable/butonlogin"
-            android:hint="" />
+            android:hint="PassWord"
+            android:inputType="textPassword"
+            tools:layout_editor_absoluteX="47dp"
+            tools:layout_editor_absoluteY="255dp" />
+
     </com.google.android.material.textfield.TextInputLayout>
 
 
     <TextView
-        android:id="@+id/txtQuenmk"
+        android:id="@+id/txtQuenMatKhau_DangNhap"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Quên mật khẩu?"
@@ -104,7 +90,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.831"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tilMatKhau_DangNhap" />
+        app:layout_constraintTop_toBottomOf="@+id/tilPass_DangNhap" />
 
 
     <ImageView
@@ -116,7 +102,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.298"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tilMatKhau_DangNhap" />
+        app:layout_constraintTop_toBottomOf="@+id/tilPass_DangNhap" />
 
     <ImageView
         android:id="@+id/imgfacebook"
@@ -128,22 +114,22 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tilMatKhau_DangNhap" />
+        app:layout_constraintTop_toBottomOf="@+id/tilPass_DangNhap" />
 
     <ImageView
         android:id="@+id/imgapple"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="116dp"
         android:src="@drawable/apple_logo"
 
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.698"
+        app:layout_constraintHorizontal_bias="0.713"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/txtQuenmk" />
+        app:layout_constraintTop_toTopOf="@+id/tilPass_DangNhap" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnLogin"
+        android:id="@+id/btnLogin_DangNhap"
         android:layout_width="200dp"
         android:layout_height="50dp"
 
@@ -154,7 +140,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tilMatKhau_DangNhap" />
+        app:layout_constraintTop_toBottomOf="@+id/tilPass_DangNhap" />
 
     <TextView
         android:id="@+id/txtTaikhoan"
@@ -167,19 +153,21 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.362"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
+        app:layout_constraintTop_toBottomOf="@+id/btnLogin_DangNhap" />
 
     <TextView
         android:id="@+id/tvDangKy_DangNhap"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="600dp"
+        android:layout_marginTop="16dp"
         android:text="Đăng ký?"
         android:textColor="@color/black"
         android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/txtTaikhoan"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="0.724"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnLogin_DangNhap" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
