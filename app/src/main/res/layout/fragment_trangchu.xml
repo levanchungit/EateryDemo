@@ -233,8 +233,9 @@
             <TableRow>
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rvNhaHangGanBan"
-                    android:layout_width="match_parent"
+                    android:id="@+id/rvNhaHangGanBan_TrangChu"
+                    android:orientation="vertical"
+                    android:layout_width="390dp"
                     android:layout_height="wrap_content" />
             </TableRow>
 

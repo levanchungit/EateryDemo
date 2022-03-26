@@ -61,6 +61,7 @@ public class TrangChuFM extends Fragment {
         showProgressDialog(getContext(), "Đang tải dữ liệu");
         getAllNhaHang();
         getAllKhuyenMai();
+        getAllNhaHangHCN();
 
         return fmBinding.getRoot();
     }
@@ -137,6 +138,21 @@ public class TrangChuFM extends Fragment {
         );
     }
 
+    private void getAllNhaHangHCN() {
+        //Gọi API trả về danh sách nhà hàng hcn
+        ServiceAPI requestInterface = new Retrofit.Builder()
+                .baseUrl(BASE_Service)
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
+                .build().create(ServiceAPI.class);
+
+        new CompositeDisposable().add(requestInterface.GetAllNhaHang()
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe(this::handleResponse2, this::handleError)
+        );
+    }
+
     private void handleResponse(ArrayList<NhaHang> arr) {
         try {
             // KHAO 20% VALENTINE TRẮNG
@@ -159,6 +175,20 @@ public class TrangChuFM extends Fragment {
             fmBinding.rvMonAnKemNuocSaiGon.setLayoutManager(linearLayoutManager);
             KhuyenMaiAdapter adapter = new KhuyenMaiAdapter(arr,getContext());
             fmBinding.rvMonAnKemNuocSaiGon.setAdapter(adapter);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        dismissProgressDialog();
+    }
+
+    private void handleResponse2(ArrayList<NhaHang> arr) {
+        try {
+            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
+            fmBinding.rvNhaHangGanBanTrangChu.setLayoutManager(linearLayoutManager);
+            NhaHangHCNAdapter adapter = new NhaHangHCNAdapter(arr,getContext());
+            fmBinding.rvNhaHangGanBanTrangChu.setAdapter(adapter);
 
         } catch (Exception e) {
             e.printStackTrace();
