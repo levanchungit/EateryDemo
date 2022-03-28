@@ -42,7 +42,7 @@
                     app:cardCornerRadius="50dp">
 
                     <ImageView
-                        android:id="@+id/ivAvatar"
+                        android:id="@+id/menu_ThongTin"
                         android:layout_width="50dp"
                         android:layout_gravity="right"
                         android:layout_height="50dp"

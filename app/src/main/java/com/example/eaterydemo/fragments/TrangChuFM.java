@@ -63,7 +63,6 @@ public class TrangChuFM extends Fragment {
         navController = Navigation.findNavController(viewFmProfileBinding);
     }
 
-
     private void initClick() {
         //SLIDESHOW KHUYẾN MÃI
         slideShowKhuyenMai(fmBinding.vpKhuyenMai1, slideShow);

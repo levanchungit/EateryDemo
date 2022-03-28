@@ -12,7 +12,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="221dp">
 
             <ImageView
                 android:id="@+id/ivAnhNen"
@@ -36,10 +36,10 @@
                 app:cardCornerRadius="50dp">
 
                 <ImageView
-                    android:src="@drawable/avatar"
                     android:id="@+id/ivAvatar_Profile"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent"
+                    android:src="@drawable/avatar" />
             </androidx.cardview.widget.CardView>
 
             <TextView

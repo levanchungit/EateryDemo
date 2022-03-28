@@ -34,7 +34,6 @@ import com.example.eaterydemo.model.Message;
 import com.example.eaterydemo.model.TaiKhoan;
 import com.example.eaterydemo.service.ServiceAPI;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import retrofit2.Call;
@@ -51,8 +50,7 @@ public class DangKyFM extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         fmBinding = FragmentDangkyBinding.inflate(getLayoutInflater());
-        //Cloundinary
-        initCongif();
+
         initClick();
         initNavController(container);
 
@@ -127,7 +125,7 @@ public class DangKyFM extends Fragment {
 
     private void AddTaiKhoan(TaiKhoan model) {
         ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
-        Call call = serviceAPI.AddTaiKhoan(model);
+        Call call = serviceAPI.DangKy(model);
         call.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
@@ -148,13 +146,10 @@ public class DangKyFM extends Fragment {
         });
     }
 
-    // up-lấy file ảnh trên Dashboard cloundinary
-    private void initCongif() {
-        Map config = new HashMap();
-        config.put("cloud_name", "dq7xnkfde");
-        config.put("api_key", "527116776184176");
-        config.put("api_secret", "5mYzdhfaQPuezS2Nz_G-raJ5LnY");
-        MediaManager.init(requireContext(), config);
+    @Override
+    public void onStop() {
+        super.onStop();
+
     }
 
     private void uploadToCloudinary() {

@@ -1,7 +1,9 @@
 package com.example.eaterydemo.activities;
 
 import android.os.Bundle;
+import android.view.MenuItem;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
@@ -86,5 +88,17 @@ public class DrawerLayoutActivity extends AppCompatActivity {
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START);
         }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int _id = item.getItemId();
+        switch (_id){
+            case R.id.menu_ThongTin:
+                navBot.getMenu().findItem(R.id.menu_ThongTin).setChecked(true);
+                break;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }
