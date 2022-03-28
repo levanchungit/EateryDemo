@@ -16,11 +16,10 @@
         android:clickable="true">
 
         <ImageView
-            android:id="@+id/imgBack"
-            android:layout_width="46dp"
-            android:layout_height="46dp"
-            android:clickable="true"
-            android:src="@drawable/ic_baseline_arrow_back_white_24" />
+            android:id="@+id/ivBack"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_back_white" />
 
     </androidx.cardview.widget.CardView>
 
@@ -125,6 +124,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/layoutDoiTac"
+                android:textColor="#000"
                 android:layout_centerHorizontal="true"
                 android:fontFamily="@font/montserrat_extrabold"
                 android:gravity="center"
@@ -159,16 +159,14 @@
                     android:textSize="16dp" />
             </RelativeLayout>
 
-            <TextView
+            <ImageView
                 android:id="@+id/txtDanhGiaChiTiet"
                 android:layout_width="57dp"
                 android:layout_height="24dp"
                 android:layout_below="@+id/layoutDiaChi"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="11dp"
                 android:layout_marginBottom="12dp"
-                android:background="@drawable/danhgia"
+                android:background="@drawable/_5sao"
                 android:drawableRight="@drawable/ic_baseline_star_24"
                 android:gravity="center"
                 android:paddingRight="5dp"
@@ -203,7 +201,9 @@
         android:text="Món ăn của quán: " />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycleViewChiTiet"
+        android:id="@+id/rvMonAn_NhaHangChiTiet"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/txt"

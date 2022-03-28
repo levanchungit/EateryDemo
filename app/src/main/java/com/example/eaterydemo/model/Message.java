@@ -1,8 +1,8 @@
 package com.example.eaterydemo.model;
 
 public class Message {
-    private int Status;
     private String Notification;
+    private int Status;
 
     public Message(int status, String notification) {
         Status = status;

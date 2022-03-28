@@ -2,11 +2,9 @@ package com.example.eaterydemo.fragments;
 
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -15,10 +13,11 @@ import androidx.navigation.NavController;
 import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 
-import com.example.eaterydemo.R;
+import com.cloudinary.android.MediaManager;
 import com.example.eaterydemo.databinding.FragmentGioithieuBinding;
 
-import java.util.Random;
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class LoadingFM extends Fragment {
@@ -30,6 +29,7 @@ public class LoadingFM extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         fmIntroBinding = FragmentGioithieuBinding.inflate(getLayoutInflater());
         initClick();
+        initCongif();
         initNavController(container);
 
         new Handler().postDelayed(new Runnable() {
@@ -48,6 +48,16 @@ public class LoadingFM extends Fragment {
     }
 
     private void initClick() {
+
+    }
+
+    // up-lấy file ảnh trên Dashboard cloundinary
+    private void initCongif() {
+        Map config = new HashMap();
+        config.put("cloud_name", "dq7xnkfde");
+        config.put("api_key", "527116776184176");
+        config.put("api_secret", "5mYzdhfaQPuezS2Nz_G-raJ5LnY");
+        MediaManager.init(requireContext(), config);
 
     }
 }
