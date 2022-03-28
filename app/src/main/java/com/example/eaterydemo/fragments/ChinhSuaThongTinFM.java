@@ -9,7 +9,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
-import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 
 import com.example.eaterydemo.databinding.FragmentChinhsuaThongtinBinding;
@@ -35,8 +34,8 @@ public class ChinhSuaThongTinFM extends Fragment {
         fmEditProfileBinding.ivBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavDirections action = ChinhSuaThongTinFMDirections.actionEditProfileFMToProfileFM();
-                navController.navigate(action);
+//                NavDirections action = ChinhSuaThongTinFMDirections.actionEditProfileFMToProfileFM();
+//                navController.navigate(action);
             }
         });
     }

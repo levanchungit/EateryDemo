@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_intro"
+    app:startDestination="@id/splashFM">
+    <fragment
+        android:id="@+id/dangNhapFM"
+        android:name="com.example.eaterydemo.fragments.DangNhapFM"
+        tools:layout="@layout/fragment_dangnhap"
+        android:label="DangNhapFM">
+        <action
+            android:id="@+id/action_dangNhapFM_to_dangKyFM"
+            app:destination="@id/dangKyFM" />
+        <action
+            android:id="@+id/action_dangNhapFM_to_quenMatKhauFM"
+            app:destination="@id/quenMatKhauFM"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/quenMatKhauFM"
+        android:name="com.example.eaterydemo.fragments.QuenMatKhauFM"
+        tools:layout="@layout/fragment_quenmatkhau"
+        android:label="QuenMatKhauFM">
+        <action
+            android:id="@+id/action_quenMatKhauFM_to_dangNhapFM"
+            app:destination="@id/dangNhapFM" />
+        <action
+            android:id="@+id/action_quenMatKhauFM_to_quenMatKhau_OTPFM"
+            app:destination="@id/quenMatKhau_OTPFM" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/splashFM"
+        android:name="com.example.eaterydemo.fragments.SplashFM"
+        tools:layout="@layout/fragment_splash"
+        android:label="SplashFM">
+        <action
+            android:id="@+id/action_splashFM_to_introFM"
+            app:destination="@id/introFM" />
+    </fragment>
+    <fragment
+        android:id="@+id/quenMatKhau_DoiMatKhauMoiFM"
+        android:name="com.example.eaterydemo.fragments.QuenMatKhau_DoiMatKhauMoiFM"
+        tools:layout="@layout/fragment_quenmatkhau_doimatkhaumoi"
+        android:label="QuenMatKhau_DoiMatKhauMoiFM">
+        <action
+            android:id="@+id/action_quenMatKhau_DoiMatKhauMoiFM_to_dangNhapFM"
+            app:destination="@id/dangNhapFM" />
+    </fragment>
+    <fragment
+        android:id="@+id/dangKyFM"
+        android:name="com.example.eaterydemo.fragments.DangKyFM"
+        tools:layout="@layout/fragment_dangky"
+        android:label="DangKyFM">
+        <action
+            android:id="@+id/action_dangKyFM_to_dangNhapFM"
+            app:destination="@id/dangNhapFM" />
+    </fragment>
+    <fragment
+        android:id="@+id/introFM"
+        android:name="com.example.eaterydemo.fragments.LoadingFM"
+        tools:layout="@layout/fragment_gioithieu"
+        android:label="IntroFM">
+        <action
+            android:id="@+id/action_introFM_to_dangNhapFM"
+            app:destination="@id/dangNhapFM" />
+    </fragment>
+    <fragment
+        android:id="@+id/quenMatKhau_OTPFM"
+        android:name="com.example.eaterydemo.fragments.QuenMatKhau_OTPFM"
+        tools:layout="@layout/fragment_quenmatkhauotp"
+        android:label="QuenMatKhau_OTPFM">
+        <action
+            android:id="@+id/action_quenMatKhau_OTPFM_to_quenMatKhau_DoiMatKhauMoiFM"
+            app:destination="@id/quenMatKhau_DoiMatKhauMoiFM" />
+    </fragment>
+</navigation>

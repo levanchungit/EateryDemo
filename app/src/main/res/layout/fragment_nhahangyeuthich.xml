@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/imgUser"
@@ -20,9 +21,19 @@
             android:layout_height="46dp"/>
     </androidx.cardview.widget.CardView>
 
+    <ImageView
+        android:id="@+id/ivTimKiemNhaHang_NhaHangYeuThich"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="20dp"
+        android:src="@drawable/search" />
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycleView"
         android:layout_width="match_parent"
+        tools:listitem="@layout/item_nhahang"
         android:layout_height="550dp"
         android:layout_below="@+id/imgUser"
         android:layout_marginTop="10dp"
