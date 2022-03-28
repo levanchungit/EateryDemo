@@ -5,9 +5,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.navigation.NavController;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -20,8 +22,10 @@ public class NhaHangHCNAdapter extends RecyclerView.Adapter<NhaHangHCNAdapter.Vi
 
     ImageView ivImage_NhaHang, ivDanhGia_ItemNhaHang;
     TextView tvTenNhaHang_ItemNhaHang, tvLoaiNhaHang_ItemNhaHang, tvDiaChi_ItemNhaHang;
+    RelativeLayout rlitem_nhahanghcn;
     List<NhaHang> arr;
     Context context;
+    NavController navController;
 
     public NhaHangHCNAdapter(List<NhaHang> arr, Context context) {
         this.arr = arr;
@@ -37,6 +41,7 @@ public class NhaHangHCNAdapter extends RecyclerView.Adapter<NhaHangHCNAdapter.Vi
             tvTenNhaHang_ItemNhaHang = itemView.findViewById(R.id.tvTenNhaHang_ItemNhaHang);
             tvLoaiNhaHang_ItemNhaHang = itemView.findViewById(R.id.tvLoaiNhaHang_ItemNhaHang);
             tvDiaChi_ItemNhaHang = itemView.findViewById(R.id.tvDiaChi_ItemNhaHang);
+            rlitem_nhahanghcn = itemView.findViewById(R.id.rlitem_nhahanghcn);
         }
     }
 
@@ -67,6 +72,13 @@ public class NhaHangHCNAdapter extends RecyclerView.Adapter<NhaHangHCNAdapter.Vi
         } else {
             ivDanhGia_ItemNhaHang.setImageResource(R.drawable._5sao);
         }
+        rlitem_nhahanghcn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                NavDirections action = NhaHangFMDirections.actionNhaHangFMToNhaHangChiTietFM();
+//                Navigation.findNavController(view).navigate(action);
+            }
+        });
     }
 
     @Override

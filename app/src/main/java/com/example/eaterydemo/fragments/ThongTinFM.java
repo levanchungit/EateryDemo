@@ -9,7 +9,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
-import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 
 import com.example.eaterydemo.databinding.FragmentThongtinBinding;
@@ -36,8 +35,8 @@ public class ThongTinFM extends Fragment {
         fmProfileBinding.ivThongTin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavDirections action = ThongTinFMDirections.actionProfileFMToEditProfileFM();
-                navController.navigate(action);
+//                NavDirections action = ThongTinFMDirections.actionProfileFMToEditProfileFM();
+//                navController.navigate(action);
             }
         });
     }
