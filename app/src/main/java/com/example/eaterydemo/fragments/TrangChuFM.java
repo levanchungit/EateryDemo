@@ -22,6 +22,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.example.eaterydemo.R;
 import com.example.eaterydemo.adapter.KhuyenMaiAdapter;
+import com.example.eaterydemo.adapter.NhaHangHCNAdapter;
 import com.example.eaterydemo.adapter.NhaHangVuongAdapter;
 import com.example.eaterydemo.adapter.SlideAdapter;
 import com.example.eaterydemo.databinding.FragmentTrangchuBinding;
@@ -39,24 +40,31 @@ import retrofit2.Response;
 
 
 public class TrangChuFM extends Fragment {
-    FragmentTrangchuBinding fmBinding;
     NavController navController;
-
+    FragmentTrangchuBinding fmBinding;
     int slideShow[] = {R.drawable.khuyenmai1, R.drawable.khuyenmai2, R.drawable.khuyenmai3, R.drawable.khuyenmai4};
     int currentPageCunter = 0;
+    View _view;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         fmBinding = FragmentTrangchuBinding.inflate(getLayoutInflater());
+        _view = container;
+        return fmBinding.getRoot();
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
         initClick();
-        initNavController(container);
+        initNavController(_view);
 
         showProgressDialog(getContext(), "Đang tải dữ liệu");
-        GetAllNhaHang();
+        Khao20ValentineTrang();
         getAllKhuyenMai();
-
-        return fmBinding.getRoot();
+        getAllNhaHang();
+//        getALL();
     }
 
     private void initNavController(View viewFmProfileBinding) {
@@ -118,9 +126,9 @@ public class TrangChuFM extends Fragment {
 
 //    private void chonNhaHang()
 
-    private void GetAllNhaHang() {
+    private void Khao20ValentineTrang() {
         ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
-        Call call = serviceAPI.GetAllNhaHang();
+        Call call = serviceAPI.GetAllNhaHangTheoLoai("ThucUong");
         call.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
@@ -149,6 +157,53 @@ public class TrangChuFM extends Fragment {
                 Log.d("arr", arr.size() + "");
                 KhuyenMaiAdapter adapter = new KhuyenMaiAdapter(arr, getContext());
                 fmBinding.rvMonAnKemNuocSaiGon.setAdapter(adapter);
+                dismissProgressDialog();
+            }
+
+            @Override
+            public void onFailure(Call call, Throwable t) {
+                dismissProgressDialog();
+                Toast.makeText(getContext(), "Lỗi", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+//    private void getALL() {
+//        ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
+//        Call call = serviceAPI.GetALLDonHang("user1");
+//        call.enqueue(new Callback() {
+//            @Override
+//            public void onResponse(Call call, Response response) {
+//                List<DonHang> arr = (List<DonHang>) response.body();
+//
+//                for (DonHang item: arr) {
+//                    for(DonHangChiTiet item2: item.getDONHANGCHITIETs()){
+//
+//                    }
+//                }
+//                KhuyenMaiAdapter adapter = new KhuyenMaiAdapter(arr, getContext());
+//                fmBinding.rvMonAnKemNuocSaiGon.setAdapter(adapter);
+//                dismissProgressDialog();
+//            }
+//
+//            @Override
+//            public void onFailure(Call call, Throwable t) {
+//                dismissProgressDialog();
+//                Toast.makeText(getContext(), "Lỗi", Toast.LENGTH_SHORT).show();
+//            }
+//        });
+//    }
+
+    private void getAllNhaHang() {
+        ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
+        Call call = serviceAPI.GetAllNhaHang();
+        call.enqueue(new Callback() {
+            @Override
+            public void onResponse(Call call, Response response) {
+                List<NhaHang> arr = (List<NhaHang>) response.body();
+                Log.d("arr", arr.size() + "");
+                NhaHangHCNAdapter adapter = new NhaHangHCNAdapter(arr, getContext());
+                fmBinding.rvNhaHangGanBan.setAdapter(adapter);
                 dismissProgressDialog();
             }
 

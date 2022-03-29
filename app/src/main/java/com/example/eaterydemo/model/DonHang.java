@@ -1,5 +1,7 @@
 package com.example.eaterydemo.model;
 
+import java.util.List;
+
 public class DonHang {
     private int MaDonHang;
     private String DiaChi;
@@ -7,14 +9,20 @@ public class DonHang {
     private float TongTien;
     private String NgayMua;
     private String TenTK;
+    private String nameRes;
+    private int countSL;
+    private List<DonHangChiTiet> DONHANGCHITIETs;
 
-    public DonHang(int maDonHang, String diaChi, int trangThaiDH, float tongTien, String ngayMua, String tenTK) {
+    public DonHang(int maDonHang, String diaChi, int trangThaiDH, float tongTien, String ngayMua, String tenTK, String nameRes, int countSL, List<DonHangChiTiet> DONHANGCHITIETs) {
         MaDonHang = maDonHang;
         DiaChi = diaChi;
         TrangThaiDH = trangThaiDH;
         TongTien = tongTien;
         NgayMua = ngayMua;
         TenTK = tenTK;
+        this.nameRes = nameRes;
+        this.countSL = countSL;
+        this.DONHANGCHITIETs = DONHANGCHITIETs;
     }
 
     public int getMaDonHang() {
@@ -63,5 +71,29 @@ public class DonHang {
 
     public void setTenTK(String tenTK) {
         TenTK = tenTK;
+    }
+
+    public String getNameRes() {
+        return nameRes;
+    }
+
+    public void setNameRes(String nameRes) {
+        this.nameRes = nameRes;
+    }
+
+    public int getCountSL() {
+        return countSL;
+    }
+
+    public void setCountSL(int countSL) {
+        this.countSL = countSL;
+    }
+
+    public List<DonHangChiTiet> getDONHANGCHITIETs() {
+        return DONHANGCHITIETs;
+    }
+
+    public void setDONHANGCHITIETs(List<DonHangChiTiet> DONHANGCHITIETs) {
+        this.DONHANGCHITIETs = DONHANGCHITIETs;
     }
 }

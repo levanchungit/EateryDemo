@@ -34,7 +34,7 @@
     <TextView
         android:id="@+id/tvTenNhaHang_NhaHangVuong"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:maxLines="2"
         android:fontFamily="@font/montserrat_medium"
         android:text="Tên nhà hàng"

@@ -17,9 +17,6 @@ import com.example.eaterydemo.model.NhaHang;
 import java.util.List;
 
 public class NhaHangVuongAdapter extends RecyclerView.Adapter<NhaHangVuongAdapter.ViewHolder> {
-
-    TextView tvTenNhaHang, tvDanhGia;
-    ImageView ivImage_NhaHangVuong;
     List<NhaHang> arr;
     Context context;
 
@@ -28,13 +25,28 @@ public class NhaHangVuongAdapter extends RecyclerView.Adapter<NhaHangVuongAdapte
         this.context = context;
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder {
+        TextView tvTenNhaHang, tvDanhGia;
+        ImageView ivImage_NhaHangVuong;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             tvTenNhaHang = itemView.findViewById(R.id.tvTenNhaHang_NhaHangVuong);
             tvDanhGia = itemView.findViewById(R.id.tvDanhGia_NhaHangVuong);
             ivImage_NhaHangVuong = itemView.findViewById(R.id.ivImage_NhaHangVuong);
+        }
+
+        public TextView getTenNhaHang(){
+            return tvTenNhaHang;
+        }
+
+        public TextView getDanhGia(){
+            return tvDanhGia;
+        }
+
+        public ImageView getNhaHangVuong(){
+            return ivImage_NhaHangVuong;
         }
     }
 
@@ -47,9 +59,13 @@ public class NhaHangVuongAdapter extends RecyclerView.Adapter<NhaHangVuongAdapte
         return viewHolder;
     }
 
+
     @Override
     public void onBindViewHolder(@NonNull NhaHangVuongAdapter.ViewHolder holder, int position) {
         NhaHang model = arr.get(position);
+        TextView tvTenNhaHang = holder.getTenNhaHang();
+        TextView tvDanhGia = holder.getDanhGia();
+        ImageView ivImage_NhaHangVuong = holder.getNhaHangVuong();
         Glide.with(context).load(model.getHinhAnh()).centerCrop().into(ivImage_NhaHangVuong);
         tvTenNhaHang.setText(model.getTenNH());
         if (model.getDanhGia() < 10) {
