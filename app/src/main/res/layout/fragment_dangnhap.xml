@@ -65,6 +65,7 @@
             android:id="@+id/edtMatKhau_DangNhap"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
+            android:inputType="textPassword"
             android:hint="Mật khẩu" />
     </com.google.android.material.textfield.TextInputLayout>
 

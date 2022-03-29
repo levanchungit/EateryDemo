@@ -83,12 +83,13 @@ public class DangNhapFM extends Fragment {
             @Override
             public void onResponse(Call call, Response response) {
                 Message message = (Message) response.body();
-                Toast.makeText(getContext(), message.getNotification(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(requireContext(), message.getNotification(), Toast.LENGTH_SHORT).show();
                 Log.e("LOGIN",message.getNotification());
+                dismissProgressDialog();
                 if (message.getStatus() == 1) {
                     startActivity(new Intent(requireContext(), DrawerLayoutActivity.class));
                 }
-                dismissProgressDialog();
+
             }
 
             @Override

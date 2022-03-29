@@ -27,7 +27,6 @@ public interface ServiceAPI {
     Call<ArrayList<NhaHang>> GetAllNhaHangTheoLoai(@Path("loaiNH") String loaiNH);
 
 
-
     //KHUYẾN MÃI
     @GET("api/khuyenmai")
     Call<ArrayList<KhuyenMai>> GetAllKhuyenMai();
@@ -59,6 +58,9 @@ public interface ServiceAPI {
 
     @GET("api/xoaDonHangTheoTK")
     Call<Message> XoaDonHangCuaTenTKTheoMaDH(@Query("MaDH") String MaDH, @Query("TenTK") String TenTK);
+
+    @GET("api/getAllDonHangTheoTK/{TenTK}")
+    Call<ArrayList<DonHang>> GetALLDonHang(@Path("TenTK") String TenTK);
 
 
 }
