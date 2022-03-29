@@ -53,6 +53,9 @@ public interface ServiceAPI {
 
     //ĐƠN HÀNG
 
+    @GET("api/donhang")
+    Call<ArrayList<DonHang>> getALlDonHang();
+
     @GET("api/capnhatrangthaidonhang")
     Call<ArrayList<DonHang>> CapNhatTrangThaiDonHang();
 
