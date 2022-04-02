@@ -1,4 +1,4 @@
-package com.example.eaterydemo.adapter;
+package com.example.eaterydemo.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -13,6 +13,7 @@ import androidx.navigation.Navigation;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.eaterydemo.R;
+import com.example.eaterydemo.adapter.MyViewPagerAdapter;
 import com.example.eaterydemo.databinding.FragmentQuanlydonhangChucuahangBinding;
 import com.example.eaterydemo.databinding.FragmentVechungtoiBinding;
 import com.google.android.material.tabs.TabLayout;

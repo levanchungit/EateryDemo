@@ -3,18 +3,39 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="10dp"
     android:orientation="vertical">
-    
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/vpQuanlyDonHang_ChuCuaHang"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_back_black"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="QUẢN LÝ ĐƠN HÀNG"
+            android:textSize="20dp"
+            android:layout_marginRight="20dp"
+            android:gravity="center"/>
+    </LinearLayout>
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tlQuanlyDonHang_ChuCuaHang"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:tabMode="fixed"
         app:tabGravity="fill"/>
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/vpQuanlyDonHang_ChuCuaHang"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
 
 </LinearLayout>

@@ -19,6 +19,9 @@ public class TaiKhoan {
         VaiTro = vaiTro;
     }
 
+    public TaiKhoan() {
+    }
+
     public String getTenTK() {
         return TenTK;
     }

@@ -1,5 +1,8 @@
 package com.example.eaterydemo.service;
 
+import android.graphics.ColorSpace;
+
+import com.bumptech.glide.load.model.Model;
 import com.example.eaterydemo.model.DonHang;
 import com.example.eaterydemo.model.KhuyenMai;
 import com.example.eaterydemo.model.Message;
@@ -50,14 +53,13 @@ public interface ServiceAPI {
     Call<Message> CapNhatThongTinTaiKhoan(@Body TaiKhoan taiKhoan);
 
 
-
     //ĐƠN HÀNG
 
     @GET("api/donhang")
     Call<ArrayList<DonHang>> GetAllDonHang();
 
-    @GET("api/capnhatrangthaidonhang")
-    Call<ArrayList<DonHang>> CapNhatTrangThaiDonHang();
+    @POST("api/capnhatrangthaidonhang")
+    Call<Message> CapNhatTrangThaiDonHang(@Query("MaNH") int MaNH, @Query("TrangThaiDH") int TrangThaiDH);
 
     @GET("api/xoaDonHangTheoTK")
     Call<Message> XoaDonHangCuaTenTKTheoMaDH(@Query("MaDH") String MaDH, @Query("TenTK") String TenTK);
@@ -65,5 +67,7 @@ public interface ServiceAPI {
     @GET("api/getAllDonHangTheoTK")
     Call<ArrayList<DonHang>> GetALLDonHang(@Query("TenTK") String TenTK);
 
+    @GET("api/getAllDonHangTheoMaNHTheoTTDH")
+    Call<ArrayList<DonHang>> GetAllDonHangTheoMaNHDuaVaoTrangThai(@Query("MaNH") int MaNH,@Query("TrangThaiDH") int TrangThaiDH);
 
 }

@@ -47,14 +47,13 @@ public class PhuongThucThanhToanFM extends Fragment {
     LinearLayout lnPTTTPayPal;
     ImageView ivHinhPayPal;
     View _view;
-    TextView tvTenNhaHang_DHChiTiet, tvNgayMuaDHChiTiet, tvTongTien_DHChiTiet, tvMaDH_DHChiTiet, tvTenKH_DHChiTiet, tvSDT_DHChiTiet, tvDiaChi_DHChiTiet;
 
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         fmBinding = FragmentPhuongthucthanhtoanBinding.inflate(getLayoutInflater());
-        initNavController(container);
+//        initNavController(container);
         _view = container;
 
 
@@ -70,37 +69,37 @@ public class PhuongThucThanhToanFM extends Fragment {
         lnPTTTPayPal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getPayment();
+//                getPayment();
             }
         });
     }
 
-    private void getPayment() {
-
-        // Getting the amount from editText
-        String amount = "100";
-
-        // Creating a paypal payment on below line.
-        PayPalPayment payment = new PayPalPayment(new BigDecimal(String.valueOf(amount)), "USD", "Course Fees",
-                PayPalPayment.PAYMENT_INTENT_SALE);
-
-        // Creating Paypal Payment activity intent
-        Intent intent = new Intent(getContext(), PaymentActivity.class);
-
-        //putting the paypal configuration to the intent
-        intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, config);
-
-        // Putting paypal payment to the intent
-        intent.putExtra(PaymentActivity.EXTRA_PAYMENT, payment);
-
-        // Starting the intent activity for result
-        // the request code will be used on the method onActivityResult
-        startActivityForResult(intent, PAYPAL_REQUEST_CODE);
-    }
-
-    private void initNavController(View viewFmProfileBinding) {
-        navController = Navigation.findNavController(viewFmProfileBinding);
-    }
+//    private void getPayment() {
+//
+//        // Getting the amount from editText
+//        String amount = "100";
+//
+//        // Creating a paypal payment on below line.
+//        PayPalPayment payment = new PayPalPayment(new BigDecimal(String.valueOf(amount)), "USD", "Course Fees",
+//                PayPalPayment.PAYMENT_INTENT_SALE);
+//
+//        // Creating Paypal Payment activity intent
+//        Intent intent = new Intent(getContext(), PaymentActivity.class);
+//
+//        //putting the paypal configuration to the intent
+//        intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, config);
+//
+//        // Putting paypal payment to the intent
+//        intent.putExtra(PaymentActivity.EXTRA_PAYMENT, payment);
+//
+//        // Starting the intent activity for result
+//        // the request code will be used on the method onActivityResult
+//        startActivityForResult(intent, PAYPAL_REQUEST_CODE);
+//    }
+//
+//    private void initNavController(View viewFmProfileBinding) {
+//        navController = Navigation.findNavController(viewFmProfileBinding);
+//    }
 
 
 }

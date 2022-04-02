@@ -123,31 +123,6 @@ public class DonHangAdapter extends RecyclerView.Adapter<DonHangAdapter.ViewHold
         DonHang model = arr.get(position);
         initNavController(_view);
         RelativeLayout rlDH = holder.getRl_donhang();
-//        ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
-//        Call call = serviceAPI.GetALLDonHang("user1");
-//        call.enqueue(new Callback() {
-//
-//            @Override
-//            public void onResponse(Call call, Response response) {
-//                arr = (List<DonHang>) response.body();
-//                Log.d("arr", arr.size() + "");
-//                for (DonHang item : arr) {
-//                    donHang = item;
-//                    Log.d("arr", item.getNameRes() + "");
-//                    for (DonHangChiTiet item2 : item.getDONHANGCHITIETs()) {
-//                        donHangChiTiet = item2;
-//                        Log.d("donq han chi tiet", item2.getTenMA() + "");
-//
-//                    }
-//                    Log.d("size dhct", donHang.getDONHANGCHITIETs().size()+"");
-//                }
-//            }
-//            @Override
-//            public void onFailure(Call call, Throwable t) {
-//                dismissProgressDialog();
-//                Toast.makeText(context, "Lỗi", Toast.LENGTH_SHORT).show();
-//            }
-//        });
         rlDH.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -178,14 +153,18 @@ public class DonHangAdapter extends RecyclerView.Adapter<DonHangAdapter.ViewHold
 
 
         int TT = model.getTrangThaiDH();
-        if (TT == 0) {
+        if (TT == 3) {
             tvTrangThai.setText("Hủy bỏ");
             tvTrangThai.setTextColor(Color.RED);
             ivDoneDonHang.setImageResource(R.drawable.dahuydonhang);
-        } else {
+        } else if (TT == 2){
             tvTrangThai.setText("Đã giao");
             tvTrangThai.setTextColor(Color.GREEN);
             ivDoneDonHang.setImageResource(R.drawable.donhangdagiao);
+        }else if (TT == 1){
+            tvTrangThai.setText("Chờ xác nhận");
+            tvTrangThai.setTextColor(Color.CYAN);
+            ivDoneDonHang.setImageResource(R.drawable.trangthaichoxacnhan);
         }
 
     }

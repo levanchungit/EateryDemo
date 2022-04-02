@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/menu_TrangChu">
-      <fragment
+                       <fragment
         android:id="@+id/menu_ThongTin"
         tools:layout="@layout/fragment_thongtin"
         android:name="com.example.eaterydemo.fragments.ThongTinFM"
@@ -47,6 +47,9 @@
         <action
             android:id="@+id/action_menu_TrangChu_to_timKiemNhaHangFM"
             app:destination="@id/timKiemNhaHangFM" />
+        <action
+            android:id="@+id/action_menu_TrangChu_to_CCH_QuanLyDonHangFM"
+            app:destination="@id/CCH_QuanLyDonHangFM" />
     </fragment>
     <fragment
         android:id="@+id/NhaHangFM"
@@ -122,4 +125,22 @@
         tools:layout="@layout/fragment_vechungtoi"
         android:name="com.example.eaterydemo.fragments.VeChungToiFM"
         android:label="VeChungToiFM" />
+    <fragment
+        android:id="@+id/CCH_QuanLyDonHangFM"
+        tools:layout="@layout/activity_quanlydonhang"
+        android:name="com.example.eaterydemo.fragments.CCH_QuanLyDonHangFM"
+        android:label="CCH_QuanLyDo  nHangFM" >
+        <action
+            android:id="@+id/action_CCH_QuanLyDonHangFM_to_CCH_ChiTietDonHangFM"
+            app:destination="@id/CCH_ChiTietDonHangFM" />
+            </fragment>
+     <fragment
+        android:id="@+id/CCH_ChiTietDonHangFM"
+        tools:layout="@layout/fragment_owner_chitietdonhang"
+        android:name="com.example.eaterydemo.fragments.CCH_ChiTietDonHangFM"
+        android:label="CCH_ChiTietDonHangFM" >
+        <argument
+            android:name="ChiTietDonHang_CCH"
+            app:argType="com.example.eaterydemo.model.DonHang" />
+    </fragment>
 </navigation>
