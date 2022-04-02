@@ -54,7 +54,7 @@ public interface ServiceAPI {
     //ĐƠN HÀNG
 
     @GET("api/donhang")
-    Call<ArrayList<DonHang>> getALlDonHang();
+    Call<ArrayList<DonHang>> GetAllDonHang();
 
     @GET("api/capnhatrangthaidonhang")
     Call<ArrayList<DonHang>> CapNhatTrangThaiDonHang();
@@ -62,8 +62,8 @@ public interface ServiceAPI {
     @GET("api/xoaDonHangTheoTK")
     Call<Message> XoaDonHangCuaTenTKTheoMaDH(@Query("MaDH") String MaDH, @Query("TenTK") String TenTK);
 
-    @GET("api/getAllDonHangTheoTK/{TenTK}")
-    Call<ArrayList<DonHang>> GetALLDonHang(@Path("TenTK") String TenTK);
+    @GET("api/getAllDonHangTheoTK")
+    Call<ArrayList<DonHang>> GetALLDonHang(@Query("TenTK") String TenTK);
 
 
 }

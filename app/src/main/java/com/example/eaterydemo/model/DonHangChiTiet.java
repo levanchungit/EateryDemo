@@ -1,6 +1,6 @@
 package com.example.eaterydemo.model;
 
-public class DonHangChiTiet {
+public class DonHangChiTiet{
     private String TenMA;
     private float giaMA;
     private String MONAN = null;
@@ -17,6 +17,9 @@ public class DonHangChiTiet {
         MaMA = maMA;
         this.SL = SL;
         DonGia = donGia;
+    }
+
+    public DonHangChiTiet() {
     }
 
     public String getTenMA() {

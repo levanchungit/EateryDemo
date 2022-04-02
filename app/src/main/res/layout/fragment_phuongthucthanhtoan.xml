@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="20dp"
+    android:padding="20dp"
     android:orientation="vertical">
 
     <LinearLayout
@@ -21,7 +21,7 @@
             android:layout_marginLeft="30dp"
             android:textColor="@color/black"
             android:textSize="25dp"
-            android:text="Profiles"/>
+            android:text="Phương thức thanh toán"/>
     </LinearLayout>
 
     <ImageView
@@ -53,6 +53,7 @@
 
 
     <LinearLayout
+        android:id="@+id/lnPTTTPayPal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
@@ -60,6 +61,7 @@
         android:orientation="horizontal">
 
         <ImageView
+            android:id="@+id/ivHinhPayPal"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:src="@mipmap/paypal"/>

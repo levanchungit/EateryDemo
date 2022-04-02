@@ -1,8 +1,12 @@
 package com.example.eaterydemo.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import java.util.Date;
 import java.util.List;
 
-public class DonHang {
+public class DonHang implements Parcelable {
     private int MaDonHang;
     private String DiaChi;
     private int TrangThaiDH;
@@ -24,6 +28,32 @@ public class DonHang {
         this.countSL = countSL;
         this.DONHANGCHITIETs = DONHANGCHITIETs;
     }
+
+    public DonHang() {
+    }
+
+    protected DonHang(Parcel in) {
+        MaDonHang = in.readInt();
+        DiaChi = in.readString();
+        TrangThaiDH = in.readInt();
+        TongTien = in.readFloat();
+        NgayMua = in.readString();
+        TenTK = in.readString();
+        nameRes = in.readString();
+        countSL = in.readInt();
+    }
+
+    public static final Creator<DonHang> CREATOR = new Creator<DonHang>() {
+        @Override
+        public DonHang createFromParcel(Parcel in) {
+            return new DonHang(in);
+        }
+
+        @Override
+        public DonHang[] newArray(int size) {
+            return new DonHang[size];
+        }
+    };
 
     public int getMaDonHang() {
         return MaDonHang;
@@ -95,5 +125,22 @@ public class DonHang {
 
     public void setDONHANGCHITIETs(List<DonHangChiTiet> DONHANGCHITIETs) {
         this.DONHANGCHITIETs = DONHANGCHITIETs;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeInt(MaDonHang);
+        parcel.writeString(DiaChi);
+        parcel.writeInt(TrangThaiDH);
+        parcel.writeFloat(TongTien);
+        parcel.writeString(NgayMua);
+        parcel.writeString(TenTK);
+        parcel.writeString(nameRes);
+        parcel.writeInt(countSL);
     }
 }

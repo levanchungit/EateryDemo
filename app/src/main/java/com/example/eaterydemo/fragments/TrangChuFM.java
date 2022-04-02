@@ -63,9 +63,8 @@ public class TrangChuFM extends Fragment {
         showProgressDialog(getContext(), "Đang tải dữ liệu");
         Khao20ValentineTrang();
         getAllKhuyenMai();
-//        getAllNhaHangHCN();
+
         getAllNhaHang();
-        fmBinding.getRoot();
 
     }
 
@@ -81,14 +80,14 @@ public class TrangChuFM extends Fragment {
         fmBinding.ivLau.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                NavDirections action = TrangChuFMDirections.actionHomeFMToNhaHangFM2();
+//                NavDirections action = TrangChuFMDirections.actionMenuTrangChuToDonHangFM();
 //                navController.navigate(action);
             }
         });
         fmBinding.ivCom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                NavDirections action = TrangChuFMDirections.actionHomeFMToNhaHangFM2();
+//                NavDirections action = TrangChuFMDirections.actionMenuTrangChuToPhuongThucThanhToanFM();
 //                navController.navigate(action);
             }
         });
