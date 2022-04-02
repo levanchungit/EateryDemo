@@ -1,141 +1,117 @@
 package com.example.eaterydemo.model;
 
-import org.jetbrains.annotations.NotNull;
-
-import java.util.List;
-
 public class NhaHang{
-    private int DanhGia;
+    private float MaNH;
+    private String TenNH;
     private String DiaChi;
     private String HinhAnh;
-    private LoaiNhaHang LoaiNH;
-    private List MAKHUYENMAIs;
-    private List MONANs;
-    private String MaLoaiNH;
-    private int MaNH;
     private String MoTa;
-    private TaiKhoan TAIKHOAN;
-    private String TenNH;
+    private float DanhGia;
     private String TenTK;
+    private String MaLoaiNH;
+    private String TenLoaiNH;
+    private String HoTen;
+    private float IsYeuThich;
 
-    public NhaHang(int danhGia, @NotNull String diaChi, @NotNull String hinhAnh, @NotNull LoaiNhaHang loaiNH, @NotNull List MAKHUYENMAIs, @NotNull List MONANs, @NotNull String maLoaiNH, int maNH, @NotNull String moTa, @NotNull TaiKhoan TAIKHOAN, @NotNull String tenNH, @NotNull String tenTK) {
-        DanhGia = danhGia;
-        DiaChi = diaChi;
-        HinhAnh = hinhAnh;
-        LoaiNH = loaiNH;
-        this.MAKHUYENMAIs = MAKHUYENMAIs;
-        this.MONANs = MONANs;
-        MaLoaiNH = maLoaiNH;
+    public NhaHang(float maNH, String tenNH, String diaChi, String hinhAnh, String moTa, float danhGia, String tenTK, String maLoaiNH, String tenLoaiNH, String hoTen, float isYeuThich) {
         MaNH = maNH;
-        MoTa = moTa;
-        this.TAIKHOAN = TAIKHOAN;
         TenNH = tenNH;
-        TenTK = tenTK;
-    }
-
-    public int getDanhGia() {
-        return DanhGia;
-    }
-
-    public void setDanhGia(int danhGia) {
-        DanhGia = danhGia;
-    }
-
-    @NotNull
-    public String getDiaChi() {
-        return DiaChi;
-    }
-
-    public void setDiaChi(@NotNull String diaChi) {
         DiaChi = diaChi;
-    }
-
-    @NotNull
-    public String getHinhAnh() {
-        return HinhAnh;
-    }
-
-    public void setHinhAnh(@NotNull String hinhAnh) {
         HinhAnh = hinhAnh;
-    }
-
-    @NotNull
-    public LoaiNhaHang getLoaiNH() {
-        return LoaiNH;
-    }
-
-    public void setLoaiNH(@NotNull LoaiNhaHang loaiNH) {
-        LoaiNH = loaiNH;
-    }
-
-    @NotNull
-    public List getMAKHUYENMAIs() {
-        return MAKHUYENMAIs;
-    }
-
-    public void setMAKHUYENMAIs(@NotNull List MAKHUYENMAIs) {
-        this.MAKHUYENMAIs = MAKHUYENMAIs;
-    }
-
-    @NotNull
-    public List getMONANs() {
-        return MONANs;
-    }
-
-    public void setMONANs(@NotNull List MONANs) {
-        this.MONANs = MONANs;
-    }
-
-    @NotNull
-    public String getMaLoaiNH() {
-        return MaLoaiNH;
-    }
-
-    public void setMaLoaiNH(@NotNull String maLoaiNH) {
+        MoTa = moTa;
+        DanhGia = danhGia;
+        TenTK = tenTK;
         MaLoaiNH = maLoaiNH;
+        TenLoaiNH = tenLoaiNH;
+        HoTen = hoTen;
+        IsYeuThich = isYeuThich;
     }
 
-    public int getMaNH() {
+    public float getMaNH() {
         return MaNH;
     }
 
-    public void setMaNH(int maNH) {
+    public void setMaNH(float maNH) {
         MaNH = maNH;
     }
 
-    @NotNull
-    public String getMoTa() {
-        return MoTa;
-    }
-
-    public void setMoTa(@NotNull String moTa) {
-        MoTa = moTa;
-    }
-
-    @NotNull
-    public TaiKhoan getTAIKHOAN() {
-        return TAIKHOAN;
-    }
-
-    public void setTAIKHOAN(@NotNull TaiKhoan TAIKHOAN) {
-        this.TAIKHOAN = TAIKHOAN;
-    }
-
-    @NotNull
     public String getTenNH() {
         return TenNH;
     }
 
-    public void setTenNH(@NotNull String tenNH) {
+    public void setTenNH(String tenNH) {
         TenNH = tenNH;
     }
 
-    @NotNull
+    public String getDiaChi() {
+        return DiaChi;
+    }
+
+    public void setDiaChi(String diaChi) {
+        DiaChi = diaChi;
+    }
+
+    public String getHinhAnh() {
+        return HinhAnh;
+    }
+
+    public void setHinhAnh(String hinhAnh) {
+        HinhAnh = hinhAnh;
+    }
+
+    public String getMoTa() {
+        return MoTa;
+    }
+
+    public void setMoTa(String moTa) {
+        MoTa = moTa;
+    }
+
+    public float getDanhGia() {
+        return DanhGia;
+    }
+
+    public void setDanhGia(float danhGia) {
+        DanhGia = danhGia;
+    }
+
     public String getTenTK() {
         return TenTK;
     }
 
-    public void setTenTK(@NotNull String tenTK) {
+    public void setTenTK(String tenTK) {
         TenTK = tenTK;
+    }
+
+    public String getMaLoaiNH() {
+        return MaLoaiNH;
+    }
+
+    public void setMaLoaiNH(String maLoaiNH) {
+        MaLoaiNH = maLoaiNH;
+    }
+
+    public String getTenLoaiNH() {
+        return TenLoaiNH;
+    }
+
+    public void setTenLoaiNH(String tenLoaiNH) {
+        TenLoaiNH = tenLoaiNH;
+    }
+
+    public String getHoTen() {
+        return HoTen;
+    }
+
+    public void setHoTen(String hoTen) {
+        HoTen = hoTen;
+    }
+
+    public float getIsYeuThich() {
+        return IsYeuThich;
+    }
+
+    public void setIsYeuThich(float isYeuThich) {
+        IsYeuThich = isYeuThich;
     }
 }

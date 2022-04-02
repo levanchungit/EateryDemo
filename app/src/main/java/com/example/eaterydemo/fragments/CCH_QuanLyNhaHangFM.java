@@ -1,12 +1,10 @@
 package com.example.eaterydemo.fragments;
 
-
 import static com.example.eaterydemo.others.ShowNotifyUser.dismissProgressDialog;
 import static com.example.eaterydemo.others.ShowNotifyUser.showProgressDialog;
 import static com.example.eaterydemo.service.GetRetrofit.getRetrofit;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,29 +14,39 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
-import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 
-import com.example.eaterydemo.databinding.FragmentQuenmatkhauDoimatkhaumoiBinding;
-import com.example.eaterydemo.model.Message;
+import com.bumptech.glide.Glide;
+import com.example.eaterydemo.databinding.FragmentOwnerQuanlynhahangBinding;
+import com.example.eaterydemo.model.NhaHang;
 import com.example.eaterydemo.service.ServiceAPI;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class QuenMatKhau_DoiMatKhauMoiFM extends Fragment {
-    FragmentQuenmatkhauDoimatkhaumoiBinding fmBinding;
+
+public class CCH_QuanLyNhaHangFM extends Fragment {
+    FragmentOwnerQuanlynhahangBinding fmBinding;
     NavController navController;
+    View _view;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        fmBinding = FragmentQuenmatkhauDoimatkhaumoiBinding.inflate(getLayoutInflater());
-        initClick();
-        initNavController(container);
-
+        fmBinding = FragmentOwnerQuanlynhahangBinding.inflate(getLayoutInflater());
+        _view = container;
         return fmBinding.getRoot();
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        initClick();
+        initNavController(_view);
+
+        showProgressDialog(getContext(), "Đang tải dữ liệu");
+        getChuCuaHang();
     }
 
     private void initNavController(View viewFmProfileBinding) {
@@ -46,31 +54,20 @@ public class QuenMatKhau_DoiMatKhauMoiFM extends Fragment {
     }
 
     private void initClick() {
-        fmBinding.btnDoiMatKhauDoiMatKhauMoi.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String _TenTK = DangNhapFM.TENTK;
-                String _code = fmBinding.edtCode.getText().toString().trim();
-                String _matKhauMoi = fmBinding.edtMatKhauMoiDoiMatKhauMoi.getText().toString().trim();
-                quenMatKhau(_TenTK, _code, _matKhauMoi);
-            }
-        });
+
     }
 
-    private void quenMatKhau(String _TenTK, String _code, String _matKhauMoi) {
-        showProgressDialog(getContext(), "Đang xác nhận...");
+    private void getChuCuaHang() {
         ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
-        Call call = serviceAPI.CapNhatMatKhau(_TenTK, _code, _matKhauMoi);
+        Call call = serviceAPI.GetNhaHangTheoTenTK(DangNhapFM.TENTK);
         call.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
-                Message message = (Message) response.body();
-                Toast.makeText(requireContext(), message.getNotification(), Toast.LENGTH_SHORT).show();
-                Log.e("CHECK QuenMK", message.getNotification());
-                if (message.getStatus() == 1) {
-                    NavDirections action = QuenMatKhau_DoiMatKhauMoiFMDirections.actionQuenMatKhauDoiMatKhauMoiFMToDangNhapFM();
-                    navController.navigate(action);
-                }
+                NhaHang nh = (NhaHang) response.body();
+                Glide.with(requireContext()).load(nh.getHinhAnh()).centerCrop().into(fmBinding.ivImageCCHQuanLyNhaHang);
+                fmBinding.tvTenNhaHangCCHQuanLyNhaHang.setText(nh.getTenNH());
+                fmBinding.tvDiaChiCCHQuanLyNhaHang.setText(nh.getDiaChi());
+                fmBinding.tvTenChuCuaHangCCHQuanLyNhaHang.setText(nh.getHoTen());
                 dismissProgressDialog();
             }
 
@@ -81,5 +78,4 @@ public class QuenMatKhau_DoiMatKhauMoiFM extends Fragment {
             }
         });
     }
-
 }

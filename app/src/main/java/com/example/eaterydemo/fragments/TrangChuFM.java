@@ -18,6 +18,7 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.eaterydemo.R;
@@ -168,32 +169,6 @@ public class TrangChuFM extends Fragment {
         });
     }
 
-//    private void getALL() {
-//        ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
-//        Call call = serviceAPI.GetALLDonHang("user1");
-//        call.enqueue(new Callback() {
-//            @Override
-//            public void onResponse(Call call, Response response) {
-//                List<DonHang> arr = (List<DonHang>) response.body();
-//
-//                for (DonHang item: arr) {
-//                    for(DonHangChiTiet item2: item.getDONHANGCHITIETs()){
-//
-//                    }
-//                }
-//                KhuyenMaiAdapter adapter = new KhuyenMaiAdapter(arr, getContext());
-//                fmBinding.rvMonAnKemNuocSaiGon.setAdapter(adapter);
-//                dismissProgressDialog();
-//            }
-//
-//            @Override
-//            public void onFailure(Call call, Throwable t) {
-//                dismissProgressDialog();
-//                Toast.makeText(getContext(), "Lỗi", Toast.LENGTH_SHORT).show();
-//            }
-//        });
-//    }
-
     private void getAllNhaHang() {
         ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
         Call call = serviceAPI.GetAllNhaHang();
@@ -201,9 +176,9 @@ public class TrangChuFM extends Fragment {
             @Override
             public void onResponse(Call call, Response response) {
                 List<NhaHang> arr = (List<NhaHang>) response.body();
-                Log.d("arr", arr.size() + "");
                 NhaHangHCNAdapter adapter = new NhaHangHCNAdapter(arr, getContext());
                 fmBinding.rvNhaHangGanBan.setAdapter(adapter);
+                fmBinding.rvNhaHangGanBan.setLayoutManager(new LinearLayoutManager(getContext()));
                 dismissProgressDialog();
             }
 

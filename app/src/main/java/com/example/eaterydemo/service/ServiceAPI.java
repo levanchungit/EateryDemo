@@ -26,12 +26,13 @@ public interface ServiceAPI {
     @GET("api/nhahangtheoloai/{loaiNH}")
     Call<ArrayList<NhaHang>> GetAllNhaHangTheoLoai(@Path("loaiNH") String loaiNH);
 
+    @GET("api/nhahangtheotentk")
+    Call<NhaHang> GetNhaHangTheoTenTK(@Query("TenTK") String TenTK);
+
 
     //KHUYẾN MÃI
     @GET("api/khuyenmai")
     Call<ArrayList<KhuyenMai>> GetAllKhuyenMai();
-
-
 
 
     //TÀI KHOẢN
@@ -44,15 +45,18 @@ public interface ServiceAPI {
     @GET("api/taikhoan")
     Call<ArrayList<TaiKhoan>> GetAllTaiKhoan();
 
-
-
     @POST("api/capnhatthongtintaikhoan")
     Call<Message> CapNhatThongTinTaiKhoan(@Body TaiKhoan taiKhoan);
+
+    @GET("api/getCodeResetPassword")
+    Call<Message> SendEmailForgotPassword(@Query("TenTK") String TenTK);
+
+    @GET("api/resetPassword")
+    Call<Message> CapNhatMatKhau(@Query("TenTK") String TenTK, @Query("Code") String code, @Query("matKhauMoi")String matKhauMoi);
 
 
 
     //ĐƠN HÀNG
-
     @GET("api/capnhatrangthaidonhang")
     Call<ArrayList<DonHang>> CapNhatTrangThaiDonHang();
 

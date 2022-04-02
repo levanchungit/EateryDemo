@@ -24,7 +24,8 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_margin="10dp">
 
                 <ImageView
                     android:id="@+id/ivTimKiemNhaHang_TrangChu"
@@ -242,7 +243,7 @@
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rvNhaHangGanBan"
                         android:layout_width="match_parent"
-                        android:layout_height="300dp" />
+                        android:layout_height="wrap_content" />
                 </androidx.cardview.widget.CardView>
             </TableRow>
         </TableLayout>

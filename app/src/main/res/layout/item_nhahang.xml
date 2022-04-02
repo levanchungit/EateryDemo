@@ -36,24 +36,24 @@
             <TextView
                 android:id="@+id/tvTenNhaHang_ItemNhaHang"
                 android:layout_width="wrap_content"
-                android:layout_height="22dp"
+                android:layout_height="30dp"
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="20dp"
-                android:layout_marginBottom="8dp"
                 android:layout_toRightOf="@+id/cv_ItemNhaHang"
-                android:fontFamily="@font/montserrat_extrabold"
+                android:fontFamily="@font/montserrat_bold"
                 android:text="Tên nhà hàng"
-                android:textColor="#000"
+                android:textColor="#191919"
                 android:textSize="20dp" />
 
             <TextView
                 android:id="@+id/tvLoaiNhaHang_ItemNhaHang"
                 android:layout_width="wrap_content"
                 android:layout_height="18dp"
+                android:textColor="#999999"
                 android:layout_below="@+id/tvTenNhaHang_ItemNhaHang"
                 android:layout_marginBottom="8dp"
                 android:layout_toRightOf="@id/cv_ItemNhaHang"
-                android:fontFamily="@font/montserrat_light"
+                android:fontFamily="@font/montserrat_regular"
                 android:text="Loại nhà hàng" />
 
             <TextView
@@ -61,9 +61,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_below="@id/tvLoaiNhaHang_ItemNhaHang"
-                android:layout_marginTop="8dp"
                 android:layout_toRightOf="@id/cv_ItemNhaHang"
                 android:fontFamily="@font/montserrat_regular"
+                android:textColor="#000"
                 android:text="Nàm Kỳ Khởi Nghĩa - Quận 19, TP. HCM"
                 android:textSize="15dp" />
 

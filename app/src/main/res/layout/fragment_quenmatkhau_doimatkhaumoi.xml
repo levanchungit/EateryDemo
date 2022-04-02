@@ -15,7 +15,24 @@
         android:layout_height="wrap_content"
         android:src="@drawable/logo_light" />
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilCode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        app:boxStrokeWidth="0dp"
+        android:layout_margin="10dp">
 
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/edtCode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/butonlogin"
+        android:hint="Code"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilMatKhau"
@@ -26,7 +43,7 @@
         android:layout_margin="10dp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edtMatKhau"
+            android:id="@+id/edtMatKhauMoi_DoiMatKhauMoi"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/butonlogin"
@@ -45,7 +62,7 @@
         android:layout_margin="10dp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edtNhapLaiMatKhau"
+            android:id="@+id/edtNhapLaiMatKhau_DoiMatKhauMoi"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/butonlogin"

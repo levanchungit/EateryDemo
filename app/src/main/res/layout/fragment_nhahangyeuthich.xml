@@ -9,24 +9,24 @@
         android:id="@+id/imgUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"
         android:layout_alignParentRight="true"
-        app:cardCornerRadius="100dp">
+        app:cardCornerRadius="30dp">
 
         <ImageView
             android:scaleType="center"
             android:src="@drawable/profilepic_default"
-            android:layout_width="46dp"
-            android:layout_height="46dp"/>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
     </androidx.cardview.widget.CardView>
 
     <ImageView
         android:id="@+id/ivTimKiemNhaHang_NhaHangYeuThich"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
         android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
         android:src="@drawable/search" />
 
 
