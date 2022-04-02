@@ -92,7 +92,6 @@ public class DangNhapFM extends Fragment {
                 //11: Quản trị viên, 12: Chủ cửa hàng, 13: khách hàng
                 if (message.getStatus() == 11) {
                     startActivity(new Intent(requireContext(), AdminActivity.class));
-
                 }else if(message.getStatus() == 12){
                     startActivity(new Intent(requireContext(), ChuCuaHangActivity.class));
                 }else if(message.getStatus() == 13){
