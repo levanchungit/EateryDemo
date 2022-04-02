@@ -63,23 +63,7 @@ public class DangKyFM extends Fragment {
 
     private void initClick() {
 
-        fmBinding.ivBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                NavDirections action = DangKyFMDirections.actionDangKyFMToDangNhapFM();
-                navController.navigate(action);
-            }
-        });
-
-        fmBinding.imgImageDangKy.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                requestPermission();
-
-            }
-        });
-
-        fmBinding.btnDangKyDangKy.setOnClickListener(new View.OnClickListener() {
+        fmBinding.btnLoginDangKy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //load hình ảnh lên cloudinary

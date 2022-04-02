@@ -52,7 +52,7 @@ public class DangNhapFM extends Fragment {
 
     private void initClick() {
 
-        fmBinding.btnLogin.setOnClickListener(new View.OnClickListener() {
+        fmBinding.btnLoginDangNhap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String _TenTK = fmBinding.edtEmailDangNhap.getText().toString().trim();
