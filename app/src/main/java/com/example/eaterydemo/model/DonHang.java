@@ -1,8 +1,11 @@
 package com.example.eaterydemo.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.List;
 
-public class DonHang {
+public class DonHang implements Parcelable {
     private int MaDonHang;
     private String DiaChi;
     private int TrangThaiDH;
@@ -19,9 +22,6 @@ public class DonHang {
     }
 
     public DonHang(int maDonHang, String diaChi, int trangThaiDH, float tongTien, String ngayMua, String tenTK, String nameRes, int countSL, List<DonHangChiTiet> DONHANGCHITIETs, TaiKhoan TAIKHOAN) {
-    private List<DonHangChiTiet> DONHANGCHITIETs;
-
-    public DonHang(int maDonHang, String diaChi, int trangThaiDH, float tongTien, String ngayMua, String tenTK, List<com.example.eaterydemo.model.DonHangChiTiet> DONHANGCHITIETs) {
         MaDonHang = maDonHang;
         DiaChi = diaChi;
         TrangThaiDH = trangThaiDH;
@@ -46,7 +46,7 @@ public class DonHang {
         DONHANGCHITIETs = DONHANGCHITIETs;
     }
 
-    public static final Creator<DonHang> CREATOR = new Creator<DonHang>() {
+    public static final Parcelable.Creator<DonHang> CREATOR = new Parcelable.Creator<DonHang>() {
         @Override
         public DonHang createFromParcel(Parcel in) {
             return new DonHang(in);
@@ -153,11 +153,5 @@ public class DonHang {
         parcel.writeString(TenTK);
         parcel.writeString(nameRes);
         parcel.writeInt(countSL);
-    public List<com.example.eaterydemo.model.DonHangChiTiet> getDonHangChiTiet() {
-        return DONHANGCHITIETs;
-    }
-
-    public void setDonHangChiTiet(List<com.example.eaterydemo.model.DonHangChiTiet> donHangChiTiet) {
-        DONHANGCHITIETs = donHangChiTiet;
     }
 }

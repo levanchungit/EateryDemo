@@ -16,19 +16,11 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
-import com.bumptech.glide.Glide;
-import com.example.eaterydemo.R;
 import com.example.eaterydemo.adapter.GioHangAdapter;
-import com.example.eaterydemo.adapter.MonAnAdapter;
-import com.example.eaterydemo.adapter.NhaHangHCNAdapter;
 import com.example.eaterydemo.databinding.FragmentThanhtoanBinding;
 import com.example.eaterydemo.model.DonHang;
 import com.example.eaterydemo.model.DonHangChiTiet;
-import com.example.eaterydemo.model.MonAn;
-import com.example.eaterydemo.model.NhaHang;
-import com.example.eaterydemo.model.TaiKhoan;
 import com.example.eaterydemo.service.ServiceAPI;
 
 import java.util.ArrayList;
@@ -100,14 +92,14 @@ public class ThanhToanFM extends Fragment {
 
     private void GetMonAnTuDonHang() {
         ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
-        Call call = serviceAPI.GetDonHangTheoTK("user1");
+        Call call = serviceAPI.GetDonHangTheoTK(DangNhapFM.TENTK);
         call.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
                 DonHang model = (DonHang) response.body();
-                for(int i=0;i<model.getDonHangChiTiet().size();i++){
+                for(int i=0;i<model.getDONHANGCHITIETs().size();i++){
                     //model.getDonHangChiTiet.get(i): là 1 object rồi nên dùng arr add bth vào chứ k phải cast
-                    arr.add(model.getDonHangChiTiet().get(i));
+                    arr.add(model.getDONHANGCHITIETs().get(i));
                 }
                 Log.d("arr", arr.size() + "");
                 LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);

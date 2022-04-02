@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -16,7 +15,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.eaterydemo.R;
-import com.example.eaterydemo.fragments.NhaHangFMDirections;
 import com.example.eaterydemo.fragments.TrangChuFMDirections;
 import com.example.eaterydemo.model.NhaHang;
 
@@ -26,7 +24,6 @@ public class NhaHangVuongAdapter extends RecyclerView.Adapter<NhaHangVuongAdapte
 
     TextView tvTenNhaHang, tvDanhGia;
     ImageView ivImage_NhaHangVuong;
-    ConstraintLayout rlitem_nhahanghinhvuong;
     List<NhaHang> arr;
     Context context;
 
@@ -38,6 +35,7 @@ public class NhaHangVuongAdapter extends RecyclerView.Adapter<NhaHangVuongAdapte
     public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView tvTenNhaHang, tvDanhGia;
         ImageView ivImage_NhaHangVuong;
+        ConstraintLayout rlitem_nhahanghinhvuong;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -59,6 +57,9 @@ public class NhaHangVuongAdapter extends RecyclerView.Adapter<NhaHangVuongAdapte
         public ImageView getNhaHangVuong(){
             return ivImage_NhaHangVuong;
         }
+        public ConstraintLayout getrlitem_nhahanghinhvuong(){
+            return rlitem_nhahanghinhvuong;
+        }
     }
 
     @NonNull
@@ -77,6 +78,7 @@ public class NhaHangVuongAdapter extends RecyclerView.Adapter<NhaHangVuongAdapte
         TextView tvTenNhaHang = holder.getTenNhaHang();
         TextView tvDanhGia = holder.getDanhGia();
         ImageView ivImage_NhaHangVuong = holder.getNhaHangVuong();
+        ConstraintLayout rlitem_nhahanghinhvuong = holder.getrlitem_nhahanghinhvuong();
         Glide.with(context).load(model.getHinhAnh()).centerCrop().into(ivImage_NhaHangVuong);
         tvTenNhaHang.setText(model.getTenNH());
         if (model.getDanhGia() < 10) {

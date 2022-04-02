@@ -19,7 +19,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.eaterydemo.R;
 import com.example.eaterydemo.fragments.NhaHangFMDirections;
-import com.example.eaterydemo.fragments.NhaHangYeuThichFMDirections;
 import com.example.eaterydemo.model.NhaHang;
 
 import java.text.Normalizer;
@@ -113,7 +112,7 @@ public class NhaHangHCNAdapter extends RecyclerView.Adapter<NhaHangHCNAdapter.Vi
         rlitem_nhahanghcn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int maNh = model.getMaNH();
+                int maNh = (int) model.getMaNH();
                 NavDirections action = NhaHangFMDirections.actionNhaHangFMToNhaHangChiTietFM2(maNh);
                 Navigation.findNavController(view).navigate(action);
 

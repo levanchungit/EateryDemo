@@ -1,7 +1,7 @@
 package com.example.eaterydemo.model;
 
 public class NhaHang{
-    private float MaNH;
+    private int MaNH;
     private String TenNH;
     private String DiaChi;
     private String HinhAnh;
@@ -13,7 +13,7 @@ public class NhaHang{
     private String HoTen;
     private float IsYeuThich;
 
-    public NhaHang(float maNH, String tenNH, String diaChi, String hinhAnh, String moTa, float danhGia, String tenTK, String maLoaiNH, String tenLoaiNH, String hoTen, float isYeuThich) {
+    public NhaHang(int maNH, String tenNH, String diaChi, String hinhAnh, String moTa, float danhGia, String tenTK, String maLoaiNH, String tenLoaiNH, String hoTen, float isYeuThich) {
         MaNH = maNH;
         TenNH = tenNH;
         DiaChi = diaChi;
@@ -27,11 +27,11 @@ public class NhaHang{
         IsYeuThich = isYeuThich;
     }
 
-    public float getMaNH() {
+    public int getMaNH() {
         return MaNH;
     }
 
-    public void setMaNH(float maNH) {
+    public void setMaNH(int maNH) {
         MaNH = maNH;
     }
 
@@ -114,8 +114,4 @@ public class NhaHang{
     public void setIsYeuThich(float isYeuThich) {
         IsYeuThich = isYeuThich;
     }
-
-    public int getIsYeuThich() { return isYeuThich; }
-
-    public void setIsYeuThich(int isYeuThich) { this.isYeuThich = isYeuThich; }
 }

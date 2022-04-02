@@ -14,11 +14,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
-import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import com.example.eaterydemo.adapter.NhaHangHCNAdapter;
 import com.example.eaterydemo.adapter.NhaHangHCNYeuThichAdapter;
 import com.example.eaterydemo.databinding.FragmentNhahangyeuthichBinding;
 import com.example.eaterydemo.model.NhaHang;
@@ -56,7 +54,7 @@ public class NhaHangYeuThichFM extends Fragment {
 
     private void GetAllNhaHangYeuThich() {
         ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
-        Call call = serviceAPI.GetAllNhaHangYeuThichTheoTK("user1");
+        Call call = serviceAPI.GetAllNhaHangYeuThichTheoTK(DangNhapFM.TENTK);
         call.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {

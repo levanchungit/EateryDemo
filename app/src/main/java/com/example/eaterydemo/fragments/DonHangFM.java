@@ -63,7 +63,7 @@ public class DonHangFM extends Fragment {
 
         private void getAllDonHang() {
         ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
-        Call call = serviceAPI.GetALLDonHang("user1");
+        Call call = serviceAPI.GetALLDonHang(DangNhapFM.TENTK);
         call.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {

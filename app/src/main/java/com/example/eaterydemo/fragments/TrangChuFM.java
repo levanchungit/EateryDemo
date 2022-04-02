@@ -64,7 +64,6 @@ public class TrangChuFM extends Fragment {
         showProgressDialog(getContext(), "Đang tải dữ liệu");
         Khao20ValentineTrang();
         getAllKhuyenMai();
-        return fmBinding.getRoot();
     }
 
     private void initNavController(View viewFmProfileBinding) {

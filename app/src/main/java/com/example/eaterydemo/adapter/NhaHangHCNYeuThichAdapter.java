@@ -16,7 +16,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.eaterydemo.R;
-import com.example.eaterydemo.fragments.NhaHangFMDirections;
 import com.example.eaterydemo.fragments.NhaHangYeuThichFMDirections;
 import com.example.eaterydemo.model.NhaHang;
 
@@ -63,7 +62,7 @@ public class NhaHangHCNYeuThichAdapter extends RecyclerView.Adapter<NhaHangHCNYe
         NhaHang model = arr.get(position);
         Glide.with(context).load(model.getHinhAnh()).centerCrop().placeholder(R.drawable.img_error).into(ivImage_NhaHang);
         tvTenNhaHang_ItemNhaHang.setText(model.getTenNH());
-        tvLoaiNhaHang_ItemNhaHang.setText(model.getLoaiNH() + "");
+        tvLoaiNhaHang_ItemNhaHang.setText(model.getMaLoaiNH() + "");
         tvDiaChi_ItemNhaHang.setText(model.getDiaChi());
         if (model.getDanhGia() < 10) {
             ivDanhGia_ItemNhaHang.setImageResource(R.drawable._1sao);
