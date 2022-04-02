@@ -66,6 +66,7 @@ public class DangKyFM extends Fragment {
         fmBinding.btnLoginDangKy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 //load hình ảnh lên cloudinary
                 uploadToCloudinary();
 
@@ -154,7 +155,7 @@ public class DangKyFM extends Fragment {
                 String _email = fmBinding.edtEmailDangKy.getText().toString().trim();
                 String _mk = fmBinding.edtMatKhauDangKy.getText().toString().trim();
                 String _hoten = fmBinding.edtHoTenDangKy.getText().toString().trim();
-                String _sdt = fmBinding.edtSoDTDangKy.getText().toString().trim();
+                String _sdt = fmBinding.edtSdtDangKy.getText().toString().trim();
                 String _diachi = fmBinding.edtDiaChiDangKy.getText().toString().trim();
                 String _hinhAnh = resultData.get("url").toString();
                 TaiKhoan taiKhoan = new TaiKhoan(_email, _mk, _hoten, _sdt, _diachi, _hinhAnh, "user");

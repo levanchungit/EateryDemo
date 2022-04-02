@@ -45,11 +45,20 @@ public interface ServiceAPI {
     @GET("api/taikhoan")
     Call<ArrayList<TaiKhoan>> GetAllTaiKhoan();
 
+    @GET("api/taikhoan/{TenTK}")
+    Call<TaiKhoan> GetTaiKhoanTheoTenTK(@Path("TenTK") String TenTK);
 
+    //truyền k có đuôi api/.../{}, k có dấu {} này thì phải là @query
+    //thì check api trên postman thì phải check thế này
+    @GET("api/doimatkhau")
+    Call<Message> DoiMatKhau(@Query("TenTK") String TenTK, @Query("MatKhauCu") String MatKhauCu, @Query("MatKhauMoi") String MatKhauMoi);
 
     @POST("api/capnhatthongtintaikhoan")
-    Call<Message> CapNhatThongTinTaiKhoan(@Body TaiKhoan taiKhoan);
+    Call<Message> ChinhSuaThongTin(@Query("TenTK") String TenTK, @Query("HoTen") String HoTen, @Query("SDT") String SDT, @Query("DiaChi") String DiaChi);
 
+
+    @GET("api/nhahangtheomanh/{MaNH}")
+    Call<NhaHang> GetNhaHangTheoMaNH(@Path("MaNH") int MaNH);
 
 
     //ĐƠN HÀNG

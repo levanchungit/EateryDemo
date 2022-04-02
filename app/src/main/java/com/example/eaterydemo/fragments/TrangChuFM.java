@@ -71,17 +71,74 @@ public class TrangChuFM extends Fragment {
         fmBinding.ivLau.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                NavDirections action = TrangChuFMDirections.actionHomeFMToNhaHangFM2();
-//                navController.navigate(action);
+                String loaiNh = "LAU";
+                NavDirections action = TrangChuFMDirections.actionHomeFMToNhaHangFM(loaiNh);
+                navController.navigate(action);
             }
         });
         fmBinding.ivCom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                NavDirections action = TrangChuFMDirections.actionHomeFMToNhaHangFM2();
-//                navController.navigate(action);
+                String loaiNh = "COM";
+                NavDirections action = TrangChuFMDirections.actionHomeFMToNhaHangFM(loaiNh);
+                navController.navigate(action);
             }
         });
+
+        fmBinding.ivBun.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String loaiNh = "BunPho";
+                NavDirections action = TrangChuFMDirections.actionHomeFMToNhaHangFM(loaiNh);
+                navController.navigate(action);
+            }
+        });
+
+        fmBinding.ivthucuong.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String loaiNh = "THUCUONG";
+                NavDirections action = TrangChuFMDirections.actionHomeFMToNhaHangFM(loaiNh);
+                navController.navigate(action);
+            }
+        });
+
+        fmBinding.ivanvat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String loaiNh = "ANVAT";
+                NavDirections action = TrangChuFMDirections.actionHomeFMToNhaHangFM(loaiNh);
+                navController.navigate(action);
+            }
+        });
+
+        fmBinding.ivdacsan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String loaiNh = "DACSAN";
+                NavDirections action = TrangChuFMDirections.actionHomeFMToNhaHangFM(loaiNh);
+                navController.navigate(action);
+            }
+        });
+
+        fmBinding.ivthucannhanh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String loaiNh = "THUCANNHANH";
+                NavDirections action = TrangChuFMDirections.actionHomeFMToNhaHangFM(loaiNh);
+                navController.navigate(action);
+            }
+        });
+
+        fmBinding.ivdinhduong.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String loaiNh = "DINHDUONG";
+                NavDirections action = TrangChuFMDirections.actionHomeFMToNhaHangFM(loaiNh);
+                navController.navigate(action);
+            }
+        });
+
 
         fmBinding.ivTimKiemNhaHangTrangChu.setOnClickListener(new View.OnClickListener() {
             @Override

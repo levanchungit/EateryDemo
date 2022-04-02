@@ -41,8 +41,7 @@ public class NhaHangChiTietFM extends Fragment {
             public void onClick(View view) {
 //                NavDirections action = NhaHangFMDirections.actionNhaHangFMToHomeFM();
 //                navController.navigate(action);
-                NavDirections action = NhaHangChiTietFMDirections.actionNhaHangChiTietFMToNhaHangFM();
-                navController.navigate(action);
+
             }
         });
     }

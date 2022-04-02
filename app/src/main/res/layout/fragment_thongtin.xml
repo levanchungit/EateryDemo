@@ -43,6 +43,7 @@
             </androidx.cardview.widget.CardView>
 
             <TextView
+                android:id="@+id/ivTen"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="150dp"
@@ -63,10 +64,10 @@
 
         <ImageView
             android:id="@+id/ivDonHangCuaBan"
-            android:layout_gravity="center"
-            android:src="@drawable/item_donhangcuaban"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/item_donhangcuaban" />
 
         <ImageView
             android:id="@+id/ivPhuongThucThanhToan"

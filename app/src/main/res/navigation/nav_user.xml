@@ -23,7 +23,11 @@
         android:id="@+id/editProfileFM"
         tools:layout="@layout/fragment_chinhsua_thongtin"
         android:name="com.example.eaterydemo.fragments.ChinhSuaThongTinFM"
-        android:label="EditProfileFM"/>
+        android:label="EditProfileFM">
+        <action
+            android:id="@+id/action_editProfileFM_to_menu_ThongTin"
+            app:destination="@id/menu_ThongTin" />
+    </fragment>
     <fragment
         android:id="@+id/menu_TrangChu"
         tools:layout="@layout/fragment_trangchu"
@@ -43,7 +47,11 @@
         android:id="@+id/NhaHangFM"
         tools:layout="@layout/fragment_nhahang"
         android:name="com.example.eaterydemo.fragments.NhaHangFM"
-        android:label="LoaiNhaHangFM" />
+        android:label="LoaiNhaHangFM" >
+        <argument
+            android:name="maLoaiNH"
+            app:argType="string" />
+    </fragment>
     <fragment
         android:id="@+id/doiMatKhauFM"
         tools:layout="@layout/fragment_doimatkhau"

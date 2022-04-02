@@ -40,7 +40,8 @@
             android:id="@+id/edtEmail_DangNhap"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:hint="Email" />
+            android:hint="Email"
+            android:inputType="text"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -65,7 +66,8 @@
             android:id="@+id/edtMatKhau_DangNhap"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:hint="Mật khẩu" />
+            android:hint="Mật khẩu"
+            android:inputType="textPassword"/>
     </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -90,6 +92,7 @@
         android:layout_marginTop="68dp"
         android:src="@drawable/google_logo"
         app:layout_constraintEnd_toEndOf="@id/imgfacebook"
+        app:layout_constraintHorizontal_bias="0.595"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tilPass_DangNhap" />
 
@@ -108,12 +111,13 @@
         android:id="@+id/imgapple"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:layout_marginTop="116dp"
-        android:src="@drawable/apple_logo"
+        android:layout_marginTop="412dp"
 
+        android:layout_marginEnd="96dp"
+
+        android:src="@drawable/apple_logo"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@id/imgfacebook"
-        app:layout_constraintTop_toBottomOf="@+id/tilMatKhau_DangNhap"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnLogin_DangNhap"
@@ -133,26 +137,28 @@
         android:id="@+id/txtTaikhoan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="32dp"
         android:text="Bạn chưa có tài khoản?"
+
         android:textSize="15sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/tvDangKy_DangNhap"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@id/btnLogin"
-        app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnLogin_DangNhap"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/tvDangKy_DangNhap"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="32dp"
         android:text="Đăng ký?"
         android:textColor="@color/black"
         android:textSize="15sp"
         android:textStyle="bold"
-        android:layout_marginLeft="10dp"
+
         app:layout_constraintLeft_toRightOf="@id/txtTaikhoan"
-        app:layout_constraintEnd_toEndOf="@+id/btnLogin"
-        app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
+        app:layout_constraintTop_toBottomOf="@+id/btnLogin_DangNhap" />
 </androidx.constraintlayout.widget.ConstraintLayout>

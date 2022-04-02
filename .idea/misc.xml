@@ -122,7 +122,7 @@
         <entry key="..\:/Github/EateryDemo/app/src/main/res/layout/fragment_chitietdonhang_nguoidung.xml" value="0.25" />
         <entry key="..\:/Github/EateryDemo/app/src/main/res/layout/fragment_dangky.xml" value="0.25" />
         <entry key="..\:/Github/EateryDemo/app/src/main/res/layout/fragment_dangnhap.xml" value="0.25" />
-        <entry key="..\:/Github/EateryDemo/app/src/main/res/layout/fragment_doimatkhau.xml" value="0.25" />
+        <entry key="..\:/Github/EateryDemo/app/src/main/res/layout/fragment_doimatkhau.xml" value="0.4" />
         <entry key="..\:/Github/EateryDemo/app/src/main/res/layout/fragment_gioithieu.xml" value="0.25" />
         <entry key="..\:/Github/EateryDemo/app/src/main/res/layout/fragment_monanchitiet.xml" value="0.25" />
         <entry key="..\:/Github/EateryDemo/app/src/main/res/layout/fragment_nhahangchitiet.xml" value="0.25" />
@@ -130,10 +130,11 @@
         <entry key="..\:/Github/EateryDemo/app/src/main/res/layout/fragment_splash.xml" value="0.25" />
         <entry key="..\:/Github/EateryDemo/app/src/main/res/layout/fragment_thanhtoanthanhcong.xml" value="0.25" />
         <entry key="..\:/Github/EateryDemo/app/src/main/res/layout/fragment_thongke.xml" value="0.25" />
-        <entry key="..\:/Github/EateryDemo/app/src/main/res/layout/fragment_thongtin.xml" value="0.25" />
+        <entry key="..\:/Github/EateryDemo/app/src/main/res/layout/fragment_thongtin.xml" value="0.264" />
         <entry key="..\:/Github/EateryDemo/app/src/main/res/layout/fragment_trangchu.xml" value="0.25" />
         <entry key="..\:/Github/EateryDemo/app/src/main/res/layout/fragment_vechungtoi.xml" value="0.25" />
         <entry key="..\:/Github/EateryDemo/app/src/main/res/layout/item_dathang.xml" value="0.264" />
+        <entry key="..\:/Github/EateryDemo/app/src/main/res/layout/item_khuyenmai.xml" value="0.25416666666666665" />
         <entry key="..\:/Github/EateryDemo/app/src/main/res/layout/item_khuyenmai_chunhat.xml" value="0.25" />
         <entry key="..\:/Github/EateryDemo/app/src/main/res/layout/item_monan.xml" value="0.25" />
         <entry key="..\:/Github/EateryDemo/app/src/main/res/layout/item_nhahang.xml" value="0.25" />
@@ -163,7 +164,8 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

@@ -21,7 +21,6 @@
             android:id="@+id/ivAvatar_EditQLNhaHang"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
             android:src="@drawable/qlnhahang" />
 
         <TextView
@@ -38,7 +37,7 @@
             android:textSize="10pt" />
 
         <EditText
-            android:id="@+id/edtTenChuNhaHang"
+            android:id="@+id/edtTenTKChuNhaHang"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tvFullName"
@@ -52,7 +51,7 @@
             android:inputType="textAutoComplete"
             android:padding="10dp"
             android:singleLine="true"
-            android:text="Tên chủ nhà hàng"
+            android:text="Tên TK chủ nhà hàng"
             android:textColor="@color/black"
             android:textColorHint="@color/black" />
 
@@ -60,7 +59,7 @@
             android:id="@+id/edtTenChuCuaHang"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/edtTenChuNhaHang"
+            android:layout_below="@+id/edtTenTKChuNhaHang"
             android:layout_centerHorizontal="true"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
@@ -71,7 +70,7 @@
             android:inputType="textAutoComplete"
             android:padding="10dp"
             android:singleLine="true"
-            android:text="Tên chủ cửa hàng"
+            android:text="Họ Tên Chủ Cửa Hàng"
             android:textColor="@color/black"
             android:textColorHint="@color/black" />
 
@@ -133,11 +132,12 @@
             android:textColorHint="@color/black" />
 
         <ImageView
-            android:layout_marginTop="20dp"
+            android:id="@+id/btnChinhSua"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/edtMaLoaiEditQLNhaHang"
             android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
             android:src="@drawable/editprofile_btn_chinhsua" />
 
     </RelativeLayout>

@@ -78,7 +78,8 @@ public class NhaHangFM extends Fragment {
 
     private void GetAllNhaHangTheoLoai() {
         ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
-        Call call = serviceAPI.GetAllNhaHangTheoLoai("LAU");
+        String loaiNh = NhaHangFMArgs.fromBundle(getArguments()).getMaLoaiNH();
+        Call call = serviceAPI.GetAllNhaHangTheoLoai(loaiNh);
         call.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
