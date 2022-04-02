@@ -2,8 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#DCDCDC"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
 
     <androidx.cardview.widget.CardView
@@ -50,15 +50,14 @@
                 android:id="@+id/txt_ThayDoi_ThanhToan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/montserrat_bold"
-                android:textColor="#8E80DF"
                 android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="20dp"
                 android:clickable="true"
-                android:layout_alignParentRight="true"
+                android:fontFamily="@font/montserrat_bold"
                 android:text="Thay đổi"
-                />
+                android:textColor="#8E80DF" />
 
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
@@ -77,6 +76,7 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_DonHang_ThanhToan"
+        tools:listitem="@layout/item_donhang_thanhtoan"
         android:layout_width="match_parent"
         android:layout_height="250dp"
         android:layout_below="@id/txt8" />
@@ -179,11 +179,11 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/layout_TongTien_ThanhToan"
         android:layout_alignParentLeft="true"
+        android:layout_marginLeft="20dp"
         android:background="@drawable/bg_makhuyenmai"
         android:fontFamily="@font/montserrat_semibold"
         android:hint="Mã khuyến mãi"
         android:paddingLeft="20dp"
-        android:layout_marginLeft="20dp"
         android:paddingRight="10dp"
         android:paddingBottom="10dp" />
 </RelativeLayout>

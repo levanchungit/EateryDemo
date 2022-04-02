@@ -5,18 +5,28 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.navigation.NavDirections;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.eaterydemo.R;
+import com.example.eaterydemo.fragments.NhaHangFMDirections;
+import com.example.eaterydemo.fragments.TrangChuFMDirections;
 import com.example.eaterydemo.model.NhaHang;
 
 import java.util.List;
 
 public class NhaHangVuongAdapter extends RecyclerView.Adapter<NhaHangVuongAdapter.ViewHolder> {
+
+    TextView tvTenNhaHang, tvDanhGia;
+    ImageView ivImage_NhaHangVuong;
+    ConstraintLayout rlitem_nhahanghinhvuong;
     List<NhaHang> arr;
     Context context;
 
@@ -35,6 +45,7 @@ public class NhaHangVuongAdapter extends RecyclerView.Adapter<NhaHangVuongAdapte
             tvTenNhaHang = itemView.findViewById(R.id.tvTenNhaHang_NhaHangVuong);
             tvDanhGia = itemView.findViewById(R.id.tvDanhGia_NhaHangVuong);
             ivImage_NhaHangVuong = itemView.findViewById(R.id.ivImage_NhaHangVuong);
+            rlitem_nhahanghinhvuong = itemView.findViewById(R.id.rlitem_nhahanghinhvuong);
         }
 
         public TextView getTenNhaHang(){
@@ -79,6 +90,15 @@ public class NhaHangVuongAdapter extends RecyclerView.Adapter<NhaHangVuongAdapte
         } else {
             tvDanhGia.setText("5");
         }
+        rlitem_nhahanghinhvuong.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int maNh = model.getMaNH();
+                NavDirections action = TrangChuFMDirections.actionMenuTrangChuToNhaHangChiTietFM(maNh);
+                Navigation.findNavController(view).navigate(action);
+
+            }
+        });
     }
 
     @Override

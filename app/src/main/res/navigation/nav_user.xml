@@ -50,12 +50,22 @@
         <action
             android:id="@+id/action_menu_TrangChu_to_CCH_QuanLyDonHangFM"
             app:destination="@id/CCH_QuanLyDonHangFM" />
+        <action
+            android:id="@+id/action_menu_TrangChu_to_nhaHangChiTietFM"
+            app:destination="@id/nhaHangChiTietFM" />
     </fragment>
     <fragment
         android:id="@+id/NhaHangFM"
         tools:layout="@layout/fragment_nhahang"
         android:name="com.example.eaterydemo.fragments.NhaHangFM"
-        android:label="LoaiNhaHangFM" />
+        android:label="LoaiNhaHangFM" >
+        <argument
+            android:name="maLoaiNH"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_NhaHangFM_to_nhaHangChiTietFM2"
+            app:destination="@id/nhaHangChiTietFM" />
+    </fragment>
     <fragment
         android:id="@+id/doiMatKhauFM"
         tools:layout="@layout/fragment_doimatkhau"
@@ -81,12 +91,23 @@
         <action
             android:id="@+id/action_nhaHangChiTietFM_to_NhaHangFM"
             app:destination="@id/NhaHangFM" />
+        <argument
+            android:name="maNh"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_nhaHangChiTietFM_to_monAnChiTietFM"
+            app:destination="@id/monAnChiTietFM"
+            app:launchSingleTop="false" />
     </fragment>
     <fragment
         android:id="@+id/menu_YeuThich"
         tools:layout="@layout/fragment_nhahangyeuthich"
         android:name="com.example.eaterydemo.fragments.NhaHangYeuThichFM"
-        android:label="NhaHangYeuThichFM" />
+        android:label="NhaHangYeuThichFM" >
+        <action
+            android:id="@+id/action_menu_YeuThich_to_nhaHangChiTietFM"
+            app:destination="@id/nhaHangChiTietFM" />
+    </fragment>
     <fragment
         android:id="@+id/menu_ThanhToan"
         tools:layout="@layout/fragment_thanhtoan"
@@ -142,5 +163,20 @@
         <argument
             android:name="ChiTietDonHang_CCH"
             app:argType="com.example.eaterydemo.model.DonHang" />
+            
+            
+    <fragment
+        android:id="@+id/monAnChiTietFM"
+        android:name="com.example.eaterydemo.fragments.MonAnChiTietFM"
+        android:label="MonAnChiTietFM" >
+        <argument
+            android:name="maNH"
+            app:argType="integer" />
+        <argument
+            android:name="maMA"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_monAnChiTietFM_self"
+            app:destination="@id/monAnChiTietFM" />
     </fragment>
 </navigation>

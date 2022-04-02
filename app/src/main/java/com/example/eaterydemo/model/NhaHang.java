@@ -114,4 +114,8 @@ public class NhaHang{
     public void setIsYeuThich(float isYeuThich) {
         IsYeuThich = isYeuThich;
     }
+
+    public int getIsYeuThich() { return isYeuThich; }
+
+    public void setIsYeuThich(int isYeuThich) { this.isYeuThich = isYeuThich; }
 }

@@ -31,13 +31,13 @@
 
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycleView"
+        android:id="@+id/rvNhaHangYeuThich"
         android:layout_width="match_parent"
-        tools:listitem="@layout/item_nhahang"
         android:layout_height="550dp"
         android:layout_below="@+id/imgUser"
         android:layout_marginTop="10dp"
-        android:padding="10dp" />
+        android:padding="10dp"
+        tools:listitem="@layout/item_nhahang" />
 
 
 </RelativeLayout>

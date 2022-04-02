@@ -64,9 +64,7 @@ public class TrangChuFM extends Fragment {
         showProgressDialog(getContext(), "Đang tải dữ liệu");
         Khao20ValentineTrang();
         getAllKhuyenMai();
-
-        getAllNhaHang();
-
+        return fmBinding.getRoot();
     }
 
     private void initNavController(View viewFmProfileBinding) {
@@ -81,15 +79,65 @@ public class TrangChuFM extends Fragment {
         fmBinding.ivLau.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavDirections action = TrangChuFMDirections.actionMenuTrangChuToCCHQuanLyDonHangFM();
+                String loaiNh = "LAU";
+                NavDirections action = TrangChuFMDirections.actionHomeFMToNhaHangFM(loaiNh);
                 navController.navigate(action);
             }
         });
         fmBinding.ivCom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                NavDirections action = TrangChuFMDirections.actionMenuTrangChuToPhuongThucThanhToanFM();
-//                navController.navigate(action);
+                String loaiNh = "COM";
+                NavDirections action = TrangChuFMDirections.actionHomeFMToNhaHangFM(loaiNh);
+                navController.navigate(action);
+            }
+        });
+        fmBinding.ivBun.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String loaiNh = "BunPho";
+                NavDirections action = TrangChuFMDirections.actionHomeFMToNhaHangFM(loaiNh);
+                navController.navigate(action);
+            }
+        });
+        fmBinding.ivthucuong.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String loaiNh = "ThucUong";
+                NavDirections action = TrangChuFMDirections.actionHomeFMToNhaHangFM(loaiNh);
+                navController.navigate(action);
+            }
+        });
+        fmBinding.ivanvat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String loaiNh = "AnVat";
+                NavDirections action = TrangChuFMDirections.actionHomeFMToNhaHangFM(loaiNh);
+                navController.navigate(action);
+            }
+        });
+        fmBinding.ivdacsan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String loaiNh = "DacSan";
+                NavDirections action = TrangChuFMDirections.actionHomeFMToNhaHangFM(loaiNh);
+                navController.navigate(action);
+            }
+        });
+        fmBinding.ivthucannhanh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String loaiNh = "ThucAnNhanh";
+                NavDirections action = TrangChuFMDirections.actionHomeFMToNhaHangFM(loaiNh);
+                navController.navigate(action);
+            }
+        });
+        fmBinding.ivdinhduong.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String loaiNh = "DinhDuong";
+                NavDirections action = TrangChuFMDirections.actionHomeFMToNhaHangFM(loaiNh);
+                navController.navigate(action);
             }
         });
 
@@ -100,6 +148,7 @@ public class TrangChuFM extends Fragment {
                 navController.navigate(action);
             }
         });
+
     }
 
     private void slideShowKhuyenMai(ViewPager vp, int[] arr) {
@@ -144,7 +193,7 @@ public class TrangChuFM extends Fragment {
             @Override
             public void onFailure(Call call, Throwable t) {
                 dismissProgressDialog();
-                Toast.makeText(getContext(), "Lỗi", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Lỗi nhà hàng", Toast.LENGTH_SHORT).show();
             }
         });
     }

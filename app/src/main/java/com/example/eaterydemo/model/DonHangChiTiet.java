@@ -1,6 +1,6 @@
 package com.example.eaterydemo.model;
 
-public class DonHangChiTiet{
+public class DonHangChiTiet {
     private String TenMA;
     private float giaMA;
     private String MONAN = null;
@@ -8,18 +8,15 @@ public class DonHangChiTiet{
     private float MaMA;
     private float SL;
     private float DonGia;
-
-    public DonHangChiTiet(String tenMA, float giaMA, String MONAN, float maDHCT, float maMA, float SL, float donGia) {
-        TenMA = tenMA;
         this.giaMA = giaMA;
         this.MONAN = MONAN;
         MaDHCT = maDHCT;
-        MaMA = maMA;
         this.SL = SL;
         DonGia = donGia;
     }
 
     public DonHangChiTiet() {
+        HinhAnhMA = hinhAnh;
     }
 
     public String getTenMA() {
@@ -76,5 +73,13 @@ public class DonHangChiTiet{
 
     public void setDonGia(float donGia) {
         DonGia = donGia;
+    }
+
+    public String getHinhAnh() {
+        return HinhAnhMA;
+    }
+
+    public void setHinhAnh(String hinhAnh) {
+        HinhAnhMA = hinhAnh;
     }
 }

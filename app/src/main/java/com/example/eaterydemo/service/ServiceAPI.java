@@ -6,6 +6,7 @@ import com.bumptech.glide.load.model.Model;
 import com.example.eaterydemo.model.DonHang;
 import com.example.eaterydemo.model.KhuyenMai;
 import com.example.eaterydemo.model.Message;
+import com.example.eaterydemo.model.MonAn;
 import com.example.eaterydemo.model.NhaHang;
 import com.example.eaterydemo.model.TaiKhoan;
 
@@ -31,12 +32,32 @@ public interface ServiceAPI {
 
     @GET("api/nhahangtheotentk")
     Call<NhaHang> GetNhaHangTheoTenTK(@Query("TenTK") String TenTK);
+    @GET("api/getAllnhahangyeuthich")
+    Call<ArrayList<NhaHang>> GetAllNhaHangYeuThich();
+
+    @GET("api/nhahangyeuthich/{TenTK}")
+    Call<ArrayList<NhaHang>> GetAllNhaHangYeuThichTheoTK(@Path("TenTK") String TenTK);
+
+    @GET("api/nhahangtheomanh/{MaNH}")
+    Call<NhaHang> GetNhaHangTheoMaNH(@Path("MaNH") int MaNH);
+
 
 
     //KHUYẾN MÃI
     @GET("api/khuyenmai")
     Call<ArrayList<KhuyenMai>> GetAllKhuyenMai();
 
+
+    //MÓN ĂN
+    //truyen param thi k có cái đuôi {...} và cái @Query
+    @GET("api/monantheonhahang")
+    Call<ArrayList<MonAn>> GetAllMonAnTheoNhaHang(@Query("MaNH") int MaNH);
+
+    @GET("api/monantheomama")
+    Call<MonAn> GetMonAnTheoMaMA(@Query("MaMA") int MaMA);
+
+    @GET("api/themonanvaogiohang")
+    Call<Message> ThemMonAnVaoGioHang(@Query("TenTK") String TenTK,@Query("MaMA") int MaMA,@Query("SL") int SL,@Query("Gia") double Gia);
 
     //TÀI KHOẢN
     @POST("api/dangnhap")
@@ -64,6 +85,9 @@ public interface ServiceAPI {
 
     @POST("api/capnhatrangthaidonhang")
     Call<Message> CapNhatTrangThaiDonHang(@Query("MaNH") int MaNH, @Query("TrangThaiDH") int TrangThaiDH);
+
+    @GET("api/getDonHangTheoTK")
+    Call<DonHang> GetDonHangTheoTK(@Query("TenTK") String TenTK);
 
     @GET("api/xoaDonHangTheoTK")
     Call<Message> XoaDonHangCuaTenTKTheoMaDH(@Query("MaDH") String MaDH, @Query("TenTK") String TenTK);

@@ -3,10 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:id="@+id/rlitem_monan"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/imgMonAn"
+        android:id="@+id/cv_img_ItemMonAn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -15,6 +16,7 @@
         app:cardCornerRadius="100dp">
 
         <ImageView
+            android:id="@+id/img_ItemMonAn"
             android:layout_width="125dp"
             android:layout_height="125dp"
             android:scaleType="center"
@@ -23,7 +25,7 @@
 
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardViewMonAn"
+        android:id="@+id/cv_ItemMonAn"
         android:layout_width="175dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="70dp"
@@ -42,9 +44,9 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/txtTenMonAn"
+                android:id="@+id/txt_TenMonAn_ItemMonAn"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="80dp"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="70dp"
                 android:fontFamily="@font/montserrat_medium"
@@ -53,35 +55,16 @@
                 android:textSize="20dp" />
 
             <TextView
-                android:id="@+id/txtMoTaMonAn"
+                android:id="@+id/txt_GiaMonAn_ItemMonAn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_below="@+id/txtTenMonAn"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/montserrat_regular"
-                android:text="Mô tả" />
-
-            <TextView
-                android:id="@+id/txtGiaMonAn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/txtMoTaMonAn"
+                android:layout_below="@+id/txt_TenMonAn_ItemMonAn"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="23dp"
+                android:layout_marginBottom="30dp"
                 android:fontFamily="@font/montserrat_extrabold"
                 android:text="120.000đ" />
 
-            <ImageView
-                android:id="@+id/imgAddMonAn"
-                android:layout_width="42dp"
-                android:layout_height="42dp"
-                android:layout_below="@+id/txtGiaMonAn"
-                android:layout_toRightOf="@id/txtGiaMonAn"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="15dp"
-                android:clickable="true"
-                app:srcCompat="@drawable/ic_baseline_add_circle_outline_24" />
 
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
