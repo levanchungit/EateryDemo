@@ -77,18 +77,18 @@ public class DonHangChiTietFM extends Fragment {
 
     private void recieverDataDonHang() {
         donHangChiTiet = new DonHangChiTiet();
-//        taiKhoan = new TaiKhoan();
+        taiKhoan = new TaiKhoan();
         DonHang donHang = DonHangChiTietFMArgs.fromBundle(getArguments()).getDonhangchitiet();
         arrDHCT = donHang.getDONHANGCHITIETs();
-//        taiKhoan = donHang.getTAIKHOAN();
+        taiKhoan = donHang.getTAIKHOAN();
         tvTenNhaHang_DHChiTiet.setText(donHang.getNameRes());
         tvNgayMuaDHChiTiet.setText(donHang.getNgayMua());
         tvTongTien_DHChiTiet.setText(df.format(donHang.getTongTien())+"đ");
         tvMaDH_DHChiTiet.setText(donHang.getMaDonHang()+"");
-//        tvTenKH_DHChiTiet.setText(taiKhoan.getHoTen());
+        tvTenKH_DHChiTiet.setText(taiKhoan.getHoTen());
         tvDiaChi_DHChiTiet.setText(donHang.getDiaChi());
-//        tvSDT_DHChiTiet.setText(taiKhoan.getSDT()+"");
-//        Log.d("ten tai khoan", taiKhoan.getHoTen() + "");
+        tvSDT_DHChiTiet.setText(taiKhoan.getSDT()+"");
+        Log.d("ten tai khoan", taiKhoan.getHoTen() + "");
 
         adapter = new DonHangChiTietAdapter(arrDHCT, getContext());
         fmBinding.rvMonAnDonHangChiTiet.setAdapter(adapter);

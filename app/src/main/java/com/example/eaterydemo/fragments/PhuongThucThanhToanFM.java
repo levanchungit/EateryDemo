@@ -26,14 +26,13 @@ public class PhuongThucThanhToanFM extends Fragment {
     LinearLayout lnPTTTPayPal;
     ImageView ivHinhPayPal;
     View _view;
-    TextView tvTenNhaHang_DHChiTiet, tvNgayMuaDHChiTiet, tvTongTien_DHChiTiet, tvMaDH_DHChiTiet, tvTenKH_DHChiTiet, tvSDT_DHChiTiet, tvDiaChi_DHChiTiet;
 
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         fmBinding = FragmentPhuongthucthanhtoanBinding.inflate(getLayoutInflater());
-        initNavController(container);
+//        initNavController(container);
         _view = container;
 
 
@@ -76,10 +75,10 @@ public class PhuongThucThanhToanFM extends Fragment {
 //        // the request code will be used on the method onActivityResult
 //        startActivityForResult(intent, PAYPAL_REQUEST_CODE);
 //    }
-
-    private void initNavController(View viewFmProfileBinding) {
-        navController = Navigation.findNavController(viewFmProfileBinding);
-    }
+//
+//    private void initNavController(View viewFmProfileBinding) {
+//        navController = Navigation.findNavController(viewFmProfileBinding);
+//    }
 
 
 }

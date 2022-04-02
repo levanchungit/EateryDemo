@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:id="@+id/rlQuanLyDH_CCH"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.cardview.widget.CardView
@@ -19,7 +20,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/txtMaDonHang"
+                android:id="@+id/tvMaDH_CCH"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/montserrat_regular"
@@ -29,7 +30,7 @@
                 android:text="#0001" />
 
             <TextView
-                android:id="@+id/txtTongTienVaSoLuong"
+                android:id="@+id/tvTongTienVaSoLuong_DH_CCH"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
@@ -40,7 +41,7 @@
                 android:textSize="16dp" />
 
             <TextView
-                android:id="@+id/txtTrangThaiDonHang"
+                android:id="@+id/tvTranThaiDH_CCH"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/montserrat_regular"
@@ -59,18 +60,18 @@
                 android:layout_marginBottom="15dp">
 
                 <TextView
-                    android:id="@+id/txtThoiGian"
+                    android:id="@+id/tvNgayDH_CCH"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:layout_marginRight="20dp"
-                    android:layout_toLeftOf="@id/imgTrangThaiDonHang"
+                    android:layout_toLeftOf="@id/ivTrangThaiDH_CCH"
                     android:fontFamily="@font/montserrat_regular"
                     android:text="14-3-2022"
                     android:textSize="16dp" />
 
                 <ImageView
-                    android:id="@+id/imgTrangThaiDonHang"
+                    android:id="@+id/ivTrangThaiDH_CCH"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
