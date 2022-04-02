@@ -1,10 +1,6 @@
 package com.example.eaterydemo.fragments;
 
-import static com.example.eaterydemo.others.ShowNotifyUser.dismissProgressDialog;
-
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,26 +13,9 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
-import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.eaterydemo.R;
-import com.example.eaterydemo.adapter.DonHangChiTietAdapter;
-import com.example.eaterydemo.databinding.FragmentChitietdonhangNguoidungBinding;
 import com.example.eaterydemo.databinding.FragmentPhuongthucthanhtoanBinding;
-import com.example.eaterydemo.model.DonHang;
-import com.example.eaterydemo.model.DonHangChiTiet;
-import com.paypal.android.sdk.payments.PayPalConfiguration;
-import com.paypal.android.sdk.payments.PayPalPayment;
-import com.paypal.android.sdk.payments.PayPalService;
-import com.paypal.android.sdk.payments.PaymentActivity;
-
-import java.math.BigDecimal;
-import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.List;
-
-import vn.zalopay.sdk.Environment;
-import vn.zalopay.sdk.ZaloPaySDK;
 
 
 public class PhuongThucThanhToanFM extends Fragment {
@@ -61,7 +40,7 @@ public class PhuongThucThanhToanFM extends Fragment {
         return fmBinding.getRoot();
     }
 
-    private static PayPalConfiguration config = new PayPalConfiguration().environment(PayPalConfiguration.ENVIRONMENT_SANDBOX).clientId(clientKey);
+//    private static PayPalConfiguration config = new PayPalConfiguration().environment(PayPalConfiguration.ENVIRONMENT_SANDBOX).clientId(clientKey);
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -70,33 +49,33 @@ public class PhuongThucThanhToanFM extends Fragment {
         lnPTTTPayPal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getPayment();
+//                getPayment();
             }
         });
     }
 
-    private void getPayment() {
-
-        // Getting the amount from editText
-        String amount = "100";
-
-        // Creating a paypal payment on below line.
-        PayPalPayment payment = new PayPalPayment(new BigDecimal(String.valueOf(amount)), "USD", "Course Fees",
-                PayPalPayment.PAYMENT_INTENT_SALE);
-
-        // Creating Paypal Payment activity intent
-        Intent intent = new Intent(getContext(), PaymentActivity.class);
-
-        //putting the paypal configuration to the intent
-        intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, config);
-
-        // Putting paypal payment to the intent
-        intent.putExtra(PaymentActivity.EXTRA_PAYMENT, payment);
-
-        // Starting the intent activity for result
-        // the request code will be used on the method onActivityResult
-        startActivityForResult(intent, PAYPAL_REQUEST_CODE);
-    }
+//    private void getPayment() {
+//
+//        // Getting the amount from editText
+//        String amount = "100";
+//
+//        // Creating a paypal payment on below line.
+//        PayPalPayment payment = new PayPalPayment(new BigDecimal(String.valueOf(amount)), "USD", "Course Fees",
+//                PayPalPayment.PAYMENT_INTENT_SALE);
+//
+//        // Creating Paypal Payment activity intent
+//        Intent intent = new Intent(getContext(), PaymentActivity.class);
+//
+//        //putting the paypal configuration to the intent
+//        intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, config);
+//
+//        // Putting paypal payment to the intent
+//        intent.putExtra(PaymentActivity.EXTRA_PAYMENT, payment);
+//
+//        // Starting the intent activity for result
+//        // the request code will be used on the method onActivityResult
+//        startActivityForResult(intent, PAYPAL_REQUEST_CODE);
+//    }
 
     private void initNavController(View viewFmProfileBinding) {
         navController = Navigation.findNavController(viewFmProfileBinding);

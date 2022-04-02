@@ -1,18 +1,13 @@
 package com.example.eaterydemo.adapter;
 
-import static com.example.eaterydemo.others.ShowNotifyUser.dismissProgressDialog;
-import static com.example.eaterydemo.service.GetRetrofit.getRetrofit;
-
 import android.content.Context;
 import android.graphics.Color;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.navigation.NavController;
@@ -20,24 +15,14 @@ import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
 import com.example.eaterydemo.R;
 import com.example.eaterydemo.fragments.DonHangFMDirections;
-import com.example.eaterydemo.fragments.TrangChuFMDirections;
 import com.example.eaterydemo.model.DonHang;
 import com.example.eaterydemo.model.DonHangChiTiet;
-import com.example.eaterydemo.model.NhaHang;
-import com.example.eaterydemo.service.ServiceAPI;
 
 import java.text.DecimalFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class DonHangAdapter extends RecyclerView.Adapter<DonHangAdapter.ViewHolder> {
     List<DonHang> arr;
@@ -123,31 +108,6 @@ public class DonHangAdapter extends RecyclerView.Adapter<DonHangAdapter.ViewHold
         DonHang model = arr.get(position);
         initNavController(_view);
         RelativeLayout rlDH = holder.getRl_donhang();
-//        ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
-//        Call call = serviceAPI.GetALLDonHang("user1");
-//        call.enqueue(new Callback() {
-//
-//            @Override
-//            public void onResponse(Call call, Response response) {
-//                arr = (List<DonHang>) response.body();
-//                Log.d("arr", arr.size() + "");
-//                for (DonHang item : arr) {
-//                    donHang = item;
-//                    Log.d("arr", item.getNameRes() + "");
-//                    for (DonHangChiTiet item2 : item.getDONHANGCHITIETs()) {
-//                        donHangChiTiet = item2;
-//                        Log.d("donq han chi tiet", item2.getTenMA() + "");
-//
-//                    }
-//                    Log.d("size dhct", donHang.getDONHANGCHITIETs().size()+"");
-//                }
-//            }
-//            @Override
-//            public void onFailure(Call call, Throwable t) {
-//                dismissProgressDialog();
-//                Toast.makeText(context, "Lỗi", Toast.LENGTH_SHORT).show();
-//            }
-//        });
         rlDH.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -189,33 +149,6 @@ public class DonHangAdapter extends RecyclerView.Adapter<DonHangAdapter.ViewHold
         }
 
     }
-//    private void getAllDonHang() {
-//        ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
-//        Call call = serviceAPI.GetALLDonHang("user1");
-//        call.enqueue(new Callback() {
-//            @Override
-//            public void onResponse(Call call, Response response) {
-//                arr = (List<DonHang>) response.body();
-//                Log.d("arr", arr.size() + "");
-//                for (DonHang item: arr) {
-//                    item.getNameRes()
-//                    for (DonHangChiTiet item2: item.getDONHANGCHITIETs()) {
-//                        item2.
-//                    }
-//                }
-//                adapter = new DonHangAdapter(arr, getContext());
-//                fmBinding.rvDonHang.setAdapter(adapter);
-//                fmBinding.rvDonHang.setLayoutManager(new LinearLayoutManager(getContext()));
-//                dismissProgressDialog();
-//            }
-//
-//            @Override
-//            public void onFailure(Call call, Throwable t) {
-//                dismissProgressDialog();
-//                Toast.makeText(context, "Lỗi", Toast.LENGTH_SHORT).show();
-//            }
-//        });
-//    }
 
     @Override
     public int getItemCount() {
