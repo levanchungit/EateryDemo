@@ -55,16 +55,17 @@ public interface ServiceAPI {
     Call<Message> CapNhatMatKhau(@Query("TenTK") String TenTK, @Query("Code") String code, @Query("matKhauMoi")String matKhauMoi);
 
 
+    @GET("api/donhang")
+    Call<ArrayList<DonHang>> GetAllDonHang();
 
-    //ĐƠN HÀNG
     @GET("api/capnhatrangthaidonhang")
     Call<ArrayList<DonHang>> CapNhatTrangThaiDonHang();
 
     @GET("api/xoaDonHangTheoTK")
     Call<Message> XoaDonHangCuaTenTKTheoMaDH(@Query("MaDH") String MaDH, @Query("TenTK") String TenTK);
 
-    @GET("api/getAllDonHangTheoTK/{TenTK}")
-    Call<ArrayList<DonHang>> GetALLDonHang(@Path("TenTK") String TenTK);
+    @GET("api/getAllDonHangTheoTK")
+    Call<ArrayList<DonHang>> GetALLDonHang(@Query("TenTK") String TenTK);
 
 
 }

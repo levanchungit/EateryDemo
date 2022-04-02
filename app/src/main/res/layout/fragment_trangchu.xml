@@ -235,6 +235,15 @@
 
             <TableRow>
 
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvNhaHangGanBan_TrangChu"
+                    android:orientation="vertical"
+                    android:layout_width="390dp"
+                    android:layout_height="wrap_content" />
+            </TableRow>
+
+            <TableRow>
+
                 <androidx.cardview.widget.CardView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"

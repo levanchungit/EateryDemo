@@ -4,11 +4,13 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
+import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 
 import com.example.eaterydemo.databinding.FragmentThongtinBinding;
@@ -32,11 +34,26 @@ public class ThongTinFM extends Fragment {
     }
 
     private void initClick() {
-        fmProfileBinding.ivThongTin.setOnClickListener(new View.OnClickListener() {
+        fmProfileBinding.ivDonHangCuaBan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                NavDirections action = ThongTinFMDirections.actionProfileFMToEditProfileFM();
-//                navController.navigate(action);
+                NavDirections action = ThongTinFMDirections.actionMenuThongTinToDonHangFM();
+                navController.navigate(action);
+            }
+        });
+        fmProfileBinding.ivPhuongThucThanhToan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavDirections action = ThongTinFMDirections.actionMenuThongTinToPhuongThucThanhToanFM();
+                navController.navigate(action);
+            }
+        });
+
+        fmProfileBinding.ivVeChungToi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavDirections action = ThongTinFMDirections.actionMenuThongTinToVeChungToiFM();
+                navController.navigate(action);
             }
         });
     }

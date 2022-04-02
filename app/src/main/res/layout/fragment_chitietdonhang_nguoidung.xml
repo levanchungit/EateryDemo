@@ -3,21 +3,19 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent"
-    android:layout_margin="20dp">
+    android:padding="20dp">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
-        android:orientation="horizontal">
+
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="20dp"
+            android:gravity="center"
+            android:layout_marginBottom="30dp"
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/tvTenNhaHang_DHChiTiet"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Cơm Tấm và Bún Thịt Nướng - Sài Gòn"
@@ -27,51 +25,25 @@
                 android:textColor="@color/black"/>
 
             <TextView
+                android:id="@+id/tvNgayMuaDHChiTiet"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="20 tháng 10 2022"
                 android:textAlignment="center"
                 android:textSize="20dp"/>
         </LinearLayout>
-    </LinearLayout>
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginBottom="20dp"
-    android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvMonAn_DonHangChiTiet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20dp"
-            android:layout_marginRight="20dp"
-            android:text="x1"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Cơm tấm sườn "
-            android:layout_marginRight="20dp"
-            android:textSize="20dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20dp"
-            android:text="50.000đ"/>
-    </LinearLayout>
-    <TextView
+    <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:text="Đổi cơm  thành bún ạ"/>
-</LinearLayout>
-
+        android:layout_marginTop="10dp"
+        android:src="@drawable/netdut"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -79,97 +51,90 @@
         android:paddingTop="20dp"
         android:orientation="vertical">
 
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="horizontal">-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Mã khuyến mãi"-->
+<!--                android:textSize="18dp"/>-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/tvMaKhuyenMai_DHChiTiet"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:gravity="right"-->
+<!--                android:text="TRUMCUOIGS45"-->
+<!--                android:textSize="18dp"/>-->
+<!--        </LinearLayout>-->
+
+<!--        <RelativeLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="horizontal">-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/tvTieuDegiaGoc_DHChiTiet"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_alignParentLeft="true"-->
+<!--                android:layout_toLeftOf="@+id/tvGiaGoc_DHChiTiet"-->
+<!--                android:text="Giá gốc"-->
+<!--                android:textSize="18dp" />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/tvGiaGoc_DHChiTiet"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_alignParentRight="true"-->
+<!--                android:foreground="@drawable/gachgiuachu"-->
+<!--                android:text="150.000đ"-->
+<!--                android:textSize="18dp" />-->
+<!--        </RelativeLayout>-->
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="200dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="20dp"
-                android:text="Số lượng món"/>
+                android:text="Tổng cộng"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:fontFamily="@font/montserrat_bold"
+                android:textSize="30dp"/>
 
             <TextView
+                android:id="@+id/tvTongTien_DHChiTiet"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="20dp"
-                android:textAlignment="center"
-                android:text="50.000đ"/>
+                android:fontFamily="@font/montserrat_extrabold"
+                android:gravity="right"
+                android:textColor="@color/black"
+                android:text="50.000đ"
+                android:textSize="25dp"/>
         </LinearLayout>
-
-        <LinearLayout
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:textSize="20dp"
-
-                android:text="Phí vận chuyển"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="20dp"
-                android:textAlignment="center"
-                android:text="50.000đ"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:textSize="20dp"
-                android:text="Mã giảm giá"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="20dp"
-                android:textAlignment="center"
-                android:text="-50.000đ"/>
-        </LinearLayout>
+            android:gravity="right"
+            android:text=" * Đã thanh toán đủ"
+            android:textColor="#37E33E"
+            android:textSize="18dp"/>
 
     </LinearLayout>
+
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingTop="20dp"
-        android:paddingBottom="20dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Tổng"
-            android:textStyle="bold"
-            android:layout_weight="7"
-            android:textSize="25dp"/>
-
-
-
-        <TextView
-            android:gravity="center_horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:text="20.000đ"
-            android:textSize="25dp"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingTop="20dp"
         android:paddingBottom="20dp">
 
         <TextView
@@ -178,6 +143,8 @@
             android:text="Thanh toán"
             android:layout_weight="7"
             android:textStyle="bold"
+            android:fontFamily="@font/montserrat_regular"
+            android:textColor="@color/black"
             android:textSize="25dp"/>
 
 
@@ -189,14 +156,15 @@
             android:layout_weight="2"
             android:text="VNĐ"
             android:textStyle="bold"
+            android:fontFamily="@font/montserrat_regular"
+            android:textColor="@color/black"
             android:textSize="25dp"/>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="20dp"
-        android:paddingBottom="20dp"
+        android:layout_height="match_parent"
+
         android:orientation="vertical">
 
         <LinearLayout
@@ -210,6 +178,7 @@
                 android:textSize="18dp"
                 android:text="Mã đơn hàng"/>
             <TextView
+                android:id="@+id/tvMaDH_DHChiTiet"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="15dp"
@@ -227,6 +196,7 @@
                 android:textSize="18dp"
                 android:text="Tên khách hàng"/>
             <TextView
+                android:id="@+id/tvTenKH_DHChiTiet"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="15dp"
@@ -244,6 +214,7 @@
                 android:textSize="18dp"
                 android:text="Số điện thoại"/>
             <TextView
+                android:id="@+id/tvSDT_DHChiTiet"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="15dp"
@@ -261,6 +232,7 @@
                 android:textSize="18dp"
                 android:text="Địa chỉ" />
             <TextView
+                android:id="@+id/tvDiaChi_DHChiTiet"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="15dp"
