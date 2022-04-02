@@ -22,7 +22,7 @@ import com.example.eaterydemo.model.NhaHang;
 
 import java.util.List;
 
-public class NhaHangHCNAdapter extends RecyclerView.Adapter<NhaHangHCNAdapter.ViewHolder> {
+public class NhaHangHCNYeuThichAdapter extends RecyclerView.Adapter<NhaHangHCNYeuThichAdapter.ViewHolder> {
 
     ImageView ivImage_NhaHang, ivDanhGia_ItemNhaHang;
     TextView tvTenNhaHang_ItemNhaHang, tvLoaiNhaHang_ItemNhaHang, tvDiaChi_ItemNhaHang;
@@ -31,7 +31,7 @@ public class NhaHangHCNAdapter extends RecyclerView.Adapter<NhaHangHCNAdapter.Vi
     Context context;
     NavController navController;
 
-    public NhaHangHCNAdapter(List<NhaHang> arr, Context context) {
+    public NhaHangHCNYeuThichAdapter(List<NhaHang> arr, Context context) {
         this.arr = arr;
         this.context = context;
     }
@@ -59,7 +59,7 @@ public class NhaHangHCNAdapter extends RecyclerView.Adapter<NhaHangHCNAdapter.Vi
     }
 
     @Override
-    public void onBindViewHolder(@NonNull NhaHangHCNAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         NhaHang model = arr.get(position);
         Glide.with(context).load(model.getHinhAnh()).centerCrop().placeholder(R.drawable.img_error).into(ivImage_NhaHang);
         tvTenNhaHang_ItemNhaHang.setText(model.getTenNH());
@@ -80,7 +80,7 @@ public class NhaHangHCNAdapter extends RecyclerView.Adapter<NhaHangHCNAdapter.Vi
             @Override
             public void onClick(View view) {
                 int maNh = model.getMaNH();
-                NavDirections action = NhaHangFMDirections.actionNhaHangFMToNhaHangChiTietFM2(maNh);
+                NavDirections action = NhaHangYeuThichFMDirections.actionMenuYeuThichToNhaHangChiTietFM(maNh);
                 Navigation.findNavController(view).navigate(action);
 
             }

@@ -26,7 +26,7 @@
                 app:cardCornerRadius="60dp">
 
                 <ImageView
-                    android:id="@+id/ivImage_NhaHang"
+                    android:id="@+id/img_MonAn_ItemThanhToan"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:scaleType="center"
@@ -82,6 +82,7 @@
                         android:layout_marginRight="5dp"
                         android:layout_toRightOf="@+id/img_GiamSoLuong_ItemThanhToan"
                         android:text="1"
+                        android:inputType="number"
                         android:textSize="18dp" />
 
                     <ImageView

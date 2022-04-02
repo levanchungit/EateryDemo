@@ -17,8 +17,9 @@ public class NhaHang{
     private TaiKhoan TAIKHOAN;
     private String TenNH;
     private String TenTK;
+    private int isYeuThich;
 
-    public NhaHang(int danhGia, @NotNull String diaChi, @NotNull String hinhAnh, @NotNull LoaiNhaHang loaiNH, @NotNull List MAKHUYENMAIs, @NotNull List MONANs, @NotNull String maLoaiNH, int maNH, @NotNull String moTa, @NotNull TaiKhoan TAIKHOAN, @NotNull String tenNH, @NotNull String tenTK) {
+    public NhaHang(int danhGia, String diaChi, String hinhAnh, LoaiNhaHang loaiNH, List MAKHUYENMAIs, List MONANs, String maLoaiNH, int maNH, String moTa, TaiKhoan TAIKHOAN, String tenNH, String tenTK, int isYeuThich) {
         DanhGia = danhGia;
         DiaChi = diaChi;
         HinhAnh = hinhAnh;
@@ -31,6 +32,7 @@ public class NhaHang{
         this.TAIKHOAN = TAIKHOAN;
         TenNH = tenNH;
         TenTK = tenTK;
+        this.isYeuThich = isYeuThich;
     }
 
     public int getDanhGia() {
@@ -138,4 +140,8 @@ public class NhaHang{
     public void setTenTK(@NotNull String tenTK) {
         TenTK = tenTK;
     }
+
+    public int getIsYeuThich() { return isYeuThich; }
+
+    public void setIsYeuThich(int isYeuThich) { this.isYeuThich = isYeuThich; }
 }

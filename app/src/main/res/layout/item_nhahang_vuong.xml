@@ -4,6 +4,7 @@
     android:layout_width="100dp"
     android:layout_height="170dp"
     android:layout_margin="5dp"
+    android:id="@+id/rlitem_nhahanghinhvuong"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.cardview.widget.CardView

@@ -1,5 +1,7 @@
 package com.example.eaterydemo.model;
 
+import java.util.List;
+
 public class DonHang {
     private int MaDonHang;
     private String DiaChi;
@@ -7,14 +9,16 @@ public class DonHang {
     private float TongTien;
     private String NgayMua;
     private String TenTK;
+    private List<DonHangChiTiet> DONHANGCHITIETs;
 
-    public DonHang(int maDonHang, String diaChi, int trangThaiDH, float tongTien, String ngayMua, String tenTK) {
+    public DonHang(int maDonHang, String diaChi, int trangThaiDH, float tongTien, String ngayMua, String tenTK, List<com.example.eaterydemo.model.DonHangChiTiet> DONHANGCHITIETs) {
         MaDonHang = maDonHang;
         DiaChi = diaChi;
         TrangThaiDH = trangThaiDH;
         TongTien = tongTien;
         NgayMua = ngayMua;
         TenTK = tenTK;
+        DONHANGCHITIETs = DONHANGCHITIETs;
     }
 
     public int getMaDonHang() {
@@ -63,5 +67,13 @@ public class DonHang {
 
     public void setTenTK(String tenTK) {
         TenTK = tenTK;
+    }
+
+    public List<com.example.eaterydemo.model.DonHangChiTiet> getDonHangChiTiet() {
+        return DONHANGCHITIETs;
+    }
+
+    public void setDonHangChiTiet(List<com.example.eaterydemo.model.DonHangChiTiet> donHangChiTiet) {
+        DONHANGCHITIETs = donHangChiTiet;
     }
 }

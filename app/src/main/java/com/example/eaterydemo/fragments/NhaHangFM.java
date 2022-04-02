@@ -15,6 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
+import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
@@ -61,24 +62,10 @@ public class NhaHangFM extends Fragment {
         });
     }
 
-//    private void getAllNhaHang() {
-//
-//        ServiceAPI requestInterface = new Retrofit.Builder()
-//                .baseUrl(BASE_Service)
-//                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-//                .addConverterFactory(GsonConverterFactory.create())
-//                .build().create(ServiceAPI.class);
-//
-//        new CompositeDisposable().add(requestInterface.GetAllNhaHangTheoLoai("LAU")
-//                .observeOn(AndroidSchedulers.mainThread())
-//                .subscribeOn(Schedulers.io())
-//                .subscribe(this::handleResponse, this::handleError)
-//        );
-//    }
-
     private void GetAllNhaHangTheoLoai() {
         ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
-        Call call = serviceAPI.GetAllNhaHangTheoLoai("LAU");
+        String loaiNh = NhaHangFMArgs.fromBundle(getArguments()).getMaLoaiNH();
+        Call call = serviceAPI.GetAllNhaHangTheoLoai(loaiNh);
         call.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
@@ -98,4 +85,6 @@ public class NhaHangFM extends Fragment {
             }
         });
     }
+
+
 }

@@ -85,7 +85,7 @@ public class DangNhapFM extends Fragment {
                 Message message = (Message) response.body();
                 Toast.makeText(getContext(), message.getNotification(), Toast.LENGTH_SHORT).show();
                 Log.e("LOGIN",message.getNotification());
-                if (message.getStatus() == 1) {
+                if (message.getStatus() == 13) {
                     startActivity(new Intent(requireContext(), DrawerLayoutActivity.class));
                 }
                 dismissProgressDialog();
