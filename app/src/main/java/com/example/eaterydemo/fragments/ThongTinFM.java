@@ -40,7 +40,7 @@ public class ThongTinFM extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         fmProfileBinding = FragmentThongtinBinding.inflate(getLayoutInflater());
         initClick();
-        GetThongTin("user1");
+        GetThongTin(DangNhapFM.TENTK);
         initNavController(container);
         return fmProfileBinding.getRoot();
     }
@@ -50,18 +50,33 @@ public class ThongTinFM extends Fragment {
     }
 
     private void initClick() {
-        fmProfileBinding.ivThongTin.setOnClickListener(new View.OnClickListener() {
+        fmProfileBinding.ivDonHangCuaBan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavDirections action = ThongTinFMDirections.actionMenuThongTinToEditProfileFM();
+                NavDirections action = ThongTinFMDirections.actionMenuThongTinToDonHangFM();
+                navController.navigate(action);
+            }
+        });
+        fmProfileBinding.ivPhuongThucThanhToan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavDirections action = ThongTinFMDirections.actionMenuThongTinToPhuongThucThanhToanFM();
                 navController.navigate(action);
             }
         });
 
-        fmProfileBinding.ivDonHangCuaBan.setOnClickListener(new View.OnClickListener() {
+        fmProfileBinding.ivVeChungToi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavDirections action = ThongTinFMDirections.actionProfileFMToHomeFM();
+                NavDirections action = ThongTinFMDirections.actionMenuThongTinToVeChungToiFM();
+                navController.navigate(action);
+            }
+        });
+
+        fmProfileBinding.ivThongTin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavDirections action = ThongTinFMDirections.actionMenuThongTinToEditProfileFM();
                 navController.navigate(action);
             }
         });

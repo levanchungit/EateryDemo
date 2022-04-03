@@ -39,12 +39,10 @@ public class DrawerLayoutActivity extends AppCompatActivity {
         initNavController();
         initNavUI();
         initClick();
-
     }
 
     private void initDrawerlayout() {
         drawerLayout = bindingMapping.drawerLayout;
-
     }
 
     private void initNavView() {

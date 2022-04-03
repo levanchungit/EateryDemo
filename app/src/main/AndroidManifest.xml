@@ -4,7 +4,11 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <queries>
+        <package android:name="vn.com.vng.zalopay"/>
+        <package android:name="vn.com.vng.zalopay.sbmc"/>
+    </queries>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -13,9 +17,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EateryDemo">
         <activity
+            android:name=".activities.AdminActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.ChuCuaHangActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.DrawerLayoutActivity"
-            android:exported="true">
-
+            android:launchMode="singleTask" >
 
         </activity>
         <activity

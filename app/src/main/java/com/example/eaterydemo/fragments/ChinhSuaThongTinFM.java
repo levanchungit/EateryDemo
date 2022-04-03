@@ -70,6 +70,7 @@ public class ChinhSuaThongTinFM extends Fragment {
                 ChinhSuaThongTin(_TenTK, _HoTen,_SDT,_DiaChi);
                 NavDirections action = ChinhSuaThongTinFMDirections.actionEditProfileFMToMenuThongTin();
                 navController.navigate(action);
+                dismissProgressDialog();
             }
         });
     }

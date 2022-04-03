@@ -31,6 +31,9 @@
         <action
             android:id="@+id/action_quenMatKhauFM_to_quenMatKhau_OTPFM"
             app:destination="@id/quenMatKhau_OTPFM" />
+        <action
+            android:id="@+id/action_quenMatKhauFM_to_quenMatKhau_DoiMatKhauMoiFM"
+            app:destination="@id/quenMatKhau_DoiMatKhauMoiFM" />
     </fragment>
 
     <fragment

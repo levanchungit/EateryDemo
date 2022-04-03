@@ -2,4 +2,32 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_graph" />
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/CCH_QuanLyNhaHangFM">
+    <fragment
+        android:id="@+id/CCH_QuanLyNhaHangFM"
+        android:name="com.example.eaterydemo.fragments.CCH_QuanLyNhaHangFM"
+        android:label="CCH_QuanLyNhaHangFM"
+        tools:layout="@layout/fragment_owner_quanlynhahang" />
+
+    <fragment
+        android:id="@+id/CCH_QuanLyDonHangFM"
+        android:name="com.example.eaterydemo.fragments.CCH_QuanLyDonHangFM"
+        android:label="CCH_QuanLyDo  nHangFM"
+        tools:layout="@layout/fragment_quanlydonhang_chucuahang">
+        <action
+            android:id="@+id/action_CCH_QuanLyDonHangFM_to_CCH_ChiTietDonHangFM"
+            app:destination="@id/CCH_ChiTietDonHangFM" />
+    </fragment>
+    <fragment
+        android:id="@+id/CCH_ChiTietDonHangFM"
+        android:name="com.example.eaterydemo.fragments.CCH_ChiTietDonHangFM"
+        android:label="CCH_ChiTietDonHangFM"
+        tools:layout="@layout/fragment_owner_chitietdonhang">
+        <argument
+            android:name="ChiTietDonHang_CCH"
+            app:argType="com.example.eaterydemo.model.DonHang" />
+    </fragment>
+
+
+</navigation>

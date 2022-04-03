@@ -1,22 +1,40 @@
 package com.example.eaterydemo.fragments;
 
+import static com.example.eaterydemo.others.ShowNotifyUser.dismissProgressDialog;
+import static com.example.eaterydemo.service.GetRetrofit.getRetrofit;
+
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.example.eaterydemo.adapter.GioHangAdapter;
 import com.example.eaterydemo.databinding.FragmentThanhtoanBinding;
+import com.example.eaterydemo.model.DonHang;
+import com.example.eaterydemo.model.DonHangChiTiet;
+import com.example.eaterydemo.service.ServiceAPI;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 public class ThanhToanFM extends Fragment {
     FragmentThanhtoanBinding fmBinding;
     NavController navController;
+    List<DonHangChiTiet> arr = new ArrayList<>();
 
     @Nullable
     @Override
@@ -24,7 +42,8 @@ public class ThanhToanFM extends Fragment {
         fmBinding = FragmentThanhtoanBinding.inflate(getLayoutInflater());
         initClick();
         initNavController(container);
-
+        GetDiaChi();
+        GetMonAnTuDonHang();
         return fmBinding.getRoot();
     }
 
@@ -33,6 +52,72 @@ public class ThanhToanFM extends Fragment {
     }
 
     private void initClick() {
+        //Thay đổi địa chỉ
+        fmBinding.txtThayDoiThanhToan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
+            }
+        });
+
+        //Thanh toán
+        fmBinding.imgThanhToanThanToan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
     }
+
+    private void GetDiaChi() {
+        ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
+        Call call = serviceAPI.GetDonHangTheoTK(DangNhapFM.TENTK);
+        call.enqueue(new Callback() {
+            @Override
+            public void onResponse(Call call, Response response) {
+                DonHang donHang = (DonHang) response.body();
+                int i = (int) donHang.getTongTien();
+                fmBinding.txtDiaChiThanhToan.setText(donHang.getDiaChi());
+                fmBinding.txtTongTienThanhToan.setText(i + " đ");
+                dismissProgressDialog();
+            }
+
+            @Override
+            public void onFailure(Call call, Throwable t) {
+                dismissProgressDialog();
+                Toast.makeText(getContext(), "Lỗi", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void GetMonAnTuDonHang() {
+        ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
+        Call call = serviceAPI.GetDonHangTheoTK(DangNhapFM.TENTK);
+        call.enqueue(new Callback() {
+            @Override
+            public void onResponse(Call call, Response response) {
+                DonHang model = (DonHang) response.body();
+                if(model.getDONHANGCHITIETs() != null){
+                    for(int i=0;i<model.getDONHANGCHITIETs().size();i++){
+                        arr.add(model.getDONHANGCHITIETs().get(i));
+                    }
+                    Log.d("arr", arr.size() + "");
+                    LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
+                    fmBinding.rvDonHangThanhToan.setLayoutManager(linearLayoutManager);
+                    GioHangAdapter adapter = new GioHangAdapter(arr, getContext());
+                    fmBinding.rvDonHangThanhToan.setAdapter(adapter);
+                    dismissProgressDialog();
+                }
+
+
+            }
+
+            @Override
+            public void onFailure(Call call, Throwable t) {
+                dismissProgressDialog();
+                Toast.makeText(getContext(), "Lỗi", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
 }

@@ -6,13 +6,15 @@ public class MonAn {
     private double Gia;
     private String HinhAnh;
     private int MaNH;
+    private String TenNH;
 
-    public MonAn(int maMA, String tenMA, double gia, String hinhAnh, int maNH) {
+    public MonAn(int maMA, String tenMA, double gia, String hinhAnh, int maNH, String tenNH) {
         MaMA = maMA;
         TenMA = tenMA;
         Gia = gia;
         HinhAnh = hinhAnh;
         MaNH = maNH;
+        TenNH = tenNH;
     }
 
     public int getMaMA() {
@@ -54,4 +56,8 @@ public class MonAn {
     public void setMaNH(int maNH) {
         MaNH = maNH;
     }
+
+    public String getTenNH() { return TenNH; }
+
+    public void setTenNH(String tenNH) { TenNH = tenNH; }
 }

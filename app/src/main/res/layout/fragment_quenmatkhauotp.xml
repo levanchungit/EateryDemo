@@ -1,79 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:layout_margin="16dp"
 
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:orientation="vertical">
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_baseline_verified_user"
-        />
+        android:src="@drawable/ic_baseline_verified_user" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="4dp"
         android:text="Nhập mã xác thực"
-        android:layout_margin="4dp"
-        android:textStyle="bold"
+        android:textColor="@color/black"
         android:textSize="20sp"
-        android:textColor="@color/black"/>
+        android:textStyle="bold" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Mã xác thực được gửi tới số điện thoại:"
         android:layout_margin="4dp"
-        android:textSize="17sp"
-        android:textColor="@color/black"/>
+        android:text="Mã xác thực được gửi tới:"
+        android:textColor="@color/black"
+        android:textSize="17sp" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="4dp"
         android:text="0123344566"
-        android:layout_margin="4dp"
-        android:textStyle="bold"
+        android:textColor="@color/black"
         android:textSize="18sp"
-        android:textColor="@color/black"/>
+        android:textStyle="bold" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_margin="4dp"
         android:gravity="center"
-        >
+        android:orientation="horizontal">
 
         <com.google.android.material.textfield.TextInputLayout
-
-            android:layout_width="wrap_content"
+            android:layout_width="60dp"
             android:layout_height="wrap_content"
+            android:padding="5dp"
             android:textColor="@color/white"
-            app:boxStrokeWidth="0dp"
-            android:layout_margin="10dp">
-
-        <com.google.android.material.textfield.TextInputEditText
-
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/butonlogin"
-
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            app:boxStrokeWidth="0dp"
-            android:layout_margin="10dp">
+            app:boxStrokeWidth="0dp">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtSoThu1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/butonlogin"
@@ -82,45 +62,95 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="wrap_content"
+            android:layout_width="60dp"
             android:layout_height="wrap_content"
+            android:padding="5dp"
             android:textColor="@color/white"
-            app:boxStrokeWidth="0dp"
-            android:layout_margin="10dp">
+            app:boxStrokeWidth="0dp">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtSoThu2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/butonlogin"
                 android:textSize="20sp"
                 android:textStyle="bold" />
-
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="wrap_content"
+            android:layout_width="60dp"
             android:layout_height="wrap_content"
+            android:padding="5dp"
             android:textColor="@color/white"
-            app:boxStrokeWidth="0dp"
-            android:layout_margin="10dp">
+            app:boxStrokeWidth="0dp">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtSoThu3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/butonlogin"
                 android:textSize="20sp"
                 android:textStyle="bold" />
-
         </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:textColor="@color/white"
+            app:boxStrokeWidth="0dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtSoThu4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/butonlogin"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:textColor="@color/white"
+            app:boxStrokeWidth="0dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtSoThu5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/butonlogin"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:textColor="@color/white"
+            app:boxStrokeWidth="0dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtSoThu6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/butonlogin"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
     </LinearLayout>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Gửi lại mã OTP?"
         android:layout_margin="4dp"
-        android:textSize="17sp"
-        android:textColor="@color/black"/>
+        android:text="Gửi lại mã OTP?"
+        android:textColor="@color/black"
+        android:textSize="17sp" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnTiepTuc_QuenMatKhauOTP"
@@ -130,8 +160,6 @@
         android:layout_marginTop="30dp"
         android:background="@drawable/buttonlogin"
         android:text="Tiếp tục"
-        android:textColor="@color/white"
-
-        />
+        android:textColor="@color/white" />
 
 </LinearLayout>

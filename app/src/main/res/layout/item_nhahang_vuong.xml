@@ -4,6 +4,7 @@
     android:layout_width="100dp"
     android:layout_height="170dp"
     android:layout_margin="5dp"
+    android:id="@+id/rlitem_nhahanghinhvuong"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.cardview.widget.CardView
@@ -34,7 +35,7 @@
     <TextView
         android:id="@+id/tvTenNhaHang_NhaHangVuong"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:maxLines="2"
         android:fontFamily="@font/montserrat_medium"
         android:text="Tên nhà hàng"

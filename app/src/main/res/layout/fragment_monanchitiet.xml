@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/imgMonAnChiTiet"
+        android:id="@+id/cv_img_MonAnChiTiet"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_alignParentTop="true"
@@ -13,37 +13,28 @@
         android:layout_centerHorizontal="true">
 
         <ImageView
+            android:id="@+id/img_MonAnChiTiet"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="center"
             android:src="@drawable/demo_nhahang" />
     </androidx.cardview.widget.CardView>
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
-        android:backgroundTint="@android:color/transparent"
-        app:cardElevation="10dp"
-        android:clickable="true">
-
         <ImageView
-            android:id="@+id/imgBack"
+            android:id="@+id/img_Back_MonAnChiTiet"
             android:layout_width="46dp"
             android:layout_height="46dp"
+            android:layout_margin="10dp"
             android:clickable="true"
-            android:src="@drawable/ic_baseline_arrow_back_white_24" />
+            android:elevation="40dp"
+            android:src="@drawable/ic_back_white" />
 
-    </androidx.cardview.widget.CardView>
 
     <TextView
         android:id="@+id/txtTenMonAnChiTiet"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/imgMonAnChiTiet"
+        android:layout_below="@+id/cv_img_MonAnChiTiet"
         android:layout_marginLeft="21dp"
         android:layout_marginTop="14dp"
         android:fontFamily="@font/montserrat_bold"
@@ -65,7 +56,7 @@
         android:id="@+id/txtGiaMonAnChiTiet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/imgMonAnChiTiet"
+        android:layout_below="@+id/cv_img_MonAnChiTiet"
         android:layout_alignParentRight="true"
         android:layout_marginTop="14dp"
         android:layout_marginRight="21dp"
@@ -94,7 +85,7 @@
         android:textStyle="bold" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycleViewChiTiet"
+        android:id="@+id/rvMonAn_MonAnChiTiet"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/txt2"
@@ -104,7 +95,7 @@
         android:id="@+id/cardViewSoLuongChiTiet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toLeftOf="@id/btnAddMonAn"
+        android:layout_toLeftOf="@id/btnThemMonAn_MonAnChiTiet"
         android:layout_alignParentBottom="true"
         android:layout_marginRight="20dp"
         android:layout_marginBottom="25dp"
@@ -120,7 +111,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_baseline_remove_24" />
-
 
             <TextView
                 android:id="@+id/txtSoLuongChiTiet"
@@ -143,20 +133,20 @@
     </androidx.cardview.widget.CardView>
 
     <Button
-        android:id="@+id/btnAddMonAn"
+        android:id="@+id/btnThemMonAn_MonAnChiTiet"
         android:layout_width="wrap_content"
         android:layout_height="60dp"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:fontFamily="@font/montserrat_semibold"
-        android:backgroundTint="@android:color/background_dark"
-        android:textSize="14dp"
-        android:paddingLeft="30dp"
-        android:paddingRight="30dp"
         android:layout_marginRight="20dp"
         android:layout_marginBottom="10dp"
+        android:backgroundTint="@android:color/background_dark"
         android:elevation="20dp"
+        android:fontFamily="@font/montserrat_semibold"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        android:text="Thêm vào giỏ hàng"
         android:textAllCaps="false"
-        android:text="Thêm vào giỏ hàng" />
+        android:textSize="14dp" />
 
 </RelativeLayout>

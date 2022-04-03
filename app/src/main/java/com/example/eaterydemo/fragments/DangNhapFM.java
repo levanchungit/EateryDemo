@@ -20,6 +20,8 @@ import androidx.navigation.NavController;
 import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 
+import com.example.eaterydemo.activities.AdminActivity;
+import com.example.eaterydemo.activities.ChuCuaHangActivity;
 import com.example.eaterydemo.activities.DrawerLayoutActivity;
 import com.example.eaterydemo.databinding.FragmentDangnhapBinding;
 import com.example.eaterydemo.model.Message;
@@ -32,6 +34,7 @@ import retrofit2.Response;
 public class DangNhapFM extends Fragment {
     FragmentDangnhapBinding fmBinding;
     NavController navController;
+    public static String TENTK;
 
     @Nullable
     @Override
@@ -83,12 +86,18 @@ public class DangNhapFM extends Fragment {
             @Override
             public void onResponse(Call call, Response response) {
                 Message message = (Message) response.body();
-                Toast.makeText(getContext(), message.getNotification(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(requireContext(), message.getNotification(), Toast.LENGTH_SHORT).show();
                 Log.e("LOGIN",message.getNotification());
-                if (message.getStatus() == 13) {
+                dismissProgressDialog();
+                //11: Quản trị viên, 12: Chủ cửa hàng, 13: khách hàng
+                if (message.getStatus() == 11) {
+                    startActivity(new Intent(requireContext(), AdminActivity.class));
+                }else if(message.getStatus() == 12){
+                    startActivity(new Intent(requireContext(), ChuCuaHangActivity.class));
+                }else if(message.getStatus() == 13){
                     startActivity(new Intent(requireContext(), DrawerLayoutActivity.class));
                 }
-                dismissProgressDialog();
+                TENTK = _TenTK;
             }
 
             @Override
@@ -98,5 +107,4 @@ public class DangNhapFM extends Fragment {
             }
         });
     }
-
 }

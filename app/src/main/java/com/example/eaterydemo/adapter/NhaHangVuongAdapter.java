@@ -8,10 +8,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.navigation.NavDirections;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.eaterydemo.R;
+import com.example.eaterydemo.fragments.TrangChuFMDirections;
 import com.example.eaterydemo.model.NhaHang;
 
 import java.util.List;
@@ -28,13 +32,33 @@ public class NhaHangVuongAdapter extends RecyclerView.Adapter<NhaHangVuongAdapte
         this.context = context;
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder {
+        TextView tvTenNhaHang, tvDanhGia;
+        ImageView ivImage_NhaHangVuong;
+        ConstraintLayout rlitem_nhahanghinhvuong;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             tvTenNhaHang = itemView.findViewById(R.id.tvTenNhaHang_NhaHangVuong);
             tvDanhGia = itemView.findViewById(R.id.tvDanhGia_NhaHangVuong);
             ivImage_NhaHangVuong = itemView.findViewById(R.id.ivImage_NhaHangVuong);
+            rlitem_nhahanghinhvuong = itemView.findViewById(R.id.rlitem_nhahanghinhvuong);
+        }
+
+        public TextView getTenNhaHang(){
+            return tvTenNhaHang;
+        }
+
+        public TextView getDanhGia(){
+            return tvDanhGia;
+        }
+
+        public ImageView getNhaHangVuong(){
+            return ivImage_NhaHangVuong;
+        }
+        public ConstraintLayout getrlitem_nhahanghinhvuong(){
+            return rlitem_nhahanghinhvuong;
         }
     }
 
@@ -47,9 +71,14 @@ public class NhaHangVuongAdapter extends RecyclerView.Adapter<NhaHangVuongAdapte
         return viewHolder;
     }
 
+
     @Override
     public void onBindViewHolder(@NonNull NhaHangVuongAdapter.ViewHolder holder, int position) {
         NhaHang model = arr.get(position);
+        TextView tvTenNhaHang = holder.getTenNhaHang();
+        TextView tvDanhGia = holder.getDanhGia();
+        ImageView ivImage_NhaHangVuong = holder.getNhaHangVuong();
+        ConstraintLayout rlitem_nhahanghinhvuong = holder.getrlitem_nhahanghinhvuong();
         Glide.with(context).load(model.getHinhAnh()).centerCrop().into(ivImage_NhaHangVuong);
         tvTenNhaHang.setText(model.getTenNH());
         if (model.getDanhGia() < 10) {
@@ -63,6 +92,15 @@ public class NhaHangVuongAdapter extends RecyclerView.Adapter<NhaHangVuongAdapte
         } else {
             tvDanhGia.setText("5");
         }
+        rlitem_nhahanghinhvuong.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int maNh = model.getMaNH();
+                NavDirections action = TrangChuFMDirections.actionMenuTrangChuToNhaHangChiTietFM(maNh);
+                Navigation.findNavController(view).navigate(action);
+
+            }
+        });
     }
 
     @Override
