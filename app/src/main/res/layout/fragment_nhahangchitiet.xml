@@ -23,7 +23,7 @@
         android:layout_margin="10dp"
         android:clickable="true"
         android:elevation="40dp"
-        android:src="@drawable/ic_baseline_arrow_back_white_24" />
+        android:src="@drawable/ic_back_white" />
 
 
         <ImageView
@@ -34,7 +34,7 @@
             android:clickable="true"
             android:layout_toLeftOf="@+id/imgSearch"
             android:elevation="40dp"
-            app:srcCompat="@drawable/ic_baseline_favorite_24" />
+            app:srcCompat="@drawable/favorites_troke" />
 
 
 
@@ -48,10 +48,6 @@
             android:elevation="40dp"
             android:layout_alignParentRight="true"
             app:srcCompat="@drawable/ic_baseline_search_24" />
-
-
-
-
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cv_img_NhaHangChiTiet"

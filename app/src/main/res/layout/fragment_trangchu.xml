@@ -29,26 +29,9 @@
 
                 <ImageView
                     android:id="@+id/ivTimKiemNhaHang_TrangChu"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="left"
                     android:src="@drawable/search" />
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/cardView"
-                    android:layout_alignParentRight="true"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="right"
-                    app:cardCornerRadius="30dp">
-
-                    <ImageView
-                        android:id="@+id/menu_ThongTin"
-                        android:layout_width="50dp"
-                        android:layout_gravity="right"
-                        android:layout_height="50dp"
-                        android:src="@drawable/avatar" />
-                </androidx.cardview.widget.CardView>
             </RelativeLayout>
 
             <TableRow>

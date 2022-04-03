@@ -9,24 +9,18 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
-import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import com.bumptech.glide.Glide;
 import com.example.eaterydemo.R;
 import com.example.eaterydemo.adapter.MonAnAdapter;
-import com.example.eaterydemo.adapter.NhaHangHCNAdapter;
 import com.example.eaterydemo.databinding.FragmentNhahangchitietBinding;
 import com.example.eaterydemo.model.MonAn;
 import com.example.eaterydemo.model.NhaHang;
@@ -90,11 +84,11 @@ public class NhaHangChiTietFM extends Fragment {
                     @Override
                     public void onClick(View view) {
                         if (nhaHang.getIsYeuThich() == 0) {
-                            fmBinding.imgFav.setImageResource(R.drawable.ic_baseline_favorite_24);
+                            fmBinding.imgFav.setImageResource(R.drawable.favorites_troke);
                             nhaHang.setIsYeuThich(1);
                             Toast.makeText(getContext(), "Thêm nhà hàng vào yêu thích", Toast.LENGTH_SHORT).show();
                         } else {
-                            fmBinding.imgFav.setImageResource(R.drawable.ic_baseline_favorite_242);
+                            fmBinding.imgFav.setImageResource(R.drawable.favorites);
                             nhaHang.setIsYeuThich(0);
                             Toast.makeText(getContext(), "Xóa nhà hàng khỏi yêu thích", Toast.LENGTH_SHORT).show();
 

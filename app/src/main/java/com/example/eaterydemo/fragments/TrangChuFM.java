@@ -64,6 +64,7 @@ public class TrangChuFM extends Fragment {
         showProgressDialog(getContext(), "Đang tải dữ liệu");
         Khao20ValentineTrang();
         getAllKhuyenMai();
+        getAllNhaHang();
     }
 
     private void initNavController(View viewFmProfileBinding) {

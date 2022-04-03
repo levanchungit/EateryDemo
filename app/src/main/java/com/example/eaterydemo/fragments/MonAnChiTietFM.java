@@ -1,7 +1,6 @@
 package com.example.eaterydemo.fragments;
 
 import static com.example.eaterydemo.others.ShowNotifyUser.dismissProgressDialog;
-import static com.example.eaterydemo.others.ShowNotifyUser.showProgressDialog;
 import static com.example.eaterydemo.service.GetRetrofit.getRetrofit;
 
 import android.os.Bundle;
@@ -16,23 +15,18 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import com.bumptech.glide.Glide;
 import com.example.eaterydemo.R;
-import com.example.eaterydemo.adapter.MonAnAdapter;
 import com.example.eaterydemo.adapter.MonAnChiTietAdapter;
 import com.example.eaterydemo.databinding.FragmentMonanchitietBinding;
-import com.example.eaterydemo.databinding.FragmentNhahangchitietBinding;
 import com.example.eaterydemo.model.Message;
 import com.example.eaterydemo.model.MonAn;
-import com.example.eaterydemo.model.NhaHang;
 import com.example.eaterydemo.service.ServiceAPI;
 
 import java.util.List;
 
-import kotlin.text._OneToManyTitlecaseMappingsKt;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -75,14 +69,10 @@ public class MonAnChiTietFM extends Fragment {
         fmBinding.btnThemMonAnMonAnChiTiet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String _TENTK = "user1";
+                String _TENTK = DangNhapFM.TENTK;
                 int _MaMA = monAn.getMaMA();
-
-                //cái này trỏ vào cái textview số lượng
-                int _SL = 1;
-                //này cũng trỏ vào giá của món ăn luôn thì nó sẽ thêm đc món ăn vào giỏ hàng
-                double _Gia = 5000;
-                ThemMonAnVaoGioHang(_TENTK, _MaMA, _SL, _Gia);
+                int _SL = Integer.parseInt(fmBinding.txtSoLuongChiTiet.getText().toString());
+                ThemMonAnVaoGioHang(_TENTK, _MaMA, _SL);
             }
         });
 
@@ -137,9 +127,9 @@ public class MonAnChiTietFM extends Fragment {
         });
     }
 
-    private void ThemMonAnVaoGioHang(String _TenTK, int _MaMA, int _SL, double _Gia) {
+    private void ThemMonAnVaoGioHang(String _TenTK, int _MaMA, int _SL) {
         ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
-        Call call = serviceAPI.ThemMonAnVaoGioHang(_TenTK, _MaMA, _SL, _Gia);
+        Call call = serviceAPI.ThemMonAnVaoGioHang(_TenTK, _MaMA, _SL);
         call.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {

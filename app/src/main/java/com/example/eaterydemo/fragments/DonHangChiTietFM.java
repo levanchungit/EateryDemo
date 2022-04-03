@@ -1,8 +1,6 @@
 package com.example.eaterydemo.fragments;
 
 import static com.example.eaterydemo.others.ShowNotifyUser.dismissProgressDialog;
-import static com.example.eaterydemo.others.ShowNotifyUser.showProgressDialog;
-import static com.example.eaterydemo.service.GetRetrofit.getRetrofit;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -10,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,21 +17,15 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.eaterydemo.R;
-import com.example.eaterydemo.adapter.DonHangAdapter;
 import com.example.eaterydemo.adapter.DonHangChiTietAdapter;
 import com.example.eaterydemo.databinding.FragmentChitietdonhangNguoidungBinding;
 import com.example.eaterydemo.model.DonHang;
 import com.example.eaterydemo.model.DonHangChiTiet;
 import com.example.eaterydemo.model.TaiKhoan;
-import com.example.eaterydemo.service.ServiceAPI;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 
 public class DonHangChiTietFM extends Fragment {
@@ -72,6 +63,8 @@ public class DonHangChiTietFM extends Fragment {
         tvDiaChi_DHChiTiet = view.findViewById(R.id.tvDiaChi_DHChiTiet);
 
         recieverDataDonHang();
+
+
 
     }
 

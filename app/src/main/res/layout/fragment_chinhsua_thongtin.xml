@@ -62,7 +62,9 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/edtSDT"
             android:layout_centerHorizontal="true"
-            android:layout_margin="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
             android:fontFamily="@font/montserrat_regular"
             android:gravity=""
@@ -73,47 +75,19 @@
             android:textColor="@color/black"
             android:textColorHint="@color/black" />
 
-        <EditText
-            android:id="@+id/edtGioiTinh"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/edtEmail"
-            android:layout_centerHorizontal="true"
-            android:layout_margin="10dp"
-            android:layout_marginBottom="10dp"
-            android:fontFamily="@font/montserrat_regular"
-            android:gravity=""
-            android:inputType="textAutoComplete"
-            android:padding="10dp"
-            android:singleLine="true"
-            android:text="Nữ"
-            android:textColor="@color/black"
-            android:textColorHint="@color/black" />
 
-        <EditText
-            android:id="@+id/edtNgaySinh"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/edtGioiTinh"
-            android:layout_centerHorizontal="true"
-            android:layout_margin="10dp"
-            android:layout_marginBottom="10dp"
-            android:fontFamily="@font/montserrat_regular"
-            android:gravity=""
-            android:inputType="textAutoComplete"
-            android:padding="10dp"
-            android:singleLine="true"
-            android:text="01/06/2000"
-            android:textColor="@color/black"
-            android:textColorHint="@color/black" />
+
+
 
         <EditText
             android:id="@+id/edtDiaChi"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/edtNgaySinh"
+            android:layout_below="@+id/edtEmail"
             android:layout_centerHorizontal="true"
-            android:layout_margin="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
             android:fontFamily="@font/montserrat_regular"
             android:gravity=""
@@ -124,12 +98,26 @@
             android:textColor="@color/black"
             android:textColorHint="@color/black" />
 
-        <ImageView
-            android:layout_marginTop="20dp"
-            android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/DoiMatKhau"
+            android:layout_width="150dp"
+            android:text="Đổi Mật Khẩu?"
+            android:textAlignment="center"
+            android:fontFamily="@font/montserrat_medium"
+            android:textColor="#8f8f8f"
             android:layout_height="wrap_content"
             android:layout_below="@+id/edtDiaChi"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="9dp"
+            android:layout_marginEnd="17dp" />
+
+        <ImageView
+            android:id="@+id/btnChinhSua"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/DoiMatKhau"
             android:layout_centerHorizontal="true"
+            android:layout_marginTop="22dp"
             android:src="@drawable/editprofile_btn_chinhsua" />
 
     </RelativeLayout>

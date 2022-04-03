@@ -56,8 +56,8 @@ public class NhaHangFM extends Fragment {
         fmBinding.ivBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                NavDirections action = NhaHangFMDirections.actionNhaHangFMToHomeFM();
-//                navController.navigate(action);
+                NavDirections action = NhaHangFMDirections.actionNhaHangFMToMenuTrangChu();
+                navController.navigate(action);
             }
         });
     }

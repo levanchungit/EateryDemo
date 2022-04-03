@@ -32,11 +32,16 @@
         android:id="@+id/editProfileFM"
         tools:layout="@layout/fragment_chinhsua_thongtin"
         android:name="com.example.eaterydemo.fragments.ChinhSuaThongTinFM"
-        android:label="EditProfileFM"/>
+        android:label="EditProfileFM">
+        <action
+            android:id="@+id/action_editProfileFM_to_menu_ThongTin"
+            app:destination="@id/menu_ThongTin" />
+    </fragment>
     <fragment
         android:id="@+id/menu_TrangChu"
         tools:layout="@layout/fragment_trangchu"
         android:name="com.example.eaterydemo.fragments.TrangChuFM"
+
         android:label="HomeFM" >
         <action
             android:id="@+id/action_homeFM_to_NhaHangFM"
@@ -50,6 +55,9 @@
         <action
             android:id="@+id/action_menu_TrangChu_to_nhaHangChiTietFM"
             app:destination="@id/nhaHangChiTietFM" />
+        <action
+            android:id="@+id/action_menu_TrangChu_to_nhaHangChiTietFM2"
+            app:destination="@id/nhaHangChiTietFM" />
     </fragment>
     <fragment
         android:id="@+id/NhaHangFM"
@@ -62,6 +70,9 @@
         <action
             android:id="@+id/action_NhaHangFM_to_nhaHangChiTietFM2"
             app:destination="@id/nhaHangChiTietFM" />
+        <action
+            android:id="@+id/action_NhaHangFM_to_menu_TrangChu"
+            app:destination="@id/menu_TrangChu" />
     </fragment>
     <fragment
         android:id="@+id/doiMatKhauFM"

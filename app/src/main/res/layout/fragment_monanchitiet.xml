@@ -27,7 +27,7 @@
             android:layout_margin="10dp"
             android:clickable="true"
             android:elevation="40dp"
-            android:src="@drawable/ic_baseline_arrow_back_white_24" />
+            android:src="@drawable/ic_back_white" />
 
 
     <TextView
@@ -111,7 +111,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_baseline_remove_24" />
-
 
             <TextView
                 android:id="@+id/txtSoLuongChiTiet"

@@ -30,12 +30,13 @@ public class NhaHangHCNAdapter extends RecyclerView.Adapter<NhaHangHCNAdapter.Vi
 
 
     List<NhaHang> arrNH;
-    ArrayList<NhaHang> arrNHFiltered;
+    List<NhaHang> arrNHFiltered;
     Context context;
     NavController navController;
 
     public NhaHangHCNAdapter(List<NhaHang> arr, Context context) {
         this.arrNH = arr;
+        this.arrNHFiltered = arr;
         this.context = context;
     }
 
@@ -112,25 +113,24 @@ public class NhaHangHCNAdapter extends RecyclerView.Adapter<NhaHangHCNAdapter.Vi
         rlitem_nhahanghcn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int maNh = (int) model.getMaNH();
+                int maNh = model.getMaNH();
                 NavDirections action = NhaHangFMDirections.actionNhaHangFMToNhaHangChiTietFM2(maNh);
                 Navigation.findNavController(view).navigate(action);
-
             }
         });
     }
 
     @Override
     public int getItemCount() {
-        return arrNH.size();
+        return arrNHFiltered.size();
     }
 
     @Override
     public Filter getFilter() {
-        Filter filter = new Filter() {
+        return new Filter() {
             @Override
             protected FilterResults performFiltering(CharSequence constraint) {
-
+                String searchStr = constraint.toString().toLowerCase();
                 FilterResults filterResults = new FilterResults();
                 if (constraint == null || constraint.length() == 0) {
                     filterResults.count = arrNH.size();
@@ -138,20 +138,17 @@ public class NhaHangHCNAdapter extends RecyclerView.Adapter<NhaHangHCNAdapter.Vi
 
                 } else {
                     List<NhaHang> resultsModel = new ArrayList<>();
-                    String searchStr = constraint.toString().toLowerCase();
-
                     for (NhaHang itemsModel : arrNH) {
                         String title = itemsModel.getTenNH();
                         if (title.toLowerCase().contains(searchStr)) {
                             resultsModel.add(itemsModel);
-                        }else if(removeAccent(title).toLowerCase().contains(searchStr)){
+                        } else if(removeAccent(title).toLowerCase().contains(searchStr)){
                             resultsModel.add(itemsModel);
                         }
                         filterResults.count = resultsModel.size();
                         filterResults.values = resultsModel;
                     }
                 }
-
                 return filterResults;
             }
 
@@ -161,7 +158,6 @@ public class NhaHangHCNAdapter extends RecyclerView.Adapter<NhaHangHCNAdapter.Vi
                 notifyDataSetChanged();
             }
         };
-        return filter;
     }
 
     public String removeAccent(String s) {

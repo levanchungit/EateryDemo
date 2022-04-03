@@ -1,8 +1,5 @@
 package com.example.eaterydemo.service;
 
-import android.graphics.ColorSpace;
-
-import com.bumptech.glide.load.model.Model;
 import com.example.eaterydemo.model.DonHang;
 import com.example.eaterydemo.model.KhuyenMai;
 import com.example.eaterydemo.model.Message;
@@ -57,7 +54,7 @@ public interface ServiceAPI {
     Call<MonAn> GetMonAnTheoMaMA(@Query("MaMA") int MaMA);
 
     @GET("api/themonanvaogiohang")
-    Call<Message> ThemMonAnVaoGioHang(@Query("TenTK") String TenTK,@Query("MaMA") int MaMA,@Query("SL") int SL,@Query("Gia") double Gia);
+    Call<Message> ThemMonAnVaoGioHang(@Query("TenTK") String TenTK,@Query("MaMA") int MaMA,@Query("SL") int SL);
 
     //TÀI KHOẢN
     @POST("api/dangnhap")
@@ -77,6 +74,13 @@ public interface ServiceAPI {
 
     @GET("api/resetPassword")
     Call<Message> CapNhatMatKhau(@Query("TenTK") String TenTK, @Query("Code") String code, @Query("matKhauMoi")String matKhauMoi);
+
+    @GET("api/taikhoan/{TenTK}")
+    Call<TaiKhoan> GetTaiKhoanTheoTenTK(@Path("TenTK") String TenTK);
+
+    @POST("api/capnhatthongtintaikhoan")
+    Call<Message> ChinhSuaThongTin(@Query("TenTK") String TenTK, @Query("HoTen") String HoTen, @Query("SDT") String SDT, @Query("DiaChi") String DiaChi);
+
 
     //ĐƠN HÀNG
 

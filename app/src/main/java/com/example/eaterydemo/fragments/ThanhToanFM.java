@@ -71,7 +71,7 @@ public class ThanhToanFM extends Fragment {
 
     private void GetDiaChi() {
         ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
-        Call call = serviceAPI.GetDonHangTheoTK("user1");
+        Call call = serviceAPI.GetDonHangTheoTK(DangNhapFM.TENTK);
         call.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
@@ -97,16 +97,19 @@ public class ThanhToanFM extends Fragment {
             @Override
             public void onResponse(Call call, Response response) {
                 DonHang model = (DonHang) response.body();
-                for(int i=0;i<model.getDONHANGCHITIETs().size();i++){
-                    //model.getDonHangChiTiet.get(i): là 1 object rồi nên dùng arr add bth vào chứ k phải cast
-                    arr.add(model.getDONHANGCHITIETs().get(i));
+                if(model.getDONHANGCHITIETs() != null){
+                    for(int i=0;i<model.getDONHANGCHITIETs().size();i++){
+                        arr.add(model.getDONHANGCHITIETs().get(i));
+                    }
+                    Log.d("arr", arr.size() + "");
+                    LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
+                    fmBinding.rvDonHangThanhToan.setLayoutManager(linearLayoutManager);
+                    GioHangAdapter adapter = new GioHangAdapter(arr, getContext());
+                    fmBinding.rvDonHangThanhToan.setAdapter(adapter);
+                    dismissProgressDialog();
                 }
-                Log.d("arr", arr.size() + "");
-                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
-                fmBinding.rvDonHangThanhToan.setLayoutManager(linearLayoutManager);
-                GioHangAdapter adapter = new GioHangAdapter(arr, getContext());
-                fmBinding.rvDonHangThanhToan.setAdapter(adapter);
-                dismissProgressDialog();
+
+
             }
 
             @Override

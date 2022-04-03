@@ -62,7 +62,7 @@ public class NhaHangHCNYeuThichAdapter extends RecyclerView.Adapter<NhaHangHCNYe
         NhaHang model = arr.get(position);
         Glide.with(context).load(model.getHinhAnh()).centerCrop().placeholder(R.drawable.img_error).into(ivImage_NhaHang);
         tvTenNhaHang_ItemNhaHang.setText(model.getTenNH());
-        tvLoaiNhaHang_ItemNhaHang.setText(model.getMaLoaiNH() + "");
+        tvLoaiNhaHang_ItemNhaHang.setText(model.getTenLoaiNH() + "");
         tvDiaChi_ItemNhaHang.setText(model.getDiaChi());
         if (model.getDanhGia() < 10) {
             ivDanhGia_ItemNhaHang.setImageResource(R.drawable._1sao);
