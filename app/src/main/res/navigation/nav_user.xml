@@ -172,4 +172,12 @@
             android:id="@+id/action_monAnChiTietFM_self"
             app:destination="@id/monAnChiTietFM" />
     </fragment>
+    <fragment
+        android:id="@+id/adminQuanLyCuaHangFM"
+        android:name="com.example.eaterydemo.fragments.AdminQuanLyCuaHangFM"
+        android:label="AdminQuanLyCuaHangFM" />
+    <fragment
+        android:id="@+id/adminQuanLyTaiKhoanFM"
+        android:name="com.example.eaterydemo.fragments.AdminQuanLyTaiKhoanFM"
+        android:label="AdminQuanLyTaiKhoanFM" />
 </navigation>
