@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="8dp"
-    android:orientation="vertical"
-    tools:context=".fragment.fragment_QuanLyTaiKhoan">
+    android:orientation="vertical">
 
 
     <LinearLayout
@@ -30,7 +29,7 @@
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/RecyclerView"
+        android:id="@+id/rvQuanLyTaiKhoan"
         android:layout_width="match_parent"
         android:layout_above="@id/fabAddQuanLyCuaHang"
         android:layout_height="match_parent"/>
