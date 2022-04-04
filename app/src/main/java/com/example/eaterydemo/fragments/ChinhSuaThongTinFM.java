@@ -40,7 +40,7 @@ public class ChinhSuaThongTinFM extends Fragment {
         fmEditProfileBinding = FragmentChinhsuaThongtinBinding.inflate(getLayoutInflater());
         initClick();
 
-        GetThongTin("user1");
+        GetThongTin(DangNhapFM.TENTK);
         initNavController(container);
         return fmEditProfileBinding.getRoot();
     }
@@ -62,7 +62,7 @@ public class ChinhSuaThongTinFM extends Fragment {
             @Override
             public void onClick(View view) {
 
-                String _TenTK = "user1";
+                String _TenTK = DangNhapFM.TENTK;
                 String _HoTen = fmEditProfileBinding.tvFullName.getText().toString().trim();
                 String _SDT = fmEditProfileBinding.edtSDT.getText().toString().trim();
                 String _DiaChi = fmEditProfileBinding.edtDiaChi.getText().toString().trim();

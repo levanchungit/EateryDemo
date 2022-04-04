@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:layout_margin="8dp"
-    tools:context=".fragment.fragment_QuanTriHeThong">
+    android:layout_margin="8dp">
 
 
     <ImageView
@@ -32,7 +31,6 @@
             android:textStyle="bold" />
 
         <ImageView
-
             android:layout_width="25dp"
             android:layout_height="30dp"
             android:layout_alignParentEnd="true"
@@ -58,7 +56,7 @@
              android:src="@drawable/eos_icons_admin"/>
 
          <TextView
-             android:text="Quản lý cửa hàng(admin)"
+             android:text="Quản lý cửa hàng (admin)"
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"
              android:textSize="18sp"
@@ -69,7 +67,6 @@
 
         <LinearLayout
             android:layout_marginTop="5dp"
-
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -80,7 +77,7 @@
                 android:src="@drawable/ic_baseline_manage_accounts"/>
 
             <TextView
-                android:text="Quản lý tài khoản(admin)"
+                android:text="Quản lý tài khoản (admin)"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"

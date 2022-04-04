@@ -13,23 +13,23 @@
         android:layout_height="150dp"
         android:layout_marginTop="50dp"
         android:src="@drawable/logo_light"
-        app:layout_constraintVertical_bias="0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilEmail_DangNhap"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginTop="40dp"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:textColor="@color/white"
         app:boxBackgroundMode="outline"
         app:boxCornerRadiusBottomEnd="10dp"
-        app:boxCornerRadiusTopEnd="10dp"
         app:boxCornerRadiusBottomStart="10dp"
+        app:boxCornerRadiusTopEnd="10dp"
         app:boxCornerRadiusTopStart="10dp"
         app:boxStrokeColor="#000"
         app:layout_constraintEnd_toEndOf="parent"
@@ -39,28 +39,27 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edtEmail_DangNhap"
             android:layout_width="300dp"
-            android:inputType="textAutoComplete"
             android:layout_height="wrap_content"
-            android:hint="Email" />
+            android:hint="Email"
+            android:inputType="textAutoComplete" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilMatKhau_DangNhap"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginTop="4dp"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:textColor="@color/white"
         app:boxBackgroundMode="outline"
         app:boxCornerRadiusBottomEnd="10dp"
-        app:boxCornerRadiusTopEnd="10dp"
         app:boxCornerRadiusBottomStart="10dp"
+        app:boxCornerRadiusTopEnd="10dp"
         app:boxCornerRadiusTopStart="10dp"
         app:boxStrokeColor="#000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tilEmail_DangNhap"
-        >
+        app:layout_constraintTop_toBottomOf="@+id/tilEmail_DangNhap">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edtMatKhau_DangNhap"
@@ -69,7 +68,6 @@
             android:hint="Mật khẩu"
             android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
-
 
 
     <TextView
@@ -91,8 +89,7 @@
         android:layout_height="70dp"
         android:layout_marginTop="68dp"
         android:src="@drawable/google_logo"
-        app:layout_constraintEnd_toEndOf="@id/imgfacebook"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/imgfacebook"
         app:layout_constraintTop_toBottomOf="@+id/tilMatKhau_DangNhap" />
 
     <ImageView
@@ -112,16 +109,13 @@
         android:layout_height="70dp"
         android:layout_marginTop="68dp"
         android:src="@drawable/apple_logo"
-
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@id/imgfacebook"
+        app:layout_constraintStart_toEndOf="@id/imgfacebook"
         app:layout_constraintTop_toBottomOf="@+id/tilMatKhau_DangNhap"/>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnLogin_DangNhap"
         android:layout_width="200dp"
         android:layout_height="50dp"
-
         android:layout_marginTop="30dp"
         android:background="@drawable/buttonlogin"
         android:text="Đăng nhập"
@@ -136,6 +130,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:layout_marginRight="20dp"
         android:text="Bạn chưa có tài khoản?"
         android:textSize="15sp"
         android:textStyle="bold"
@@ -153,8 +148,7 @@
         android:textColor="@color/black"
         android:textSize="15sp"
         android:textStyle="bold"
-        android:layout_marginLeft="10dp"
-        app:layout_constraintLeft_toRightOf="@id/txtTaikhoan"
         app:layout_constraintEnd_toEndOf="@+id/btnLogin_DangNhap"
+        app:layout_constraintLeft_toRightOf="@id/txtTaikhoan"
         app:layout_constraintTop_toBottomOf="@+id/btnLogin_DangNhap" />
 </androidx.constraintlayout.widget.ConstraintLayout>

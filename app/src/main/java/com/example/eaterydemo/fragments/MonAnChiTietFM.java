@@ -46,8 +46,6 @@ public class MonAnChiTietFM extends Fragment {
         GetMonAnChiTiet();
         GetAllMonAnNhaHangChiTiet();
 
-//        showProgressDialog(getContext(), "Đang tải dữ liệu");
-
         return fmBinding.getRoot();
     }
 

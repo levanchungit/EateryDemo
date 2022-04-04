@@ -36,7 +36,6 @@
         android:layout_height="wrap_content"
         android:text="Vui lòng nhập email hoặc số điện thoại đã cung cấp cho Eatery để xác minh thông tin"
         android:layout_margin="4dp"
-
         android:textSize="17sp"
         android:textColor="@color/black"/>
 
