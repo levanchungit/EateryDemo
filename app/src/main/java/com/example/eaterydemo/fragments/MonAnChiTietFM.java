@@ -24,6 +24,7 @@ import com.example.eaterydemo.databinding.FragmentMonanchitietBinding;
 import com.example.eaterydemo.model.Message;
 import com.example.eaterydemo.model.MonAn;
 import com.example.eaterydemo.service.ServiceAPI;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.List;
 
@@ -42,6 +43,9 @@ public class MonAnChiTietFM extends Fragment {
         fmBinding = FragmentMonanchitietBinding.inflate(getLayoutInflater());
         initClick();
         initNavController(container);
+
+        BottomNavigationView navBar = getActivity().findViewById(R.id.navBot);
+        navBar.setVisibility(View.GONE);
 
         GetMonAnChiTiet();
         GetAllMonAnNhaHangChiTiet();

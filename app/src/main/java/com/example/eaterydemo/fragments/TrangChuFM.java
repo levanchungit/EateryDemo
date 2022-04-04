@@ -100,9 +100,15 @@ public class TrangChuFM extends Fragment {
                 navController.navigate(action);
             }
         });
-<<<<<<< Updated upstream
         fmBinding.ivthucuong.setOnClickListener(new View.OnClickListener() {
-=======
+            @Override
+            public void onClick(View view) {
+                String loaiNh = "ThucUong";
+                NavDirections action = TrangChuFMDirections.actionHomeFMToNhaHangFM(loaiNh);
+                navController.navigate(action);
+            }
+        });
+
         fmBinding.ivanvat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -120,7 +126,6 @@ public class TrangChuFM extends Fragment {
             }
         });
         fmBinding.ivthucannhanh.setOnClickListener(new View.OnClickListener() {
->>>>>>> Stashed changes
             @Override
             public void onClick(View view) {
                 String loaiNh = "ThucUong";

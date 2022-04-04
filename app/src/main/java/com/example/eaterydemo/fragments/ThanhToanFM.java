@@ -61,7 +61,7 @@ public class ThanhToanFM extends Fragment {
         });
 
         //Thanh toán
-        fmBinding.imgThanhToanThanToan.setOnClickListener(new View.OnClickListener() {
+        fmBinding.imgThanhToanThanhToan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 

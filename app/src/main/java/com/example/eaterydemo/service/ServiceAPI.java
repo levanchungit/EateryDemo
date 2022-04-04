@@ -5,6 +5,7 @@ import com.example.eaterydemo.model.KhuyenMai;
 import com.example.eaterydemo.model.Message;
 import com.example.eaterydemo.model.MonAn;
 import com.example.eaterydemo.model.NhaHang;
+import com.example.eaterydemo.model.NhaHangYeuThich;
 import com.example.eaterydemo.model.TaiKhoan;
 
 import java.util.ArrayList;
@@ -38,6 +39,10 @@ public interface ServiceAPI {
     @GET("api/nhahangtheomanh/{MaNH}")
     Call<NhaHang> GetNhaHangTheoMaNH(@Path("MaNH") int MaNH);
 
+    @POST("api/insert-nhahangyeuthich")
+    Call<Message> ThemNhaHangYeuThich(@Body NhaHangYeuThich nhaHangYeuThich);
+
+
 
 
     //KHUYẾN MÃI
@@ -53,7 +58,7 @@ public interface ServiceAPI {
     @GET("api/monantheomama")
     Call<MonAn> GetMonAnTheoMaMA(@Query("MaMA") int MaMA);
 
-    @GET("api/themonanvaogiohang")
+    @POST("api/themonanvaogiohang")
     Call<Message> ThemMonAnVaoGioHang(@Query("TenTK") String TenTK,@Query("MaMA") int MaMA,@Query("SL") int SL);
 
     //TÀI KHOẢN
@@ -75,8 +80,8 @@ public interface ServiceAPI {
     @GET("api/resetPassword")
     Call<Message> CapNhatMatKhau(@Query("TenTK") String TenTK, @Query("Code") String code, @Query("matKhauMoi")String matKhauMoi);
 
-    @GET("api/taikhoan/{TenTK}")
-    Call<TaiKhoan> GetTaiKhoanTheoTenTK(@Path("TenTK") String TenTK);
+    @GET("api/taikhoan")
+    Call<TaiKhoan> GetTaiKhoanTheoTenTK(@Query("TenTK") String TenTK);
 
     @POST("api/capnhatthongtintaikhoan")
     Call<Message> ChinhSuaThongTin(@Query("TenTK") String TenTK, @Query("HoTen") String HoTen, @Query("SDT") String SDT, @Query("DiaChi") String DiaChi);
@@ -101,5 +106,9 @@ public interface ServiceAPI {
 
     @GET("api/getAllDonHangTheoMaNHTheoTTDH")
     Call<ArrayList<DonHang>> GetAllDonHangTheoMaNHDuaVaoTrangThai(@Query("MaNH") int MaNH,@Query("TrangThaiDH") int TrangThaiDH);
+
+    @POST("api/capnhatrangthaidonhang")
+    Call<ArrayList<DonHang>> CapNhat(@Query("MaNH") int MaNH,@Query("TrangThaiDH") int TrangThaiDH);
+
 
 }

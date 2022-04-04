@@ -86,9 +86,11 @@ public class ThongTinFM extends Fragment {
             @Override
             public void onResponse(Call call, Response response) {
                 TaiKhoan taikhoan = (TaiKhoan) response.body();
-                fmProfileBinding.ivTen.setText(taikhoan.getHoTen());
-                Glide.with(getContext()).load(taikhoan.getHinhAnh()).centerCrop().into(fmProfileBinding.ivAvatarProfile);
-                dismissProgressDialog();
+                if (taikhoan != null) {
+                    fmProfileBinding.ivTen.setText(taikhoan.getHoTen());
+                    Glide.with(getContext()).load(taikhoan.getHinhAnh()).centerCrop().into(fmProfileBinding.ivAvatarProfile);
+                    dismissProgressDialog();
+                }
             }
 
             @Override

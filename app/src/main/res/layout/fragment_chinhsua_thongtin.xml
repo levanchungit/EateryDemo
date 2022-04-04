@@ -2,6 +2,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -75,10 +76,6 @@
             android:textColor="@color/black"
             android:textColorHint="@color/black" />
 
-
-
-
-
         <EditText
             android:id="@+id/edtDiaChi"
             android:layout_width="300dp"
@@ -98,24 +95,11 @@
             android:textColor="@color/black"
             android:textColorHint="@color/black" />
 
-        <TextView
-            android:id="@+id/DoiMatKhau"
-            android:layout_width="150dp"
-            android:text="Đổi Mật Khẩu?"
-            android:textAlignment="center"
-            android:fontFamily="@font/montserrat_medium"
-            android:textColor="#8f8f8f"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/edtDiaChi"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="9dp"
-            android:layout_marginEnd="17dp" />
-
         <ImageView
             android:id="@+id/btnChinhSua"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/DoiMatKhau"
+            android:layout_below="@+id/edtDiaChi"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="22dp"
             android:src="@drawable/editprofile_btn_chinhsua" />

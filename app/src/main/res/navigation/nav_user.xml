@@ -159,6 +159,7 @@
             
     <fragment
         android:id="@+id/monAnChiTietFM"
+        tools:layout="@layout/fragment_monanchitiet"
         android:name="com.example.eaterydemo.fragments.MonAnChiTietFM"
         android:label="MonAnChiTietFM" >
         <argument

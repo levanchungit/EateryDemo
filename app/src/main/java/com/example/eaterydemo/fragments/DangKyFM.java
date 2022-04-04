@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -62,6 +63,13 @@ public class DangKyFM extends Fragment {
     }
 
     private void initClick() {
+
+        fmBinding.imgImageDangKy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                requestPermission();
+            }
+        });
 
         fmBinding.btnLoginDangKy.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -140,7 +148,7 @@ public class DangKyFM extends Fragment {
         MediaManager.get().upload(imagePath).callback(new UploadCallback() {
             @Override
             public void onStart(String requestId) {
-                Toast.makeText(getContext(), "Start", Toast.LENGTH_SHORT).show();
+                Log.d("CLOUDINARY","Start");
             }
 
             @Override
@@ -149,7 +157,7 @@ public class DangKyFM extends Fragment {
 
             @Override
             public void onSuccess(String requestId, Map resultData) {
-                Toast.makeText(getContext(), "Task successful", Toast.LENGTH_SHORT).show();
+                Log.d("CLOUDINARY","Task successful");
                 showProgressDialog(getContext(), "Đang đăng ký tài khoản");
                 String _email = fmBinding.edtEmailDangKy.getText().toString().trim();
                 String _mk = fmBinding.edtMatKhauDangKy.getText().toString().trim();

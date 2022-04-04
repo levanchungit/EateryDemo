@@ -6,8 +6,6 @@ import android.view.MenuItem;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -22,7 +20,7 @@ public class DrawerLayoutActivity extends AppCompatActivity {
 
     DrawerLayoutActivityBinding bindingMapping;
     AppBarConfiguration appBarConfiguration;
-    DrawerLayout drawerLayout;
+//    DrawerLayout drawerLayout;
     BottomNavigationView navBot;
     NavController navController;
     NavigationView navView;
@@ -32,8 +30,8 @@ public class DrawerLayoutActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         bindingMapping = DrawerLayoutActivityBinding.inflate(getLayoutInflater());
         setContentView(bindingMapping.getRoot());
-        initDrawerlayout();
-        initAppBarConfiguration();
+//        initDrawerlayout();
+//        initAppBarConfiguration();
         initNavView();
         initBotNav();
         initNavController();
@@ -41,20 +39,20 @@ public class DrawerLayoutActivity extends AppCompatActivity {
         initClick();
     }
 
-    private void initDrawerlayout() {
-        drawerLayout = bindingMapping.drawerLayout;
-    }
+//    private void initDrawerlayout() {
+//        drawerLayout = bindingMapping.drawerLayout;
+//    }
 
     private void initNavView() {
         navView = bindingMapping.navView;
     }
 
 
-    private void initAppBarConfiguration () {
-        appBarConfiguration = new AppBarConfiguration.Builder(R.id.menu_TrangChu, R.id.menu_YeuThich, R.id.menu_ThanhToan, R.id.menu_ThongTin)
-                .setOpenableLayout(drawerLayout)
-                .build();
-    }
+//    private void initAppBarConfiguration () {
+//        appBarConfiguration = new AppBarConfiguration.Builder(R.id.menu_TrangChu, R.id.menu_YeuThich, R.id.menu_ThanhToan, R.id.menu_ThongTin)
+//                .setOpenableLayout(drawerLayout)
+//                .build();
+//    }
 
     private void initBotNav () {
         navBot = bindingMapping.appBarLayout.navBot;
@@ -77,16 +75,16 @@ public class DrawerLayoutActivity extends AppCompatActivity {
     @Override
     public boolean onSupportNavigateUp() {
         initNavController();
-        return NavigationUI.navigateUp(navController, drawerLayout) ||NavigationUI.navigateUp(navController,appBarConfiguration) || super.onSupportNavigateUp();
+        return /*NavigationUI.navigateUp(navController, drawerLayout) ||*/NavigationUI.navigateUp(navController,appBarConfiguration) || super.onSupportNavigateUp();
     }
 
-    @Override
-    public void onBackPressed () {
-        super.onBackPressed();
-        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
-            drawerLayout.closeDrawer(GravityCompat.START);
-        }
-    }
+//    @Override
+//    public void onBackPressed () {
+//        super.onBackPressed();
+//        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+//            drawerLayout.closeDrawer(GravityCompat.START);
+//        }
+//    }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {

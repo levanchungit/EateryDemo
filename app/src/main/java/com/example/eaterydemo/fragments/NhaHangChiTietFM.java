@@ -22,8 +22,10 @@ import com.bumptech.glide.Glide;
 import com.example.eaterydemo.R;
 import com.example.eaterydemo.adapter.MonAnAdapter;
 import com.example.eaterydemo.databinding.FragmentNhahangchitietBinding;
+import com.example.eaterydemo.model.Message;
 import com.example.eaterydemo.model.MonAn;
 import com.example.eaterydemo.model.NhaHang;
+import com.example.eaterydemo.model.NhaHangYeuThich;
 import com.example.eaterydemo.service.ServiceAPI;
 
 import java.util.List;
@@ -35,6 +37,7 @@ import retrofit2.Response;
 public class NhaHangChiTietFM extends Fragment {
     FragmentNhahangchitietBinding fmBinding;
     NavController navController;
+    int maNh;
 
     @Nullable
     @Override
@@ -44,7 +47,9 @@ public class NhaHangChiTietFM extends Fragment {
         GetAllMonAnNhaHangChiTiet();
         GetNhaHangChiTiet();
         initNavController(container);
-        isYeuThich();
+        maNh = NhaHangChiTietFMArgs.fromBundle(getArguments()).getMaNh();
+
+//        isYeuThich();
 
         showProgressDialog(getContext(), "Đang tải dữ liệu");
 
@@ -70,32 +75,42 @@ public class NhaHangChiTietFM extends Fragment {
 //                navController.navigate(action);
             }
         });
+
+        fmBinding.imgFav.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ThemNhaHangYeuThich(new NhaHangYeuThich(DangNhapFM.TENTK, maNh));
+            }
+        });
     }
 
-    private void isYeuThich() {
+//    private void isYeuThich() {
+//        ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
+//        int maNh = NhaHangChiTietFMArgs.fromBundle(getArguments()).getMaNh();
+//        Call call = serviceAPI.GetNhaHangTheoMaNH(maNh);
+//        call.enqueue(new Callback() {
+//            @Override
+//            public void onResponse(Call call, Response response) {
+//                NhaHang nhaHang = (NhaHang) response.body();
+//                dismissProgressDialog();
+//            }
+//
+//            @Override
+//            public void onFailure(Call call, Throwable t) {
+//                dismissProgressDialog();
+//                Toast.makeText(getContext(), "Lỗi", Toast.LENGTH_SHORT).show();
+//            }
+//        });
+//    }
+
+    private void ThemNhaHangYeuThich(NhaHangYeuThich nhaHangYeuThich) {
         ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
-        int maNh = NhaHangChiTietFMArgs.fromBundle(getArguments()).getMaNh();
-        Call call = serviceAPI.GetNhaHangTheoMaNH(maNh);
+        Call call = serviceAPI.ThemNhaHangYeuThich(nhaHangYeuThich);
         call.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
-                NhaHang nhaHang = (NhaHang) response.body();
-                fmBinding.imgFav.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        if (nhaHang.getIsYeuThich() == 0) {
-                            fmBinding.imgFav.setImageResource(R.drawable.favorites_troke);
-                            nhaHang.setIsYeuThich(1);
-                            Toast.makeText(getContext(), "Thêm nhà hàng vào yêu thích", Toast.LENGTH_SHORT).show();
-                        } else {
-                            fmBinding.imgFav.setImageResource(R.drawable.favorites);
-                            nhaHang.setIsYeuThich(0);
-                            Toast.makeText(getContext(), "Xóa nhà hàng khỏi yêu thích", Toast.LENGTH_SHORT).show();
-
-                        }
-                    }
-                });
-
+                Message message = (Message) response.body();
+                Toast.makeText(requireContext(), message.getNotification(), Toast.LENGTH_SHORT).show();
                 dismissProgressDialog();
             }
 
@@ -109,7 +124,6 @@ public class NhaHangChiTietFM extends Fragment {
 
     private void GetNhaHangChiTiet() {
         ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
-        int maNh = NhaHangChiTietFMArgs.fromBundle(getArguments()).getMaNh();
         Call call = serviceAPI.GetNhaHangTheoMaNH(maNh);
         call.enqueue(new Callback() {
             @Override

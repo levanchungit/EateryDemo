@@ -176,7 +176,7 @@
             </RelativeLayout>
 
             <ImageView
-                android:id="@+id/img_ThanhToan_ThanToan"
+                android:id="@+id/img_ThanhToan_ThanhToan"
                 android:layout_width="wrap_content"
                 android:layout_height="43dp"
                 android:layout_below="@id/layout_TongTien_ThanhToan"

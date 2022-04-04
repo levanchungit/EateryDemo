@@ -59,12 +59,14 @@ public class NhaHangYeuThichFM extends Fragment {
             @Override
             public void onResponse(Call call, Response response) {
                 List<NhaHang> arr = (List<NhaHang>) response.body();
-                Log.d("arr", arr.size() + "");
-                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
-                fmBinding.rvNhaHangYeuThich.setLayoutManager(linearLayoutManager);
-                NhaHangHCNYeuThichAdapter adapter = new NhaHangHCNYeuThichAdapter(arr, getContext());
-                fmBinding.rvNhaHangYeuThich.setAdapter(adapter);
-                dismissProgressDialog();
+                if(arr!=null){
+                    Log.d("arr", arr.size() + "");
+                    LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
+                    fmBinding.rvNhaHangYeuThich.setLayoutManager(linearLayoutManager);
+                    NhaHangHCNYeuThichAdapter adapter = new NhaHangHCNYeuThichAdapter(arr, getContext());
+                    fmBinding.rvNhaHangYeuThich.setAdapter(adapter);
+                    dismissProgressDialog();
+                }
             }
 
             @Override
