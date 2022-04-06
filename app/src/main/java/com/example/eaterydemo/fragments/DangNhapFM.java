@@ -98,7 +98,11 @@ public class DangNhapFM extends Fragment {
                 }else if(message.getStatus() == 13){
                     startActivity(new Intent(requireContext(), DrawerLayoutActivity.class));
                 }
+<<<<<<< Updated upstream
                 TENTK = _TenTK;
+=======
+                //ua
+>>>>>>> Stashed changes
             }
 
             @Override
