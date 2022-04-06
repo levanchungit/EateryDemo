@@ -47,7 +47,7 @@
         <action
             android:id="@+id/action_menu_TrangChu_to_timKiemNhaHangFM"
             app:destination="@id/timKiemNhaHangFM" />
-        <action
+         <action
             android:id="@+id/action_menu_TrangChu_to_CCH_QuanLyDonHangFM"
             app:destination="@id/CCH_QuanLyDonHangFM" />
     </fragment>
@@ -106,7 +106,7 @@
             app:destination="@id/DonHangChiTietFM" />
     </fragment>
 
-    <fragment
+      <fragment
         android:id="@+id/DonHangChiTietFM"
         tools:layout="@layout/fragment_chitietdonhang_nguoidung"
         android:name="com.example.eaterydemo.fragments.DonHangChiTietFM"
@@ -114,7 +114,7 @@
         <argument
             android:name="donhangchitiet"
             app:argType="com.example.eaterydemo.model.DonHang" />
-    </fragment>
+      </fragment>
     <fragment
         android:id="@+id/phuongThucThanhToanFM"
         tools:layout="@layout/fragment_phuongthucthanhtoan"
@@ -125,22 +125,26 @@
         tools:layout="@layout/fragment_vechungtoi"
         android:name="com.example.eaterydemo.fragments.VeChungToiFM"
         android:label="VeChungToiFM" />
-    <fragment
-        android:id="@+id/CCH_QuanLyDonHangFM"
-        tools:layout="@layout/activity_quanlydonhang"
-        android:name="com.example.eaterydemo.fragments.CCH_QuanLyDonHangFM"
-        android:label="CCH_QuanLyDo  nHangFM" >
-        <action
-            android:id="@+id/action_CCH_QuanLyDonHangFM_to_CCH_ChiTietDonHangFM"
-            app:destination="@id/CCH_ChiTietDonHangFM" />
-            </fragment>
-     <fragment
-        android:id="@+id/CCH_ChiTietDonHangFM"
-        tools:layout="@layout/fragment_owner_chitietdonhang"
-        android:name="com.example.eaterydemo.fragments.CCH_ChiTietDonHangFM"
-        android:label="CCH_ChiTietDonHangFM" >
-        <argument
-            android:name="ChiTietDonHang_CCH"
-            app:argType="com.example.eaterydemo.model.DonHang" />
-    </fragment>
+<!--    <fragment-->
+<!--        android:id="@+id/CCH_QuanLyDonHangFM"-->
+<!--        tools:layout="@layout/fragment_quanlydonhang_chucuahang"-->
+<!--        android:name="com.example.eaterydemo.fragments.CCH_QuanLyDonHangFM"-->
+<!--        android:label="CCH_QuanLyDo  nHangFM" >-->
+<!--        <action-->
+<!--            android:id="@+id/action_CCH_QuanLyDonHangFM_to_CCH_ChiTietDonHangFM"-->
+<!--            app:destination="@id/CCH_ChiTietDonHangFM" />-->
+<!--            </fragment>-->
+<!--     <fragment-->
+<!--        android:id="@+id/CCH_ChiTietDonHangFM"-->
+<!--        tools:layout="@layout/fragment_owner_chitietdonhang"-->
+<!--        android:name="com.example.eaterydemo.fragments.CCH_ChiTietDonHangFM"-->
+<!--        android:label="CCH_ChiTietDonHangFM" >-->
+<!--         <action-->
+<!--             android:id="@+id/action_CCH_ChiTietDonHangFM_to_CCH_QuanLyDonHangFM2"-->
+<!--             app:destination="@id/CCH_QuanLyDonHangFM" />-->
+<!--        <argument-->
+<!--            android:name="ChiTietDonHang_CCH"-->
+<!--            app:argType="com.example.eaterydemo.model.DonHang" />-->
+
+<!--     </fragment>-->
 </navigation>

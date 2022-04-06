@@ -2,15 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="20dp">
+    android:padding="10dp">
 
-    <ImageView
-        android:id="@+id/imgBackDonHang"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:src="@drawable/ic_back_black"
-        android:layout_alignParentLeft="true"
-        />
 
     <TextView
         android:id="@+id/tvDonHang"
@@ -20,7 +13,8 @@
         android:textAlignment="center"
         android:textSize="25dp"
         android:textStyle="bold"
-        android:layout_toRightOf="@+id/imgBackDonHang"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
         android:textColor="@color/black"/>
 
     <androidx.recyclerview.widget.RecyclerView

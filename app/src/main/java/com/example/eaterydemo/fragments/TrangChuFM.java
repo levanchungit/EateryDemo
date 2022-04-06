@@ -81,8 +81,8 @@ public class TrangChuFM extends Fragment {
         fmBinding.ivLau.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavDirections action = TrangChuFMDirections.actionMenuTrangChuToCCHQuanLyDonHangFM();
-                navController.navigate(action);
+//                NavDirections action = TrangChuFMDirections.actionMenuTrangChuToCCHQuanLyDonHangFM();
+//                navController.navigate(action);
             }
         });
         fmBinding.ivCom.setOnClickListener(new View.OnClickListener() {
