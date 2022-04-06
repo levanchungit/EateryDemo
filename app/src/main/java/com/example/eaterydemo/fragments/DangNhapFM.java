@@ -62,7 +62,7 @@ public class DangNhapFM extends Fragment {
             public void onClick(View view) {
 
                 //validate Input
-                if (!validateEditText(fmBinding.tilEmailDangNhap,fmBinding.edtEmailDangNhap) | !validateEditText(fmBinding.tilMatKhauDangNhap,fmBinding.edtMatKhauDangNhap)) {
+                if (!validateEditText(fmBinding.tilEmailDangNhap, fmBinding.edtEmailDangNhap) | !validateEditText(fmBinding.tilMatKhauDangNhap, fmBinding.edtMatKhauDangNhap)) {
                     return;
                 }
 
@@ -90,25 +90,27 @@ public class DangNhapFM extends Fragment {
     }
 
     private void DangNhap(String _TenTK, String _MatKhau) {
-        showProgressDialog(getContext(),"Đang đăng nhập...");
+        showProgressDialog(getContext(), "Đang đăng nhập...");
         ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
         Call call = serviceAPI.DangNhap(_TenTK, _MatKhau);
         call.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
                 Message message = (Message) response.body();
-                Toast.makeText(requireContext(), message.getNotification(), Toast.LENGTH_SHORT).show();
-                Log.e("LOGIN",message.getNotification());
-                dismissProgressDialog();
-                //11: Quản trị viên, 12: Chủ cửa hàng, 13: khách hàng
-                if (message.getStatus() == 11) {
-                    startActivity(new Intent(requireContext(), AdminActivity.class));
-                }else if(message.getStatus() == 12){
-                    startActivity(new Intent(requireContext(), ChuCuaHangActivity.class));
-                }else if(message.getStatus() == 13){
-                    startActivity(new Intent(requireContext(), DrawerLayoutActivity.class));
+                if (message != null) {
+                    Toast.makeText(requireContext(), message.getNotification(), Toast.LENGTH_SHORT).show();
+                    Log.e("LOGIN", message.getNotification());
+                    dismissProgressDialog();
+                    //11: Quản trị viên, 12: Chủ cửa hàng, 13: khách hàng
+                    if (message.getStatus() == 11) {
+                        startActivity(new Intent(requireContext(), AdminActivity.class));
+                    } else if (message.getStatus() == 12) {
+                        startActivity(new Intent(requireContext(), ChuCuaHangActivity.class));
+                    } else if (message.getStatus() == 13) {
+                        startActivity(new Intent(requireContext(), DrawerLayoutActivity.class));
+                    }
+                    TENTK = _TenTK;
                 }
-                TENTK = _TenTK;
             }
 
             @Override

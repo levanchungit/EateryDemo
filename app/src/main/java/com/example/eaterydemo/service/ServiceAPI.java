@@ -1,6 +1,7 @@
 package com.example.eaterydemo.service;
 
 import com.example.eaterydemo.model.DonHang;
+import com.example.eaterydemo.model.DonHangChiTiet;
 import com.example.eaterydemo.model.KhuyenMai;
 import com.example.eaterydemo.model.Message;
 import com.example.eaterydemo.model.MonAn;
@@ -30,6 +31,7 @@ public interface ServiceAPI {
 
     @GET("api/nhahangtheotentk")
     Call<NhaHang> GetNhaHangTheoTenTK(@Query("TenTK") String TenTK);
+
     @GET("api/getAllnhahangyeuthich")
     Call<ArrayList<NhaHang>> GetAllNhaHangYeuThich();
 
@@ -46,8 +48,6 @@ public interface ServiceAPI {
     Call<Message> CheckNhaHangYeuThichCuaTaiKhoan(@Query("TenTK") String TenTK, @Query("MaNH") int MaNH);
 
 
-
-
     //KHUYẾN MÃI
     @GET("api/khuyenmai")
     Call<ArrayList<KhuyenMai>> GetAllKhuyenMai();
@@ -62,7 +62,7 @@ public interface ServiceAPI {
     Call<MonAn> GetMonAnTheoMaMA(@Query("MaMA") int MaMA);
 
     @POST("api/ThemMonAnVaoGioHang")
-    Call<Message> ThemMonAnVaoGioHang(@Query("TenTK") String TenTK,@Query("MaMA") int MaMA,@Query("SL") int SL);
+    Call<Message> ThemMonAnVaoGioHang(@Query("TenTK") String TenTK, @Query("MaMA") int MaMA, @Query("SL") int SL);
 
     //TÀI KHOẢN
     @POST("api/dangnhap")
@@ -81,13 +81,19 @@ public interface ServiceAPI {
     Call<Message> SendEmailForgotPassword(@Query("TenTK") String TenTK);
 
     @GET("api/resetPassword")
-    Call<Message> CapNhatMatKhau(@Query("TenTK") String TenTK, @Query("Code") String code, @Query("matKhauMoi")String matKhauMoi);
+    Call<Message> CapNhatMatKhau(@Query("TenTK") String TenTK, @Query("Code") String code, @Query("matKhauMoi") String matKhauMoi);
 
     @GET("api/taikhoan")
     Call<TaiKhoan> GetTaiKhoanTheoTenTK(@Query("TenTK") String TenTK);
 
     @POST("api/capnhatthongtintaikhoan")
     Call<Message> ChinhSuaThongTin(@Query("TenTK") String TenTK, @Query("HoTen") String HoTen, @Query("SDT") String SDT, @Query("DiaChi") String DiaChi);
+
+    @POST("api/CapNhatMatKhauCuaTK")
+    Call<Message> CapNhatMatKhauCuaTK(@Query("TenTK") String TenTK, @Query("MatKhauCu") String MatKhauCu, @Query("MatKhauMoi") String MatKhauMoi, @Query("NhapLaiMatKhauMoi") String NhapLaiMatKhauMoi);
+
+    @POST("api/ThemMonAnKhacNhaHang")
+    Call<Message> ThemMonAnKhacNhaHang(@Query("TenTK") String TenTK, @Query("MaMA") int MaMA);
 
 
     //ĐƠN HÀNG
@@ -111,13 +117,17 @@ public interface ServiceAPI {
     Call<ArrayList<DonHang>> GetALLDonHang(@Query("TenTK") String TenTK);
 
     @GET("api/getAllDonHangTheoMaNHTheoTTDH")
-    Call<ArrayList<DonHang>> GetAllDonHangTheoMaNHDuaVaoTrangThai(@Query("MaNH") int MaNH,@Query("TrangThaiDH") int TrangThaiDH);
+    Call<ArrayList<DonHang>> GetAllDonHangTheoMaNHDuaVaoTrangThai(@Query("MaNH") int MaNH, @Query("TrangThaiDH") int TrangThaiDH);
 
     @POST("api/capnhatrangthaidonhang")
-    Call<ArrayList<DonHang>> CapNhat(@Query("MaNH") int MaNH,@Query("TrangThaiDH") int TrangThaiDH);
+    Call<ArrayList<DonHang>> CapNhat(@Query("MaNH") int MaNH, @Query("TrangThaiDH") int TrangThaiDH);
 
     @POST("api/XoaMonAnTrongDonHang")
-    Call<Message> XoaMonAnTrongDonHang(@Query("MaDHCT") int MaDHCT,@Query("MaMA") int MaMA);
+    Call<ArrayList<DonHangChiTiet>> XoaMonAnTrongDonHang(@Query("MaDHCT") int MaDHCT, @Query("MaMA") int MaMA);
+
+    @GET("api/LayTongTienCuaDonHang")
+    Call<Double> LayTongTienCuaDonHang(@Query("MaDH")int MaDH);
+
 
 
 }

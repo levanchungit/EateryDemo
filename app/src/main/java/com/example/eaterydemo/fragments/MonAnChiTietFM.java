@@ -4,7 +4,6 @@ import static com.example.eaterydemo.others.ShowNotifyUser.dismissProgressDialog
 import static com.example.eaterydemo.service.GetRetrofit.getRetrofit;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -117,19 +116,35 @@ public class MonAnChiTietFM extends Fragment {
         });
     }
 
-    private void ThemMonAnVaoGioHang(String _TenTK, int _MaMA, int _SL) {
+    private void ThemMonAnVaoGioHang(String _TenTK, int _MaMA, int SL) {
         ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
-        Call call = serviceAPI.ThemMonAnVaoGioHang(_TenTK, _MaMA, _SL);
+        Call call = serviceAPI.ThemMonAnVaoGioHang(_TenTK, _MaMA, SL);
         call.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
                 Message message = (Message) response.body();
                 Toast.makeText(getContext(), message.getNotification(), Toast.LENGTH_SHORT).show();
-                if(message.getStatus() == 1){
-                    Log.e("Add_Remove Cart","Yêu thích nhà hàng thành công");
-                }else{
-                    Log.e("Add_Remove Cart","Huỷ yêu thích nhà hàng thành công");
-                }
+
+                dismissProgressDialog();
+            }
+
+            @Override
+            public void onFailure(Call call, Throwable t) {
+                dismissProgressDialog();
+                Toast.makeText(getContext(), "Lỗi", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void ThemMonAnKhacNhaHang(String _TenTK, int _MaMA) {
+        ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
+        Call call = serviceAPI.ThemMonAnKhacNhaHang(_TenTK, _MaMA);
+        call.enqueue(new Callback() {
+            @Override
+            public void onResponse(Call call, Response response) {
+                Message message = (Message) response.body();
+                Toast.makeText(getContext(), message.getNotification(), Toast.LENGTH_SHORT).show();
+//                if()
                 dismissProgressDialog();
             }
 

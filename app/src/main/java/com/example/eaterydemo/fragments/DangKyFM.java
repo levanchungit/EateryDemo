@@ -75,11 +75,6 @@ public class DangKyFM extends Fragment {
         fmBinding.btnLoginDangKy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-//                if(imagePath == null){
-//                    imagePath.
-//                }
-
                 //validate Input
                 if (!validateEditText(fmBinding.tilEmailDangNhap,fmBinding.edtEmailDangKy)
                         | !validateEditText(fmBinding.tilMatKhauDangKy,fmBinding.edtMatKhauDangKy)

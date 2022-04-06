@@ -17,7 +17,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.eaterydemo.R;
 import com.example.eaterydemo.model.DonHangChiTiet;
-import com.example.eaterydemo.model.Message;
 import com.example.eaterydemo.service.ServiceAPI;
 
 import java.text.NumberFormat;
@@ -32,6 +31,7 @@ public class GioHangAdapter extends RecyclerView.Adapter<GioHangAdapter.ViewHold
 
 
     List<DonHangChiTiet> arr;
+    List<DonHangChiTiet> arrDHCT;
     Context context;
 
     public GioHangAdapter(List<DonHangChiTiet> arr, Context context) {
@@ -155,8 +155,8 @@ public class GioHangAdapter extends RecyclerView.Adapter<GioHangAdapter.ViewHold
         call.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
-                Message message = (Message) response.body();
-                Toast.makeText(context, message.getNotification(), Toast.LENGTH_SHORT).show();
+                arrDHCT = (List<DonHangChiTiet>) response.body();
+                refresh();
             }
 
             @Override
@@ -169,7 +169,7 @@ public class GioHangAdapter extends RecyclerView.Adapter<GioHangAdapter.ViewHold
 
     public void refresh(){
         arr.clear();
-        arr.addAll(arr);
+        arr.addAll(arrDHCT);
         notifyDataSetChanged();
     }
 }

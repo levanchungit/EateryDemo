@@ -4,10 +4,12 @@ import static com.example.eaterydemo.others.ShowNotifyUser.dismissProgressDialog
 import static com.example.eaterydemo.others.ShowNotifyUser.showProgressDialog;
 import static com.example.eaterydemo.service.GetRetrofit.getRetrofit;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -32,11 +34,19 @@ import retrofit2.Response;
 public class ChinhSuaThongTinFM extends Fragment {
     FragmentChinhsuaThongtinBinding fmEditProfileBinding;
     NavController navController;
-
+    View _view;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         fmEditProfileBinding = FragmentChinhsuaThongtinBinding.inflate(getLayoutInflater());
+        _view = container;
+
+        return fmEditProfileBinding.getRoot();
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
         initClick();
 
         //tắt bottom navigation
@@ -44,9 +54,10 @@ public class ChinhSuaThongTinFM extends Fragment {
         navbar.setVisibility(View.GONE);
 
         GetThongTin(DangNhapFM.TENTK);
-        initNavController(container);
-        return fmEditProfileBinding.getRoot();
+        initNavController(_view);
     }
+
+
 
     private void initNavController(View viewEditProfileBinding) {
         navController = Navigation.findNavController(viewEditProfileBinding);
@@ -70,8 +81,6 @@ public class ChinhSuaThongTinFM extends Fragment {
                 String _SDT = fmEditProfileBinding.edtSDT.getText().toString().trim();
                 String _DiaChi = fmEditProfileBinding.edtDiaChi.getText().toString().trim();
                 ChinhSuaThongTin(_TenTK, _HoTen, _SDT, _DiaChi);
-                NavDirections action = ChinhSuaThongTinFMDirections.actionEditProfileFMToMenuThongTin();
-                navController.navigate(action);
                 dismissProgressDialog();
             }
         });
@@ -109,10 +118,11 @@ public class ChinhSuaThongTinFM extends Fragment {
             @Override
             public void onResponse(Call call, Response response) {
                 Message message = (Message) response.body();
-//                Toast.makeText(getContext(), message.getNotification(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), message.getNotification(), Toast.LENGTH_SHORT).show();
                 if (message.getStatus() == 1) {
                     NavDirections action = ChinhSuaThongTinFMDirections.actionEditProfileFMToMenuThongTin();
                     Navigation.findNavController(getView()).navigate(action);
+                    hideKeyboard(getActivity());
                 }
                 dismissProgressDialog();
             }
@@ -123,6 +133,17 @@ public class ChinhSuaThongTinFM extends Fragment {
                 Toast.makeText(getContext(), "Lỗi", Toast.LENGTH_SHORT).show();
             }
         });
-
     }
+
+    public static void hideKeyboard(Activity activity) {
+        InputMethodManager imm = (InputMethodManager) activity.getSystemService(Activity.INPUT_METHOD_SERVICE);
+        //Find the currently focused view, so we can grab the correct window token from it.
+        View view = activity.getCurrentFocus();
+        //If no view currently has focus, create a new one, just so we can grab a window token from it
+        if (view == null) {
+            view = new View(activity);
+        }
+        imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+    }
+
 }

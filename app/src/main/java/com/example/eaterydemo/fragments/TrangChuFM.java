@@ -54,8 +54,6 @@ public class TrangChuFM extends Fragment {
         fmBinding = FragmentTrangchuBinding.inflate(getLayoutInflater());
         _view = container;
 
-
-
         return fmBinding.getRoot();
     }
 

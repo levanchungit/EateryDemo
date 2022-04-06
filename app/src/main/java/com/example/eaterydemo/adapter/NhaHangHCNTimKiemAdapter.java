@@ -86,7 +86,7 @@ public class NhaHangHCNTimKiemAdapter extends RecyclerView.Adapter<NhaHangHCNTim
 
     @Override
     public void onBindViewHolder(@NonNull NhaHangHCNTimKiemAdapter.ViewHolder holder, int position) {
-        NhaHang model = arrNH.get(position);
+        NhaHang model = arrNHFiltered.get(position);
         ImageView ivImage_NhaHang = holder.getivImage_NhaHang();
         ImageView ivDanhGia_ItemNhaHang = holder.getivDanhGia_ItemNhaHang();
         TextView tvTenNhaHang_ItemNhaHang = holder.gettvTenNhaHang_ItemNhaHang();
@@ -142,7 +142,7 @@ public class NhaHangHCNTimKiemAdapter extends RecyclerView.Adapter<NhaHangHCNTim
                         String title = itemsModel.getTenNH();
                         if (title.toLowerCase().contains(searchStr)) {
                             resultsModel.add(itemsModel);
-                        }else if(removeAccent(title).toLowerCase().contains(searchStr)){
+                        } else if(removeAccent(title).toLowerCase().contains(searchStr)){
                             resultsModel.add(itemsModel);
                         }
                         filterResults.count = resultsModel.size();
@@ -155,6 +155,7 @@ public class NhaHangHCNTimKiemAdapter extends RecyclerView.Adapter<NhaHangHCNTim
 
             @Override
             protected void publishResults(CharSequence constraint, FilterResults results) {
+               // arrNHFiltered.clear();
                 arrNHFiltered = (ArrayList<NhaHang>) results.values;
                 notifyDataSetChanged();
             }
