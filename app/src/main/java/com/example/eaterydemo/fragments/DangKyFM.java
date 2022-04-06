@@ -1,6 +1,7 @@
 package com.example.eaterydemo.fragments;
 
 
+import static com.example.eaterydemo.fragments.DangNhapFM.validateEditText;
 import static com.example.eaterydemo.others.ShowNotifyUser.dismissProgressDialog;
 import static com.example.eaterydemo.others.ShowNotifyUser.showProgressDialog;
 import static com.example.eaterydemo.service.GetRetrofit.getRetrofit;
@@ -74,6 +75,21 @@ public class DangKyFM extends Fragment {
         fmBinding.btnLoginDangKy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+//                if(imagePath == null){
+//                    imagePath.
+//                }
+
+                //validate Input
+                if (!validateEditText(fmBinding.tilEmailDangNhap,fmBinding.edtEmailDangKy)
+                        | !validateEditText(fmBinding.tilMatKhauDangKy,fmBinding.edtMatKhauDangKy)
+                        | !validateEditText(fmBinding.tilNhapLaiMatKhauDangKy,fmBinding.edtNhapLaiMatKhauDangKy)
+                        | !validateEditText(fmBinding.tilHoTenDangKy,fmBinding.edtHoTenDangKy)
+                        | !validateEditText(fmBinding.tilSdtDangKy,fmBinding.edtSdtDangKy)
+                        | !validateEditText(fmBinding.tilDiaChiDangKy,fmBinding.edtDiaChiDangKy)) {
+                    return;
+                }
+
                 //load hình ảnh lên cloudinary
                 uploadToCloudinary();
 
@@ -145,6 +161,10 @@ public class DangKyFM extends Fragment {
     }
 
     private void uploadToCloudinary() {
+        if(imagePath == null){
+            Toast.makeText(getContext(), "Vui lòng chọn ảnh", Toast.LENGTH_SHORT).show();
+            return;
+        }
         MediaManager.get().upload(imagePath).callback(new UploadCallback() {
             @Override
             public void onStart(String requestId) {

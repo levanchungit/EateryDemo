@@ -9,7 +9,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.navigation.NavController;
 import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.eaterydemo.R;
 import com.example.eaterydemo.fragments.NhaHangYeuThichFMDirections;
+import com.example.eaterydemo.fragments.TrangChuFM;
 import com.example.eaterydemo.model.NhaHang;
 
 import java.util.List;
@@ -28,7 +28,6 @@ public class NhaHangHCNYeuThichAdapter extends RecyclerView.Adapter<NhaHangHCNYe
     RelativeLayout rlitem_nhahanghcn;
     List<NhaHang> arr;
     Context context;
-    NavController navController;
 
     public NhaHangHCNYeuThichAdapter(List<NhaHang> arr, Context context) {
         this.arr = arr;
@@ -78,8 +77,8 @@ public class NhaHangHCNYeuThichAdapter extends RecyclerView.Adapter<NhaHangHCNYe
         rlitem_nhahanghcn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int maNh = model.getMaNH();
-                NavDirections action = NhaHangYeuThichFMDirections.actionMenuYeuThichToNhaHangChiTietFM(maNh);
+                TrangChuFM.MaNH = model.getMaNH();
+                NavDirections action = NhaHangYeuThichFMDirections.actionMenuYeuThichToNhaHangChiTietFM(TrangChuFM.MaNH);
                 Navigation.findNavController(view).navigate(action);
 
             }
@@ -90,6 +89,7 @@ public class NhaHangHCNYeuThichAdapter extends RecyclerView.Adapter<NhaHangHCNYe
     public int getItemCount() {
         return arr.size();
     }
+
 
 
 }

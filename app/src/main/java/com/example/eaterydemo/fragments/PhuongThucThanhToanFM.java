@@ -6,16 +6,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
+import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 
 import com.example.eaterydemo.R;
 import com.example.eaterydemo.databinding.FragmentPhuongthucthanhtoanBinding;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 
 public class PhuongThucThanhToanFM extends Fragment {
@@ -32,14 +33,26 @@ public class PhuongThucThanhToanFM extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         fmBinding = FragmentPhuongthucthanhtoanBinding.inflate(getLayoutInflater());
-//        initNavController(container);
         _view = container;
 
+        //tắt bottom navigation
+        BottomNavigationView navbar = getActivity().findViewById(R.id.navBot);
+        navbar.setVisibility(View.GONE);
+
+        initClick();
 
         return fmBinding.getRoot();
     }
 
-//    private static PayPalConfiguration config = new PayPalConfiguration().environment(PayPalConfiguration.ENVIRONMENT_SANDBOX).clientId(clientKey);
+    private void initClick() {
+        fmBinding.ivBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavDirections action = PhuongThucThanhToanFMDirections.actionPhuongThucThanhToanFMToMenuThongTin();
+                Navigation.findNavController(view).navigate(action);
+            }
+        });
+    }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -53,32 +66,7 @@ public class PhuongThucThanhToanFM extends Fragment {
         });
     }
 
-//    private void getPayment() {
-//
-//        // Getting the amount from editText
-//        String amount = "100";
-//
-//        // Creating a paypal payment on below line.
-//        PayPalPayment payment = new PayPalPayment(new BigDecimal(String.valueOf(amount)), "USD", "Course Fees",
-//                PayPalPayment.PAYMENT_INTENT_SALE);
-//
-//        // Creating Paypal Payment activity intent
-//        Intent intent = new Intent(getContext(), PaymentActivity.class);
-//
-//        //putting the paypal configuration to the intent
-//        intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, config);
-//
-//        // Putting paypal payment to the intent
-//        intent.putExtra(PaymentActivity.EXTRA_PAYMENT, payment);
-//
-//        // Starting the intent activity for result
-//        // the request code will be used on the method onActivityResult
-//        startActivityForResult(intent, PAYPAL_REQUEST_CODE);
-//    }
-//
-//    private void initNavController(View viewFmProfileBinding) {
-//        navController = Navigation.findNavController(viewFmProfileBinding);
-//    }
+
 
 
 }

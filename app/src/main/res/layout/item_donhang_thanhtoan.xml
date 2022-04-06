@@ -99,8 +99,8 @@
                 android:id="@+id/img_Cancel_ItemThanhToan"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:layout_centerVertical="true"
                 android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
                 android:layout_marginRight="10dp"
                 app:srcCompat="@drawable/ic_baseline_cancel_24" />
 

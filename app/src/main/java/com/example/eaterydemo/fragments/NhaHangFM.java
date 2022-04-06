@@ -15,14 +15,15 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
-import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.example.eaterydemo.R;
 import com.example.eaterydemo.adapter.NhaHangHCNAdapter;
 import com.example.eaterydemo.databinding.FragmentNhahangBinding;
 import com.example.eaterydemo.model.NhaHang;
 import com.example.eaterydemo.service.ServiceAPI;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.List;
 
@@ -42,6 +43,10 @@ public class NhaHangFM extends Fragment {
         initClick();
         initNavController(container);
 
+        //tắt bottom navigation
+        BottomNavigationView navbar = getActivity().findViewById(R.id.navBot);
+        navbar.setVisibility(View.GONE);
+
         showProgressDialog(getContext(), "Đang tải dữ liệu");
         GetAllNhaHangTheoLoai();
 
@@ -53,13 +58,7 @@ public class NhaHangFM extends Fragment {
     }
 
     private void initClick() {
-        fmBinding.ivBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                NavDirections action = NhaHangFMDirections.actionNhaHangFMToMenuTrangChu();
-                navController.navigate(action);
-            }
-        });
+
     }
 
     private void GetAllNhaHangTheoLoai() {

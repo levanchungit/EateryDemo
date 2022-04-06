@@ -24,7 +24,6 @@ import com.example.eaterydemo.databinding.FragmentMonanchitietBinding;
 import com.example.eaterydemo.model.Message;
 import com.example.eaterydemo.model.MonAn;
 import com.example.eaterydemo.service.ServiceAPI;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.List;
 
@@ -44,8 +43,7 @@ public class MonAnChiTietFM extends Fragment {
         initClick();
         initNavController(container);
 
-        BottomNavigationView navBar = getActivity().findViewById(R.id.navBot);
-        navBar.setVisibility(View.GONE);
+
 
         GetMonAnChiTiet();
         GetAllMonAnNhaHangChiTiet();
@@ -58,15 +56,6 @@ public class MonAnChiTietFM extends Fragment {
     }
 
     private void initClick() {
-        fmBinding.imgBackMonAnChiTiet.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-//                NavDirections action = NhaHangFMDirections.actionNhaHangFMToHomeFM();
-//                navController.navigate(action);
-//                NavDirections action = NhaHangChiTietFMDirections.actionNhaHangChiTietFMToNhaHangFM();
-//                navController.navigate(action);
-            }
-        });
 
         fmBinding.btnThemMonAnMonAnChiTiet.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -113,7 +102,6 @@ public class MonAnChiTietFM extends Fragment {
             @Override
             public void onResponse(Call call, Response response) {
                 List<MonAn> arr = (List<MonAn>) response.body();
-                Log.d("arr", arr.size() + "");
                 StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
                 fmBinding.rvMonAnMonAnChiTiet.setLayoutManager(staggeredGridLayoutManager);
                 MonAnChiTietAdapter adapter = new MonAnChiTietAdapter(arr, getContext());
@@ -138,7 +126,9 @@ public class MonAnChiTietFM extends Fragment {
                 Message message = (Message) response.body();
                 Toast.makeText(getContext(), message.getNotification(), Toast.LENGTH_SHORT).show();
                 if(message.getStatus() == 1){
-
+                    Log.e("Add_Remove Cart","Yêu thích nhà hàng thành công");
+                }else{
+                    Log.e("Add_Remove Cart","Huỷ yêu thích nhà hàng thành công");
                 }
                 dismissProgressDialog();
             }

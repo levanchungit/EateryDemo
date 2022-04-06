@@ -33,14 +33,17 @@ public interface ServiceAPI {
     @GET("api/getAllnhahangyeuthich")
     Call<ArrayList<NhaHang>> GetAllNhaHangYeuThich();
 
-    @GET("api/nhahangyeuthich/{TenTK}")
-    Call<ArrayList<NhaHang>> GetAllNhaHangYeuThichTheoTK(@Path("TenTK") String TenTK);
+    @GET("api/GetAllNhaHangYeuThichCuaTaiKhoan")
+    Call<ArrayList<NhaHang>> GetAllNhaHangYeuThichCuaTaiKhoan(@Query("TenTK") String TenTK);
 
     @GET("api/nhahangtheomanh/{MaNH}")
     Call<NhaHang> GetNhaHangTheoMaNH(@Path("MaNH") int MaNH);
 
-    @POST("api/insert-nhahangyeuthich")
-    Call<Message> ThemNhaHangYeuThich(@Body NhaHangYeuThich nhaHangYeuThich);
+    @POST("api/ThemHuyNhaHangYeuThich")
+    Call<Message> ThemHuyNhaHangYeuThich(@Body NhaHangYeuThich nhaHangYeuThich);
+
+    @GET("api/CheckNhaHangYeuThichCuaTaiKhoan")
+    Call<Message> CheckNhaHangYeuThichCuaTaiKhoan(@Query("TenTK") String TenTK, @Query("MaNH") int MaNH);
 
 
 
@@ -52,13 +55,13 @@ public interface ServiceAPI {
 
     //MÓN ĂN
     //truyen param thi k có cái đuôi {...} và cái @Query
-    @GET("api/monantheonhahang")
+    @GET("api/GetAllMonAnTheoNhaHang")
     Call<ArrayList<MonAn>> GetAllMonAnTheoNhaHang(@Query("MaNH") int MaNH);
 
     @GET("api/monantheomama")
     Call<MonAn> GetMonAnTheoMaMA(@Query("MaMA") int MaMA);
 
-    @POST("api/themonanvaogiohang")
+    @POST("api/ThemMonAnVaoGioHang")
     Call<Message> ThemMonAnVaoGioHang(@Query("TenTK") String TenTK,@Query("MaMA") int MaMA,@Query("SL") int SL);
 
     //TÀI KHOẢN
@@ -95,6 +98,9 @@ public interface ServiceAPI {
     @POST("api/capnhatrangthaidonhang")
     Call<Message> CapNhatTrangThaiDonHang(@Query("MaNH") int MaNH, @Query("TrangThaiDH") int TrangThaiDH);
 
+    @POST("api/CapNhatTrangThaiDonHangCuaTK")
+    Call<Message> CapNhatTrangThaiDonHangCuaTK(@Body DonHang donHang);
+
     @GET("api/getDonHangTheoTK")
     Call<DonHang> GetDonHangTheoTK(@Query("TenTK") String TenTK);
 
@@ -109,6 +115,9 @@ public interface ServiceAPI {
 
     @POST("api/capnhatrangthaidonhang")
     Call<ArrayList<DonHang>> CapNhat(@Query("MaNH") int MaNH,@Query("TrangThaiDH") int TrangThaiDH);
+
+    @POST("api/XoaMonAnTrongDonHang")
+    Call<Message> XoaMonAnTrongDonHang(@Query("MaDHCT") int MaDHCT,@Query("MaMA") int MaMA);
 
 
 }

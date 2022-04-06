@@ -5,7 +5,12 @@
     android:layout_height="match_parent"
     android:padding="20dp">
 
-
+    <ImageView
+        android:id="@+id/imgBackDonHang"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentLeft="true"
+        android:src="@drawable/ic_back_black" />
 
         <LinearLayout
             android:layout_width="match_parent"

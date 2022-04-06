@@ -46,18 +46,18 @@ public class QuenMatKhau_DoiMatKhauMoiFM extends Fragment {
     }
 
     private void initClick() {
-        fmBinding.btnDoiMatKhauDoiMatKhauMoi.setOnClickListener(new View.OnClickListener() {
+        fmBinding.btnDoiMatKhauQuenMatKhau.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String _TenTK = DangNhapFM.TENTK;
-                String _code = fmBinding.edtCode.getText().toString().trim();
-                String _matKhauMoi = fmBinding.edtMatKhauMoiDoiMatKhauMoi.getText().toString().trim();
-                quenMatKhau(_TenTK, _code, _matKhauMoi);
+                String _code = fmBinding.edtMaCodeQuenMatKhau.getText().toString().trim();
+                String _matKhauMoi = fmBinding.edtNhapMatKhauMoiQuenMatKhau.getText().toString().trim();
+                CapNhatMatKhau(_TenTK, _code, _matKhauMoi);
             }
         });
     }
 
-    private void quenMatKhau(String _TenTK, String _code, String _matKhauMoi) {
+    private void CapNhatMatKhau(String _TenTK, String _code, String _matKhauMoi) {
         showProgressDialog(getContext(), "Đang xác nhận...");
         ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
         Call call = serviceAPI.CapNhatMatKhau(_TenTK, _code, _matKhauMoi);

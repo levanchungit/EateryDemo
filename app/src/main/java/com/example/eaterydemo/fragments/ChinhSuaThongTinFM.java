@@ -4,9 +4,7 @@ import static com.example.eaterydemo.others.ShowNotifyUser.dismissProgressDialog
 import static com.example.eaterydemo.others.ShowNotifyUser.showProgressDialog;
 import static com.example.eaterydemo.service.GetRetrofit.getRetrofit;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,11 +18,12 @@ import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 
 import com.bumptech.glide.Glide;
-import com.example.eaterydemo.activities.DrawerLayoutActivity;
+import com.example.eaterydemo.R;
 import com.example.eaterydemo.databinding.FragmentChinhsuaThongtinBinding;
 import com.example.eaterydemo.model.Message;
 import com.example.eaterydemo.model.TaiKhoan;
 import com.example.eaterydemo.service.ServiceAPI;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -39,6 +38,10 @@ public class ChinhSuaThongTinFM extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         fmEditProfileBinding = FragmentChinhsuaThongtinBinding.inflate(getLayoutInflater());
         initClick();
+
+        //tắt bottom navigation
+        BottomNavigationView navbar = getActivity().findViewById(R.id.navBot);
+        navbar.setVisibility(View.GONE);
 
         GetThongTin(DangNhapFM.TENTK);
         initNavController(container);
@@ -66,7 +69,7 @@ public class ChinhSuaThongTinFM extends Fragment {
                 String _HoTen = fmEditProfileBinding.tvFullName.getText().toString().trim();
                 String _SDT = fmEditProfileBinding.edtSDT.getText().toString().trim();
                 String _DiaChi = fmEditProfileBinding.edtDiaChi.getText().toString().trim();
-                ChinhSuaThongTin(_TenTK, _HoTen,_SDT,_DiaChi);
+                ChinhSuaThongTin(_TenTK, _HoTen, _SDT, _DiaChi);
                 NavDirections action = ChinhSuaThongTinFMDirections.actionEditProfileFMToMenuThongTin();
                 navController.navigate(action);
                 dismissProgressDialog();
@@ -98,18 +101,18 @@ public class ChinhSuaThongTinFM extends Fragment {
         });
     }
 
-    private void ChinhSuaThongTin(String _TenTK, String _HoTen,String _SDT,String _DiaChi) {
-        showProgressDialog(getContext(),"Đang xác nhân");
+    private void ChinhSuaThongTin(String _TenTK, String _HoTen, String _SDT, String _DiaChi) {
+        showProgressDialog(getContext(), "Đang xác nhân");
         ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
-        Call call = serviceAPI.ChinhSuaThongTin(_TenTK, _HoTen,_SDT, _DiaChi);
+        Call call = serviceAPI.ChinhSuaThongTin(_TenTK, _HoTen, _SDT, _DiaChi);
         call.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
                 Message message = (Message) response.body();
-                Toast.makeText(getContext(), message.getNotification(), Toast.LENGTH_SHORT).show();
-                Log.e("LOGIN",message.getNotification());
+//                Toast.makeText(getContext(), message.getNotification(), Toast.LENGTH_SHORT).show();
                 if (message.getStatus() == 1) {
-                    startActivity(new Intent(requireContext(), DrawerLayoutActivity.class));
+                    NavDirections action = ChinhSuaThongTinFMDirections.actionEditProfileFMToMenuThongTin();
+                    Navigation.findNavController(getView()).navigate(action);
                 }
                 dismissProgressDialog();
             }

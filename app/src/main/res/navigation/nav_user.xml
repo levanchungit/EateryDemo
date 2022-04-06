@@ -35,7 +35,9 @@
         android:label="EditProfileFM">
         <action
             android:id="@+id/action_editProfileFM_to_menu_ThongTin"
-            app:destination="@id/menu_ThongTin" />
+            app:destination="@id/menu_ThongTin"
+            app:popUpTo="@id/menu_ThongTin"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/menu_TrangChu"
@@ -55,9 +57,6 @@
         <action
             android:id="@+id/action_menu_TrangChu_to_nhaHangChiTietFM"
             app:destination="@id/nhaHangChiTietFM" />
-        <action
-            android:id="@+id/action_menu_TrangChu_to_nhaHangChiTietFM2"
-            app:destination="@id/nhaHangChiTietFM" />
     </fragment>
     <fragment
         android:id="@+id/NhaHangFM"
@@ -70,35 +69,32 @@
         <action
             android:id="@+id/action_NhaHangFM_to_nhaHangChiTietFM2"
             app:destination="@id/nhaHangChiTietFM" />
-        <action
-            android:id="@+id/action_NhaHangFM_to_menu_TrangChu"
-            app:destination="@id/menu_TrangChu" />
     </fragment>
     <fragment
         android:id="@+id/doiMatKhauFM"
         tools:layout="@layout/fragment_doimatkhau"
         android:name="com.example.eaterydemo.fragments.DoiMatKhauFM"
-        android:label="DoiMatKhauFM" />
+        android:label="DoiMatKhauFM" >
+        <action
+            android:id="@+id/action_doiMatKhauFM_to_menu_ThongTin"
+            app:destination="@id/menu_ThongTin"
+            app:popUpTo="@id/menu_ThongTin"
+            app:popUpToInclusive="true" />
+    </fragment>
     <fragment
         android:id="@+id/timKiemNhaHangFM"
         tools:layout="@layout/fragment_timkiemnhahang"
         android:name="com.example.eaterydemo.fragments.TimKiemNhaHangFM"
         android:label="TimKiemNhaHangFM" >
         <action
-            android:id="@+id/action_timKiemNhaHangFM_to_nhaHangChiTietFM"
+            android:id="@+id/action_timKiemNhaHangFM_to_nhaHangChiTietFM2"
             app:destination="@id/nhaHangChiTietFM" />
-        <action
-            android:id="@+id/action_timKiemNhaHangFM_to_menu_TrangChu2"
-            app:destination="@id/menu_TrangChu" />
     </fragment>
     <fragment
         android:id="@+id/nhaHangChiTietFM"
         tools:layout="@layout/fragment_nhahangchitiet"
         android:name="com.example.eaterydemo.fragments.NhaHangChiTietFM"
         android:label="NhaHangChiTietFM" >
-        <action
-            android:id="@+id/action_nhaHangChiTietFM_to_NhaHangFM"
-            app:destination="@id/NhaHangFM" />
         <argument
             android:name="maNh"
             app:argType="integer" />
@@ -114,18 +110,34 @@
         android:label="NhaHangYeuThichFM" >
         <action
             android:id="@+id/action_menu_YeuThich_to_nhaHangChiTietFM"
-            app:destination="@id/nhaHangChiTietFM" />
+            app:destination="@id/nhaHangChiTietFM"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim" />
     </fragment>
     <fragment
         android:id="@+id/menu_ThanhToan"
         tools:layout="@layout/fragment_thanhtoan"
         android:name="com.example.eaterydemo.fragments.ThanhToanFM"
-        android:label="ThanhToanFM" />
+        android:label="ThanhToanFM" >
+        <action
+            android:id="@+id/action_menu_ThanhToan_to_thanhToanThanhCongFM"
+            app:destination="@id/thanhToanThanhCongFM" />
+    </fragment>
     <fragment
         android:id="@+id/thanhToanThanhCongFM"
         tools:layout="@layout/fragment_thanhtoanthanhcong"
         android:name="com.example.eaterydemo.fragments.ThanhToanThanhCongFM"
-        android:label="ThanhToanThanhCongFM" />
+        android:label="ThanhToanThanhCongFM" >
+        <argument
+            android:name="DonHang"
+            app:argType="com.example.eaterydemo.model.DonHang" />
+        <action
+            android:id="@+id/action_thanhToanThanhCongFM_to_menu_ThanhToan"
+            app:destination="@id/menu_ThanhToan"
+            app:popUpTo="@id/menu_ThanhToan"
+            app:popUpToInclusive="true" />
+    </fragment>
     <fragment
         android:id="@+id/DonHangFM"
         tools:layout="@layout/fragment_donhang"
@@ -134,6 +146,11 @@
         <action
             android:id="@+id/action_DonHangFM_to_DonHangChiTietFM"
             app:destination="@id/DonHangChiTietFM" />
+        <action
+            android:id="@+id/action_DonHangFM_to_menu_ThongTin"
+            app:destination="@id/menu_ThongTin"
+            app:popUpTo="@id/menu_ThongTin"
+            app:popUpToInclusive="true" />
     </fragment>
 
     <fragment
@@ -144,17 +161,34 @@
         <argument
             android:name="donhangchitiet"
             app:argType="com.example.eaterydemo.model.DonHang" />
+        <action
+            android:id="@+id/action_DonHangChiTietFM_to_DonHangFM"
+            app:destination="@id/DonHangFM"
+            app:popUpTo="@id/DonHangFM"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/phuongThucThanhToanFM"
         tools:layout="@layout/fragment_phuongthucthanhtoan"
         android:name="com.example.eaterydemo.fragments.PhuongThucThanhToanFM"
-        android:label="PhuongThucThanhToanFM" />
+        android:label="PhuongThucThanhToanFM" >
+        <action
+            android:id="@+id/action_phuongThucThanhToanFM_to_menu_ThongTin"
+            app:destination="@id/menu_ThongTin"
+            app:popUpTo="@id/menu_ThongTin"
+            app:popUpToInclusive="true" />
+    </fragment>
     <fragment
         android:id="@+id/veChungToiFM"
         tools:layout="@layout/fragment_vechungtoi"
         android:name="com.example.eaterydemo.fragments.VeChungToiFM"
-        android:label="VeChungToiFM" />
+        android:label="VeChungToiFM" >
+        <action
+            android:id="@+id/action_veChungToiFM_to_menu_ThongTin"
+            app:destination="@id/menu_ThongTin"
+            app:popUpTo="@id/menu_ThongTin"
+            app:popUpToInclusive="true" />
+    </fragment>
             
             
     <fragment
@@ -170,6 +204,8 @@
             app:argType="integer" />
         <action
             android:id="@+id/action_monAnChiTietFM_self"
-            app:destination="@id/monAnChiTietFM" />
+            app:destination="@id/monAnChiTietFM"
+            app:popUpTo="@id/monAnChiTietFM"
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>

@@ -29,10 +29,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/imgChecked"
+        android:textColor="#000000"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="36dp"
-        android:text="Thanh toán thành công"
         android:fontFamily="@font/montserrat_regular"
+        android:text="Thanh toán thành công"
         android:textSize="24dp" />
 
     <TextView
@@ -41,21 +42,22 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/txtThongBaoCheckout"
         android:layout_centerHorizontal="true"
-        android:gravity="center"
         android:fontFamily="@font/montserrat_regular"
+        android:gravity="center"
+        android:textColor="#191919"
         android:text="Eatery xin cảm ơn! \n Chúc quý khách ngon miệng"
         android:textSize="12dp" />
 
     <androidx.cardview.widget.CardView
         android:layout_width="320dp"
         android:layout_height="wrap_content"
-        app:cardElevation="10dp"
-        app:cardCornerRadius="20dp"
+        android:layout_below="@id/txtThongBao"
+        android:layout_centerHorizontal="true"
         android:layout_margin="20dp"
         app:cardBackgroundColor="@color/white"
-        android:layout_centerHorizontal="true"
-        app:cardPreventCornerOverlap="true"
-        android:layout_below="@id/txtThongBao" >
+        app:cardCornerRadius="20dp"
+        app:cardElevation="10dp"
+        app:cardPreventCornerOverlap="true">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -68,21 +70,23 @@
                 android:layout_alignParentLeft="true"
                 android:layout_marginLeft="21dp"
                 android:layout_marginTop="20dp"
-                android:text="Tổng"
                 android:fontFamily="@font/montserrat_regular"
+                android:text="Tổng"
+                android:textColor="#191919"
                 android:textSize="16dp" />
 
             <TextView
                 android:id="@+id/txtTitle2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
                 android:layout_below="@+id/txtTitle1"
-                android:layout_marginTop="14dp"
+                android:layout_alignParentLeft="true"
                 android:layout_marginLeft="21dp"
-                android:textSize="16dp"
+                android:layout_marginTop="14dp"
                 android:fontFamily="@font/montserrat_regular"
-                android:text="Vận chuyển" />
+                android:text="Vận chuyển"
+                android:textColor="#191919"
+                android:textSize="16dp" />
 
             <TextView
                 android:id="@+id/txtTitle3"
@@ -93,53 +97,57 @@
                 android:layout_marginLeft="21dp"
                 android:layout_marginTop="50dp"
                 android:layout_marginBottom="25dp"
-                android:text="Tổng tiền"
-                android:textSize="18dp"
                 android:fontFamily="@font/montserrat_extrabold"
+                android:text="Tổng tiền"
+                android:textColor="#191919"
+                android:textSize="18dp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/txtTong"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="21dp"
-                android:layout_alignParentRight="true"
-                android:textSize="16dp"
                 android:fontFamily="@font/montserrat_regular"
-                android:text="608.000đ" />
+                android:text="0"
+                android:textColor="#191919"
+                android:textSize="16dp" />
 
             <TextView
                 android:id="@+id/txtVanChuyen"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/txtTong"
                 android:layout_alignParentRight="true"
                 android:layout_marginTop="14dp"
                 android:layout_marginRight="21dp"
-                android:textSize="16dp"
                 android:fontFamily="@font/montserrat_regular"
-                android:layout_below="@+id/txtTong"
-                android:text="20.000đ" />
+                android:text="0"
+                android:textColor="#191919"
+                android:textSize="16dp" />
 
             <TextView
                 android:id="@+id/txtTongTien"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_marginTop="50dp"
-                android:layout_marginRight="21dp"
-                android:layout_marginBottom="25dp"
-                android:textSize="18dp"
-                android:fontFamily="@font/montserrat_extrabold"
                 android:layout_below="@+id/txtVanChuyen"
-                android:text="628.000đ" />
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="47dp"
+                android:layout_marginRight="22dp"
+                android:layout_marginBottom="25dp"
+                android:fontFamily="@font/montserrat_extrabold"
+                android:text="0"
+                android:textColor="#191919"
+                android:textSize="18dp" />
 
             <ImageView
                 android:id="@+id/line"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
                 android:layout_below="@id/txtVanChuyen"
+                android:layout_centerHorizontal="true"
                 android:layout_marginTop="20dp"
                 app:srcCompat="@drawable/line" />
 

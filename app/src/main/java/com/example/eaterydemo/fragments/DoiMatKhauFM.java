@@ -9,9 +9,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
+import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 
+import com.example.eaterydemo.R;
 import com.example.eaterydemo.databinding.FragmentDoimatkhauBinding;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 
 public class DoiMatKhauFM extends Fragment {
@@ -25,6 +28,10 @@ public class DoiMatKhauFM extends Fragment {
         initClick();
         initNavController(container);
 
+        //tắt bottom navigation
+        BottomNavigationView navbar = getActivity().findViewById(R.id.navBot);
+        navbar.setVisibility(View.GONE);
+
         return fmBinding.getRoot();
     }
 
@@ -33,27 +40,13 @@ public class DoiMatKhauFM extends Fragment {
     }
 
     private void initClick() {
-
+        fmBinding.imgBackDonHang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavDirections action = DoiMatKhauFMDirections.actionDoiMatKhauFMToMenuThongTin();
+                Navigation.findNavController(view).navigate(action);
+            }
+        });
     }
 
-//    private void GetAllNhaHang() {
-//        ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
-//        Call call = serviceAPI.GetAllNhaHang();
-//        call.enqueue(new Callback() {
-//            @Override
-//            public void onResponse(Call call, Response response) {
-//                List<NhaHang> arr = (List<NhaHang>) response.body();
-//                Log.d("arr", arr.size() + "");
-//                NhaHangVuongAdapter adapter = new NhaHangVuongAdapter(arr, getContext());
-//                fmBinding.rvKhao20ValentineTrang.setAdapter(adapter);
-//                dismissProgressDialog();
-//            }
-//
-//            @Override
-//            public void onFailure(Call call, Throwable t) {
-//                dismissProgressDialog();
-//                Toast.makeText(getContext(), "Lỗi", Toast.LENGTH_SHORT).show();
-//            }
-//        });
-//    }
 }

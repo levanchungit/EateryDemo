@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
+import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
@@ -63,9 +64,19 @@ public class DonHangChiTietFM extends Fragment {
         tvDiaChi_DHChiTiet = view.findViewById(R.id.tvDiaChi_DHChiTiet);
 
         recieverDataDonHang();
+        initClick();
 
 
+    }
 
+    private void initClick() {
+        fmBinding.imgBackDonHang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavDirections action = DonHangChiTietFMDirections.actionDonHangChiTietFMToDonHangFM();
+                Navigation.findNavController(view).navigate(action);
+            }
+        });
     }
 
     private void recieverDataDonHang() {
