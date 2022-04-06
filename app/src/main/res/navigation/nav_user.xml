@@ -57,6 +57,9 @@
         <action
             android:id="@+id/action_menu_TrangChu_to_nhaHangChiTietFM"
             app:destination="@id/nhaHangChiTietFM" />
+         <action
+            android:id="@+id/action_menu_TrangChu_to_CCH_QuanLyDonHangFM"
+            app:destination="@id/CCH_QuanLyDonHangFM" />
     </fragment>
     <fragment
         android:id="@+id/NhaHangFM"
@@ -153,7 +156,7 @@
             app:popUpToInclusive="true" />
     </fragment>
 
-    <fragment
+      <fragment
         android:id="@+id/DonHangChiTietFM"
         tools:layout="@layout/fragment_chitietdonhang_nguoidung"
         android:name="com.example.eaterydemo.fragments.DonHangChiTietFM"

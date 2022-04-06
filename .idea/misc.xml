@@ -6,7 +6,6 @@
         <entry key="..\:/FPT/Github/EateryDemo/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.3355" />
         <entry key="..\:/FPT/Github/EateryDemo/app/src/main/res/drawable/_1sao.xml" value="0.2045" />
         <entry key="..\:/FPT/Github/EateryDemo/app/src/main/res/drawable/_2sao.xml" value="0.2045" />
-        <entry key="..\:/FPT/Github/EateryDemo/app/src/main/res/drawable/_5sao.xml" value="0.3405" />
         <entry key="..\:/FPT/Github/EateryDemo/app/src/main/res/drawable/avatar.xml" value="0.193" />
         <entry key="..\:/FPT/Github/EateryDemo/app/src/main/res/drawable/btn_makhuyenmai.xml" value="0.379" />
         <entry key="..\:/FPT/Github/EateryDemo/app/src/main/res/drawable/cart.xml" value="0.2075" />
@@ -52,10 +51,8 @@
         <entry key="..\:/FPT/Github/EateryDemo/app/src/main/res/layout/activity_main.xml" value="0.37864583333333335" />
         <entry key="..\:/FPT/Github/EateryDemo/app/src/main/res/layout/activity_main2.xml" value="0.3645833333333333" />
         <entry key="..\:/FPT/Github/EateryDemo/app/src/main/res/layout/activity_profile.xml" value="0.33" />
-        <entry key="..\:/FPT/Github/EateryDemo/app/src/main/res/layout/activity_quan_tri_vien.xml" value="0.22" />
-        <entry key="..\:/FPT/Github/EateryDemo/app/src/main/res/layout/activity_quanlydonhang.xml" value="0.37864583333333335" />
         <entry key="..\:/FPT/Github/EateryDemo/app/src/main/res/layout/activity_quanlykhuyenmai.xml" value="0.37864583333333335" />
-        <entry key="..\:/FPT/Github/EateryDemo/app/src/main/res/layout/app_bar_layout.xml" value="0.25" />
+        <entry key="..\:/FPT/Github/EateryDemo/app/src/main/res/layout/app_bar_layout.xml" value="0.67" />
         <entry key="..\:/FPT/Github/EateryDemo/app/src/main/res/layout/content_home.xml" value="0.12447916666666667" />
         <entry key="..\:/FPT/Github/EateryDemo/app/src/main/res/layout/content_main.xml" value="0.37864583333333335" />
         <entry key="..\:/FPT/Github/EateryDemo/app/src/main/res/layout/drawer_layout_activity.xml" value="0.2" />
@@ -78,12 +75,10 @@
         <entry key="..\:/FPT/Github/EateryDemo/app/src/main/res/layout/fragment_nhahangchitiet.xml" value="0.33" />
         <entry key="..\:/FPT/Github/EateryDemo/app/src/main/res/layout/fragment_nhahangyeuthich.xml" value="0.37864583333333335" />
         <entry key="..\:/FPT/Github/EateryDemo/app/src/main/res/layout/fragment_owner_chitietdonhang.xml" value="0.37864583333333335" />
-        <entry key="..\:/FPT/Github/EateryDemo/app/src/main/res/layout/fragment_owner_quanlydonhang.xml" value="0.2361111111111111" />
-        <entry key="..\:/FPT/Github/EateryDemo/app/src/main/res/layout/fragment_owner_quanlynhahang.xml" value="0.22" />
+        <entry key="..\:/FPT/Github/EateryDemo/app/src/main/res/layout/fragment_owner_quanlynhahang.xml" value="0.37864583333333335" />
         <entry key="..\:/FPT/Github/EateryDemo/app/src/main/res/layout/fragment_phuongthucthanhtoan.xml" value="0.37864583333333335" />
         <entry key="..\:/FPT/Github/EateryDemo/app/src/main/res/layout/fragment_quanlydanhsachmonan.xml" value="0.37864583333333335" />
-        <entry key="..\:/FPT/Github/EateryDemo/app/src/main/res/layout/fragment_quantrivien.xml" value="0.3734375" />
-        <entry key="..\:/FPT/Github/EateryDemo/app/src/main/res/layout/fragment_quenmatkhau.xml" value="0.5" />
+        <entry key="..\:/FPT/Github/EateryDemo/app/src/main/res/layout/fragment_quenmatkhau.xml" value="0.37864583333333335" />
         <entry key="..\:/FPT/Github/EateryDemo/app/src/main/res/layout/fragment_quenmatkhau1.xml" value="0.37864583333333335" />
         <entry key="..\:/FPT/Github/EateryDemo/app/src/main/res/layout/fragment_quenmatkhau1_doimatkhaumoi1.xml" value="0.37864583333333335" />
         <entry key="..\:/FPT/Github/EateryDemo/app/src/main/res/layout/fragment_quenmatkhau_doimatkhaumoi.xml" value="0.37864583333333335" />
@@ -97,6 +92,8 @@
         <entry key="..\:/FPT/Github/EateryDemo/app/src/main/res/layout/fragment_thongtin.xml" value="0.33" />
         <entry key="..\:/FPT/Github/EateryDemo/app/src/main/res/layout/fragment_timkiemnhahang.xml" value="0.25" />
         <entry key="..\:/FPT/Github/EateryDemo/app/src/main/res/layout/fragment_trangchu.xml" value="0.1" />
+        <entry key="..\:/FPT/Github/EateryDemo/app/src/main/res/layout/fragment_timkiemnhahang.xml" value="0.37864583333333335" />
+        <entry key="..\:/FPT/Github/EateryDemo/app/src/main/res/layout/fragment_trangchu.xml" value="0.3728205128205128" />
         <entry key="..\:/FPT/Github/EateryDemo/app/src/main/res/layout/fragment_vechungtoi.xml" value="0.37864583333333335" />
         <entry key="..\:/FPT/Github/EateryDemo/app/src/main/res/layout/item_dathang.xml" value="0.37864583333333335" />
         <entry key="..\:/FPT/Github/EateryDemo/app/src/main/res/layout/item_donhang.xml" value="0.37864583333333335" />
@@ -126,6 +123,7 @@
         <entry key="..\:/Github/EateryDemo/app/src/main/res/drawable/item_thongtin.xml" value="0.227" />
         <entry key="..\:/Github/EateryDemo/app/src/main/res/drawable/item_vechungtoi.xml" value="0.227" />
         <entry key="..\:/Github/EateryDemo/app/src/main/res/layout/about_us.xml" value="0.25" />
+        <entry key="..\:/Github/EateryDemo/app/src/main/res/layout/activity_chu_nha_hang.xml" value="0.25" />
         <entry key="..\:/Github/EateryDemo/app/src/main/res/layout/activity_fragment_quan_ly_danh_sach_mon_an.xml" value="0.25" />
         <entry key="..\:/Github/EateryDemo/app/src/main/res/layout/activity_lichsudonhang.xml" value="0.25" />
         <entry key="..\:/Github/EateryDemo/app/src/main/res/layout/activity_main.xml" value="0.25" />
@@ -151,6 +149,7 @@
         <entry key="..\:/Github/EateryDemo/app/src/main/res/layout/fragment_nhahangchitiet.xml" value="0.25" />
         <entry key="..\:/Github/EateryDemo/app/src/main/res/layout/fragment_nhahangyeuthich.xml" value="0.25" />
         <entry key="..\:/Github/EateryDemo/app/src/main/res/layout/fragment_owner_chitietdonhang.xml" value="0.25" />
+        <entry key="..\:/Github/EateryDemo/app/src/main/res/layout/fragment_owner_quanlydonhang.xml" value="0.25" />
         <entry key="..\:/Github/EateryDemo/app/src/main/res/layout/fragment_owner_quanlynhahang.xml" value="0.25" />
         <entry key="..\:/Github/EateryDemo/app/src/main/res/layout/fragment_phuongthucthanhtoan.xml" value="0.25" />
         <entry key="..\:/Github/EateryDemo/app/src/main/res/layout/fragment_quanlydonhang_chucuahang.xml" value="0.25" />
@@ -193,12 +192,8 @@
       </map>
     </option>
   </component>
-<<<<<<< Updated upstream
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
-=======
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
->>>>>>> Stashed changes
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

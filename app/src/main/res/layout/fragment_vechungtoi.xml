@@ -45,7 +45,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Team thực hiện"
-        android:textColor="@color/black"/>
+        android:textColor="@color/black"
+        android:textSize="20dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"

@@ -101,8 +101,8 @@ public interface ServiceAPI {
     @GET("api/donhang")
     Call<ArrayList<DonHang>> GetAllDonHang();
 
-    @POST("api/capnhatrangthaidonhang")
-    Call<Message> CapNhatTrangThaiDonHang(@Query("MaNH") int MaNH, @Query("TrangThaiDH") int TrangThaiDH);
+    @POST("api/capNhatTrangThaiDHCuaChuCuaHang")
+    Call<Message> CapNhatTrangThaiDonHang(@Query("MaDH") int MaNH, @Query("TrangThaiDH") int TrangThaiDH);
 
     @POST("api/CapNhatTrangThaiDonHangCuaTK")
     Call<Message> CapNhatTrangThaiDonHangCuaTK(@Body DonHang donHang);

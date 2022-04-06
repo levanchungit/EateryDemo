@@ -14,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
+import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 
 import com.bumptech.glide.Glide;
@@ -47,6 +48,7 @@ public class CCH_QuanLyNhaHangFM extends Fragment {
 
         showProgressDialog(getContext(), "Đang tải dữ liệu");
         getChuCuaHang();
+
     }
 
     private void initNavController(View viewFmProfileBinding) {
@@ -54,7 +56,13 @@ public class CCH_QuanLyNhaHangFM extends Fragment {
     }
 
     private void initClick() {
-
+        fmBinding.ivQuanLyDonhangCCHQuanLyNhaHang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavDirections action = CCH_QuanLyNhaHangFMDirections.actionCCHQuanLyNhaHangFMToCCHQuanLyDonHangFM();
+                navController.navigate(action);
+            }
+        });
     }
 
     private void getChuCuaHang() {

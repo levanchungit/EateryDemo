@@ -11,17 +11,14 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:src="@drawable/ic_back_black"/>
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="QUẢN LÝ ĐƠN HÀNG"
             android:textSize="20dp"
-            android:layout_marginRight="20dp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/montserrat_extrabold"
+            android:layout_margin="10dp"
             android:gravity="center"/>
     </LinearLayout>
     <com.google.android.material.tabs.TabLayout
@@ -35,7 +32,5 @@
         android:id="@+id/vpQuanlyDonHang_ChuCuaHang"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
-
-
 
 </LinearLayout>

@@ -1,5 +1,6 @@
 package com.example.eaterydemo.fragments;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,6 +35,7 @@ public class CCH_QuanLyDonHangFM extends Fragment {
         initNavController(container);
         _view = container;
 
+
         return fmBinding.getRoot();
     }
 
@@ -44,6 +46,8 @@ public class CCH_QuanLyDonHangFM extends Fragment {
         viewPager2 = view.findViewById(R.id.vpQuanlyDonHang_ChuCuaHang);
         MyViewPagerAdapter myViewPagerAdapter = new MyViewPagerAdapter(getParentFragment());
         viewPager2.setAdapter(myViewPagerAdapter);
+        tabLayout.setSelectedTabIndicatorColor(Color.parseColor("#1C1B1B"));
+        tabLayout.setTabTextColors(Color.parseColor("#B8B1B1"), Color.parseColor("#1C1B1B"));
         new TabLayoutMediator(tabLayout, viewPager2, (tab, position) -> {
             switch (position){
                 case 0:

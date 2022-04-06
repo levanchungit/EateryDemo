@@ -25,7 +25,6 @@ public class VeChungToiFM extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         fmBinding = FragmentVechungtoiBinding.inflate(getLayoutInflater());
-
         _view = container;
 
         //tắt bottom navigation

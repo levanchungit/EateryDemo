@@ -17,6 +17,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
+import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
@@ -84,7 +85,8 @@ public class CCH_ChiTietDonHangFM extends Fragment {
         DonHang donHang = CCH_ChiTietDonHangFMArgs.fromBundle(getArguments()).getChiTietDonHangCCH();
         arrDHCT = donHang.getDONHANGCHITIETs();
         tvMaDH_DHChiTiet.setText("#000" + donHang.getMaDonHang());
-        tvNgayMuaDHChiTiet.setText(donHang.getNgayMua());
+        String ngay = donHang.getNgayMua();
+        tvNgayMuaDHChiTiet.setText("Ngày nhận : "+(ngay.substring(0, 10)));
         tvTongTien_DHChiTiet.setText(df.format(donHang.getTongTien()) + "đ");
         adapter = new DonHangChiTietAdapter(arrDHCT, getContext());
         fmBinding.rvMonAnChiTietDHCCH.setAdapter(adapter);
@@ -111,13 +113,16 @@ public class CCH_ChiTietDonHangFM extends Fragment {
         ivTuChoiDH.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                DonHang donHang = CCH_ChiTietDonHangFMArgs.fromBundle(getArguments()).getChiTietDonHangCCH();
                 ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
-                Call call = serviceAPI.CapNhatTrangThaiDonHang(0, 1);
+                Call call = serviceAPI.CapNhatTrangThaiDonHang(donHang.getMaDonHang(), 3);
                 call.enqueue(new Callback() {
                     @Override
                     public void onResponse(Call call, Response response) {
-                        arrDH = (List<DonHang>) response.body();
+                        NavDirections action = CCH_ChiTietDonHangFMDirections.actionCCHChiTietDonHangFMToCCHQuanLyDonHangFM2();
+                        navController.navigate(action);
                         dismissProgressDialog();
+                        Toast.makeText(getContext(), "Đã từ chối đơn hàng", Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
@@ -132,17 +137,18 @@ public class CCH_ChiTietDonHangFM extends Fragment {
         ivXacNhanDH.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                DonHang donHang = CCH_ChiTietDonHangFMArgs.fromBundle(getArguments()).getChiTietDonHangCCH();
                 ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
-                Call call = serviceAPI.CapNhatTrangThaiDonHang(0, 2);
+                Call call = serviceAPI.CapNhatTrangThaiDonHang(donHang.getMaDonHang(), 2);
 
                 call.enqueue(new Callback() {
                     @Override
                     public void onResponse(Call call, Response response) {
-
-
+                        NavDirections action = CCH_ChiTietDonHangFMDirections.actionCCHChiTietDonHangFMToCCHQuanLyDonHangFM2();
+                        navController.navigate(action);
                         dismissProgressDialog();
+                        Toast.makeText(getContext(), "Đã xác nhận đơn hàng", Toast.LENGTH_SHORT).show();
                     }
-
                     @Override
                     public void onFailure(Call call, Throwable t) {
                         dismissProgressDialog();
