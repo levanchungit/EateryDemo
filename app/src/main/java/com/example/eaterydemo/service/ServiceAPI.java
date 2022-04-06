@@ -42,7 +42,11 @@ public interface ServiceAPI {
     @POST("api/insert-nhahangyeuthich")
     Call<Message> ThemNhaHangYeuThich(@Body NhaHangYeuThich nhaHangYeuThich);
 
+    @POST("api/ChinhSuaThongTinNhaHang")
+    Call<Message> ChinhSuaThongTinNhaHang(@Body NhaHang nhaHang);
 
+    @POST("api/XoaNhaHang")
+    Call<Message> XoaNhaHangTheoMaNH(@Query("MaNH") int MaNH);
 
 
     //KHUYẾN MÃI
@@ -60,6 +64,7 @@ public interface ServiceAPI {
 
     @POST("api/themonanvaogiohang")
     Call<Message> ThemMonAnVaoGioHang(@Query("TenTK") String TenTK,@Query("MaMA") int MaMA,@Query("SL") int SL);
+
 
     //TÀI KHOẢN
     @POST("api/dangnhap")
@@ -85,6 +90,9 @@ public interface ServiceAPI {
 
     @POST("api/capnhatthongtintaikhoan")
     Call<Message> ChinhSuaThongTin(@Query("TenTK") String TenTK, @Query("HoTen") String HoTen, @Query("SDT") String SDT, @Query("DiaChi") String DiaChi);
+
+    @POST("api/XoaTaiKhoan")
+    Call<Message> XoaTaiKhoanTheoTenTK(@Query("TenTK") String TenTK);
 
 
     //ĐƠN HÀNG

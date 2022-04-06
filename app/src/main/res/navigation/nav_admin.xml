@@ -3,5 +3,111 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/CCH_QuanLyNhaHangFM">
+    app:startDestination="@id/ADM_QuanTriHeThongFM">
+    <fragment
+        android:id="@+id/adminQuanLyCuaHangFM"
+        android:name="com.example.eaterydemo.fragments.ADM_QuanLyCuaHangFM"
+        android:label="AdminQuanLyCuaHangFM"
+        tools:layout="@layout/fragment_admin_quanlynhahang">
+        <action
+            android:id="@+id/action_adminQuanLyCuaHangFM_to_ADM_ChinhSuaThongTinNhaHangFM"
+            app:destination="@id/ADM_ChinhSuaThongTinNhaHangFM" />
+        <action
+            android:id="@+id/action_adminQuanLyCuaHangFM_to_ADM_AddNhaHangFM"
+            app:destination="@id/ADM_AddNhaHangFM" />
+    </fragment>
+    <fragment
+        android:id="@+id/adminQuanLyTaiKhoanFM"
+        android:name="com.example.eaterydemo.fragments.ADM_QuanLyTaiKhoanFM"
+        android:label="AdminQuanLyTaiKhoanFM"
+        tools:layout="@layout/fragment_admin_quanlytaikhoan">
+        <action
+            android:id="@+id/action_adminQuanLyTaiKhoanFM_to_ADM_ChinhSuaThongTinFM"
+            app:destination="@id/ADM_ChinhSuaThongTinFM" />
+        <action
+            android:id="@+id/action_adminQuanLyTaiKhoanFM_to_ADM_AddTaiKhoanFM"
+            app:destination="@id/ADM_AddTaiKhoanFM" />
+    </fragment>
+    <fragment
+        android:id="@+id/ADM_QuanTriHeThongFM"
+        android:name="com.example.eaterydemo.fragments.ADM_QuanTriHeThongFM"
+        android:label="ADM_QuanTriHeThongFM"
+        tools:layout="@layout/fragment_admin_quantrihethong">
+        <action
+            android:id="@+id/action_ADM_QuanTriHeThongFM_to_adminQuanLyCuaHangFM"
+            app:destination="@id/adminQuanLyCuaHangFM" />
+        <action
+            android:id="@+id/action_ADM_QuanTriHeThongFM_to_adminQuanLyTaiKhoanFM"
+            app:destination="@id/adminQuanLyTaiKhoanFM" />
+        <action
+            android:id="@+id/action_ADM_QuanTriHeThongFM_to_ADM_ChinhSuaThongTinFM"
+            app:destination="@id/ADM_ChinhSuaThongTinFM" />
+        <action
+            android:id="@+id/action_ADM_QuanTriHeThongFM_to_ADM_DoiMatKhauFM"
+            app:destination="@id/ADM_DoiMatKhauFM" />
+    </fragment>
+    <fragment
+        android:id="@+id/ADM_ChinhSuaThongTinFM"
+        android:name="com.example.eaterydemo.fragments.ADM_ChinhSuaThongTinFM"
+        android:label="ADM_ChinhSuaThongTinFM"
+        tools:layout="@layout/fragment_chinhsua_thongtin">
+        <action
+            android:id="@+id/action_ADM_ChinhSuaThongTinFM_to_ADM_QuanTriHeThongFM"
+            app:destination="@id/ADM_QuanTriHeThongFM" />
+        <action
+            android:id="@+id/action_ADM_ChinhSuaThongTinFM_to_adminQuanLyTaiKhoanFM"
+            app:destination="@id/adminQuanLyTaiKhoanFM"
+            app:popUpTo="@id/adminQuanLyTaiKhoanFM"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="tenTk"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/ADM_ChinhSuaThongTinNhaHangFM"
+        android:name="com.example.eaterydemo.fragments.ADM_ChinhSuaThongTinNhaHangFM"
+        android:label="ADM_ChinhSuaThongTinNhaHangFM"
+        tools:layout="@layout/fragment_chinhsua_quanlynhahang">
+        <action
+            android:id="@+id/action_ADM_ChinhSuaThongTinNhaHangFM_to_adminQuanLyCuaHangFM"
+            app:destination="@id/adminQuanLyCuaHangFM"
+            app:popUpTo="@id/adminQuanLyCuaHangFM"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="maNh"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/ADM_AddTaiKhoanFM"
+        android:name="com.example.eaterydemo.fragments.ADM_AddTaiKhoanFM"
+        android:label="ADM_AddTaiKhoanFM"
+        tools:layout="@layout/fragment_dangky">
+        <action
+            android:id="@+id/action_ADM_AddTaiKhoanFM_to_adminQuanLyTaiKhoanFM"
+            app:destination="@id/adminQuanLyTaiKhoanFM"
+            app:popUpTo="@id/adminQuanLyTaiKhoanFM"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/ADM_DoiMatKhauFM"
+        android:name="com.example.eaterydemo.fragments.ADM_DoiMatKhauFM"
+        android:label="ADM_DoiMatKhauFM"
+        tools:layout="@layout/fragment_doimatkhau">
+        <action
+            android:id="@+id/action_ADM_DoiMatKhauFM_to_ADM_QuanTriHeThongFM"
+            app:destination="@id/ADM_QuanTriHeThongFM"
+            app:popUpTo="@id/ADM_QuanTriHeThongFM"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/ADM_AddNhaHangFM"
+        android:name="com.example.eaterydemo.fragments.ADM_AddNhaHangFM"
+        android:label="ADM_AddNhaHangFM"
+        tools:layout="@layout/fragment_admin_addnhahang">
+        <action
+            android:id="@+id/action_ADM_AddNhaHangFM_to_adminQuanLyCuaHangFM"
+            app:destination="@id/adminQuanLyCuaHangFM"
+            app:popUpTo="@id/adminQuanLyCuaHangFM"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>

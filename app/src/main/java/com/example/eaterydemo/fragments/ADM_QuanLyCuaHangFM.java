@@ -20,13 +20,10 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.eaterydemo.adapter.AdminQuanLyCuaHangAdapter;
-import com.example.eaterydemo.adapter.AdminQuanLyTaiKhoanAdapter;
 import com.example.eaterydemo.adapter.NhaHangHCNAdapter;
-import com.example.eaterydemo.databinding.FragmentAdminQuanlycuahangBinding;
-import com.example.eaterydemo.databinding.FragmentAdminQuanlytaikhoanBinding;
+import com.example.eaterydemo.databinding.FragmentAdminQuanlynhahangBinding;
 import com.example.eaterydemo.databinding.FragmentNhahangBinding;
 import com.example.eaterydemo.model.NhaHang;
-import com.example.eaterydemo.model.TaiKhoan;
 import com.example.eaterydemo.service.ServiceAPI;
 
 import java.util.List;
@@ -36,14 +33,15 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 
-public class AdminQuanLyTaiKhoanFM extends Fragment {
-    FragmentAdminQuanlytaikhoanBinding fmBinding;
+public class ADM_QuanLyCuaHangFM extends Fragment {
+    FragmentAdminQuanlynhahangBinding fmBinding;
     NavController navController;
+    public static int MaNH;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        fmBinding = FragmentAdminQuanlytaikhoanBinding.inflate(getLayoutInflater());
+        fmBinding = FragmentAdminQuanlynhahangBinding.inflate(getLayoutInflater());
         initClick();
         initNavController(container);
 
@@ -58,21 +56,27 @@ public class AdminQuanLyTaiKhoanFM extends Fragment {
     }
 
     private void initClick() {
-
+        fmBinding.ivAddAdminQuanLyNhaHang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavDirections action = ADM_QuanLyCuaHangFMDirections.actionAdminQuanLyCuaHangFMToADMAddNhaHangFM();
+                Navigation.findNavController(view).navigate(action);
+            }
+        });
     }
 
     private void GetAllNhaHang() {
         ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
-        Call call = serviceAPI.GetAllTaiKhoan();
+        Call call = serviceAPI.GetAllNhaHang();
         call.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
-                List<TaiKhoan> arr = (List<TaiKhoan>) response.body();
+                List<NhaHang> arr = (List<NhaHang>) response.body();
                 Log.d("arr", arr.size() + "");
                 LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
-                fmBinding.rvQuanLyTaiKhoan.setLayoutManager(linearLayoutManager);
-                AdminQuanLyTaiKhoanAdapter adapter = new AdminQuanLyTaiKhoanAdapter(arr, getContext());
-                fmBinding.rvQuanLyTaiKhoan.setAdapter(adapter);
+                fmBinding.rvQuanLyCuaHang.setLayoutManager(linearLayoutManager);
+                AdminQuanLyCuaHangAdapter adapter = new AdminQuanLyCuaHangAdapter(arr, getContext());
+                fmBinding.rvQuanLyCuaHang.setAdapter(adapter);
                 dismissProgressDialog();
             }
 

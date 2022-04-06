@@ -1,6 +1,10 @@
 package com.example.eaterydemo.fragments;
 
 
+import static com.example.eaterydemo.fragments.DangKyFM.validateEditText;
+import static com.example.eaterydemo.fragments.DangKyFM.validateEditTextEmail;
+import static com.example.eaterydemo.fragments.DangKyFM.validateEditTextMK;
+import static com.example.eaterydemo.fragments.DangKyFM.validateEditTextSDT;
 import static com.example.eaterydemo.others.ShowNotifyUser.dismissProgressDialog;
 import static com.example.eaterydemo.others.ShowNotifyUser.showProgressDialog;
 import static com.example.eaterydemo.service.GetRetrofit.getRetrofit;
@@ -34,8 +38,6 @@ import com.example.eaterydemo.databinding.FragmentDangkyBinding;
 import com.example.eaterydemo.model.Message;
 import com.example.eaterydemo.model.TaiKhoan;
 import com.example.eaterydemo.service.ServiceAPI;
-import com.google.android.material.textfield.TextInputEditText;
-import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.Map;
 import java.util.regex.Matcher;
@@ -45,11 +47,13 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class DangKyFM extends Fragment {
+public class ADM_AddTaiKhoanFM extends Fragment {
     FragmentDangkyBinding fmBinding;
     NavController navController;
     private static int IMAGE_REQ = 1;
+    int isValid = 0;
     private Uri imagePath;
+
 
     @Nullable
     @Override
@@ -78,17 +82,19 @@ public class DangKyFM extends Fragment {
         fmBinding.btnLoginDangKy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                validate();
                 //load hình ảnh lên cloudinary
-                uploadToCloudinary();
-
+                if(isValid == 1){
+                    uploadToCloudinary();
+                }
             }
         });
 
         fmBinding.ivBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavDirections action = DangKyFMDirections.actionDangKyFMToDangNhapFM();
-                navController.navigate(action);
+                NavDirections action = ADM_AddTaiKhoanFMDirections.actionADMAddTaiKhoanFMToAdminQuanLyTaiKhoanFM();
+                Navigation.findNavController(view).navigate(action);
             }
         });
     }
@@ -98,7 +104,7 @@ public class DangKyFM extends Fragment {
             selectImage();
         }else{
             ActivityCompat.requestPermissions(getActivity(),new String[]{
-                Manifest.permission.READ_EXTERNAL_STORAGE
+                    Manifest.permission.READ_EXTERNAL_STORAGE
             },IMAGE_REQ);
         }
     }
@@ -128,8 +134,8 @@ public class DangKyFM extends Fragment {
                 Message message = (Message) response.body();
                 Toast.makeText(getContext(), message.getNotification(), Toast.LENGTH_SHORT).show();
                 if (message.getStatus() == 1) {
-                    NavDirections action = DangKyFMDirections.actionDangKyFMToDangNhapFM();
-                    navController.navigate(action);
+                    NavDirections action = ADM_AddTaiKhoanFMDirections.actionADMAddTaiKhoanFMToAdminQuanLyTaiKhoanFM();
+                    Navigation.findNavController(getView()).navigate(action);
                 }
                 dismissProgressDialog();
             }
@@ -148,6 +154,25 @@ public class DangKyFM extends Fragment {
 
     }
 
+    private void validate(){
+        if (!validateEditText(fmBinding.tilEmailDangKy, fmBinding.edtEmailDangKy) |
+                !validateEditText(fmBinding.tilHoTenDangKy, fmBinding.edtHoTenDangKy) |
+                !validateEditText(fmBinding.tilMatKhauDangKy, fmBinding.edtMatKhauDangKy) |
+                !validateEditText(fmBinding.tilDiaChiDangKy, fmBinding.edtDiaChiDangKy) |
+                !validateEditText(fmBinding.tilHoTenDangKy, fmBinding.edtHoTenDangKy) |
+                !validateEditText(fmBinding.tilSdtDangKy, fmBinding.edtSdtDangKy) ){
+            return;
+        } else if(!validateEditTextMK(fmBinding.tilMatKhauDangKy, fmBinding.edtMatKhauDangKy, fmBinding.tilNhapLaiMatKhauDangKy, fmBinding.edtNhapLaiMatKhauDangKy) |
+                !validateEditTextEmail(fmBinding.tilEmailDangKy, fmBinding.edtEmailDangKy) |
+                !validateEditTextSDT(fmBinding.tilSdtDangKy, fmBinding.edtSdtDangKy)){
+            return;
+        } else if (imagePath==null) {
+            Toast.makeText(getContext(), "Vui lòng chọn ảnh", Toast.LENGTH_SHORT).show();
+        } else {
+            isValid = 1;
+        }
+    }
+
     private void uploadToCloudinary() {
         MediaManager.get().upload(imagePath).callback(new UploadCallback() {
             @Override
@@ -157,6 +182,7 @@ public class DangKyFM extends Fragment {
 
             @Override
             public void onProgress(String requestId, long bytes, long totalBytes) {
+
             }
 
             @Override
@@ -186,57 +212,4 @@ public class DangKyFM extends Fragment {
         }).dispatch();
     }
 
-    public static boolean validateEditText(TextInputLayout til, TextInputEditText edt) {
-        String _str = edt.getText().toString().trim();
-        if (_str.isEmpty()) {
-            til.setError("Vui lòng không bỏ trống");
-            return false;
-        } else {
-            til.setError("");
-            til.setErrorEnabled(false);
-            return true;
-        }
-    }
-    public static boolean validateEditTextEmail(TextInputLayout til, TextInputEditText edt) {
-        String _str = edt.getText().toString().trim();
-        Pattern pattern = Pattern.compile("^\\w+([\\.-]?\\w+)*@\\w+([\\.-]?\\w+)*(\\.\\w{2,3})+$", Pattern.CASE_INSENSITIVE);
-        Matcher matcher = pattern.matcher(_str);
-        if (matcher.matches()==false) {
-            til.setError("Vui lòng nhập đúng Email");
-            return false;
-        } else {
-            til.setError("");
-            til.setErrorEnabled(false);
-            return true;
-        }
-    }
-
-    public static boolean validateEditTextMK(TextInputLayout til1, TextInputEditText edt1, TextInputLayout til2, TextInputEditText edt2) {
-        String _str1 = edt1.getText().toString().trim();
-        String _str2 = edt2.getText().toString().trim();
-
-        if (_str2.equals(_str1)==false) {
-            til2.setError("Vui lòng nhập đúng mật khẩu");
-            return false;
-        } else {
-            til1.setError("");
-            til1.setErrorEnabled(false);
-            til2.setError("");
-            til2.setErrorEnabled(false);
-            return true;
-        }
-    }
-
-    public static boolean validateEditTextSDT(TextInputLayout til, TextInputEditText edt) {
-        String _str = edt.getText().toString().trim();
-
-        if (_str.length()<10 | _str.length()>10) {
-            til.setError("Số điện thoại phải đúng 10 ký tự");
-            return false;
-        } else {
-            til.setError("");
-            til.setErrorEnabled(false);
-            return true;
-        }
-    }
 }

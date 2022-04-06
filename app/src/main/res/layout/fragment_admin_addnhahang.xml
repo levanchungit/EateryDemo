@@ -13,43 +13,38 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_margin="20dp"
-            android:layout_alignLeft="@+id/ivAvatar_EditQLNhaHang"
-            android:layout_alignTop="@+id/ivAvatar_EditQLNhaHang"
+            android:layout_alignLeft="@+id/ivAvatar_AddNhaHang"
+            android:layout_alignTop="@+id/ivAvatar_AddNhaHang"
             android:src="@drawable/ic_back_white" />
 
         <ImageView
-            android:id="@+id/ivAvatar_EditQLNhaHang"
+            android:id="@+id/ivAvatar_AddNhaHang"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:src="@drawable/qlnhahang" />
 
-
-        <EditText
-            android:id="@+id/edtTenChuNhaHang"
+        <Spinner
+            android:id="@+id/spn_ChuNhaHang_AddNhaHang"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/ivAvatar_EditQLNhaHang"
+            android:layout_below="@+id/ivAvatar_AddNhaHang"
             android:layout_centerHorizontal="true"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
             android:fontFamily="@font/montserrat_regular"
-            android:gravity=""
-            android:hint="Tên chủ nhà hàng"
-            android:inputType="textAutoComplete"
-            android:padding="10dp"
-            android:singleLine="true"
-            android:enabled="false"
-            android:textColor="@color/black"
-            android:textColorHint="@color/black" />
+            android:hint="Tên chủ nhà hàng">
+
+        </Spinner>
+
 
         <EditText
-            android:id="@+id/edtTenNhaHang"
+            android:id="@+id/edt_TenNhaHang_AddNhaHang"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/edtTenChuNhaHang"
+            android:layout_below="@+id/spn_ChuNhaHang_AddNhaHang"
             android:layout_centerHorizontal="true"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
@@ -65,10 +60,10 @@
             android:textColorHint="@color/black" />
 
         <EditText
-            android:id="@+id/edtDiaChiEditQLNhaHang"
+            android:id="@+id/edt_DiaChi_AddNhaHang"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/edtTenNhaHang"
+            android:layout_below="@+id/edt_TenNhaHang_AddNhaHang"
             android:layout_centerHorizontal="true"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
@@ -84,10 +79,10 @@
             android:textColorHint="@color/black" />
 
         <EditText
-            android:id="@+id/edtMoTaEditQLNhaHang"
+            android:id="@+id/edt_MoTa_AddNhaHang"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/edtDiaChiEditQLNhaHang"
+            android:layout_below="@+id/edt_DiaChi_AddNhaHang"
             android:layout_centerHorizontal="true"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
@@ -102,15 +97,30 @@
             android:textColor="@color/black"
             android:textColorHint="@color/black" />
 
+        <Spinner
+            android:id="@+id/spn_LoaiNhaHang_AddNhaHang"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/edt_MoTa_AddNhaHang"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/montserrat_regular"
+            android:hint="Loại nhà hàng"/>
+
 
         <ImageView
-            android:id="@+id/ivChinhSua_QuanLyNhaHang"
+            android:id="@+id/ivChinhSua_AddNhaHang"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/edtMoTaEditQLNhaHang"
+            android:layout_below="@+id/spn_LoaiNhaHang_AddNhaHang"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
             android:src="@drawable/editprofile_btn_chinhsua" />
+
+
 
     </RelativeLayout>
 </layout>

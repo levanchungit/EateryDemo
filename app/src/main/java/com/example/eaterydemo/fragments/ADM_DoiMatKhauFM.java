@@ -14,7 +14,7 @@ import androidx.navigation.Navigation;
 import com.example.eaterydemo.databinding.FragmentDoimatkhauBinding;
 
 
-public class DoiMatKhauFM extends Fragment {
+public class ADM_DoiMatKhauFM extends Fragment {
     FragmentDoimatkhauBinding fmBinding;
     NavController navController;
 

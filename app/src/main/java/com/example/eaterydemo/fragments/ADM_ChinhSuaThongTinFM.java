@@ -30,7 +30,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ChinhSuaThongTinFM extends Fragment {
+public class ADM_ChinhSuaThongTinFM extends Fragment {
     FragmentChinhsuaThongtinBinding fmEditProfileBinding;
     NavController navController;
 
@@ -40,7 +40,7 @@ public class ChinhSuaThongTinFM extends Fragment {
         fmEditProfileBinding = FragmentChinhsuaThongtinBinding.inflate(getLayoutInflater());
         initClick();
 
-        GetThongTin(DangNhapFM.TENTK);
+        GetThongTin(ADM_ChinhSuaThongTinFMArgs.fromBundle(getArguments()).getTenTk());
         initNavController(container);
         return fmEditProfileBinding.getRoot();
     }
@@ -51,17 +51,16 @@ public class ChinhSuaThongTinFM extends Fragment {
 
     private void initClick() {
 
-
         fmEditProfileBinding.btnChinhSua.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                String _TenTK = DangNhapFM.TENTK;
+                String _TenTK =  DangNhapFM.TENTK;
                 String _HoTen = fmEditProfileBinding.edtFullName.getText().toString().trim();
                 String _SDT = fmEditProfileBinding.edtSDT.getText().toString().trim();
                 String _DiaChi = fmEditProfileBinding.edtDiaChi.getText().toString().trim();
                 ChinhSuaThongTin(_TenTK, _HoTen,_SDT,_DiaChi);
-                NavDirections action = ChinhSuaThongTinFMDirections.actionEditProfileFMToMenuThongTin();
+                NavDirections action = ADM_ChinhSuaThongTinFMDirections.actionADMChinhSuaThongTinFMToADMQuanTriHeThongFM();
                 navController.navigate(action);
                 dismissProgressDialog();
             }
@@ -76,9 +75,9 @@ public class ChinhSuaThongTinFM extends Fragment {
             @Override
             public void onResponse(Call call, Response response) {
                 TaiKhoan taikhoan = (TaiKhoan) response.body();
-                fmEditProfileBinding.edtFullName.setText(taikhoan.getHoTen());
-                fmEditProfileBinding.edtSDT.setText(taikhoan.getSDT());
                 fmEditProfileBinding.tvEmail.setText(taikhoan.getTenTK());
+                fmEditProfileBinding.edtSDT.setText(taikhoan.getSDT());
+                fmEditProfileBinding.edtFullName.setText(taikhoan.getHoTen());
                 fmEditProfileBinding.edtDiaChi.setText(taikhoan.getDiaChi());
                 Glide.with(getContext()).load(taikhoan.getHinhAnh()).centerCrop().into(fmEditProfileBinding.ivAvatarAdminChinhSuathongTin);
                 dismissProgressDialog();
@@ -102,9 +101,6 @@ public class ChinhSuaThongTinFM extends Fragment {
                 Message message = (Message) response.body();
                 Toast.makeText(getContext(), message.getNotification(), Toast.LENGTH_SHORT).show();
                 Log.e("LOGIN",message.getNotification());
-                if (message.getStatus() == 1) {
-                    startActivity(new Intent(requireContext(), DrawerLayoutActivity.class));
-                }
                 dismissProgressDialog();
             }
 

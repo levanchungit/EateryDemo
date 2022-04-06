@@ -8,30 +8,28 @@
         android:layout_height="match_parent"
         tools:context=".activities.EditProfileActivity">
 
-        <ImageView
-            android:id="@+id/ivBack"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="20dp"
-            android:clickable="true"
-            android:src="@drawable/ic_back_black" />
 
-        <ImageView
-            android:id="@+id/ivAvatar_EditProfile"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="50dp"
-            android:src="@drawable/avatar" />
-
-        <TextView
-            android:id="@+id/tvFullName"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvAvatar_AdminChinhSuaThongTin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/ivAvatar_EditProfile"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            app:cardCornerRadius="60dp">
+
+            <ImageView
+                android:id="@+id/ivAvatar_AdminChinhSuathongTin"
+                android:layout_width="125dp"
+                android:layout_height="125dp"
+                android:scaleType="center"
+                android:src="@drawable/demo_nhahang" />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/tvEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/cvAvatar_AdminChinhSuaThongTin"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
             android:fontFamily="@font/montserrat_medium"
@@ -44,9 +42,11 @@
             android:id="@+id/edtSDT"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/tvFullName"
+            android:layout_below="@+id/tvEmail"
             android:layout_centerHorizontal="true"
-            android:layout_margin="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
             android:fontFamily="@font/montserrat_regular"
             android:gravity=""
@@ -58,7 +58,7 @@
             android:textColorHint="@color/black" />
 
         <EditText
-            android:id="@+id/edtEmail"
+            android:id="@+id/edtFullName"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/edtSDT"
@@ -80,7 +80,7 @@
             android:id="@+id/edtDiaChi"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/edtEmail"
+            android:layout_below="@+id/edtFullName"
             android:layout_centerHorizontal="true"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
