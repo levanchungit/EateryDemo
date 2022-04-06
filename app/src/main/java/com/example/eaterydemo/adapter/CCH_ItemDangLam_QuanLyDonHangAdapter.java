@@ -29,10 +29,7 @@ import java.util.List;
 
 public class CCH_ItemDangLam_QuanLyDonHangAdapter extends RecyclerView.Adapter<CCH_ItemDangLam_QuanLyDonHangAdapter.ViewHolder> {
     List<DonHang> arr;
-    DonHang donHang;
-    DonHangChiTiet donHangChiTiet;
     Context context;
-    SimpleDateFormat sfd = new SimpleDateFormat("dd-MM");
     static NavController navController;
     View _view;
     DecimalFormat df = new DecimalFormat("#,###");
@@ -41,7 +38,6 @@ public class CCH_ItemDangLam_QuanLyDonHangAdapter extends RecyclerView.Adapter<C
         this.arr = arr;
         this.context = context;
     }
-
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView tvMaDH, tvTienSLMonDH, tvNgayDH, tvTrangThaiDH;
@@ -121,18 +117,11 @@ public class CCH_ItemDangLam_QuanLyDonHangAdapter extends RecyclerView.Adapter<C
 
         tvMaDH.setText("#000"+model.getMaDonHang()+"");
         tvTienSLDH.setText(df.format(model.getTongTien())+ "đ | " + model.getCountSL() + " món");
-        tvNgayDH.setText( model.getNgayMua());
+        String ngay = model.getNgayMua();
+        tvNgayDH.setText(ngay.substring(0, 10));
         tvTrangThai.setText("Chờ xác nhận");
         tvTrangThai.setTextColor(Color.RED);
         ivTrangThai.setImageResource(R.drawable.dahuydonhang);
-//
-//        try {
-//            tvNgayDH.setText(sfd.parse(model.getNgayMua()) + "");
-//        } catch (ParseException e) {
-//            e.printStackTrace();
-//        }
-
-
         }
 
     @Override

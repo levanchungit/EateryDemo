@@ -32,7 +32,7 @@ public class DrawerLayoutActivity extends AppCompatActivity {
         setContentView(bindingMapping.getRoot());
 //        initDrawerlayout();
 //        initAppBarConfiguration();
-        initNavView();
+//        initNavView();
         initBotNav();
         initNavController();
         initNavUI();
@@ -42,10 +42,10 @@ public class DrawerLayoutActivity extends AppCompatActivity {
 //    private void initDrawerlayout() {
 //        drawerLayout = bindingMapping.drawerLayout;
 //    }
-
-    private void initNavView() {
-        navView = bindingMapping.navView;
-    }
+//
+//    private void initNavView() {
+//        navView = bindingMapping.navView;
+//    }
 
 
 //    private void initAppBarConfiguration () {
@@ -65,7 +65,7 @@ public class DrawerLayoutActivity extends AppCompatActivity {
 
     private void initNavUI () {
         NavigationUI.setupWithNavController(navBot, navController);
-        NavigationUI.setupWithNavController(navView, navController);
+//        NavigationUI.setupWithNavController(navView, navController);
     }
 
 

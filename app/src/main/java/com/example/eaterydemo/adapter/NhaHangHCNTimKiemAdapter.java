@@ -1,5 +1,8 @@
 package com.example.eaterydemo.adapter;
 
+import static com.example.eaterydemo.fragments.DangNhapFM.hideKeyboard;
+
+import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,7 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.eaterydemo.R;
-import com.example.eaterydemo.fragments.NhaHangFMDirections;
+import com.example.eaterydemo.fragments.TimKiemNhaHangFMDirections;
 import com.example.eaterydemo.fragments.TrangChuFM;
 import com.example.eaterydemo.model.NhaHang;
 
@@ -26,14 +29,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
-public class NhaHangHCNAdapter extends RecyclerView.Adapter<NhaHangHCNAdapter.ViewHolder> implements Filterable {
+public class NhaHangHCNTimKiemAdapter extends RecyclerView.Adapter<NhaHangHCNTimKiemAdapter.ViewHolder> implements Filterable {
 
 
     List<NhaHang> arrNH;
     List<NhaHang> arrNHFiltered;
     Context context;
 
-    public NhaHangHCNAdapter(List<NhaHang> arr, Context context) {
+    public NhaHangHCNTimKiemAdapter(List<NhaHang> arr, Context context) {
         this.arrNH = arr;
         this.arrNHFiltered = arr;
         this.context = context;
@@ -85,8 +88,8 @@ public class NhaHangHCNAdapter extends RecyclerView.Adapter<NhaHangHCNAdapter.Vi
     }
 
     @Override
-    public void onBindViewHolder(@NonNull NhaHangHCNAdapter.ViewHolder holder, int position) {
-        NhaHang model = arrNH.get(position);
+    public void onBindViewHolder(@NonNull NhaHangHCNTimKiemAdapter.ViewHolder holder, int position) {
+        NhaHang model = arrNHFiltered.get(position);
         ImageView ivImage_NhaHang = holder.getivImage_NhaHang();
         ImageView ivDanhGia_ItemNhaHang = holder.getivDanhGia_ItemNhaHang();
         TextView tvTenNhaHang_ItemNhaHang = holder.gettvTenNhaHang_ItemNhaHang();
@@ -113,8 +116,9 @@ public class NhaHangHCNAdapter extends RecyclerView.Adapter<NhaHangHCNAdapter.Vi
             @Override
             public void onClick(View view) {
                 TrangChuFM.MaNH = model.getMaNH();
-                NavDirections action = NhaHangFMDirections.actionNhaHangFMToNhaHangChiTietFM2(TrangChuFM.MaNH);
+                NavDirections action = TimKiemNhaHangFMDirections.actionTimKiemNhaHangFMToNhaHangChiTietFM2(TrangChuFM.MaNH);
                 Navigation.findNavController(view).navigate(action);
+                hideKeyboard((Activity) context);
             }
         });
     }
@@ -126,10 +130,9 @@ public class NhaHangHCNAdapter extends RecyclerView.Adapter<NhaHangHCNAdapter.Vi
 
     @Override
     public Filter getFilter() {
-        return new Filter() {
+        Filter filter = new Filter() {
             @Override
             protected FilterResults performFiltering(CharSequence constraint) {
-                String searchStr = constraint.toString().toLowerCase();
                 FilterResults filterResults = new FilterResults();
                 if (constraint == null || constraint.length() == 0) {
                     filterResults.count = arrNH.size();
@@ -137,17 +140,19 @@ public class NhaHangHCNAdapter extends RecyclerView.Adapter<NhaHangHCNAdapter.Vi
 
                 } else {
                     List<NhaHang> resultsModel = new ArrayList<>();
+                    String searchStr = constraint.toString().toLowerCase();
+
                     for (NhaHang itemsModel : arrNH) {
                         String title = itemsModel.getTenNH();
-                        if (title.toLowerCase().contains(searchStr)) {
-                            resultsModel.add(itemsModel);
-                        } else if(removeAccent(title).toLowerCase().contains(searchStr)){
+                        String _title = removeAccent(title);
+                        if (_title.toLowerCase().contains(searchStr)) {
                             resultsModel.add(itemsModel);
                         }
                         filterResults.count = resultsModel.size();
                         filterResults.values = resultsModel;
                     }
                 }
+
                 return filterResults;
             }
 
@@ -157,8 +162,10 @@ public class NhaHangHCNAdapter extends RecyclerView.Adapter<NhaHangHCNAdapter.Vi
                 notifyDataSetChanged();
             }
         };
+        return filter;
     }
 
+    //xoá dấu tiếng việt và
     public String removeAccent(String s) {
         String temp = Normalizer.normalize(s, Normalizer.Form.NFD);
         Pattern pattern = Pattern.compile("\\p{InCombiningDiacriticalMarks}+");

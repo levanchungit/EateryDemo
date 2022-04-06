@@ -1,6 +1,7 @@
 package com.example.eaterydemo.fragments;
 
 
+import static com.example.eaterydemo.fragments.DangNhapFM.validateEditText;
 import static com.example.eaterydemo.others.ShowNotifyUser.dismissProgressDialog;
 import static com.example.eaterydemo.others.ShowNotifyUser.showProgressDialog;
 import static com.example.eaterydemo.service.GetRetrofit.getRetrofit;
@@ -46,17 +47,15 @@ public class QuenMatKhauFM extends Fragment {
     }
 
     private void initClick() {
-        fmBinding.ivBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                NavDirections action = QuenMatKhauFMDirections.actionQuenMatKhauFMToDangNhapFM();
-                navController.navigate(action);
-            }
-        });
-
         fmBinding.btnGuiKiemTraQuenMatKhau.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                //validate Input
+                if (!validateEditText(fmBinding.tilEmailDangNhap,fmBinding.edtEmailDangNhap)) {
+                    return;
+                }
+
                 //1. nếu là email thì toast thông báo kêu ktra email để rs mk
                 //2. Nếu là sdt là chuyển màn hình tiếp => nhập mã OTP => đổi mật khẩu
                 String _email = fmBinding.edtEmailDangNhap.getText().toString();

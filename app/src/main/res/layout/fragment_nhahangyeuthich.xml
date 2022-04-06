@@ -5,18 +5,28 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <ImageView
-        android:id="@+id/ivTimKiemNhaHang_NhaHangYeuThich"
-        android:layout_width="match_parent"
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/svTimKiem_TimKiemNhaHang"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/search"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:background="@drawable/bg_search"
+        android:layout_marginBottom="15dp"
+        app:queryBackground="@android:color/transparent"
+        app:iconifiedByDefault="false"
+        android:layout_centerHorizontal="true"
+        app:queryHint="Tên nhà hàng..."
+        android:layoutDirection="rtl"
+        app:searchHintIcon="@drawable/ic_search"
+        app:submitBackground="@null" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvNhaHangYeuThich"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/ivTimKiemNhaHang_NhaHangYeuThich"
+        android:layout_below="@+id/svTimKiem_TimKiemNhaHang"
         android:layout_marginTop="10dp"
         android:padding="10dp"
         tools:listitem="@layout/item_nhahang" />

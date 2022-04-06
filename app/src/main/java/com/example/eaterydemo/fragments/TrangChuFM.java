@@ -6,7 +6,6 @@ import static com.example.eaterydemo.service.GetRetrofit.getRetrofit;
 
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,13 +22,14 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.example.eaterydemo.R;
 import com.example.eaterydemo.adapter.KhuyenMaiAdapter;
-import com.example.eaterydemo.adapter.NhaHangHCNAdapter;
+import com.example.eaterydemo.adapter.NhaHangHCNNHGanBanAdapter;
 import com.example.eaterydemo.adapter.NhaHangVuongAdapter;
 import com.example.eaterydemo.adapter.SlideAdapter;
 import com.example.eaterydemo.databinding.FragmentTrangchuBinding;
 import com.example.eaterydemo.model.KhuyenMai;
 import com.example.eaterydemo.model.NhaHang;
 import com.example.eaterydemo.service.ServiceAPI;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.List;
 import java.util.Timer;
@@ -46,12 +46,14 @@ public class TrangChuFM extends Fragment {
     int slideShow[] = {R.drawable.khuyenmai1, R.drawable.khuyenmai2, R.drawable.khuyenmai3, R.drawable.khuyenmai4};
     int currentPageCunter = 0;
     View _view;
+    public static int MaNH;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         fmBinding = FragmentTrangchuBinding.inflate(getLayoutInflater());
         _view = container;
+
         return fmBinding.getRoot();
     }
 
@@ -81,7 +83,7 @@ public class TrangChuFM extends Fragment {
             public void onClick(View view) {
                 String loaiNh = "LAU";
                 NavDirections action = TrangChuFMDirections.actionHomeFMToNhaHangFM(loaiNh);
-                navController.navigate(action);
+                Navigation.findNavController(view).navigate(action);
             }
         });
         fmBinding.ivCom.setOnClickListener(new View.OnClickListener() {
@@ -176,6 +178,13 @@ public class TrangChuFM extends Fragment {
 
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        BottomNavigationView navbar = getActivity().findViewById(R.id.navBot);
+        navbar.setVisibility(View.VISIBLE);
+    }
+
     private void slideShowKhuyenMai(ViewPager vp, int[] arr) {
         //SLIDER KHUYENMAI 1
         vp.setAdapter(new SlideAdapter(arr, getContext()));
@@ -200,8 +209,6 @@ public class TrangChuFM extends Fragment {
         }, 5000, 3000);
     }
 
-//    private void chonNhaHang()
-
     private void Khao20ValentineTrang() {
         ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
         Call call = serviceAPI.GetAllNhaHangTheoLoai("ThucUong");
@@ -209,7 +216,6 @@ public class TrangChuFM extends Fragment {
             @Override
             public void onResponse(Call call, Response response) {
                 List<NhaHang> arr = (List<NhaHang>) response.body();
-                Log.d("arr", arr.size() + "");
                 NhaHangVuongAdapter adapter = new NhaHangVuongAdapter(arr, getContext());
                 fmBinding.rvKhao20ValentineTrang.setAdapter(adapter);
                 dismissProgressDialog();
@@ -230,7 +236,6 @@ public class TrangChuFM extends Fragment {
             @Override
             public void onResponse(Call call, Response response) {
                 List<KhuyenMai> arr = (List<KhuyenMai>) response.body();
-                Log.d("arr", arr.size() + "");
                 KhuyenMaiAdapter adapter = new KhuyenMaiAdapter(arr, getContext());
                 fmBinding.rvMonAnKemNuocSaiGon.setAdapter(adapter);
                 dismissProgressDialog();
@@ -251,7 +256,7 @@ public class TrangChuFM extends Fragment {
             @Override
             public void onResponse(Call call, Response response) {
                 List<NhaHang> arr = (List<NhaHang>) response.body();
-                NhaHangHCNAdapter adapter = new NhaHangHCNAdapter(arr, getContext());
+                NhaHangHCNNHGanBanAdapter adapter = new NhaHangHCNNHGanBanAdapter(arr, getContext());
                 fmBinding.rvNhaHangGanBan.setAdapter(adapter);
                 fmBinding.rvNhaHangGanBan.setLayoutManager(new LinearLayoutManager(getContext()));
                 dismissProgressDialog();

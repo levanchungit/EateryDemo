@@ -63,7 +63,7 @@ public class CCH_ItemDangLamQuanLyDonHangFM extends Fragment {
 
         private void getAllDonHang() {
         ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
-        Call call = serviceAPI.GetAllDonHangTheoMaNHDuaVaoTrangThai(0, 3);
+        Call call = serviceAPI.GetAllDonHangTheoMaNHDuaVaoTrangThai(0, 1);
         call.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {

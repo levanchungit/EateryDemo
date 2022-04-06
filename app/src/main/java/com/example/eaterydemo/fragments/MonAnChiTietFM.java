@@ -4,7 +4,6 @@ import static com.example.eaterydemo.others.ShowNotifyUser.dismissProgressDialog
 import static com.example.eaterydemo.service.GetRetrofit.getRetrofit;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,7 +23,6 @@ import com.example.eaterydemo.databinding.FragmentMonanchitietBinding;
 import com.example.eaterydemo.model.Message;
 import com.example.eaterydemo.model.MonAn;
 import com.example.eaterydemo.service.ServiceAPI;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.List;
 
@@ -44,8 +42,7 @@ public class MonAnChiTietFM extends Fragment {
         initClick();
         initNavController(container);
 
-        BottomNavigationView navBar = getActivity().findViewById(R.id.navBot);
-        navBar.setVisibility(View.GONE);
+
 
         GetMonAnChiTiet();
         GetAllMonAnNhaHangChiTiet();
@@ -58,15 +55,6 @@ public class MonAnChiTietFM extends Fragment {
     }
 
     private void initClick() {
-        fmBinding.imgBackMonAnChiTiet.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-//                NavDirections action = NhaHangFMDirections.actionNhaHangFMToHomeFM();
-//                navController.navigate(action);
-//                NavDirections action = NhaHangChiTietFMDirections.actionNhaHangChiTietFMToNhaHangFM();
-//                navController.navigate(action);
-            }
-        });
 
         fmBinding.btnThemMonAnMonAnChiTiet.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -113,7 +101,6 @@ public class MonAnChiTietFM extends Fragment {
             @Override
             public void onResponse(Call call, Response response) {
                 List<MonAn> arr = (List<MonAn>) response.body();
-                Log.d("arr", arr.size() + "");
                 StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
                 fmBinding.rvMonAnMonAnChiTiet.setLayoutManager(staggeredGridLayoutManager);
                 MonAnChiTietAdapter adapter = new MonAnChiTietAdapter(arr, getContext());
@@ -129,9 +116,29 @@ public class MonAnChiTietFM extends Fragment {
         });
     }
 
-    private void ThemMonAnVaoGioHang(String _TenTK, int _MaMA, int _SL) {
+    private void ThemMonAnVaoGioHang(String _TenTK, int _MaMA, int SL) {
         ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
-        Call call = serviceAPI.ThemMonAnVaoGioHang(_TenTK, _MaMA, _SL);
+        Call call = serviceAPI.ThemMonAnVaoGioHang(_TenTK, _MaMA, SL);
+        call.enqueue(new Callback() {
+            @Override
+            public void onResponse(Call call, Response response) {
+                Message message = (Message) response.body();
+                Toast.makeText(getContext(), message.getNotification(), Toast.LENGTH_SHORT).show();
+
+                dismissProgressDialog();
+            }
+
+            @Override
+            public void onFailure(Call call, Throwable t) {
+                dismissProgressDialog();
+                Toast.makeText(getContext(), "Lỗi", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void ThemMonAnKhacNhaHang(String _TenTK, int _MaMA) {
+        ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
+        Call call = serviceAPI.ThemMonAnKhacNhaHang(_TenTK, _MaMA);
         call.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {

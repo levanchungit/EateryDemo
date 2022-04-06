@@ -17,8 +17,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.eaterydemo.R;
-import com.example.eaterydemo.fragments.NhaHangFMDirections;
 import com.example.eaterydemo.fragments.TrangChuFM;
+import com.example.eaterydemo.fragments.TrangChuFMDirections;
 import com.example.eaterydemo.model.NhaHang;
 
 import java.text.Normalizer;
@@ -26,14 +26,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
-public class NhaHangHCNAdapter extends RecyclerView.Adapter<NhaHangHCNAdapter.ViewHolder> implements Filterable {
+public class NhaHangHCNNHGanBanAdapter extends RecyclerView.Adapter<NhaHangHCNNHGanBanAdapter.ViewHolder> implements Filterable {
 
 
     List<NhaHang> arrNH;
     List<NhaHang> arrNHFiltered;
     Context context;
 
-    public NhaHangHCNAdapter(List<NhaHang> arr, Context context) {
+    public NhaHangHCNNHGanBanAdapter(List<NhaHang> arr, Context context) {
         this.arrNH = arr;
         this.arrNHFiltered = arr;
         this.context = context;
@@ -85,7 +85,7 @@ public class NhaHangHCNAdapter extends RecyclerView.Adapter<NhaHangHCNAdapter.Vi
     }
 
     @Override
-    public void onBindViewHolder(@NonNull NhaHangHCNAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull NhaHangHCNNHGanBanAdapter.ViewHolder holder, int position) {
         NhaHang model = arrNH.get(position);
         ImageView ivImage_NhaHang = holder.getivImage_NhaHang();
         ImageView ivDanhGia_ItemNhaHang = holder.getivDanhGia_ItemNhaHang();
@@ -113,7 +113,7 @@ public class NhaHangHCNAdapter extends RecyclerView.Adapter<NhaHangHCNAdapter.Vi
             @Override
             public void onClick(View view) {
                 TrangChuFM.MaNH = model.getMaNH();
-                NavDirections action = NhaHangFMDirections.actionNhaHangFMToNhaHangChiTietFM2(TrangChuFM.MaNH);
+                NavDirections action = TrangChuFMDirections.actionMenuTrangChuToNhaHangChiTietFM(TrangChuFM.MaNH);
                 Navigation.findNavController(view).navigate(action);
             }
         });
@@ -126,10 +126,10 @@ public class NhaHangHCNAdapter extends RecyclerView.Adapter<NhaHangHCNAdapter.Vi
 
     @Override
     public Filter getFilter() {
-        return new Filter() {
+        Filter filter = new Filter() {
             @Override
             protected FilterResults performFiltering(CharSequence constraint) {
-                String searchStr = constraint.toString().toLowerCase();
+
                 FilterResults filterResults = new FilterResults();
                 if (constraint == null || constraint.length() == 0) {
                     filterResults.count = arrNH.size();
@@ -137,17 +137,20 @@ public class NhaHangHCNAdapter extends RecyclerView.Adapter<NhaHangHCNAdapter.Vi
 
                 } else {
                     List<NhaHang> resultsModel = new ArrayList<>();
+                    String searchStr = constraint.toString().toLowerCase();
+
                     for (NhaHang itemsModel : arrNH) {
                         String title = itemsModel.getTenNH();
                         if (title.toLowerCase().contains(searchStr)) {
                             resultsModel.add(itemsModel);
-                        } else if(removeAccent(title).toLowerCase().contains(searchStr)){
+                        }else if(removeAccent(title).toLowerCase().contains(searchStr)){
                             resultsModel.add(itemsModel);
                         }
                         filterResults.count = resultsModel.size();
                         filterResults.values = resultsModel;
                     }
                 }
+
                 return filterResults;
             }
 
@@ -157,6 +160,7 @@ public class NhaHangHCNAdapter extends RecyclerView.Adapter<NhaHangHCNAdapter.Vi
                 notifyDataSetChanged();
             }
         };
+        return filter;
     }
 
     public String removeAccent(String s) {

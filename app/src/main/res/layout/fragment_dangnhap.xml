@@ -34,7 +34,8 @@
         app:boxStrokeColor="#000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivLogo_DangNhap">
+        app:layout_constraintTop_toBottomOf="@+id/ivLogo_DangNhap"
+        app:startIconDrawable="@drawable/ic_username">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edtEmail_DangNhap"
@@ -57,9 +58,11 @@
         app:boxCornerRadiusTopEnd="10dp"
         app:boxCornerRadiusTopStart="10dp"
         app:boxStrokeColor="#000"
+        app:endIconMode="password_toggle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tilEmail_DangNhap">
+        app:layout_constraintTop_toBottomOf="@+id/tilEmail_DangNhap"
+        app:startIconDrawable="@drawable/ic_password">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edtMatKhau_DangNhap"
@@ -110,7 +113,7 @@
         android:layout_marginTop="68dp"
         android:src="@drawable/apple_logo"
         app:layout_constraintStart_toEndOf="@id/imgfacebook"
-        app:layout_constraintTop_toBottomOf="@+id/tilMatKhau_DangNhap"/>
+        app:layout_constraintTop_toBottomOf="@+id/tilMatKhau_DangNhap" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnLogin_DangNhap"
@@ -130,7 +133,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:layout_marginRight="20dp"
         android:text="Bạn chưa có tài khoản?"
         android:textSize="15sp"
         android:textStyle="bold"

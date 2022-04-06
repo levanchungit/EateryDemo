@@ -4,8 +4,8 @@ public class DonHangChiTiet {
     private String TenMA;
     private float giaMA;
     private String MONAN = null;
-    private float MaDHCT;
-    private float MaMA;
+    private int MaDHCT;
+    private int MaMA;
     private float SL;
     private float DonGia;
     private String HinhAnhMA;
@@ -13,7 +13,7 @@ public class DonHangChiTiet {
     public DonHangChiTiet() {
     }
 
-    public DonHangChiTiet(String tenMA, float giaMA, String MONAN, float maDHCT, float maMA, float SL, float donGia, String hinhAnhMA) {
+    public DonHangChiTiet(String tenMA, float giaMA, String MONAN, int maDHCT, int maMA, float SL, float donGia, String hinhAnhMA) {
         TenMA = tenMA;
         this.giaMA = giaMA;
         this.MONAN = MONAN;
@@ -48,19 +48,19 @@ public class DonHangChiTiet {
         this.MONAN = MONAN;
     }
 
-    public float getMaDHCT() {
+    public int getMaDHCT() {
         return MaDHCT;
     }
 
-    public void setMaDHCT(float maDHCT) {
+    public void setMaDHCT(int maDHCT) {
         MaDHCT = maDHCT;
     }
 
-    public float getMaMA() {
+    public int getMaMA() {
         return MaMA;
     }
 
-    public void setMaMA(float maMA) {
+    public void setMaMA(int maMA) {
         MaMA = maMA;
     }
 

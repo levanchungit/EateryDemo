@@ -21,6 +21,15 @@ public class DonHang implements Parcelable {
     public DonHang() {
     }
 
+
+    public DonHang(int maDonHang, String diaChi, int trangThaiDH, float tongTien, String tenTK) {
+        MaDonHang = maDonHang;
+        DiaChi = diaChi;
+        TrangThaiDH = trangThaiDH;
+        TongTien = tongTien;
+        TenTK = tenTK;
+    }
+
     public DonHang(int maDonHang, String diaChi, int trangThaiDH, float tongTien, String ngayMua, String tenTK, String nameRes, int countSL, List<DonHangChiTiet> DONHANGCHITIETs, TaiKhoan TAIKHOAN) {
         MaDonHang = maDonHang;
         DiaChi = diaChi;
