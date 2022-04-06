@@ -144,7 +144,9 @@ public class MonAnChiTietFM extends Fragment {
             public void onResponse(Call call, Response response) {
                 Message message = (Message) response.body();
                 Toast.makeText(getContext(), message.getNotification(), Toast.LENGTH_SHORT).show();
-//                if()
+                if(message.getStatus() == 1){
+
+                }
                 dismissProgressDialog();
             }
 

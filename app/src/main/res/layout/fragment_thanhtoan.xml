@@ -51,7 +51,7 @@
                         android:layout_alignParentRight="true"
                         android:fontFamily="@font/montserrat_bold"
                         android:padding="10dp"
-                        android:text="03/12/9 đường Nguyễn Thái Bình, Long An"
+                        android:text=""
                         android:textColor="@color/black"
                         android:textSize="20dp" />
 

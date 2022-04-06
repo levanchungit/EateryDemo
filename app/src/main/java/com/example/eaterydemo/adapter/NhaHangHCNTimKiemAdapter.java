@@ -1,5 +1,8 @@
 package com.example.eaterydemo.adapter;
 
+import static com.example.eaterydemo.fragments.DangNhapFM.hideKeyboard;
+
+import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -115,6 +118,7 @@ public class NhaHangHCNTimKiemAdapter extends RecyclerView.Adapter<NhaHangHCNTim
                 TrangChuFM.MaNH = model.getMaNH();
                 NavDirections action = TimKiemNhaHangFMDirections.actionTimKiemNhaHangFMToNhaHangChiTietFM2(TrangChuFM.MaNH);
                 Navigation.findNavController(view).navigate(action);
+                hideKeyboard((Activity) context);
             }
         });
     }
@@ -140,9 +144,8 @@ public class NhaHangHCNTimKiemAdapter extends RecyclerView.Adapter<NhaHangHCNTim
 
                     for (NhaHang itemsModel : arrNH) {
                         String title = itemsModel.getTenNH();
-                        if (title.toLowerCase().contains(searchStr)) {
-                            resultsModel.add(itemsModel);
-                        } else if(removeAccent(title).toLowerCase().contains(searchStr)){
+                        String _title = removeAccent(title);
+                        if (_title.toLowerCase().contains(searchStr)) {
                             resultsModel.add(itemsModel);
                         }
                         filterResults.count = resultsModel.size();
@@ -155,7 +158,6 @@ public class NhaHangHCNTimKiemAdapter extends RecyclerView.Adapter<NhaHangHCNTim
 
             @Override
             protected void publishResults(CharSequence constraint, FilterResults results) {
-               // arrNHFiltered.clear();
                 arrNHFiltered = (ArrayList<NhaHang>) results.values;
                 notifyDataSetChanged();
             }
@@ -163,6 +165,7 @@ public class NhaHangHCNTimKiemAdapter extends RecyclerView.Adapter<NhaHangHCNTim
         return filter;
     }
 
+    //xoá dấu tiếng việt và
     public String removeAccent(String s) {
         String temp = Normalizer.normalize(s, Normalizer.Form.NFD);
         Pattern pattern = Pattern.compile("\\p{InCombiningDiacriticalMarks}+");

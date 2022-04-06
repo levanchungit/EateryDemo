@@ -14,7 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.NavController;
+import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
@@ -34,7 +34,6 @@ import retrofit2.Response;
 
 public class TimKiemNhaHangFM extends Fragment {
     FragmentTimkiemnhahangBinding fmBinding;
-    NavController navController;
     NhaHangHCNTimKiemAdapter adapter;
 
     @Nullable
@@ -42,7 +41,6 @@ public class TimKiemNhaHangFM extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         fmBinding = FragmentTimkiemnhahangBinding.inflate(getLayoutInflater());
         initClick();
-        initNavController(container);
 
         //tắt bottom navigation
         BottomNavigationView navbar = getActivity().findViewById(R.id.navBot);
@@ -52,10 +50,6 @@ public class TimKiemNhaHangFM extends Fragment {
         fmBinding.svTimKiemTimKiemNhaHang.requestFocus();
 
         return fmBinding.getRoot();
-    }
-
-    private void initNavController(View viewFmProfileBinding) {
-        navController = Navigation.findNavController(viewFmProfileBinding);
     }
 
     private void initClick() {
@@ -70,6 +64,14 @@ public class TimKiemNhaHangFM extends Fragment {
             public boolean onQueryTextChange(String newText) {
                 adapter.getFilter().filter(newText);
                 return false;
+            }
+        });
+
+        fmBinding.ivBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavDirections action = TimKiemNhaHangFMDirections.actionTimKiemNhaHangFMToMenuTrangChu();
+                Navigation.findNavController(view).navigate(action);
             }
         });
     }
