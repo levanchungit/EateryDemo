@@ -9,116 +9,171 @@
 
         <ImageView
             android:id="@+id/ivBack"
-            android:elevation="10dp"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_margin="20dp"
-            android:layout_alignLeft="@+id/ivAvatar_AddNhaHang"
-            android:layout_alignTop="@+id/ivAvatar_AddNhaHang"
-            android:src="@drawable/ic_back_white" />
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:elevation="10dp"
+            android:src="@drawable/ic_back_black" />
 
-        <ImageView
-            android:id="@+id/ivAvatar_AddNhaHang"
+        <ScrollView
+            android:id="@+id/scrollView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:src="@drawable/qlnhahang" />
+            android:layout_below="@+id/ivBack"
+            android:fillViewport="true">
 
-        <Spinner
-            android:id="@+id/spn_ChuNhaHang_AddNhaHang"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/ivAvatar_AddNhaHang"
-            android:layout_centerHorizontal="true"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="10dp"
-            android:fontFamily="@font/montserrat_regular"
-            android:hint="Tên chủ nhà hàng">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-        </Spinner>
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cv_Avatar_AddNhaHang"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginRight="12dp"
+                    android:layout_marginTop="40dp">
 
-
-        <EditText
-            android:id="@+id/edt_TenNhaHang_AddNhaHang"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/spn_ChuNhaHang_AddNhaHang"
-            android:layout_centerHorizontal="true"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="10dp"
-            android:fontFamily="@font/montserrat_regular"
-            android:gravity=""
-            android:inputType="textAutoComplete"
-            android:padding="10dp"
-            android:singleLine="true"
-            android:hint="Tên nhà hàng"
-            android:textColor="@color/black"
-            android:textColorHint="@color/black" />
-
-        <EditText
-            android:id="@+id/edt_DiaChi_AddNhaHang"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/edt_TenNhaHang_AddNhaHang"
-            android:layout_centerHorizontal="true"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="10dp"
-            android:fontFamily="@font/montserrat_regular"
-            android:gravity=""
-            android:inputType="textAutoComplete"
-            android:padding="10dp"
-            android:singleLine="true"
-            android:hint="Địa chỉ"
-            android:textColor="@color/black"
-            android:textColorHint="@color/black" />
-
-        <EditText
-            android:id="@+id/edt_MoTa_AddNhaHang"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/edt_DiaChi_AddNhaHang"
-            android:layout_centerHorizontal="true"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="10dp"
-            android:fontFamily="@font/montserrat_regular"
-            android:gravity=""
-            android:inputType="textAutoComplete"
-            android:padding="10dp"
-            android:singleLine="true"
-            android:hint="Mô tả"
-            android:textColor="@color/black"
-            android:textColorHint="@color/black" />
-
-        <Spinner
-            android:id="@+id/spn_LoaiNhaHang_AddNhaHang"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/edt_MoTa_AddNhaHang"
-            android:layout_centerHorizontal="true"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="10dp"
-            android:fontFamily="@font/montserrat_regular"
-            android:hint="Loại nhà hàng"/>
+                    <ImageView
+                        android:id="@+id/iv_Avatar_AddNhaHang"
+                        android:layout_width="300dp"
+                        android:layout_height="200dp"
+                        android:scaleType="center"
+                        android:src="@drawable/img_missing" />
+                </androidx.cardview.widget.CardView>
 
 
-        <ImageView
-            android:id="@+id/ivChinhSua_AddNhaHang"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/spn_LoaiNhaHang_AddNhaHang"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
-            android:src="@drawable/editprofile_btn_chinhsua" />
+
+                <Spinner
+                    android:id="@+id/spn_ChuNhaHang_AddNhaHang"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/cv_Avatar_AddNhaHang"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:hint="Tên chủ nhà hàng">
+
+                </Spinner>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tl_TenNH_AddNhaHang"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                    android:layout_width="300dp"
+                    android:layout_height="75dp"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/white"
+                    android:layout_below="@id/spn_ChuNhaHang_AddNhaHang"
+                    android:layout_centerHorizontal="true"
+                    app:boxBackgroundMode="outline"
+                    app:boxCornerRadiusBottomEnd="10dp"
+                    app:boxCornerRadiusBottomStart="10dp"
+                    app:boxCornerRadiusTopEnd="10dp"
+                    app:boxCornerRadiusTopStart="10dp"
+                    app:boxStrokeColor="#000">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edt_TenNH_AddNhaHang"
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:hint="Tên nhà hàng"
+                        android:inputType="text"
+                        tools:layout_editor_absoluteX="47dp"
+                        tools:layout_editor_absoluteY="255dp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tl_DiaChi_AddNhaHang"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                    android:layout_width="300dp"
+                    android:layout_height="75dp"
+                    android:layout_marginTop="4dp"
+                    android:textColor="@color/white"
+                    android:layout_below="@id/tl_TenNH_AddNhaHang"
+                    android:layout_centerHorizontal="true"
+                    app:boxBackgroundMode="outline"
+                    app:boxCornerRadiusBottomEnd="10dp"
+                    app:boxCornerRadiusBottomStart="10dp"
+                    app:boxCornerRadiusTopEnd="10dp"
+                    app:boxCornerRadiusTopStart="10dp"
+                    app:boxStrokeColor="#000">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edt_DiaChi_AddNhaHang"
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:hint="Địa chỉ"
+                        android:inputType="text"
+                        tools:layout_editor_absoluteX="47dp"
+                        tools:layout_editor_absoluteY="255dp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tl_MoTa_AddNhaHang"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                    android:layout_width="300dp"
+                    android:layout_height="75dp"
+                    android:layout_marginTop="4dp"
+                    android:textColor="@color/white"
+                    android:layout_below="@+id/tl_DiaChi_AddNhaHang"
+                    android:layout_centerHorizontal="true"
+                    app:boxBackgroundMode="outline"
+                    app:boxCornerRadiusBottomEnd="10dp"
+                    app:boxCornerRadiusBottomStart="10dp"
+                    app:boxCornerRadiusTopEnd="10dp"
+                    app:boxCornerRadiusTopStart="10dp"
+                    app:boxStrokeColor="#000">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edt_MoTa_AddNhaHang"
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:hint="Mô tả"
+                        android:inputType="text"
+                        tools:layout_editor_absoluteX="47dp"
+                        tools:layout_editor_absoluteY="255dp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <Spinner
+                    android:id="@+id/spn_LoaiNhaHang_AddNhaHang"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tl_MoTa_AddNhaHang"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:hint="Loại nhà hàng"/>
+
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_ThemNH_AddNhaHang"
+                    android:layout_width="200dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@id/spn_LoaiNhaHang_AddNhaHang"
+                    android:layout_marginBottom="30dp"
+                    android:background="@drawable/buttonlogin"
+                    android:text="Thêm nhà hàng"
+                    android:textColor="@color/white" />
+
+
+            </RelativeLayout>
+        </ScrollView>
+
 
 
 

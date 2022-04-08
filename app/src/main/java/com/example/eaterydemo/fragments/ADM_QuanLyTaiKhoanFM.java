@@ -68,7 +68,7 @@ public class ADM_QuanLyTaiKhoanFM extends Fragment {
 
     private void GetAllNhaHang() {
         ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
-        Call call = serviceAPI.GetAllTaiKhoan();
+        Call call = serviceAPI.GetAllTaiKhoanChuaXoa();
         call.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {

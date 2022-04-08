@@ -52,6 +52,7 @@ public class ADM_AddTaiKhoanFM extends Fragment {
     NavController navController;
     private static int IMAGE_REQ = 1;
     int isValid = 0;
+    //cái này là gì đây?
     private Uri imagePath;
 
 
@@ -84,8 +85,11 @@ public class ADM_AddTaiKhoanFM extends Fragment {
             public void onClick(View view) {
                 validate();
                 //load hình ảnh lên cloudinary
+                //? gì day?
                 if(isValid == 1){
                     uploadToCloudinary();
+                    // điều hướng ở đây, r điều hướng sau khi thêm xong đc nữa thì nó lỗi đúng r -_-
+
                 }
             }
         });
@@ -132,7 +136,7 @@ public class ADM_AddTaiKhoanFM extends Fragment {
             @Override
             public void onResponse(Call call, Response response) {
                 Message message = (Message) response.body();
-                Toast.makeText(getContext(), message.getNotification(), Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getContext(), message.getNotification(), Toast.LENGTH_SHORT).show();
                 if (message.getStatus() == 1) {
                     NavDirections action = ADM_AddTaiKhoanFMDirections.actionADMAddTaiKhoanFMToAdminQuanLyTaiKhoanFM();
                     Navigation.findNavController(getView()).navigate(action);
@@ -154,6 +158,51 @@ public class ADM_AddTaiKhoanFM extends Fragment {
 
     }
 
+
+
+    private void uploadToCloudinary() {
+        try{
+            MediaManager.get().upload(imagePath).callback(new UploadCallback() {
+                @Override
+                public void onStart(String requestId) {
+                    Log.d("CLOUDINARY","Start");
+                }
+
+                @Override
+                public void onProgress(String requestId, long bytes, long totalBytes) {
+
+                }
+
+                @Override
+                public void onSuccess(String requestId, Map resultData) {
+                    Log.d("CLOUDINARY","Task successful");
+//                showProgressDialog(getContext(), "Đang đăng ký tài khoản");
+                    String _email = fmBinding.edtEmailDangKy.getText().toString().trim();
+                    String _mk = fmBinding.edtMatKhauDangKy.getText().toString().trim();
+                    String _hoten = fmBinding.edtHoTenDangKy.getText().toString().trim();
+                    String _sdt = fmBinding.edtSdtDangKy.getText().toString().trim();
+                    String _diachi = fmBinding.edtDiaChiDangKy.getText().toString().trim();
+                    String _hinhAnh = resultData.get("url").toString();
+                    TaiKhoan taiKhoan = new TaiKhoan(_email, _mk, _hoten, _sdt, _diachi, _hinhAnh, "user");
+                    AddTaiKhoan(taiKhoan);
+                    dismissProgressDialog();
+                }
+
+                @Override
+                public void onError(String requestId, ErrorInfo error) {
+                    Toast.makeText(getContext(), "Task Not successful " + error, Toast.LENGTH_SHORT).show();
+                }
+
+                @Override
+                public void onReschedule(String requestId, ErrorInfo error) {
+
+                }
+            }).dispatch();
+        }catch (Exception e){
+            Log.e("Error: ",e + "");
+        }
+    }
+
     private void validate(){
         if (!validateEditText(fmBinding.tilEmailDangKy, fmBinding.edtEmailDangKy) |
                 !validateEditText(fmBinding.tilHoTenDangKy, fmBinding.edtHoTenDangKy) |
@@ -172,44 +221,4 @@ public class ADM_AddTaiKhoanFM extends Fragment {
             isValid = 1;
         }
     }
-
-    private void uploadToCloudinary() {
-        MediaManager.get().upload(imagePath).callback(new UploadCallback() {
-            @Override
-            public void onStart(String requestId) {
-                Log.d("CLOUDINARY","Start");
-            }
-
-            @Override
-            public void onProgress(String requestId, long bytes, long totalBytes) {
-
-            }
-
-            @Override
-            public void onSuccess(String requestId, Map resultData) {
-                Log.d("CLOUDINARY","Task successful");
-                showProgressDialog(getContext(), "Đang đăng ký tài khoản");
-                String _email = fmBinding.edtEmailDangKy.getText().toString().trim();
-                String _mk = fmBinding.edtMatKhauDangKy.getText().toString().trim();
-                String _hoten = fmBinding.edtHoTenDangKy.getText().toString().trim();
-                String _sdt = fmBinding.edtSdtDangKy.getText().toString().trim();
-                String _diachi = fmBinding.edtDiaChiDangKy.getText().toString().trim();
-                String _hinhAnh = resultData.get("url").toString();
-                TaiKhoan taiKhoan = new TaiKhoan(_email, _mk, _hoten, _sdt, _diachi, _hinhAnh, "user");
-                AddTaiKhoan(taiKhoan);
-                dismissProgressDialog();
-            }
-
-            @Override
-            public void onError(String requestId, ErrorInfo error) {
-                Toast.makeText(getContext(), "Task Not successful " + error, Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onReschedule(String requestId, ErrorInfo error) {
-
-            }
-        }).dispatch();
-    }
-
 }

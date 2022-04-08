@@ -80,7 +80,7 @@ public class DangKyFM extends Fragment {
             @Override
             public void onClick(View view) {
                 //validate Input
-                if (!validateEditText(fmBinding.tilEmailDangNhap,fmBinding.edtEmailDangKy)
+                if (!validateEditText(fmBinding.tilEmailDangKy,fmBinding.edtEmailDangKy)
                         | !validateEditText(fmBinding.tilMatKhauDangKy,fmBinding.edtMatKhauDangKy)
                         | !validateEditText(fmBinding.tilNhapLaiMatKhauDangKy,fmBinding.edtNhapLaiMatKhauDangKy)
                         | !validateEditText(fmBinding.tilHoTenDangKy,fmBinding.edtHoTenDangKy)

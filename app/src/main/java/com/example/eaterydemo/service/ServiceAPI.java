@@ -3,6 +3,7 @@ package com.example.eaterydemo.service;
 import com.example.eaterydemo.model.DonHang;
 import com.example.eaterydemo.model.DonHangChiTiet;
 import com.example.eaterydemo.model.KhuyenMai;
+import com.example.eaterydemo.model.LoaiNhaHang;
 import com.example.eaterydemo.model.Message;
 import com.example.eaterydemo.model.MonAn;
 import com.example.eaterydemo.model.NhaHang;
@@ -25,6 +26,12 @@ public interface ServiceAPI {
     //NHÀ HÀNG
     @GET("api/nhahang")
     Call<ArrayList<NhaHang>> GetAllNhaHang();
+
+    @GET("api/GetAllNhaHangChuaXoa")
+    Call<ArrayList<NhaHang>> GetAllNhaHangChuaXoa();
+
+    @GET("api/GetAllLoaiNhaHang")
+    Call<ArrayList<LoaiNhaHang>> GetAllLoaiNhaHang();
 
     @GET("api/nhahangtheoloai/{loaiNH}")
     Call<ArrayList<NhaHang>> GetAllNhaHangTheoLoai(@Path("loaiNH") String loaiNH);
@@ -49,6 +56,10 @@ public interface ServiceAPI {
 
     @POST("api/XoaNhaHang")
     Call<Message> XoaNhaHangTheoMaNH(@Query("MaNH") int MaNH);
+
+    @POST("api/ThemNhaHang")
+    Call<Message> ThemNhaHang(@Body NhaHang nhaHang);
+
     @POST("api/ThemHuyNhaHangYeuThich")
     Call<Message> ThemHuyNhaHangYeuThich(@Body NhaHangYeuThich nhaHangYeuThich);
 
@@ -77,6 +88,9 @@ public interface ServiceAPI {
     @POST("api/dangnhap")
     Call<Message> DangNhap(@Query("TenTK") String TenTK, @Query("MatKhau") String MatKhau);
 
+    @GET("api/GetAllTaiKhoanChuaXoa")
+    Call<ArrayList<TaiKhoan>> GetAllTaiKhoanChuaXoa();
+
     @POST("api/dangky")
     Call<Message> DangKy(@Body TaiKhoan taiKhoan);
 
@@ -100,6 +114,7 @@ public interface ServiceAPI {
 
     @POST("api/XoaTaiKhoan")
     Call<Message> XoaTaiKhoanTheoTenTK(@Query("TenTK") String TenTK);
+
     @POST("api/CapNhatMatKhauCuaTK")
     Call<Message> CapNhatMatKhauCuaTK(@Query("TenTK") String TenTK, @Query("MatKhauCu") String MatKhauCu, @Query("MatKhauMoi") String MatKhauMoi, @Query("NhapLaiMatKhauMoi") String NhapLaiMatKhauMoi);
 

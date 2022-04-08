@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -19,11 +20,15 @@ import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 
 import com.bumptech.glide.Glide;
+import com.example.eaterydemo.R;
 import com.example.eaterydemo.databinding.FragmentChinhsuaQuanlynhahangBinding;
 import com.example.eaterydemo.databinding.FragmentOwnerQuanlynhahangBinding;
 import com.example.eaterydemo.model.Message;
 import com.example.eaterydemo.model.NhaHang;
+import com.example.eaterydemo.model.TaiKhoan;
 import com.example.eaterydemo.service.ServiceAPI;
+
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -39,6 +44,7 @@ public class ADM_ChinhSuaThongTinNhaHangFM extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         fmBinding = FragmentChinhsuaQuanlynhahangBinding.inflate(getLayoutInflater());
+
         _view = container;
         return fmBinding.getRoot();
     }
