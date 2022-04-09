@@ -12,6 +12,9 @@
          <action
              android:id="@+id/action_CCH_QuanLyNhaHangFM_to_CCH_QuanLyDonHangFM"
              app:destination="@id/CCH_QuanLyDonHangFM" />
+         <action
+             android:id="@+id/action_CCH_QuanLyNhaHangFM_to_thongKeFM"
+             app:destination="@id/thongKeFM" />
      </fragment>
     <fragment
         android:id="@+id/CCH_QuanLyDonHangFM"
@@ -35,5 +38,10 @@
             app:argType="com.example.eaterydemo.model.DonHang" />
 
     </fragment>
+    <fragment
+        android:id="@+id/thongKeFM"
+        tools:layout="@layout/fragment_thongke"
+        android:name="com.example.eaterydemo.fragments.ThongKeFM"
+        android:label="ThongKeFM" />
 
 </navigation>

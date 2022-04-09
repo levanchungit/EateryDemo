@@ -78,14 +78,14 @@ public class NhaHangChiTietFM extends Fragment {
         call.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
-                Message message = (Message) response.body();
-                if(message.getStatus() == 1){
-                    fmBinding.imgFav.setImageResource(R.drawable.favorites);
-                }else{
-                    fmBinding.imgFav.setImageResource(R.drawable.favorites_troke);
-
-                }
-                dismissProgressDialog();
+//                Message message = (Message) response.body();
+//                if(message.getStatus() == 1){
+//                    fmBinding.imgFav.setImageResource(R.drawable.favorites);
+//                }else{
+//                    fmBinding.imgFav.setImageResource(R.drawable.favorites_troke);
+//
+//                }
+//                dismissProgressDialog();
             }
 
             @Override

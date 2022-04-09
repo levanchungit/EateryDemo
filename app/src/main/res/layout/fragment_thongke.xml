@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="20dp"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="10dp"
     android:orientation="vertical">
 
     <LinearLayout
@@ -12,16 +13,12 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/mdi_light_arrow_left" />
+
 
         <TextView
             android:id="@+id/tvThongKe"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginRight="10dp"
             android:gravity="center"
             android:text="THỐNG KÊ"
             android:textColor="@color/black"
@@ -45,7 +42,7 @@
             android:id="@+id/edtTuNgay_ThongKe"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="2000-01-01" />
+            android:hint="2022-04-06" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -63,14 +60,35 @@
                 android:id="@+id/edtDenNgay_ThongKe"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="2000-01-01" />
+                android:hint="2022-04-08" />
         </LinearLayout>
+
+
     </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="25dp"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:fontFamily="@font/montserrat_extrabold"
+        android:text="Tổng doanh thu"/>
+
+    <TextView
+        android:id="@+id/tvTongTienDoanhThu_ThongKe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="25dp"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:fontFamily="@font/montserrat_semibold"
+        android:text="80.000.000đ"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvThongKe"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/llNgayThongKe" />
+        android:layout_below="@+id/llNgayThongKe"
+        tools:listitem="@layout/item_thongke_monan"/>
 
-</RelativeLayout>
+</LinearLayout>

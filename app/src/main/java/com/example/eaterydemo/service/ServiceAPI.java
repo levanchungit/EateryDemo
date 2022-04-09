@@ -8,6 +8,7 @@ import com.example.eaterydemo.model.MonAn;
 import com.example.eaterydemo.model.NhaHang;
 import com.example.eaterydemo.model.NhaHangYeuThich;
 import com.example.eaterydemo.model.TaiKhoan;
+import com.example.eaterydemo.model.ThongKe;
 
 import java.util.ArrayList;
 
@@ -126,8 +127,16 @@ public interface ServiceAPI {
     Call<ArrayList<DonHangChiTiet>> XoaMonAnTrongDonHang(@Query("MaDHCT") int MaDHCT, @Query("MaMA") int MaMA);
 
     @GET("api/LayTongTienCuaDonHang")
-    Call<Double> LayTongTienCuaDonHang(@Query("MaDH")int MaDH);
+    Call<Double> LayTongTienCuaDonHang(@Query("MaDH") int MaDH);
+
+    @POST("api/CapNhatDiaChiGiaoHang")
+    Call <String>CapNhatDiaChiGiaoHang(@Query("MaDH") int MaDH, @Query("DiaChiMoi") String DiaChiMoi);
 
 
+    // Thống kê
+    @GET("api/GetTongDoanhThuDonHangTheoNH")
+    Call<Double> GetTongDoanhThuDonHangTheoNH(@Query("MaNH") int MaNH, @Query("TuNgay") String TuNgay, @Query("DenNgay") String DenNgay);
 
+    @GET("api/GetTongDoanhThuCuaTungMonAnTheoNH ")
+    Call<ArrayList<ThongKe>> GetTongDoanhThuCuaTungMonAnTheoNH (@Query("MaNH") int MaNH);
 }

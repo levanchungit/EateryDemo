@@ -101,7 +101,7 @@ public class DonHangAdapter extends RecyclerView.Adapter<DonHangAdapter.ViewHold
         _view = parent;
         return viewHolder;
     }
-    
+
     @Override
     public void onBindViewHolder(@NonNull DonHangAdapter.ViewHolder holder, int position) {
         DonHang model = arr.get(position);

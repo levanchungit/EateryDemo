@@ -56,6 +56,29 @@ public class MonAnChiTietFM extends Fragment {
 
     private void initClick() {
 
+        fmBinding.imgGiamSoLuongMACT.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int SoLuongMon = Integer.parseInt(fmBinding.txtSoLuongChiTiet.getText().toString());
+                int SL = SoLuongMon - 1;
+                if (SL >= 1){
+                    fmBinding.txtSoLuongChiTiet.setText(SL+"");
+                }else{
+                    fmBinding.txtSoLuongChiTiet.setText(0 + "");
+                }
+
+            }
+        });
+
+        fmBinding.imgTangSoLuongMACT.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int SoLuongMon = Integer.parseInt(fmBinding.txtSoLuongChiTiet.getText().toString());
+                int SL = SoLuongMon + 1;
+                fmBinding.txtSoLuongChiTiet.setText(SL+"");
+            }
+        });
+
         fmBinding.btnThemMonAnMonAnChiTiet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -122,8 +145,8 @@ public class MonAnChiTietFM extends Fragment {
         call.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
-                Message message = (Message) response.body();
-                Toast.makeText(getContext(), message.getNotification(), Toast.LENGTH_SHORT).show();
+//                Message message = (Message) response.body();
+//                Toast.makeText(getContext(), message.getNotification(), Toast.LENGTH_SHORT).show();
 
                 dismissProgressDialog();
             }

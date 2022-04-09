@@ -56,13 +56,13 @@
                         android:textSize="20dp" />
 
                     <TextView
-                        android:id="@+id/txt_ThayDoi_ThanhToan"
+                        android:id="@+id/tv_ThayDoi_DiaChi"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentTop="true"
                         android:layout_alignParentRight="true"
                         android:layout_marginTop="10dp"
-                        android:layout_marginRight="20dp"
+                        android:layout_marginRight="21dp"
                         android:clickable="true"
                         android:fontFamily="@font/montserrat_bold"
                         android:text="Thay đổi"
