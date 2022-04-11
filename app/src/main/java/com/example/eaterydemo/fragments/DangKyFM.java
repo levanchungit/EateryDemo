@@ -35,8 +35,12 @@ import com.example.eaterydemo.databinding.FragmentDangkyBinding;
 import com.example.eaterydemo.model.Message;
 import com.example.eaterydemo.model.TaiKhoan;
 import com.example.eaterydemo.service.ServiceAPI;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -76,7 +80,7 @@ public class DangKyFM extends Fragment {
             @Override
             public void onClick(View view) {
                 //validate Input
-                if (!validateEditText(fmBinding.tilEmailDangNhap,fmBinding.edtEmailDangKy)
+                if (!validateEditText(fmBinding.tilEmailDangKy,fmBinding.edtEmailDangKy)
                         | !validateEditText(fmBinding.tilMatKhauDangKy,fmBinding.edtMatKhauDangKy)
                         | !validateEditText(fmBinding.tilNhapLaiMatKhauDangKy,fmBinding.edtNhapLaiMatKhauDangKy)
                         | !validateEditText(fmBinding.tilHoTenDangKy,fmBinding.edtHoTenDangKy)
@@ -197,4 +201,57 @@ public class DangKyFM extends Fragment {
         }).dispatch();
     }
 
+    public static boolean validateEditText(TextInputLayout til, TextInputEditText edt) {
+        String _str = edt.getText().toString().trim();
+        if (_str.isEmpty()) {
+            til.setError("Vui lòng không bỏ trống");
+            return false;
+        } else {
+            til.setError("");
+            til.setErrorEnabled(false);
+            return true;
+        }
+    }
+    public static boolean validateEditTextEmail(TextInputLayout til, TextInputEditText edt) {
+        String _str = edt.getText().toString().trim();
+        Pattern pattern = Pattern.compile("^\\w+([\\.-]?\\w+)*@\\w+([\\.-]?\\w+)*(\\.\\w{2,3})+$", Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pattern.matcher(_str);
+        if (matcher.matches()==false) {
+            til.setError("Vui lòng nhập đúng Email");
+            return false;
+        } else {
+            til.setError("");
+            til.setErrorEnabled(false);
+            return true;
+        }
+    }
+
+    public static boolean validateEditTextMK(TextInputLayout til1, TextInputEditText edt1, TextInputLayout til2, TextInputEditText edt2) {
+        String _str1 = edt1.getText().toString().trim();
+        String _str2 = edt2.getText().toString().trim();
+
+        if (_str2.equals(_str1)==false) {
+            til2.setError("Vui lòng nhập đúng mật khẩu");
+            return false;
+        } else {
+            til1.setError("");
+            til1.setErrorEnabled(false);
+            til2.setError("");
+            til2.setErrorEnabled(false);
+            return true;
+        }
+    }
+
+    public static boolean validateEditTextSDT(TextInputLayout til, TextInputEditText edt) {
+        String _str = edt.getText().toString().trim();
+
+        if (_str.length()<10 | _str.length()>10) {
+            til.setError("Số điện thoại phải đúng 10 ký tự");
+            return false;
+        } else {
+            til.setError("");
+            til.setErrorEnabled(false);
+            return true;
+        }
+    }
 }

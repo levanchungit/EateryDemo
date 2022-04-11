@@ -216,4 +216,5 @@
             app:popUpTo="@id/monAnChiTietFM"
             app:popUpToInclusive="true" />
     </fragment>
+
 </navigation>

@@ -12,8 +12,25 @@ public class NhaHang{
     private String TenLoaiNH;
     private String HoTen;
     private float IsYeuThich;
+    private boolean isDelete;
 
-    public NhaHang(int maNH, String tenNH, String diaChi, String hinhAnh, String moTa, float danhGia, String tenTK, String maLoaiNH, String tenLoaiNH, String hoTen, float isYeuThich) {
+    public NhaHang(int maNH, String tenNH, String diaChi, String moTa) {
+        MaNH = maNH;
+        TenNH = tenNH;
+        DiaChi = diaChi;
+        MoTa = moTa;
+    }
+
+    public NhaHang(String tenNH, String diaChi, String hinhAnh, String moTa, String tenTK, String maLoaiNH) {
+        TenNH = tenNH;
+        DiaChi = diaChi;
+        HinhAnh = hinhAnh;
+        MoTa = moTa;
+        TenTK = tenTK;
+        MaLoaiNH = maLoaiNH;
+    }
+
+    public NhaHang(int maNH, String tenNH, String diaChi, String hinhAnh, String moTa, float danhGia, String tenTK, String maLoaiNH, String tenLoaiNH, String hoTen, float isYeuThich, boolean isDelete) {
         MaNH = maNH;
         TenNH = tenNH;
         DiaChi = diaChi;
@@ -25,6 +42,7 @@ public class NhaHang{
         TenLoaiNH = tenLoaiNH;
         HoTen = hoTen;
         IsYeuThich = isYeuThich;
+        this.isDelete = isDelete;
     }
 
     public int getMaNH() {
@@ -114,4 +132,8 @@ public class NhaHang{
     public void setIsYeuThich(float isYeuThich) {
         IsYeuThich = isYeuThich;
     }
+
+    public boolean isDelete() { return isDelete; }
+
+    public void setDelete(boolean delete) { isDelete = delete; }
 }

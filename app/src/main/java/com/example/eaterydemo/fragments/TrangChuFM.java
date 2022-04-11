@@ -251,7 +251,7 @@ public class TrangChuFM extends Fragment {
 
     private void getAllNhaHang() {
         ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
-        Call call = serviceAPI.GetAllNhaHang();
+        Call call = serviceAPI.GetAllNhaHangChuaXoa();
         call.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {

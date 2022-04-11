@@ -14,10 +14,6 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/mdi_light_arrow_left" />
 
         <TextView
             android:id="@+id/tvQuanLyCuaHang"
@@ -33,17 +29,17 @@
         android:id="@+id/rvQuanLyCuaHang"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        tools:listitem="@layout/item_adminquanly"
         android:layout_below="@+id/llQuanLyCuaHang" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabAdd_QuanLyNhaHang"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
+    <ImageView
+        android:id="@+id/ivAdd_AdminQuanLyNhaHang"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_margin="8dp"
-        android:src="@drawable/ic_them"
-        app:fabSize="normal" />
+        android:layout_alignParentRight="true"
+        android:layout_margin="20dp"
+        android:clickable="true"
+        app:srcCompat="@drawable/float_add" />
 
 </RelativeLayout>

@@ -3,6 +3,7 @@ package com.example.eaterydemo.service;
 import com.example.eaterydemo.model.DonHang;
 import com.example.eaterydemo.model.DonHangChiTiet;
 import com.example.eaterydemo.model.KhuyenMai;
+import com.example.eaterydemo.model.LoaiNhaHang;
 import com.example.eaterydemo.model.Message;
 import com.example.eaterydemo.model.MonAn;
 import com.example.eaterydemo.model.NhaHang;
@@ -26,6 +27,12 @@ public interface ServiceAPI {
     @GET("api/nhahang")
     Call<ArrayList<NhaHang>> GetAllNhaHang();
 
+    @GET("api/GetAllNhaHangChuaXoa")
+    Call<ArrayList<NhaHang>> GetAllNhaHangChuaXoa();
+
+    @GET("api/GetAllLoaiNhaHang")
+    Call<ArrayList<LoaiNhaHang>> GetAllLoaiNhaHang();
+
     @GET("api/nhahangtheoloai/{loaiNH}")
     Call<ArrayList<NhaHang>> GetAllNhaHangTheoLoai(@Path("loaiNH") String loaiNH);
 
@@ -40,6 +47,18 @@ public interface ServiceAPI {
 
     @GET("api/nhahangtheomanh/{MaNH}")
     Call<NhaHang> GetNhaHangTheoMaNH(@Path("MaNH") int MaNH);
+
+    @POST("api/insert-nhahangyeuthich")
+    Call<Message> ThemNhaHangYeuThich(@Body NhaHangYeuThich nhaHangYeuThich);
+
+    @POST("api/ChinhSuaThongTinNhaHang")
+    Call<Message> ChinhSuaThongTinNhaHang(@Body NhaHang nhaHang);
+
+    @POST("api/XoaNhaHang")
+    Call<Message> XoaNhaHangTheoMaNH(@Query("MaNH") int MaNH);
+
+    @POST("api/ThemNhaHang")
+    Call<Message> ThemNhaHang(@Body NhaHang nhaHang);
 
     @POST("api/ThemHuyNhaHangYeuThich")
     Call<Message> ThemHuyNhaHangYeuThich(@Body NhaHangYeuThich nhaHangYeuThich);
@@ -64,9 +83,13 @@ public interface ServiceAPI {
     @POST("api/ThemMonAnVaoGioHang")
     Call<Message> ThemMonAnVaoGioHang(@Query("TenTK") String TenTK, @Query("MaMA") int MaMA, @Query("SL") int SL);
 
+
     //TÀI KHOẢN
     @POST("api/dangnhap")
     Call<Message> DangNhap(@Query("TenTK") String TenTK, @Query("MatKhau") String MatKhau);
+
+    @GET("api/GetAllTaiKhoanChuaXoa")
+    Call<ArrayList<TaiKhoan>> GetAllTaiKhoanChuaXoa();
 
     @POST("api/dangky")
     Call<Message> DangKy(@Body TaiKhoan taiKhoan);
@@ -88,6 +111,9 @@ public interface ServiceAPI {
 
     @POST("api/capnhatthongtintaikhoan")
     Call<Message> ChinhSuaThongTin(@Query("TenTK") String TenTK, @Query("HoTen") String HoTen, @Query("SDT") String SDT, @Query("DiaChi") String DiaChi);
+
+    @POST("api/XoaTaiKhoan")
+    Call<Message> XoaTaiKhoanTheoTenTK(@Query("TenTK") String TenTK);
 
     @POST("api/CapNhatMatKhauCuaTK")
     Call<Message> CapNhatMatKhauCuaTK(@Query("TenTK") String TenTK, @Query("MatKhauCu") String MatKhauCu, @Query("MatKhauMoi") String MatKhauMoi, @Query("NhapLaiMatKhauMoi") String NhapLaiMatKhauMoi);

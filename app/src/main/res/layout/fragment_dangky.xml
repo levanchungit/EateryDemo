@@ -32,18 +32,28 @@
                 app:layout_constraintStart_toStartOf="@+id/scrollView2"
                 app:layout_constraintTop_toTopOf="@+id/scrollView2" />
 
-            <ImageView
-                android:id="@+id/imgImage_DangKy"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                android:layout_gravity="center"
-                android:src="@drawable/img_error" />
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvImage_DangKy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="12dp"
+                app:cardCornerRadius="100dp">
+
+                <ImageView
+                    android:id="@+id/imgImage_DangKy"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/img_error" />
+            </androidx.cardview.widget.CardView>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/tilEmail_DangNhap"
+                android:id="@+id/tilEmail_DangKy"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="300dp"
-                android:layout_height="50dp"
+                android:layout_height="75dp"
                 android:layout_marginTop="30dp"
                 android:textColor="@color/white"
                 app:boxBackgroundMode="outline"
@@ -69,7 +79,7 @@
                 android:id="@+id/tilMatKhau_DangKy"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="300dp"
-                android:layout_height="50dp"
+                android:layout_height="75dp"
                 android:layout_marginTop="4dp"
                 android:textColor="@color/white"
                 app:boxBackgroundMode="outline"
@@ -94,7 +104,7 @@
                 android:id="@+id/tilNhapLaiMatKhau_DangKy"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="300dp"
-                android:layout_height="50dp"
+                android:layout_height="75dp"
                 android:layout_marginTop="4dp"
                 android:textColor="@color/white"
                 app:boxBackgroundMode="outline"
@@ -119,7 +129,7 @@
                 android:id="@+id/tilHoTen_DangKy"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="300dp"
-                android:layout_height="50dp"
+                android:layout_height="75dp"
                 android:layout_marginTop="4dp"
                 android:textColor="@color/white"
                 app:boxBackgroundMode="outline"
@@ -144,7 +154,7 @@
                 android:id="@+id/tilSdt_DangKy"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="300dp"
-                android:layout_height="50dp"
+                android:layout_height="75dp"
                 android:layout_marginTop="4dp"
                 android:textColor="@color/white"
                 app:boxBackgroundMode="outline"
@@ -169,7 +179,7 @@
                 android:id="@+id/tilDiaChi_DangKy"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="300dp"
-                android:layout_height="50dp"
+                android:layout_height="75dp"
                 android:layout_marginTop="4dp"
                 android:textColor="@color/white"
                 app:boxBackgroundMode="outline"
@@ -195,6 +205,7 @@
                 android:layout_width="200dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="30dp"
+                android:layout_marginBottom="30dp"
                 android:background="@drawable/buttonlogin"
                 android:text="Đăng ký"
                 android:textColor="@color/white" />

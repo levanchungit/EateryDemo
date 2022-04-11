@@ -14,10 +14,6 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/mdi_light_arrow_left" />
 
         <TextView
             android:id="@+id/tvQuanLyTaiKhoan"
@@ -30,21 +26,21 @@
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_below="@+id/llQUanLyTaiKhoan"
         android:id="@+id/rvQuanLyTaiKhoan"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabAddTaiKhoan_QuanLyCuaHang"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:elevation="10dp"
+        android:layout_below="@+id/llQUanLyTaiKhoan"
+        tools:listitem="@layout/item_adminquanly"/>
+
+    <ImageView
+        android:id="@+id/ivAdd_AdminQuanLyTaiKhoan"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:layout_margin="10dp"
-        app:fabSize="normal"
-        app:layout_anchor="@id/rvQuanLyTaiKhoan"
-        app:layout_anchorGravity="bottom|right|end" />
+        android:layout_margin="20dp"
+        android:clickable="true"
+        app:srcCompat="@drawable/float_add" />
+
 
 </RelativeLayout>

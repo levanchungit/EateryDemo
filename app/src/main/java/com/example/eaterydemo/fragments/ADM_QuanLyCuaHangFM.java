@@ -5,6 +5,7 @@ import static com.example.eaterydemo.others.ShowNotifyUser.showProgressDialog;
 import static com.example.eaterydemo.service.GetRetrofit.getRetrofit;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,38 +17,38 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
-import com.bumptech.glide.Glide;
-import com.example.eaterydemo.databinding.FragmentOwnerQuanlynhahangBinding;
+import com.example.eaterydemo.adapter.AdminQuanLyCuaHangAdapter;
+import com.example.eaterydemo.adapter.NhaHangHCNAdapter;
+import com.example.eaterydemo.databinding.FragmentAdminQuanlynhahangBinding;
+import com.example.eaterydemo.databinding.FragmentNhahangBinding;
 import com.example.eaterydemo.model.NhaHang;
 import com.example.eaterydemo.service.ServiceAPI;
+
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 
-public class CCH_QuanLyNhaHangFM extends Fragment {
-    FragmentOwnerQuanlynhahangBinding fmBinding;
+public class ADM_QuanLyCuaHangFM extends Fragment {
+    FragmentAdminQuanlynhahangBinding fmBinding;
     NavController navController;
-    View _view;
+    public static int MaNH;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        fmBinding = FragmentOwnerQuanlynhahangBinding.inflate(getLayoutInflater());
-        _view = container;
-        return fmBinding.getRoot();
-    }
-
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
+        fmBinding = FragmentAdminQuanlynhahangBinding.inflate(getLayoutInflater());
         initClick();
-        initNavController(_view);
+        initNavController(container);
 
         showProgressDialog(getContext(), "Đang tải dữ liệu");
-        GetThongTinNhaHang();
+        GetAllNhaHang();
+
+        return fmBinding.getRoot();
     }
 
     private void initNavController(View viewFmProfileBinding) {
@@ -55,26 +56,27 @@ public class CCH_QuanLyNhaHangFM extends Fragment {
     }
 
     private void initClick() {
-        fmBinding.ivQuanLyDonhangCCHQuanLyNhaHang.setOnClickListener(new View.OnClickListener() {
+        fmBinding.ivAddAdminQuanLyNhaHang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavDirections action = CCH_QuanLyNhaHangFMDirections.actionCCHQuanLyNhaHangFMToCCHQuanLyDonHangFM();
-                navController.navigate(action);
+                NavDirections action = ADM_QuanLyCuaHangFMDirections.actionAdminQuanLyCuaHangFMToADMAddNhaHangFM();
+                Navigation.findNavController(view).navigate(action);
             }
         });
     }
 
-    private void GetThongTinNhaHang() {
+    private void GetAllNhaHang() {
         ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
-        Call call = serviceAPI.GetNhaHangTheoTenTK(DangNhapFM.TENTK);
+        Call call = serviceAPI.GetAllNhaHangChuaXoa();
         call.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
-                NhaHang nh = (NhaHang) response.body();
-                Glide.with(requireContext()).load(nh.getHinhAnh()).centerCrop().into(fmBinding.ivImageCCHQuanLyNhaHang);
-                fmBinding.tvTenNhaHangCCHQuanLyNhaHang.setText(nh.getTenNH());
-                fmBinding.tvDiaChiCCHQuanLyNhaHang.setText(nh.getDiaChi());
-                fmBinding.tvTenChuCuaHangCCHQuanLyNhaHang.setText(nh.getHoTen());
+                List<NhaHang> arr = (List<NhaHang>) response.body();
+                Log.d("arr", arr.size() + "");
+                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
+                fmBinding.rvQuanLyCuaHang.setLayoutManager(linearLayoutManager);
+                AdminQuanLyCuaHangAdapter adapter = new AdminQuanLyCuaHangAdapter(arr, getContext());
+                fmBinding.rvQuanLyCuaHang.setAdapter(adapter);
                 dismissProgressDialog();
             }
 
@@ -85,4 +87,6 @@ public class CCH_QuanLyNhaHangFM extends Fragment {
             }
         });
     }
+
+
 }
