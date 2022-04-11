@@ -29,14 +29,20 @@ import retrofit2.Response;
 
 public class GioHangAdapter extends RecyclerView.Adapter<GioHangAdapter.ViewHolder> {
 
-
     List<DonHangChiTiet> arr;
     List<DonHangChiTiet> arrDHCT;
     Context context;
+    TextView txtTongTienThanhToan, txtTongThanhToan;
+    int MaDH;
+    //chuyển đổi đơn vị tiền tệ
+    Locale localeVN = new Locale("vi", "VN");
+    NumberFormat currencyVN = NumberFormat.getCurrencyInstance(localeVN);
 
-    public GioHangAdapter(List<DonHangChiTiet> arr, Context context) {
+    public GioHangAdapter(List<DonHangChiTiet> arr, Context context, TextView txtTongTienThanhToan, TextView txtTongThanhToan) {
         this.arr = arr;
         this.context = context;
+        this.txtTongTienThanhToan = txtTongTienThanhToan;
+        this.txtTongThanhToan = txtTongThanhToan;
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -97,6 +103,7 @@ public class GioHangAdapter extends RecyclerView.Adapter<GioHangAdapter.ViewHold
         DonHangChiTiet model = arr.get(position);
         int sl = (int) model.getSL();
         int i = (int) model.getGiaMA();
+        MaDH = model.getMaDHCT();
 
         ImageView img_ItemMonAnGioHang = holder.getimg_ItemMonAnGioHang();
         ImageView img_TangSoLuong = holder.getimg_TangSoLuong();
@@ -106,9 +113,6 @@ public class GioHangAdapter extends RecyclerView.Adapter<GioHangAdapter.ViewHold
         TextView txt_GiaMonAn = holder.gettxt_GiaMonAn();
         TextView txt_SoLuong = holder.gettxt_SoLuong();
 
-        //chuyển đổi đơn vị tiền tệ
-        Locale localeVN = new Locale("vi", "VN");
-        NumberFormat currencyVN = NumberFormat.getCurrencyInstance(localeVN);
         String str1 = currencyVN.format(i);
 
         Glide.with(context).load(model.getHinhAnh()).centerCrop().into(img_ItemMonAnGioHang);
@@ -167,9 +171,30 @@ public class GioHangAdapter extends RecyclerView.Adapter<GioHangAdapter.ViewHold
         });
     }
 
-    public void refresh(){
+    private void GetTongTienCuaDonHang() {
+        ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
+        Call call = serviceAPI.GetTongTienCuaDonHang(MaDH);
+        call.enqueue(new Callback() {
+            @Override
+            public void onResponse(Call call, Response response) {
+                double TongTien = (double) response.body();
+                String str1 = currencyVN.format(TongTien);
+                txtTongTienThanhToan.setText(str1);
+                txtTongThanhToan.setText(str1);
+            }
+
+            @Override
+            public void onFailure(Call call, Throwable t) {
+                dismissProgressDialog();
+                Toast.makeText(context, "Lỗi", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    public void refresh() {
         arr.clear();
         arr.addAll(arrDHCT);
+        GetTongTienCuaDonHang();
         notifyDataSetChanged();
     }
 }

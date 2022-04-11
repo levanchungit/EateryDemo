@@ -115,7 +115,7 @@ public class ThanhToanFM extends Fragment {
                         }
                         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
                         fmBinding.rvDonHangThanhToan.setLayoutManager(linearLayoutManager);
-                        adapter = new GioHangAdapter(arr, getContext());
+                        adapter = new GioHangAdapter(arr, getContext(),fmBinding.txtTongTienThanhToan,fmBinding.txtTongThanhToan);
                         fmBinding.rvDonHangThanhToan.setAdapter(adapter);
                         dismissProgressDialog();
                     }

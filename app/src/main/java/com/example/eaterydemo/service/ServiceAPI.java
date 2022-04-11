@@ -92,8 +92,8 @@ public interface ServiceAPI {
     @POST("api/CapNhatMatKhauCuaTK")
     Call<Message> CapNhatMatKhauCuaTK(@Query("TenTK") String TenTK, @Query("MatKhauCu") String MatKhauCu, @Query("MatKhauMoi") String MatKhauMoi, @Query("NhapLaiMatKhauMoi") String NhapLaiMatKhauMoi);
 
-    @POST("api/ThemMonAnKhacNhaHang")
-    Call<Message> ThemMonAnKhacNhaHang(@Query("TenTK") String TenTK, @Query("MaMA") int MaMA);
+    @POST("api/XoaDonHangKhiDatMonAnKhacNhaHang")
+    Call<Message> XoaDonHangKhiDatMonAnKhacNhaHang(@Query("TenTK") String TenTK);
 
 
     //ĐƠN HÀNG
@@ -125,8 +125,8 @@ public interface ServiceAPI {
     @POST("api/XoaMonAnTrongDonHang")
     Call<ArrayList<DonHangChiTiet>> XoaMonAnTrongDonHang(@Query("MaDHCT") int MaDHCT, @Query("MaMA") int MaMA);
 
-    @GET("api/LayTongTienCuaDonHang")
-    Call<Double> LayTongTienCuaDonHang(@Query("MaDH")int MaDH);
+    @GET("api/GetTongTienCuaDonHang")
+    Call<Double> GetTongTienCuaDonHang(@Query("MaDH")int MaDH);
 
 
 
