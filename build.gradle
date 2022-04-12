@@ -5,6 +5,7 @@ buildscript {
         mavenCentral()
         maven {
             url "https://maven.google.com"
+
         }
         jcenter()
     }
@@ -14,6 +15,7 @@ buildscript {
         // in the individual module build.gradle files
     }
 }
+
 
 plugins {
     id 'com.android.application' version '7.1.2' apply false

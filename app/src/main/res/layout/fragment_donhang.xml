@@ -2,20 +2,15 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:padding="10dp">
 
-    <ImageView
-        android:id="@+id/imgBackDonHang"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_alignParentLeft="true"
-        android:src="@drawable/ic_back_black" />
+
 
     <TextView
         android:id="@+id/tvDonHang"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/imgBackDonHang"
         android:text="Đơn hàng"
         android:textAlignment="center"
         android:textSize="25dp"
@@ -30,6 +25,7 @@
         android:layout_height="match_parent"
         android:layout_below="@+id/tvDonHang"
         android:layout_alignParentLeft="true"
+        tools:listitem="@layout/item_dathang"
         android:layout_marginTop="20dp" />
 
 

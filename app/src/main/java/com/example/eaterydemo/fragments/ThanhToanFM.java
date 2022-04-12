@@ -3,11 +3,17 @@ package com.example.eaterydemo.fragments;
 import static com.example.eaterydemo.others.ShowNotifyUser.dismissProgressDialog;
 import static com.example.eaterydemo.service.GetRetrofit.getRetrofit;
 
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -19,6 +25,9 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.eaterydemo.R;
+import com.example.eaterydemo.activities.AdminActivity;
+import com.example.eaterydemo.activities.ChuCuaHangActivity;
+import com.example.eaterydemo.activities.DrawerLayoutActivity;
 import com.example.eaterydemo.adapter.GioHangAdapter;
 import com.example.eaterydemo.databinding.FragmentThanhtoanBinding;
 import com.example.eaterydemo.model.DonHang;
@@ -43,6 +52,7 @@ public class ThanhToanFM extends Fragment {
     List<DonHangChiTiet> arr = new ArrayList<>();
     DonHang DONHANG;
     GioHangAdapter adapter;
+    EditText diachi;
 
     @Nullable
     @Override
@@ -60,10 +70,49 @@ public class ThanhToanFM extends Fragment {
 
     private void initClick() {
         //Thay đổi địa chỉ
-        fmBinding.txtThayDoiThanhToan.setOnClickListener(new View.OnClickListener() {
+
+        fmBinding.tvThayDoiDiaChi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
+                android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(getContext());
+                LayoutInflater inflater = ((Activity) getActivity()).getLayoutInflater();
+                View v = inflater.inflate(R.layout.dialog_thaydoi_diachi_thanhtoan, null);
+                diachi = v.findViewById(R.id.edtThayDoiDiaChi_ThanhToan);
+                diachi.setText(fmBinding.txtDiaChiThanhToan.getText().toString());
+                builder.setView(v);
+                builder.setNegativeButton("Cập nhật", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        String diachi1 = diachi.getText().toString();
+                        ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
+                        Call call = serviceAPI.CapNhatDiaChiGiaoHang(64, diachi1);
+                        call.enqueue(new Callback() {
+                            @Override
+                            public void onResponse(Call call, Response response) {
+                                String diachimoi = (String) response.body();
+                                fmBinding.txtDiaChiThanhToan.setText(diachimoi);
+                                Toast.makeText(requireContext(), "cập nhật thành công", Toast.LENGTH_SHORT).show();
+                                dismissProgressDialog();
+                            }
+
+                            @Override
+                            public void onFailure(Call call, Throwable t) {
+                                dismissProgressDialog();
+                                Toast.makeText(getContext(), "Lỗi", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                    }
+                });
+                builder.setPositiveButton("HỦY", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.cancel();
+                    }
+                });
+
+                AlertDialog dialog = builder.create();
+                dialog.show();
             }
         });
 

@@ -43,11 +43,12 @@ public class CCH_QuanLyNhaHangFM extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        initClick();
+
         initNavController(_view);
 
         showProgressDialog(getContext(), "Đang tải dữ liệu");
         GetThongTinNhaHang();
+        initClick();
     }
 
     private void initNavController(View viewFmProfileBinding) {
@@ -60,6 +61,13 @@ public class CCH_QuanLyNhaHangFM extends Fragment {
             public void onClick(View view) {
                 NavDirections action = CCH_QuanLyNhaHangFMDirections.actionCCHQuanLyNhaHangFMToCCHQuanLyDonHangFM();
                 navController.navigate(action);
+            }
+        });
+        fmBinding.ivThongKeCCHQuanLyNhaHang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavDirections directions = CCH_QuanLyNhaHangFMDirections.actionCCHQuanLyNhaHangFMToThongKeFM();
+                navController.navigate(directions);
             }
         });
     }

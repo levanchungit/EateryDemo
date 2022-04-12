@@ -109,6 +109,14 @@
             android:layout_marginBottom="5dp"
             android:src="@drawable/item_chucuahahang_lsdonhang"/>
 
+
+        <ImageView
+            android:id="@+id/ivThongKe_CCH_QuanLyNhaHang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:src="@drawable/item_thongke2"/>
+
         <ImageView
             android:id="@+id/ivDangXuat_CCH_QuanLyNhaHang"
             android:layout_width="wrap_content"

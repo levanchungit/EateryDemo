@@ -1,5 +1,6 @@
 package com.example.eaterydemo.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -15,6 +16,8 @@ import com.example.eaterydemo.R;
 import com.example.eaterydemo.databinding.DrawerLayoutActivityBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
+
+import vn.zalopay.sdk.ZaloPaySDK;
 
 public class DrawerLayoutActivity extends AppCompatActivity {
 
@@ -97,4 +100,11 @@ public class DrawerLayoutActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+//    @Override
+//    protected void onNewIntent(Intent intent) {
+//        super.onNewIntent(intent);
+//        setIntent(intent);
+//        ZaloPaySDK.getInstance().onResult(intent);
+//    }
 }

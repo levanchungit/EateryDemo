@@ -47,8 +47,8 @@ public class DangNhapFM extends Fragment {
         initClick();
         initNavController(container);
 
-        fmBinding.edtEmailDangNhap.setText("chunglvps19319@fpt.edu.vn");
-        fmBinding.edtMatKhauDangNhap.setText("321");
+        fmBinding.edtEmailDangNhap.setText("chucuahang3@gmail.com");
+        fmBinding.edtMatKhauDangNhap.setText("123");
 
         return fmBinding.getRoot();
     }

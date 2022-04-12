@@ -59,6 +59,29 @@ public class MonAnChiTietFM extends Fragment {
 
     private void initClick() {
 
+        fmBinding.imgGiamSoLuongMACT.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int SoLuongMon = Integer.parseInt(fmBinding.txtSoLuongChiTiet.getText().toString());
+                int SL = SoLuongMon - 1;
+                if (SL >= 1){
+                    fmBinding.txtSoLuongChiTiet.setText(SL+"");
+                }else{
+                    fmBinding.txtSoLuongChiTiet.setText(0 + "");
+                }
+
+            }
+        });
+
+        fmBinding.imgTangSoLuongMACT.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int SoLuongMon = Integer.parseInt(fmBinding.txtSoLuongChiTiet.getText().toString());
+                int SL = SoLuongMon + 1;
+                fmBinding.txtSoLuongChiTiet.setText(SL+"");
+            }
+        });
+
         fmBinding.btnThemMonAnMonAnChiTiet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
