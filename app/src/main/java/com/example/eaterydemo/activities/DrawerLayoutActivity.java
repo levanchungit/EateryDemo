@@ -101,10 +101,10 @@ public class DrawerLayoutActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-//    @Override
-//    protected void onNewIntent(Intent intent) {
-//        super.onNewIntent(intent);
-//        setIntent(intent);
-//        ZaloPaySDK.getInstance().onResult(intent);
-//    }
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        setIntent(intent);
+        ZaloPaySDK.getInstance().onResult(intent);
+    }
 }

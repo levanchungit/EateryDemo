@@ -6,13 +6,11 @@ import static com.example.eaterydemo.service.GetRetrofit.getRetrofit;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -25,13 +23,11 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.eaterydemo.R;
-import com.example.eaterydemo.activities.AdminActivity;
-import com.example.eaterydemo.activities.ChuCuaHangActivity;
-import com.example.eaterydemo.activities.DrawerLayoutActivity;
 import com.example.eaterydemo.adapter.GioHangAdapter;
 import com.example.eaterydemo.databinding.FragmentThanhtoanBinding;
 import com.example.eaterydemo.model.DonHang;
 import com.example.eaterydemo.model.DonHangChiTiet;
+import com.example.eaterydemo.model.KhuyenMai;
 import com.example.eaterydemo.model.Message;
 import com.example.eaterydemo.service.ServiceAPI;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -53,6 +49,8 @@ public class ThanhToanFM extends Fragment {
     DonHang DONHANG;
     GioHangAdapter adapter;
     EditText diachi;
+
+    KhuyenMai km;
 
     @Nullable
     @Override
