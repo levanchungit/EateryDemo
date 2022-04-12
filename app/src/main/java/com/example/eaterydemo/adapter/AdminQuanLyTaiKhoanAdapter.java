@@ -41,6 +41,7 @@ import retrofit2.Response;
 
 public class AdminQuanLyTaiKhoanAdapter extends RecyclerView.Adapter<AdminQuanLyTaiKhoanAdapter.ViewHolder> {
     List<TaiKhoan> arr;
+    List<TaiKhoan> getArr;
     Context context;
     NavController navController;
 
@@ -132,9 +133,8 @@ public class AdminQuanLyTaiKhoanAdapter extends RecyclerView.Adapter<AdminQuanLy
         call.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
-                Message message = (Message) response.body();
-                Toast.makeText(context, message.getNotification(), Toast.LENGTH_SHORT).show();
-                Log.e("LOGIN",message.getNotification());
+                getArr = (List<TaiKhoan>) response.body();
+                refresh();
                 dismissProgressDialog();
             }
 
@@ -151,5 +151,9 @@ public class AdminQuanLyTaiKhoanAdapter extends RecyclerView.Adapter<AdminQuanLy
         return arr.size();
     }
 
-
+    private void refresh(){
+        arr.clear();
+        arr.addAll(getArr);
+        notifyDataSetChanged();
+    }
 }
