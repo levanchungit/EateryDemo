@@ -98,6 +98,7 @@ public class ADM_AddNhaHangFM extends Fragment {
         fmBinding.btnThemNHAddNhaHang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 validate();
                 if (isValid == 1){
                     //load hình ảnh lên cloudinary
@@ -236,10 +237,6 @@ public class ADM_AddNhaHangFM extends Fragment {
     //Thêm nhà hàng
     private void uploadToCloudinary() {
         try{
-        if(imagePath == null){
-            Toast.makeText(getContext(), "Vui lòng chọn ảnh", Toast.LENGTH_SHORT).show();
-            return;
-        } else {
             MediaManager.get().cancelAllRequests();
             MediaManager.get().upload(imagePath).callback(new UploadCallback() {
                 @Override
@@ -261,6 +258,12 @@ public class ADM_AddNhaHangFM extends Fragment {
                     String _mota = fmBinding.edtMoTaAddNhaHang.getText().toString().trim();
                     String _hinhAnh = resultData.get("url").toString();
                     NhaHang nhaHang = new NhaHang(_tennh, _diachi, _hinhAnh, _mota, _tentk, _loainh);
+//                    NhaHang nhaHang = new NhaHang("Nhà hàng number 1",
+//                            "CG LA",
+//                            "https://images.foody.vn/video/s800x450/foody-upload-api-foody-aka%20house%20v%E1%BA%A1n%20h%E1%BA%A1nh%20mall%20-%2026.2.2018.mp4_snap-180309122307.jpg",
+//                            "Aka House giá siêu rẻ ngon hấp dẫn",
+//                            "chucuahang16@gmail.com",
+//                            "COM");
                     AddNhaHang(nhaHang);
                     dismissProgressDialog();
                 }
@@ -275,7 +278,6 @@ public class ADM_AddNhaHangFM extends Fragment {
 
                 }
             }).dispatch();
-        }
         } catch (Exception e){
             Log.e("Error: ", e + "");
         }
@@ -286,6 +288,9 @@ public class ADM_AddNhaHangFM extends Fragment {
                 !validateEditText(fmBinding.tlDiaChiAddNhaHang, fmBinding.edtDiaChiAddNhaHang) |
                 !validateEditText(fmBinding.tlMoTaAddNhaHang, fmBinding.edtMoTaAddNhaHang) ){
             return;
+        } else if(imagePath == null){
+            Toast.makeText(getContext(), "Vui lòng chọn ảnh", Toast.LENGTH_SHORT).show();
+
         } else {
             isValid = 1;
         }

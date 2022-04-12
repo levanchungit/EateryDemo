@@ -85,10 +85,8 @@ public class ADM_AddTaiKhoanFM extends Fragment {
             public void onClick(View view) {
                 validate();
                 //load hình ảnh lên cloudinary
-                //? gì day?
                 if(isValid == 1){
                     uploadToCloudinary();
-                    // điều hướng ở đây, r điều hướng sau khi thêm xong đc nữa thì nó lỗi đúng r -_-
 
                 }
             }
@@ -136,7 +134,7 @@ public class ADM_AddTaiKhoanFM extends Fragment {
             @Override
             public void onResponse(Call call, Response response) {
                 Message message = (Message) response.body();
-//                Toast.makeText(getContext(), message.getNotification(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), message.getNotification(), Toast.LENGTH_SHORT).show();
                 if (message.getStatus() == 1) {
                     NavDirections action = ADM_AddTaiKhoanFMDirections.actionADMAddTaiKhoanFMToAdminQuanLyTaiKhoanFM();
                     Navigation.findNavController(getView()).navigate(action);
