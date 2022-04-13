@@ -1,11 +1,12 @@
 package com.example.eaterydemo.fragments;
 
-import static com.example.eaterydemo.fragments.DangNhapFM.hideKeyboard;
 import static com.example.eaterydemo.others.ShowNotifyUser.dismissProgressDialog;
 import static com.example.eaterydemo.others.ShowNotifyUser.showProgressDialog;
 import static com.example.eaterydemo.service.GetRetrofit.getRetrofit;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,80 +20,79 @@ import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 
 import com.bumptech.glide.Glide;
-import com.example.eaterydemo.R;
 import com.example.eaterydemo.activities.DrawerLayoutActivity;
+import com.example.eaterydemo.databinding.FragmentChinhsuaQuanlynhahangBinding;
 import com.example.eaterydemo.databinding.FragmentChinhsuaThongtinBinding;
 import com.example.eaterydemo.model.Message;
+import com.example.eaterydemo.model.NhaHang;
 import com.example.eaterydemo.model.TaiKhoan;
 import com.example.eaterydemo.service.ServiceAPI;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ChinhSuaThongTinFM extends Fragment {
-    FragmentChinhsuaThongtinBinding fmEditProfileBinding;
+public class CCH_ChinhSuaThongTinNhaHangFM extends Fragment {
+    FragmentChinhsuaQuanlynhahangBinding fmEditProfileBinding;
     NavController navController;
-    View _view;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        fmEditProfileBinding = FragmentChinhsuaThongtinBinding.inflate(getLayoutInflater());
-        _view = container;
-
-        return fmEditProfileBinding.getRoot();
-    }
-
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
+        fmEditProfileBinding = FragmentChinhsuaQuanlynhahangBinding.inflate(getLayoutInflater());
         initClick();
 
-        //tắt bottom navigation
-        BottomNavigationView navbar = getActivity().findViewById(R.id.navBot);
-        navbar.setVisibility(View.GONE);
-
-        GetThongTin(DangNhapFM.TENTK);
-        initNavController(_view);
+        GetNhaHangTheoMaNH(CCH_QuanLyNhaHangFM.MaNH);
+        initNavController(container);
+        return fmEditProfileBinding.getRoot();
     }
-
-
 
     private void initNavController(View viewEditProfileBinding) {
         navController = Navigation.findNavController(viewEditProfileBinding);
     }
 
     private void initClick() {
+        fmEditProfileBinding.ivBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavDirections action = ChinhSuaThongTinFMDirections.actionEditProfileFMToMenuThongTin();
+                navController.navigate(action);
+            }
+        });
+
+        fmEditProfileBinding.edtMaLoaiEditQLNhaHang.setEnabled(false);
+        fmEditProfileBinding.edtTenTKChuNhaHang.setEnabled(false);
 
 
         fmEditProfileBinding.btnChinhSua.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                String _TenTK = DangNhapFM.TENTK;
-                String _HoTen = fmEditProfileBinding.edtFullName.getText().toString().trim();
-                String _SDT = fmEditProfileBinding.edtSDT.getText().toString().trim();
-                String _DiaChi = fmEditProfileBinding.edtDiaChi.getText().toString().trim();
-                ChinhSuaThongTin(_TenTK, _HoTen, _SDT, _DiaChi);
-                dismissProgressDialog();
+                int _MaNH = CCH_QuanLyNhaHangFM.MaNH;
+                String _TenNH = fmEditProfileBinding.edtTenChuCuaHang.getText().toString().trim();
+                String _DiaChi = fmEditProfileBinding.edtDiaChiEditQLNhaHang.getText().toString().trim();
+                String _MoTa = fmEditProfileBinding.edtMoTaEditQLNhaHang.getText().toString().trim();
+                ChinhSuaThongTinNhaHang(new NhaHang(_MaNH,_TenNH,_DiaChi,_MoTa));
+
             }
         });
     }
 
-    private void GetThongTin(String _TenTK) {
+    private void GetNhaHangTheoMaNH(int _MaNH) {
         showProgressDialog(getContext(), "Đang xử lý");
         ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
-        Call call = serviceAPI.GetTaiKhoanTheoTenTK(_TenTK);
+        Call call = serviceAPI.GetNhaHangTheoMaNH(_MaNH);
         call.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
-                TaiKhoan taikhoan = (TaiKhoan) response.body();
-                fmEditProfileBinding.edtFullName.setText(taikhoan.getHoTen());
-                fmEditProfileBinding.edtSDT.setText(taikhoan.getSDT());
-                fmEditProfileBinding.tvEmail.setText(taikhoan.getTenTK());
-                fmEditProfileBinding.edtDiaChi.setText(taikhoan.getDiaChi());
-                Glide.with(getContext()).load(taikhoan.getHinhAnh()).centerCrop().into(fmEditProfileBinding.ivAvatarAdminChinhSuathongTin);
+                NhaHang nhahang = (NhaHang) response.body();
+                fmEditProfileBinding.edtTenTKChuNhaHang.setText(nhahang.getHoTen());
+                fmEditProfileBinding.edtTenChuCuaHang.setText(nhahang.getTenNH());
+                fmEditProfileBinding.edtDiaChiEditQLNhaHang.setText(nhahang.getDiaChi());
+                fmEditProfileBinding.edtMoTaEditQLNhaHang.setText(nhahang.getMoTa());
+                fmEditProfileBinding.edtMaLoaiEditQLNhaHang.setText(nhahang.getMaLoaiNH());
+
+                Glide.with(getContext()).load(nhahang.getHinhAnh()).centerCrop().into(fmEditProfileBinding.ivAvatarEditQLNhaHang);
                 dismissProgressDialog();
             }
 
@@ -104,19 +104,19 @@ public class ChinhSuaThongTinFM extends Fragment {
         });
     }
 
-    private void ChinhSuaThongTin(String _TenTK, String _HoTen, String _SDT, String _DiaChi) {
-        showProgressDialog(getContext(), "Đang xác nhân");
+    private void ChinhSuaThongTinNhaHang(NhaHang nhaHang) {
+        showProgressDialog(getContext(),"Đang xác nhân");
         ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
-        Call call = serviceAPI.ChinhSuaThongTin(_TenTK, _HoTen, _SDT, _DiaChi);
+        Call call = serviceAPI.ChinhSuaThongTinNhaHang(nhaHang);
         call.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
                 Message message = (Message) response.body();
-                Toast.makeText(getActivity(), message.getNotification(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), message.getNotification(), Toast.LENGTH_SHORT).show();
+                Log.e("LOGIN",message.getNotification());
                 if (message.getStatus() == 1) {
-                    NavDirections action = ChinhSuaThongTinFMDirections.actionEditProfileFMToMenuThongTin();
+                    NavDirections action = CCH_ChinhSuaThongTinNhaHangFMDirections.actionCCHChinhSuaThongTinNhaHangFMToCCHQuanLyNhaHangFM();
                     Navigation.findNavController(getView()).navigate(action);
-                    hideKeyboard(getActivity());
                 }
                 dismissProgressDialog();
             }
@@ -127,5 +127,6 @@ public class ChinhSuaThongTinFM extends Fragment {
                 Toast.makeText(getContext(), "Lỗi", Toast.LENGTH_SHORT).show();
             }
         });
+
     }
 }

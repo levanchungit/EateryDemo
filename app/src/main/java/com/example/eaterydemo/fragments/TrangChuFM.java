@@ -102,23 +102,7 @@ public class TrangChuFM extends Fragment {
                 navController.navigate(action);
             }
         });
-        fmBinding.ivthucuong.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String loaiNh = "ThucUong";
-                NavDirections action = TrangChuFMDirections.actionHomeFMToNhaHangFM(loaiNh);
-                navController.navigate(action);
-            }
-        });
 
-        fmBinding.ivanvat.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String loaiNh = "AnVat";
-                NavDirections action = TrangChuFMDirections.actionHomeFMToNhaHangFM(loaiNh);
-                navController.navigate(action);
-            }
-        });
         fmBinding.ivdacsan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -127,7 +111,7 @@ public class TrangChuFM extends Fragment {
                 navController.navigate(action);
             }
         });
-        fmBinding.ivthucannhanh.setOnClickListener(new View.OnClickListener() {
+        fmBinding.ivthucuong.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String loaiNh = "ThucUong";
@@ -136,14 +120,6 @@ public class TrangChuFM extends Fragment {
             }
         });
         fmBinding.ivanvat.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String loaiNh = "AnVat";
-                NavDirections action = TrangChuFMDirections.actionHomeFMToNhaHangFM(loaiNh);
-                navController.navigate(action);
-            }
-        });
-        fmBinding.ivdacsan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String loaiNh = "DacSan";
