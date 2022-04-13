@@ -219,14 +219,14 @@
 
             <EditText
                 android:id="@+id/edt_MaKhuyenMai_ThanhToan"
-                android:layout_width="wrap_content"
+                android:layout_width="140dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/rlPhuongThucThanhToan"
                 android:layout_alignParentLeft="true"
                 android:layout_marginLeft="20dp"
                 android:background="@drawable/bg_makhuyenmai"
                 android:fontFamily="@font/montserrat_semibold"
-                android:hint="Mã khuyến mãi"
+                android:hint="Mã KM"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
                 android:paddingBottom="10dp" />

@@ -14,10 +14,10 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvNhaHang_NhaHang"
-        tools:listitem="@layout/item_nhahang"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/ivTimKiemNhaHang_TrangChu" />
+        android:layout_below="@+id/ivTimKiemNhaHang_TrangChu"
+        tools:listitem="@layout/item_nhahang" />
 
 
 </RelativeLayout>

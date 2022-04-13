@@ -18,6 +18,7 @@ import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 
 import com.bumptech.glide.Glide;
+import com.example.eaterydemo.activities.ChuCuaHangActivity;
 import com.example.eaterydemo.databinding.FragmentOwnerQuanlynhahangBinding;
 import com.example.eaterydemo.model.NhaHang;
 import com.example.eaterydemo.service.ServiceAPI;
@@ -68,6 +69,12 @@ public class CCH_QuanLyNhaHangFM extends Fragment {
             public void onClick(View view) {
                 NavDirections directions = CCH_QuanLyNhaHangFMDirections.actionCCHQuanLyNhaHangFMToThongKeFM();
                 navController.navigate(directions);
+            }
+        });
+        fmBinding.ivDangXuatCCHQuanLyNhaHang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getActivity().finish();
             }
         });
     }

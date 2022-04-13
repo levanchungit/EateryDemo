@@ -35,14 +35,14 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Từ"
+            android:text="Từ | "
             android:textSize="20dp" />
 
         <EditText
             android:id="@+id/edtTuNgay_ThongKe"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="2022-04-06" />
+            android:hint="2021-04-06" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -53,7 +53,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Đến"
+                android:text="Đến | "
                 android:textSize="20dp" />
 
             <EditText
@@ -61,6 +61,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="2022-04-08" />
+
         </LinearLayout>
 
 

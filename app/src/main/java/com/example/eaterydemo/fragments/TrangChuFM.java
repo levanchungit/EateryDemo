@@ -257,8 +257,8 @@ public class TrangChuFM extends Fragment {
             public void onResponse(Call call, Response response) {
                 List<NhaHang> arr = (List<NhaHang>) response.body();
                 NhaHangHCNNHGanBanAdapter adapter = new NhaHangHCNNHGanBanAdapter(arr, getContext());
-                fmBinding.rvNhaHangGanBan.setAdapter(adapter);
-                fmBinding.rvNhaHangGanBan.setLayoutManager(new LinearLayoutManager(getContext()));
+                fmBinding.rvNhaHangGanBanTrangChu.setAdapter(adapter);
+                fmBinding.rvNhaHangGanBanTrangChu.setLayoutManager(new LinearLayoutManager(getContext()));
                 dismissProgressDialog();
             }
 

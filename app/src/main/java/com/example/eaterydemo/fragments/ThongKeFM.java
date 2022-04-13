@@ -5,6 +5,8 @@ import static com.example.eaterydemo.others.ShowNotifyUser.showProgressDialog;
 import static com.example.eaterydemo.service.GetRetrofit.getRetrofit;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,7 +32,10 @@ import com.example.eaterydemo.model.ThongKe;
 import com.example.eaterydemo.service.ServiceAPI;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.text.DateFormatSymbols;
 import java.text.DecimalFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import retrofit2.Call;
@@ -45,6 +50,7 @@ public class ThongKeFM extends Fragment {
     private List<ThongKe> arr;
     ThongKeAdapter adapter;
     EditText edtTuNgay, edtDenNgay;
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
     DecimalFormat df = new DecimalFormat("#,###");
     @Nullable
     @Override
@@ -81,13 +87,15 @@ public class ThongKeFM extends Fragment {
     private void thongKeTongDoanhThuNhaHangTheoNgay() {
         String tuNgay = edtTuNgay.getText().toString();
         String denNgay = edtDenNgay.getText().toString();
+
+
         ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
-        Call call = serviceAPI.GetTongDoanhThuDonHangTheoNH(0, "2022-04-06", "2022-04-08");
+        Call call = serviceAPI.GetTongDoanhThuDonHangTheoNH(0, tuNgay, denNgay);
         call.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
                 Double TongTien = (Double) response.body();
-                fmBinding.tvTongTienDoanhThuThongKe.setText(df.format(TongTien) + "đ");
+                fmBinding.tvTongTienDoanhThuThongKe.setText(TongTien + "đ");
                 Log.d("Toong tien : ", TongTien + "d");
                 dismissProgressDialog();
             }
