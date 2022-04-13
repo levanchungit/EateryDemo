@@ -152,9 +152,14 @@ public class ThanhToanFM extends Fragment {
         });
 
 //        Nhập mã khuyến mãi
-        fmBinding.btnKiemTraMaKM.setOnClickListener(new View.OnClickListener() {
+        fmBinding.edtMaKhuyenMaiThanhToan.addTextChangedListener(new TextWatcher() {
             @Override
-            public void onClick(View view) {
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 String maKM = fmBinding.edtMaKhuyenMaiThanhToan.getText().toString();
                 ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
                 Call call = serviceAPI.GetAllKhuyenMai();
@@ -202,7 +207,13 @@ public class ThanhToanFM extends Fragment {
                     }
                 });
             }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
         });
+
     }
 
     @Override
@@ -285,7 +296,7 @@ public class ThanhToanFM extends Fragment {
                         if (fmBinding.spPhuongThucThanhToan.getSelectedItemPosition() == 1) {
                             CreateOrder orderApi = new CreateOrder();
                             try {
-                                JSONObject data = orderApi.createOrder(amount);
+                                JSONObject data = orderApi.createOrder(DONHANG.getTongTien()+"");
                                 String code = data.getString("returncode");
 
                                 if (code.equals("1")) {
