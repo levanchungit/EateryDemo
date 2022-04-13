@@ -16,7 +16,7 @@ public class DonHang implements Parcelable {
     private int countSL;
     private List<DonHangChiTiet> DONHANGCHITIETs;
     private TaiKhoan TAIKHOAN;
-
+    private int MaNH;
 
     public DonHang() {
     }
@@ -41,6 +41,20 @@ public class DonHang implements Parcelable {
         this.countSL = countSL;
         this.DONHANGCHITIETs = DONHANGCHITIETs;
         this.TAIKHOAN = TAIKHOAN;
+    }
+
+    public DonHang(int maDonHang, String diaChi, int trangThaiDH, float tongTien, String ngayMua, String tenTK, String nameRes, int countSL, List<DonHangChiTiet> DONHANGCHITIETs, TaiKhoan TAIKHOAN, int maNH) {
+        MaDonHang = maDonHang;
+        DiaChi = diaChi;
+        TrangThaiDH = trangThaiDH;
+        TongTien = tongTien;
+        NgayMua = ngayMua;
+        TenTK = tenTK;
+        this.nameRes = nameRes;
+        this.countSL = countSL;
+        this.DONHANGCHITIETs = DONHANGCHITIETs;
+        this.TAIKHOAN = TAIKHOAN;
+        MaNH = maNH;
     }
 
     protected DonHang(Parcel in) {
@@ -137,6 +151,14 @@ public class DonHang implements Parcelable {
 
     public void setDONHANGCHITIETs(List<DonHangChiTiet> DONHANGCHITIETs) {
         this.DONHANGCHITIETs = DONHANGCHITIETs;
+    }
+
+    public int getMaNH() {
+        return MaNH;
+    }
+
+    public void setMaNH(int maNH) {
+        MaNH = maNH;
     }
 
     public TaiKhoan getTAIKHOAN() {

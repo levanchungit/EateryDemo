@@ -72,7 +72,8 @@ public interface ServiceAPI {
     @GET("api/khuyenmai")
     Call<ArrayList<KhuyenMai>> GetAllKhuyenMai();
 
-
+    @POST("api/ChinhSuaMaKhuyenMaiTheoNH")
+    Call<ArrayList<KhuyenMai>> ChinhSuaMaKhuyenMaiTheoNH(@Body() KhuyenMai khuyenMai);
     //MÓN ĂN
     //truyen param thi k có cái đuôi {...} và cái @Query
     @GET("api/GetAllMonAnTheoNhaHang")

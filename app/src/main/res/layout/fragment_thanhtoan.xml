@@ -212,13 +212,13 @@
             <ImageView
                 android:id="@+id/img_ThanhToan_ThanhToan"
                 android:layout_width="wrap_content"
-                android:layout_height="43dp"
+                android:layout_height="50dp"
                 android:layout_below="@id/rlPhuongThucThanhToan"
                 android:layout_alignParentRight="true"
                 app:srcCompat="@drawable/btn_thanhtoan" />
 
             <EditText
-                android:id="@+id/img_MaKhuyenMai_ThanhToan"
+                android:id="@+id/edt_MaKhuyenMai_ThanhToan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/rlPhuongThucThanhToan"
@@ -230,6 +230,13 @@
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
                 android:paddingBottom="10dp" />
+
+            <Button
+                android:id="@+id/btnKiemTraMaKM"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Kiem tra ma KM"
+                android:layout_below="@+id/edt_MaKhuyenMai_ThanhToan"/>
 
         </RelativeLayout>
     </ScrollView>

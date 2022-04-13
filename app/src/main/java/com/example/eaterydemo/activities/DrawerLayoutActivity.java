@@ -2,6 +2,7 @@ package com.example.eaterydemo.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
@@ -12,11 +13,13 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.example.eaterydemo.Helper.AppInfo;
 import com.example.eaterydemo.R;
 import com.example.eaterydemo.databinding.DrawerLayoutActivityBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 
+import vn.zalopay.sdk.Environment;
 import vn.zalopay.sdk.ZaloPaySDK;
 
 public class DrawerLayoutActivity extends AppCompatActivity {
@@ -32,30 +35,21 @@ public class DrawerLayoutActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         bindingMapping = DrawerLayoutActivityBinding.inflate(getLayoutInflater());
+
         setContentView(bindingMapping.getRoot());
-//        initDrawerlayout();
-//        initAppBarConfiguration();
-//        initNavView();
+
         initBotNav();
         initNavController();
         initNavUI();
         initClick();
+        //       ZAlopay
+        StrictMode.ThreadPolicy policy = new
+                StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+
+        ZaloPaySDK.init(AppInfo.APP_ID, Environment.SANDBOX);
     }
 
-//    private void initDrawerlayout() {
-//        drawerLayout = bindingMapping.drawerLayout;
-//    }
-//
-//    private void initNavView() {
-//        navView = bindingMapping.navView;
-//    }
-
-
-//    private void initAppBarConfiguration () {
-//        appBarConfiguration = new AppBarConfiguration.Builder(R.id.menu_TrangChu, R.id.menu_YeuThich, R.id.menu_ThanhToan, R.id.menu_ThongTin)
-//                .setOpenableLayout(drawerLayout)
-//                .build();
-//    }
 
     private void initBotNav () {
         navBot = bindingMapping.appBarLayout.navBot;
@@ -81,13 +75,7 @@ public class DrawerLayoutActivity extends AppCompatActivity {
         return /*NavigationUI.navigateUp(navController, drawerLayout) ||*/NavigationUI.navigateUp(navController,appBarConfiguration) || super.onSupportNavigateUp();
     }
 
-//    @Override
-//    public void onBackPressed () {
-//        super.onBackPressed();
-//        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
-//            drawerLayout.closeDrawer(GravityCompat.START);
-//        }
-//    }
+
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
@@ -104,7 +92,6 @@ public class DrawerLayoutActivity extends AppCompatActivity {
     @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        setIntent(intent);
         ZaloPaySDK.getInstance().onResult(intent);
     }
 }
