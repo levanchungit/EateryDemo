@@ -6,7 +6,6 @@ import static com.example.eaterydemo.service.GetRetrofit.getRetrofit;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.text.Editable;
@@ -31,9 +30,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import com.example.eaterydemo.Helper.AppInfo;
 import com.example.eaterydemo.Helper.CreateOrder;
 import com.example.eaterydemo.R;
-import com.example.eaterydemo.activities.AdminActivity;
-import com.example.eaterydemo.activities.ChuCuaHangActivity;
-import com.example.eaterydemo.activities.DrawerLayoutActivity;
 import com.example.eaterydemo.adapter.GioHangAdapter;
 import com.example.eaterydemo.databinding.FragmentThanhtoanBinding;
 import com.example.eaterydemo.model.DonHang;
@@ -70,6 +66,8 @@ public class ThanhToanFM extends Fragment {
     String[] thanhtoan = {"VNĐ", "ZaLo Pay", "PayPal", "MoMo"};
     KhuyenMai khuyenmai = new KhuyenMai();
     String amount = "10000";
+
+    KhuyenMai km;
 
     @Nullable
     @Override

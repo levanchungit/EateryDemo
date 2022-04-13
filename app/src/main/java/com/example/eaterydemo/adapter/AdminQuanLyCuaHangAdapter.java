@@ -42,6 +42,7 @@ public class AdminQuanLyCuaHangAdapter extends RecyclerView.Adapter<AdminQuanLyC
 
 
     List<NhaHang> arr;
+    List<NhaHang> getArr;
     Context context;
     NavController navController;
 
@@ -128,9 +129,8 @@ public class AdminQuanLyCuaHangAdapter extends RecyclerView.Adapter<AdminQuanLyC
         call.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
-                Message message = (Message) response.body();
-                Toast.makeText(context, message.getNotification(), Toast.LENGTH_SHORT).show();
-                Log.e("LOGIN",message.getNotification());
+                getArr = (List<NhaHang>) response.body();
+                refresh();
                 dismissProgressDialog();
             }
 
@@ -148,4 +148,9 @@ public class AdminQuanLyCuaHangAdapter extends RecyclerView.Adapter<AdminQuanLyC
     }
 
 
+    private void refresh(){
+        arr.clear();
+        arr.addAll(getArr);
+        notifyDataSetChanged();
+    }
 }
