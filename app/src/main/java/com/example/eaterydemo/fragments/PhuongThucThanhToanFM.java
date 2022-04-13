@@ -59,46 +59,13 @@ public class PhuongThucThanhToanFM extends Fragment {
                 Navigation.findNavController(view).navigate(action);
             }
         });
+
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        lnPTTTPayPal = view.findViewById(R.id.lnPTTTPayPal);
-        lnPTTTPayPal.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                CreateOrder orderApi = new CreateOrder();
-                try {
-                    JSONObject data = orderApi.createOrder(amount);
-                    String code = data.getString("returncode");
-                    if (code.equals("1")) {
 
-                        String token = data.getString("zptranstoken");
-
-                        ZaloPaySDK.getInstance().payOrder(getActivity(), token, "demozpdk://app", new PayOrderListener() {
-                            @Override
-                            public void onPaymentSucceeded(final String transactionId, final String transToken, final String appTransID) {
-                                Toast.makeText(getContext(), "Thanh toán thành công", Toast.LENGTH_SHORT).show();
-                            }
-
-                            @Override
-                            public void onPaymentCanceled(String zpTransToken, String appTransID) {
-                                Toast.makeText(getContext(), "Thanh toán bị hủy", Toast.LENGTH_SHORT).show();
-                            }
-
-                            @Override
-                            public void onPaymentError(ZaloPayError zaloPayError, String zpTransToken, String appTransID) {
-                                Toast.makeText(getContext(), "Thanh toán thất bại", Toast.LENGTH_SHORT).show();
-                            }
-                        });
-                    }
-
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
 
     }
 
