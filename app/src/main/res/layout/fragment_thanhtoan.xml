@@ -231,12 +231,6 @@
                 android:paddingRight="10dp"
                 android:paddingBottom="10dp" />
 
-            <Button
-                android:id="@+id/btnKiemTraMaKM"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Kiem tra ma KM"
-                android:layout_below="@+id/edt_MaKhuyenMai_ThanhToan"/>
 
         </RelativeLayout>
     </ScrollView>
