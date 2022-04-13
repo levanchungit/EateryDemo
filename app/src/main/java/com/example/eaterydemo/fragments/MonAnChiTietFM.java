@@ -197,7 +197,7 @@ public class MonAnChiTietFM extends Fragment {
     private void diaLogConfirm() {
         AlertDialog.Builder b = new AlertDialog.Builder(getContext());
         b.setTitle("Xác nhận");
-        b.setMessage("Bạn đang có một đơn hàng ở nhà nhà khác. Bạn có muốn xoá đơn hàng đó và tạo đơn hàng mới với món ăn này?");
+        b.setMessage("Bạn đang có một đơn hàng ở nhà hàng khác. Bạn có muốn xoá đơn hàng đó và tạo đơn hàng mới với món ăn này?");
         b.setPositiveButton("Đồng ý", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 XoaDonHangKhiDatMonAnKhacNhaHang(_TENTK);
