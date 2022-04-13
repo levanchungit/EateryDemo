@@ -9,18 +9,21 @@ public class KhuyenMai {
     private int MaNH;
     private NhaHang NHAHANG;
     private int SL;
-    private String TenMaKhuyenMai;
+    private String TenKhuyenMai;
     private int TienKM;
     private String HinhAnh;
 
-    public KhuyenMai(String maKM, int maNH, NhaHang NHAHANG, int SL, String tenMaKhuyenMai, int tienKM, String HinhAnh) {
+    public KhuyenMai(String maKM, int maNH, NhaHang NHAHANG, int SL, String TenKhuyenMai, int tienKM, String HinhAnh) {
         MaKM = maKM;
         MaNH = maNH;
         this.NHAHANG = NHAHANG;
         this.SL = SL;
-        TenMaKhuyenMai = tenMaKhuyenMai;
+        TenKhuyenMai = TenKhuyenMai;
         TienKM = tienKM;
         this.HinhAnh = HinhAnh;
+    }
+
+    public KhuyenMai() {
     }
 
     public String getMaKM() {
@@ -64,11 +67,11 @@ public class KhuyenMai {
     }
 
     public String getTenMaKhuyenMai() {
-        return TenMaKhuyenMai;
+        return TenKhuyenMai;
     }
 
     public void setTenMaKhuyenMai(String tenMaKhuyenMai) {
-        TenMaKhuyenMai = tenMaKhuyenMai;
+        TenKhuyenMai = tenMaKhuyenMai;
     }
 
     public int getTienKM() {
