@@ -13,11 +13,11 @@
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
         android:fontFamily="@font/montserrat_bold"
-        android:textSize="22dp"
-        android:text="Quản lý mã khuyến mãi" />
+        android:text="Quản lý mã khuyến mãi"
+        android:textSize="22dp" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/viewKhuyenMai"
+        android:id="@+id/rv_viewKhuyenMai"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/txt5"
@@ -33,5 +33,18 @@
         android:layout_marginBottom="20dp"
         android:clickable="true"
         app:srcCompat="@drawable/ic_baseline_arrow_back_24" />
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/addMaKhuyenMai"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_them"
+        app:fabSize="normal"
+        android:layout_alignParentRight="true"
+        android:layout_margin="10dp"
+        android:layout_alignParentBottom="true"
+        app:layout_anchor="@id/rv_viewKhuyenMai"
+        app:layout_anchorGravity="bottom|right|end" />
 
 </RelativeLayout>

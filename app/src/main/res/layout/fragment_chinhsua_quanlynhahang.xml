@@ -23,24 +23,24 @@
             android:layout_height="wrap_content"
             android:src="@drawable/qlnhahang" />
 
-        <TextView
-            android:id="@+id/tvFullName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/ivAvatar_EditQLNhaHang"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp"
-            android:fontFamily="@font/montserrat_medium"
-            android:text="TÊN NHÀ HÀNG"
+<!--        <TextView-->
+<!--            android:id="@+id/tvFullName"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_below="@+id/ivAvatar_EditQLNhaHang"-->
+<!--            android:layout_centerHorizontal="true"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:fontFamily="@font/montserrat_medium"-->
+<!--            android:text="TÊN NHÀ HÀNG"-->
 
-            android:textColor="#000"
-            android:textSize="10pt" />
+<!--            android:textColor="#000"-->
+<!--            android:textSize="10pt" />-->
 
         <EditText
             android:id="@+id/edtTenTKChuNhaHang"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/tvFullName"
+            android:layout_below="@+id/ivAvatar_EditQLNhaHang"
             android:layout_centerHorizontal="true"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"

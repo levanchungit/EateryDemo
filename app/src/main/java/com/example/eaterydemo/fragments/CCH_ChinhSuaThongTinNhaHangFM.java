@@ -42,7 +42,7 @@ public class CCH_ChinhSuaThongTinNhaHangFM extends Fragment {
         fmEditProfileBinding = FragmentChinhsuaQuanlynhahangBinding.inflate(getLayoutInflater());
         initClick();
 
-        GetNhaHangTheoMaNH(1);
+        GetNhaHangTheoMaNH(CCH_QuanLyNhaHangFM.MaNH);
         initNavController(container);
         return fmEditProfileBinding.getRoot();
     }
@@ -60,17 +60,20 @@ public class CCH_ChinhSuaThongTinNhaHangFM extends Fragment {
             }
         });
 
+        fmEditProfileBinding.edtMaLoaiEditQLNhaHang.setEnabled(false);
+        fmEditProfileBinding.edtTenTKChuNhaHang.setEnabled(false);
+
+
         fmEditProfileBinding.btnChinhSua.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-//                String _TenTK = "user1";
-//                String _HoTen = fmEditProfileBinding.tvFullName.getText().toString().trim();
-//                String _SDT = fmEditProfileBinding.edtSDT.getText().toString().trim();
-//                String _DiaChi = fmEditProfileBinding.edtDiaChi.getText().toString().trim();
-//                ChinhSuaThongTin(_TenTK, _HoTen,_SDT,_DiaChi);
-                NavDirections action = ChinhSuaThongTinFMDirections.actionEditProfileFMToMenuThongTin();
-                navController.navigate(action);
+                int _MaNH = CCH_QuanLyNhaHangFM.MaNH;
+                String _TenNH = fmEditProfileBinding.edtTenChuCuaHang.getText().toString().trim();
+                String _DiaChi = fmEditProfileBinding.edtDiaChiEditQLNhaHang.getText().toString().trim();
+                String _MoTa = fmEditProfileBinding.edtMoTaEditQLNhaHang.getText().toString().trim();
+                ChinhSuaThongTinNhaHang(new NhaHang(_MaNH,_TenNH,_DiaChi,_MoTa));
+
             }
         });
     }
@@ -83,7 +86,7 @@ public class CCH_ChinhSuaThongTinNhaHangFM extends Fragment {
             @Override
             public void onResponse(Call call, Response response) {
                 NhaHang nhahang = (NhaHang) response.body();
-                fmEditProfileBinding.tvFullName.setText(nhahang.getMaNH());
+                fmEditProfileBinding.edtTenTKChuNhaHang.setText(nhahang.getHoTen());
                 fmEditProfileBinding.edtTenChuCuaHang.setText(nhahang.getTenNH());
                 fmEditProfileBinding.edtDiaChiEditQLNhaHang.setText(nhahang.getDiaChi());
                 fmEditProfileBinding.edtMoTaEditQLNhaHang.setText(nhahang.getMoTa());
@@ -101,10 +104,10 @@ public class CCH_ChinhSuaThongTinNhaHangFM extends Fragment {
         });
     }
 
-    private void ChinhSuaThongTin(String _TenTK, String _HoTen,String _SDT,String _DiaChi) {
+    private void ChinhSuaThongTinNhaHang(NhaHang nhaHang) {
         showProgressDialog(getContext(),"Đang xác nhân");
         ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
-        Call call = serviceAPI.ChinhSuaThongTin(_TenTK, _HoTen,_SDT, _DiaChi);
+        Call call = serviceAPI.ChinhSuaThongTinNhaHang(nhaHang);
         call.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
@@ -112,7 +115,8 @@ public class CCH_ChinhSuaThongTinNhaHangFM extends Fragment {
                 Toast.makeText(getContext(), message.getNotification(), Toast.LENGTH_SHORT).show();
                 Log.e("LOGIN",message.getNotification());
                 if (message.getStatus() == 1) {
-                    startActivity(new Intent(requireContext(), DrawerLayoutActivity.class));
+                    NavDirections action = CCH_ChinhSuaThongTinNhaHangFMDirections.actionCCHChinhSuaThongTinNhaHangFMToCCHQuanLyNhaHangFM();
+                    Navigation.findNavController(getView()).navigate(action);
                 }
                 dismissProgressDialog();
             }

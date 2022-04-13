@@ -18,8 +18,8 @@
         android:id="@+id/ivTimKiemNhaHang_TrangChu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/ivBack"
         android:layout_marginTop="20dp"
+        android:layout_toRightOf="@+id/ivBack"
         android:src="@drawable/search" />
 
 

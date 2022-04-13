@@ -17,6 +17,26 @@ public class MonAn {
         TenNH = tenNH;
     }
 
+    public MonAn(int maMA, String tenMA, double gia, String hinhAnh, int maNH) {
+        MaMA = maMA;
+        TenMA = tenMA;
+        Gia = gia;
+        HinhAnh = hinhAnh;
+        MaNH = maNH;
+    }
+
+    public MonAn(String tenMA, double gia, String hinhAnh, int maNH) {
+
+        TenMA = tenMA;
+        Gia = gia;
+        HinhAnh = hinhAnh;
+        MaNH = maNH;
+    }
+
+    public MonAn(int maMA) {
+        MaMA = maMA;
+    }
+
     public int getMaMA() {
         return MaMA;
     }

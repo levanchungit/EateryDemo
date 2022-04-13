@@ -119,9 +119,9 @@ public class CCH_ItemDangLam_QuanLyDonHangAdapter extends RecyclerView.Adapter<C
         TextView tvTrangThai = holder.getTvTrangThaiDH();
         ImageView ivTrangThai = holder.getIvTrangThaiDH();
 
-        tvMaDH.setText("#000"+model.getMaDonHang()+"");
-        tvTienSLDH.setText(df.format(model.getTongTien())+ "đ | " + model.getCountSL() + " món");
-        tvNgayDH.setText( model.getNgayMua());
+        tvMaDH.setText("#000" + model.getMaDonHang() + "");
+        tvTienSLDH.setText(df.format(model.getTongTien()) + "đ | " + model.getCountSL() + " món");
+        tvNgayDH.setText(model.getNgayMua());
         tvTrangThai.setText("Chờ xác nhận");
         tvTrangThai.setTextColor(Color.RED);
         ivTrangThai.setImageResource(R.drawable.dahuydonhang);
@@ -133,7 +133,7 @@ public class CCH_ItemDangLam_QuanLyDonHangAdapter extends RecyclerView.Adapter<C
 //        }
 
 
-        }
+    }
 
     @Override
     public int getItemCount() {

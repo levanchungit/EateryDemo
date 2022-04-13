@@ -100,7 +100,7 @@ public class TrangChuFM extends Fragment {
                 navController.navigate(action);
             }
         });
-        });
+
         fmBinding.ivanvat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

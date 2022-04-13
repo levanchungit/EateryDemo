@@ -13,6 +13,13 @@ public class NhaHang{
     private String HoTen;
     private float IsYeuThich;
 
+    public NhaHang(int maNH, String tenNH, String diaChi, String moTa) {
+        MaNH = maNH;
+        TenNH = tenNH;
+        DiaChi = diaChi;
+        MoTa = moTa;
+    }
+
     public NhaHang(int maNH, String tenNH, String diaChi, String hinhAnh, String moTa, float danhGia, String tenTK, String maLoaiNH, String tenLoaiNH, String hoTen, float isYeuThich) {
         MaNH = maNH;
         TenNH = tenNH;

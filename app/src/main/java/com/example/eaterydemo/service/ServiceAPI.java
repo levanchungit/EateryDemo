@@ -44,17 +44,38 @@ public interface ServiceAPI {
     @GET("api/khuyenmai")
     Call<ArrayList<KhuyenMai>> GetAllKhuyenMai();
 
+    @GET("api/GetAllMaKhuyenMaiTheoNH")
+    Call<ArrayList<KhuyenMai>> GetAllMaKhuyenMaiTheoNH(@Query("MaNH") int MaNH);
+
+    @POST("api/ThemMaKhuyenMai")
+    Call<ArrayList<KhuyenMai>> ThemMaKhuyenMai(@Body KhuyenMai khuyenMai) ;
+
+    @POST("api/ChinhSuaMaKhuyenMaiTheoNH")
+    Call<ArrayList<KhuyenMai>> ChinhSuaMaKhuyenMaiTheoNH(@Body KhuyenMai khuyenMai) ;
+
 
     //MÓN ĂN
     //truyen param thi k có cái đuôi {...} và cái @Query
-    @GET("api/monantheonhahang")
+//    @GET("api/monantheonhahang")
+//    Call<ArrayList<MonAn>> GetAllMonAnTheoNhaHang(@Query("MaNH") int MaNH);
+
+    @GET("api/GetAllMonAnTheoNhaHang")
     Call<ArrayList<MonAn>> GetAllMonAnTheoNhaHang(@Query("MaNH") int MaNH);
+
+    @POST("api/ThemMonAnTrongNhaHang")
+    Call<ArrayList<MonAn>> ThemMonAnTrongNhaHang(@Body MonAn monAn) ;
+
+    @POST("api/ChinhSuaMonAnTrongNhaHang")
+    Call<ArrayList<MonAn>> ChinhSuaMonAnTrongNhaHang(@Body MonAn monAn) ;
 
     @GET("api/monantheomama")
     Call<MonAn> GetMonAnTheoMaMA(@Query("MaMA") int MaMA);
 
     @GET("api/themonanvaogiohang")
     Call<Message> ThemMonAnVaoGioHang(@Query("TenTK") String TenTK,@Query("MaMA") int MaMA,@Query("SL") int SL);
+
+    @POST("api/XoaMonAn")
+    Call<ArrayList<MonAn>> XoaMonAnTrongNhaHang(@Query("MaMA") int MaMA);
 
     //TÀI KHOẢN
     @POST("api/dangnhap")
@@ -83,20 +104,17 @@ public interface ServiceAPI {
     @GET("api/resetPassword")
     Call<Message> CapNhatMatKhau(@Query("TenTK") String TenTK, @Query("Code") String code, @Query("matKhauMoi")String matKhauMoi);
 
-    @GET("api/taikhoan/{TenTK}")
-    Call<TaiKhoan> GetTaiKhoanTheoTenTK(@Path("TenTK") String TenTK);
-
-    @POST("api/capnhatthongtintaikhoan")
-    Call<Message> ChinhSuaThongTin(@Query("TenTK") String TenTK, @Query("HoTen") String HoTen, @Query("SDT") String SDT, @Query("DiaChi") String DiaChi);
-
-    @GET("api/nhahangtheomanh/{MaNH}")
-    Call<NhaHang> GetNhaHangTheoMaNH(@Path("MaNH") int MaNH);
+    @POST("api/ChinhSuaThongTinNhaHang")
+    Call<Message> ChinhSuaThongTinNhaHang(@Body NhaHang nhaHang);
 
 
     //ĐƠN HÀNG
 
     @GET("api/donhang")
     Call<ArrayList<DonHang>> GetAllDonHang();
+
+    @GET("api/LichSuNhungDonHangTrong1NgayCuaNH")
+    Call<ArrayList<DonHang>> LichSuNhungDonHangTrong1NgayCuaNH(@Query("MaNH")int MaNH,@Query("NgayMua") String NgayMua);
 
     @POST("api/capnhatrangthaidonhang")
     Call<Message> CapNhatTrangThaiDonHang(@Query("MaNH") int MaNH, @Query("TrangThaiDH") int TrangThaiDH);
