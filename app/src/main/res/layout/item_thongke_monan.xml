@@ -28,15 +28,15 @@
 
                 <ImageView
                     android:id="@+id/iv_MonAn_ThongKe"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
                     android:scaleType="center"
                     android:src="@drawable/demo_nhahang" />
             </androidx.cardview.widget.CardView>
 
             <TextView
                 android:id="@+id/tvTenMonAn_ThongKe"
-                android:layout_width="120dp"
+                android:layout_width="100dp"
                 android:layout_height="50dp"
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="5dp"
@@ -63,7 +63,7 @@
 
             <TextView
                 android:id="@+id/tvTienTungMonAn_ThongKe"
-                android:layout_width="170dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tvLoaiNhaHang_ItemNhaHang"
                 android:layout_marginLeft="1dp"

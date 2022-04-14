@@ -74,6 +74,7 @@ public interface ServiceAPI {
 
     @POST("api/ChinhSuaMaKhuyenMaiTheoNH")
     Call<ArrayList<KhuyenMai>> ChinhSuaMaKhuyenMaiTheoNH(@Body() KhuyenMai khuyenMai);
+
     //MÓN ĂN
     //truyen param thi k có cái đuôi {...} và cái @Query
     @GET("api/GetAllMonAnTheoNhaHang")
@@ -154,10 +155,10 @@ public interface ServiceAPI {
     Call<ArrayList<DonHangChiTiet>> XoaMonAnTrongDonHang(@Query("MaDHCT") int MaDHCT, @Query("MaMA") int MaMA);
 
     @GET("api/GetTongTienCuaDonHang")
-    Call<Double> GetTongTienCuaDonHang(@Query("MaDH")int MaDH);
+    Call<Double> GetTongTienCuaDonHang(@Query("MaDH") int MaDH);
 
     @POST("api/CapNhatDiaChiGiaoHang")
-    Call <String>CapNhatDiaChiGiaoHang(@Query("MaDH") int MaDH, @Query("DiaChiMoi") String DiaChiMoi);
+    Call<String> CapNhatDiaChiGiaoHang(@Query("MaDH") int MaDH, @Query("DiaChiMoi") String DiaChiMoi);
 
 
     // Thống kê
@@ -165,5 +166,10 @@ public interface ServiceAPI {
     Call<Double> GetTongDoanhThuDonHangTheoNH(@Query("MaNH") int MaNH, @Query("TuNgay") String TuNgay, @Query("DenNgay") String DenNgay);
 
     @GET("api/GetTongDoanhThuCuaTungMonAnTheoNH ")
-    Call<ArrayList<ThongKe>> GetTongDoanhThuCuaTungMonAnTheoNH (@Query("MaNH") int MaNH);
+    Call<ArrayList<ThongKe>> GetTongDoanhThuCuaTungMonAnTheoNH(@Query("MaNH") int MaNH);
+
+
+    //    Cập nhật số lượng món ăn trong giỏ hàng
+    @POST("api/CapNhatSoLuongTangGiamMonAn ")
+    Call<Double> CapNhatSoLuongTangGiamMonAn(@Query("MaDHCT") int MaDHCT, @Query("MaMA") int MaMA, @Query("tanghoacgiam") String tanghoacgiam);
 }
