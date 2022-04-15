@@ -6,7 +6,9 @@ import static com.example.eaterydemo.service.GetRetrofit.getRetrofit;
 
 import android.app.DatePickerDialog;
 import android.os.Bundle;
+import android.text.Editable;
 import android.text.InputType;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -59,9 +61,25 @@ public class CCH_LichSuDonHangFM extends Fragment {
             @Override
             public void onClick(View view) {
                 datetimepicker();
-                int ma = CCH_QuanLyNhaHangFM.MaNH;
+
+            }
+        });
+
+        fmBinding.txtdateLichSuCCH.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 String ngay = fmBinding.txtdateLichSuCCH.toString().trim();
-                XoaMaKhuyenMLichSuNhungDonHangTrong1NgayCuaNHai(ma,ngay);
+                LichSuNhungDonHangTrong1NgayCuaNH(ngay);
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
             }
         });
 
@@ -123,7 +141,7 @@ public class CCH_LichSuDonHangFM extends Fragment {
         new DatePickerDialog(getContext() ,dateSetListener,calendar.get(calendar.YEAR),calendar.get(calendar.MONTH),calendar.get(calendar.DAY_OF_MONTH)).show();
     }
 
-    private void XoaMaKhuyenMLichSuNhungDonHangTrong1NgayCuaNHai(int MaNH,String NgayMua) {
+    private void LichSuNhungDonHangTrong1NgayCuaNH(String NgayMua) {
         ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
         Call call = serviceAPI.LichSuNhungDonHangTrong1NgayCuaNH(CCH_QuanLyNhaHangFM.MaNH,NgayMua);
         call.enqueue(new Callback() {
