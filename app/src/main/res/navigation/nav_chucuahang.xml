@@ -21,8 +21,6 @@
         <action
             android:id="@+id/action_CCH_QuanLyNhaHangFM_to_CCH_LichSuDonHang"
             app:destination="@id/CCH_LichSuDonHang" />
-    </fragment>
-
          <action
              android:id="@+id/action_CCH_QuanLyNhaHangFM_to_CCH_QuanLyDonHangFM"
              app:destination="@id/CCH_QuanLyDonHangFM" />
@@ -30,6 +28,8 @@
              android:id="@+id/action_CCH_QuanLyNhaHangFM_to_thongKeFM"
              app:destination="@id/thongKeFM" />
      </fragment>
+
+
     <fragment
         android:id="@+id/CCH_QuanLyDonHangFM"
         tools:layout="@layout/fragment_quanlydonhang_chucuahang"
@@ -65,7 +65,7 @@
     <fragment
         android:id="@+id/CCH_ItemQuanLyDanhSachMonAn"
         tools:layout="@layout/fragment_quanlydanhsachmonan"
-        android:name="com.example.eaterydemo.fragments.CCH_ItemQuanLyDanhSachMonAn"
+        android:name="com.example.eaterydemo.fragments.CCH_ItemQuanLyDanhSachMonAnFM"
         android:label="CCH_ItemQuanLyDanhSachMonAn" />
     <fragment
         android:id="@+id/maKhuyenMai"
@@ -75,10 +75,8 @@
     <fragment
         android:id="@+id/CCH_LichSuDonHang"
         tools:layout="@layout/fragment_cch_lichsudonhang"
-        android:name="com.example.eaterydemo.fragments.CCH_LichSuDonHang"
+        android:name="com.example.eaterydemo.fragments.CCH_LichSuDonHangFM"
         android:label="CCH_LichSuDonHang" />
-
-    </fragment>
     <fragment
         android:id="@+id/thongKeFM"
         tools:layout="@layout/fragment_thongke"

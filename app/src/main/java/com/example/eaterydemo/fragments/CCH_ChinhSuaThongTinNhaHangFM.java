@@ -4,7 +4,6 @@ import static com.example.eaterydemo.others.ShowNotifyUser.dismissProgressDialog
 import static com.example.eaterydemo.others.ShowNotifyUser.showProgressDialog;
 import static com.example.eaterydemo.service.GetRetrofit.getRetrofit;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -20,12 +19,9 @@ import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 
 import com.bumptech.glide.Glide;
-import com.example.eaterydemo.activities.DrawerLayoutActivity;
 import com.example.eaterydemo.databinding.FragmentChinhsuaQuanlynhahangBinding;
-import com.example.eaterydemo.databinding.FragmentChinhsuaThongtinBinding;
 import com.example.eaterydemo.model.Message;
 import com.example.eaterydemo.model.NhaHang;
-import com.example.eaterydemo.model.TaiKhoan;
 import com.example.eaterydemo.service.ServiceAPI;
 
 import retrofit2.Call;
@@ -59,8 +55,6 @@ public class CCH_ChinhSuaThongTinNhaHangFM extends Fragment {
                 navController.navigate(action);
             }
         });
-
-        fmEditProfileBinding.edtMaLoaiEditQLNhaHang.setEnabled(false);
         fmEditProfileBinding.edtTenTKChuNhaHang.setEnabled(false);
 
 
@@ -69,7 +63,7 @@ public class CCH_ChinhSuaThongTinNhaHangFM extends Fragment {
             public void onClick(View view) {
 
                 int _MaNH = CCH_QuanLyNhaHangFM.MaNH;
-                String _TenNH = fmEditProfileBinding.edtTenChuCuaHang.getText().toString().trim();
+                String _TenNH = fmEditProfileBinding.edtTenNhaHang.getText().toString().trim();
                 String _DiaChi = fmEditProfileBinding.edtDiaChiEditQLNhaHang.getText().toString().trim();
                 String _MoTa = fmEditProfileBinding.edtMoTaEditQLNhaHang.getText().toString().trim();
                 ChinhSuaThongTinNhaHang(new NhaHang(_MaNH,_TenNH,_DiaChi,_MoTa));
@@ -87,10 +81,9 @@ public class CCH_ChinhSuaThongTinNhaHangFM extends Fragment {
             public void onResponse(Call call, Response response) {
                 NhaHang nhahang = (NhaHang) response.body();
                 fmEditProfileBinding.edtTenTKChuNhaHang.setText(nhahang.getHoTen());
-                fmEditProfileBinding.edtTenChuCuaHang.setText(nhahang.getTenNH());
+                fmEditProfileBinding.edtTenNhaHang.setText(nhahang.getTenNH());
                 fmEditProfileBinding.edtDiaChiEditQLNhaHang.setText(nhahang.getDiaChi());
                 fmEditProfileBinding.edtMoTaEditQLNhaHang.setText(nhahang.getMoTa());
-                fmEditProfileBinding.edtMaLoaiEditQLNhaHang.setText(nhahang.getMaLoaiNH());
 
                 Glide.with(getContext()).load(nhahang.getHinhAnh()).centerCrop().into(fmEditProfileBinding.ivAvatarEditQLNhaHang);
                 dismissProgressDialog();

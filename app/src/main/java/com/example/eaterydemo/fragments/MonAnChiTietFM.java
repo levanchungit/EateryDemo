@@ -151,7 +151,7 @@ public class MonAnChiTietFM extends Fragment {
                 Message message = (Message) response.body();
                 //2, "Món ăn khác nhà hàng"
                 //1, "Thêm món ăn vào giỏ hàng thành công"
-                //0, "Món ăn đã tồn tại trong giỏ hàng"
+                //3, "Món ăn đã tồn tại trong giỏ hàng" và cộng thêm SL mới
                 if(message.getStatus() != 2){
                     Toast.makeText(getContext(), message.getNotification(), Toast.LENGTH_SHORT).show();
                 }

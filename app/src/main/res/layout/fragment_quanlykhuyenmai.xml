@@ -44,7 +44,6 @@
         android:layout_alignParentRight="true"
         android:layout_margin="10dp"
         app:fabSize="normal"
-        app:layout_anchor="@id/rvQuanLyMaKhuyenMai"
         app:layout_anchorGravity="bottom|right|end" />
 
 

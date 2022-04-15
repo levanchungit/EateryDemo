@@ -82,8 +82,6 @@ public interface ServiceAPI {
     @POST("api/ThemMaKhuyenMai")
     Call<ArrayList<KhuyenMai>> ThemMaKhuyenMai(@Body KhuyenMai khuyenMai) ;
 
-    @POST("api/ChinhSuaMaKhuyenMaiTheoNH")
-    Call<ArrayList<KhuyenMai>> ChinhSuaMaKhuyenMaiTheoNH(@Body KhuyenMai khuyenMai) ;
 
 
     //MÓN ĂN
@@ -122,9 +120,9 @@ public interface ServiceAPI {
 
     @GET("api/taikhoan")
     Call<ArrayList<TaiKhoan>> GetAllTaiKhoan();
-
-    @GET("api/taikhoan/{TenTK}")
-    Call<TaiKhoan> GetTaiKhoanTheoTenTK(@Path("TenTK") String TenTK);
+//
+//    @GET("api/taikhoan/{TenTK}")
+//    Call<TaiKhoan> GetTaiKhoanTheoTenTK(@Path("TenTK") String TenTK);
 
     //truyền k có đuôi api/.../{}, k có dấu {} này thì phải là @query
     //thì check api trên postman thì phải check thế này
@@ -143,10 +141,6 @@ public interface ServiceAPI {
     @GET("api/taikhoan")
     Call<TaiKhoan> GetTaiKhoanTheoTenTK(@Query("TenTK") String TenTK);
 
-    @POST("api/capnhatthongtintaikhoan")
-    Call<Message> ChinhSuaThongTin(@Query("TenTK") String TenTK, @Query("HoTen") String HoTen, @Query("SDT") String SDT, @Query("DiaChi") String DiaChi);
-    @POST("api/ChinhSuaThongTinNhaHang")
-    Call<Message> ChinhSuaThongTinNhaHang(@Body NhaHang nhaHang);
 
     @POST("api/XoaTaiKhoan")
     Call<ArrayList<TaiKhoan>> XoaTaiKhoanTheoTenTK(@Query("TenTK") String TenTK);
@@ -171,8 +165,6 @@ public interface ServiceAPI {
     @GET("api/LichSuNhungDonHangTrong1NgayCuaNH")
     Call<ArrayList<DonHang>> LichSuNhungDonHangTrong1NgayCuaNH(@Query("MaNH")int MaNH,@Query("NgayMua") String NgayMua);
 
-    @POST("api/capnhatrangthaidonhang")
-    Call<Message> CapNhatTrangThaiDonHang(@Query("MaNH") int MaNH, @Query("TrangThaiDH") int TrangThaiDH);
 
     @GET("api/getDonHangTheoTK")
     Call<DonHang> GetDonHangTheoTK(@Query("TenTK") String TenTK);

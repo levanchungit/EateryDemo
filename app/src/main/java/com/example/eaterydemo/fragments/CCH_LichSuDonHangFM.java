@@ -11,11 +11,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.DatePicker;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -24,12 +20,9 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import com.example.eaterydemo.adapter.CCH_Item_QuanLyDanhSachMonAnAdapter;
 import com.example.eaterydemo.adapter.CCH_LichSuDonHangAdapter;
 import com.example.eaterydemo.databinding.FragmentCchLichsudonhangBinding;
-
 import com.example.eaterydemo.model.DonHang;
-import com.example.eaterydemo.model.MonAn;
 import com.example.eaterydemo.service.ServiceAPI;
 
 import java.text.SimpleDateFormat;
@@ -40,7 +33,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class CCH_LichSuDonHang extends Fragment {
+public class CCH_LichSuDonHangFM extends Fragment {
     FragmentCchLichsudonhangBinding fmBinding;
     NavController navController;
     View _view;

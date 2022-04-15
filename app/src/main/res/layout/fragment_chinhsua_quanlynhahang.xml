@@ -36,11 +36,10 @@
             android:layout_marginBottom="10dp"
             android:fontFamily="@font/montserrat_regular"
             android:gravity=""
-            android:hint="Tên chủ nhà hàng"
+            android:hint="Tên nhà hàng"
             android:inputType="textAutoComplete"
             android:padding="10dp"
             android:singleLine="true"
-            android:text="Tên TK chủ nhà hàng"
             android:textColor="@color/black"
             android:textColorHint="@color/black" />
 
