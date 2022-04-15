@@ -102,9 +102,10 @@ public class ADM_AddNhaHangFM extends Fragment {
                 validate();
                 if (isValid == 1){
                     //load hình ảnh lên cloudinary
+                    showProgressDialog(getContext(), "Đang tải dữ liệu");
                     uploadToCloudinary();
+                    dismissProgressDialog();
                 }
-
             }
         });
         fmBinding.spnChuNhaHangAddNhaHang.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -136,7 +137,7 @@ public class ADM_AddNhaHangFM extends Fragment {
 
     //Tên tk gán lên spinner
     private void GetTenTKSpinner(){
-        Call call = serviceAPI.GetAllTaiKhoanChuaXoa();
+        Call call = serviceAPI.GetAllTaiKhoanChuaCoNhaHang();
         call.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
@@ -265,7 +266,6 @@ public class ADM_AddNhaHangFM extends Fragment {
 //                            "chucuahang16@gmail.com",
 //                            "COM");
                     AddNhaHang(nhaHang);
-                    dismissProgressDialog();
                 }
 
                 @Override

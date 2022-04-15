@@ -98,6 +98,9 @@ public interface ServiceAPI {
     @GET("api/taikhoan")
     Call<ArrayList<TaiKhoan>> GetAllTaiKhoan();
 
+    @GET("api/GetAllTaiKhoanChuaCoNhaHang")
+    Call<ArrayList<TaiKhoan>> GetAllTaiKhoanChuaCoNhaHang();
+
     @POST("api/capnhatthongtintaikhoan")
     Call<Message> CapNhatThongTinTaiKhoan(@Body TaiKhoan taiKhoan);
 

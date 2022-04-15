@@ -86,7 +86,9 @@ public class ADM_AddTaiKhoanFM extends Fragment {
                 validate();
                 //load hình ảnh lên cloudinary
                 if(isValid == 1){
+                    showProgressDialog(getContext(), "Đang tải dữ liệu");
                     uploadToCloudinary();
+                    dismissProgressDialog();
 
                 }
             }
@@ -183,7 +185,6 @@ public class ADM_AddTaiKhoanFM extends Fragment {
                     String _hinhAnh = resultData.get("url").toString();
                     TaiKhoan taiKhoan = new TaiKhoan(_email, _mk, _hoten, _sdt, _diachi, _hinhAnh, "user");
                     AddTaiKhoan(taiKhoan);
-                    dismissProgressDialog();
                 }
 
                 @Override

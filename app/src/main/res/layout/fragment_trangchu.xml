@@ -169,6 +169,7 @@
                         android:orientation="horizontal"
                         android:overScrollMode="never"
                         android:scrollbars="none"
+                        tools:listitem="@layout/item_nhahang_vuong"
                         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
                 </ScrollView>
 
@@ -204,6 +205,7 @@
                     android:layout_width="390dp"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
+                    tools:listitem="@layout/item_khuyenmai_chunhat"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
             </TableRow>
 
@@ -222,9 +224,10 @@
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rvNhaHangGanBan_TrangChu"
-                    android:layout_width="390dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical" />
+                    android:orientation="vertical"
+                    tools:listitem="@layout/item_nhahang"/>
             </TableRow>
 
             <TableRow>
