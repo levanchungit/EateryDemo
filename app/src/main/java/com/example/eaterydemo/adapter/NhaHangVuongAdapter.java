@@ -15,15 +15,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.eaterydemo.R;
+import com.example.eaterydemo.fragments.TrangChuFM;
 import com.example.eaterydemo.fragments.TrangChuFMDirections;
 import com.example.eaterydemo.model.NhaHang;
 
 import java.util.List;
 
 public class NhaHangVuongAdapter extends RecyclerView.Adapter<NhaHangVuongAdapter.ViewHolder> {
-
-    TextView tvTenNhaHang, tvDanhGia;
-    ImageView ivImage_NhaHangVuong;
     List<NhaHang> arr;
     Context context;
 
@@ -95,10 +93,9 @@ public class NhaHangVuongAdapter extends RecyclerView.Adapter<NhaHangVuongAdapte
         rlitem_nhahanghinhvuong.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int maNh = model.getMaNH();
-                NavDirections action = TrangChuFMDirections.actionMenuTrangChuToNhaHangChiTietFM(maNh);
+                TrangChuFM.MaNH = model.getMaNH();
+                NavDirections action = TrangChuFMDirections.actionMenuTrangChuToNhaHangChiTietFM(TrangChuFM.MaNH);
                 Navigation.findNavController(view).navigate(action);
-
             }
         });
     }

@@ -40,6 +40,9 @@ public class KhuyenMai {
         MaNH = maNH;
     }
 
+    public KhuyenMai() {
+    }
+
     public String getMaKM() {
         return MaKM;
     }

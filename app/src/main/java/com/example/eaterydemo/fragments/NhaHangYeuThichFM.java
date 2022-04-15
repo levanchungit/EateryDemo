@@ -4,7 +4,6 @@ import static com.example.eaterydemo.others.ShowNotifyUser.dismissProgressDialog
 import static com.example.eaterydemo.service.GetRetrofit.getRetrofit;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,10 +16,12 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.example.eaterydemo.R;
 import com.example.eaterydemo.adapter.NhaHangHCNYeuThichAdapter;
 import com.example.eaterydemo.databinding.FragmentNhahangyeuthichBinding;
 import com.example.eaterydemo.model.NhaHang;
 import com.example.eaterydemo.service.ServiceAPI;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.List;
 
@@ -52,19 +53,27 @@ public class NhaHangYeuThichFM extends Fragment {
 
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        BottomNavigationView navbar = getActivity().findViewById(R.id.navBot);
+        navbar.setVisibility(View.VISIBLE);
+    }
+
     private void GetAllNhaHangYeuThich() {
         ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
-        Call call = serviceAPI.GetAllNhaHangYeuThichTheoTK(DangNhapFM.TENTK);
+        Call call = serviceAPI.GetAllNhaHangYeuThichCuaTaiKhoan(DangNhapFM.TENTK);
         call.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
                 List<NhaHang> arr = (List<NhaHang>) response.body();
-                Log.d("arr", arr.size() + "");
-                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
-                fmBinding.rvNhaHangYeuThich.setLayoutManager(linearLayoutManager);
-                NhaHangHCNYeuThichAdapter adapter = new NhaHangHCNYeuThichAdapter(arr, getContext());
-                fmBinding.rvNhaHangYeuThich.setAdapter(adapter);
-                dismissProgressDialog();
+                if(arr!=null){
+                    LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
+                    fmBinding.rvNhaHangYeuThich.setLayoutManager(linearLayoutManager);
+                    NhaHangHCNYeuThichAdapter adapter = new NhaHangHCNYeuThichAdapter(arr, getContext());
+                    fmBinding.rvNhaHangYeuThich.setAdapter(adapter);
+                    dismissProgressDialog();
+                }
             }
 
             @Override

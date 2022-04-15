@@ -14,18 +14,18 @@
 
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        app:layout_constraintBottom_toBottomOf="parent"
         android:id="@+id/navBot"
-        app:menu="@menu/item_menu_bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="64dp"
-        android:background="@drawable/round_corner"
         android:layout_marginHorizontal="30dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/round_corner"
         app:itemIconSize="30sp"
         app:itemIconTint="@drawable/item_selector"
         app:itemRippleColor="@android:color/transparent"
         app:labelVisibilityMode="unlabeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:menu="@menu/item_menu_bottom_navigation"
         tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

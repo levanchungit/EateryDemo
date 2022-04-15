@@ -5,21 +5,40 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:layout_margin="8dp"
-    tools:context=".fragment.fragment_QuanTriHeThong">
+    android:layout_margin="8dp">
 
+    <TextView
+        android:id="@+id/tvQuanLyTaiKhoan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="QUẢN TRỊ HỆ THỐNG"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="25sp" />
 
-    <ImageView
+    <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/logo_light"
-        android:layout_gravity="center"/>
+        android:layout_centerVertical="true"
+        android:layout_gravity="center"
+        app:cardCornerRadius="60dp">
+
+        <ImageView
+            android:id="@+id/ivImage_Admin"
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:scaleType="center"
+            android:src="@drawable/demo_nhahang" />
+    </androidx.cardview.widget.CardView>
+
 
     <RelativeLayout
+        android:id="@+id/rl_TenAdmin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <TextView
+            android:id="@+id/tv_TenAdmin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
@@ -32,7 +51,6 @@
             android:textStyle="bold" />
 
         <ImageView
-
             android:layout_width="25dp"
             android:layout_height="30dp"
             android:layout_alignParentEnd="true"
@@ -48,6 +66,7 @@
         android:orientation="vertical">
 
      <LinearLayout
+         android:id="@+id/ll_QuanLyCuaHangAdmin"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
          android:orientation="horizontal">
@@ -58,7 +77,7 @@
              android:src="@drawable/eos_icons_admin"/>
 
          <TextView
-             android:text="Quản lý cửa hàng(admin)"
+             android:text="Quản lý cửa hàng (admin)"
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"
              android:textSize="18sp"
@@ -68,8 +87,8 @@
   </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/ll_QuanLyTaiKhoanAdmin"
             android:layout_marginTop="5dp"
-
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -80,7 +99,7 @@
                 android:src="@drawable/ic_baseline_manage_accounts"/>
 
             <TextView
-                android:text="Quản lý tài khoản(admin)"
+                android:text="Quản lý tài khoản (admin)"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
@@ -90,8 +109,30 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/ll_DoiMatKhauAdmin"
             android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ant_design_logout_outlined"/>
+
+            <TextView
+                android:text="Đổi mật khẩu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:layout_marginLeft="20dp"
+                android:textColor="@color/black"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_DangXuatAdmin"
+            android:layout_marginTop="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">

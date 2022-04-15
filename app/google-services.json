@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "606221961207",
+    "project_id": "aloalo-b375c",
+    "storage_bucket": "aloalo-b375c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:606221961207:android:541866d9f640cfca8150f2",
+        "android_client_info": {
+          "package_name": "com.example.eaterydemo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "606221961207-kqe1065jq8glpfo688usqlog8b113r6h.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.eaterydemo",
+            "certificate_hash": "ae4073711114560330a692bbf4158a643eb6668d"
+          }
+        },
+        {
+          "client_id": "606221961207-nmubk9tndlq9629jtc8mhr0lmc7h0dk3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDMg7yYlQ6_WLjFMOEiKWH2Y-LefDXysrs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "606221961207-nmubk9tndlq9629jtc8mhr0lmc7h0dk3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

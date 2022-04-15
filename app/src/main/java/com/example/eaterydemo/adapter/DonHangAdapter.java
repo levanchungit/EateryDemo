@@ -2,6 +2,7 @@ package com.example.eaterydemo.adapter;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,7 +30,7 @@ public class DonHangAdapter extends RecyclerView.Adapter<DonHangAdapter.ViewHold
     DonHang donHang;
     DonHangChiTiet donHangChiTiet;
     Context context;
-    SimpleDateFormat sfd = new SimpleDateFormat("dd-MM");
+    SimpleDateFormat sfd = new SimpleDateFormat("dd-MM-yyyy");
     static NavController navController;
     View _view;
     DecimalFormat df = new DecimalFormat("#,###");
@@ -85,7 +86,6 @@ public class DonHangAdapter extends RecyclerView.Adapter<DonHangAdapter.ViewHold
             return tvTrangThaiDH;
         }
 
-
     }
 
     private void initNavController(View viewFmProfileBinding) {
@@ -101,7 +101,6 @@ public class DonHangAdapter extends RecyclerView.Adapter<DonHangAdapter.ViewHold
         _view = parent;
         return viewHolder;
     }
-
 
     @Override
     public void onBindViewHolder(@NonNull DonHangAdapter.ViewHolder holder, int position) {
@@ -126,16 +125,9 @@ public class DonHangAdapter extends RecyclerView.Adapter<DonHangAdapter.ViewHold
         tvTenNhaHang.setText(model.getNameRes());
         tvTienDH.setText(df.format(model.getTongTien())+ "đ");
         tvSoLuongMon.setText(model.getCountSL() + " món");
-        tvNgayDH.setText( model.getNgayMua());
 
-
-//
-//        try {
-//            tvNgayDH.setText(sfd.parse(model.getNgayMua()) + "");
-//        } catch (ParseException e) {
-//            e.printStackTrace();
-//        }
-
+        String date = model.getNgayMua();
+        tvNgayDH.setText(date.substring(0, 10));
 
         int TT = model.getTrangThaiDH();
         if (TT == 3) {
@@ -153,7 +145,6 @@ public class DonHangAdapter extends RecyclerView.Adapter<DonHangAdapter.ViewHold
         }
 
     }
-
     @Override
     public int getItemCount() {
         return arr.size();

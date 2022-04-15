@@ -5,46 +5,45 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="8dp"
-    android:orientation="vertical"
-    tools:context=".fragment.fragment_QuanLyCuaHang">
+    android:orientation="vertical">
 
 
     <LinearLayout
-        android:id="@+id/llQuanLyCuaHang"
+        android:id="@+id/llQuanLyDanhSachMonAn"
         android:layout_width="match_parent"
-        android:orientation="horizontal"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/mdi_light_arrow_left"/>
+            android:src="@drawable/mdi_light_arrow_left" />
 
         <TextView
-            android:id="@+id/tvQuanLyCuaHang"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="QUẢN LÝ CỬA HÀNG"
+            android:text="Quản lý danh sách món ăn"
             android:textAlignment="center"
-            android:textSize="25sp"
             android:textColor="@color/black"
-            />
+            android:textSize="25sp" />
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvQuanLyCuaHang"
-        android:layout_below="@+id/llQuanLyCuaHang"
+        android:id="@+id/rvQuanLyDanhSachMonAn"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="match_parent"
+        android:layout_below="@+id/llQuanLyDanhSachMonAn" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAddMonAn_QuanLyDanhSachMonAn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
+        android:src="@drawable/ic_them"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:src="@drawable/ic_them"
-        android:layout_margin="8dp"
-        app:fabSize="normal" />
+        android:layout_margin="10dp"
+        app:fabSize="normal"
+        app:layout_anchor="@id/rvQuanLyDanhSachMonAn"
+        app:layout_anchorGravity="bottom|right|end" />
 
 </RelativeLayout>

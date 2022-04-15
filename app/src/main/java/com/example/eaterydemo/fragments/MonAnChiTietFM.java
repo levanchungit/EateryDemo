@@ -3,8 +3,8 @@ package com.example.eaterydemo.fragments;
 import static com.example.eaterydemo.others.ShowNotifyUser.dismissProgressDialog;
 import static com.example.eaterydemo.service.GetRetrofit.getRetrofit;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -35,6 +36,9 @@ public class MonAnChiTietFM extends Fragment {
     FragmentMonanchitietBinding fmBinding;
     NavController navController;
     MonAn monAn;
+    String _TENTK;
+    int _MaMA;
+    int _SL;
 
     @Nullable
     @Override
@@ -46,8 +50,6 @@ public class MonAnChiTietFM extends Fragment {
         GetMonAnChiTiet();
         GetAllMonAnNhaHangChiTiet();
 
-//        showProgressDialog(getContext(), "Đang tải dữ liệu");
-
         return fmBinding.getRoot();
     }
 
@@ -56,23 +58,37 @@ public class MonAnChiTietFM extends Fragment {
     }
 
     private void initClick() {
-        fmBinding.imgBackMonAnChiTiet.setOnClickListener(new View.OnClickListener() {
+
+        fmBinding.imgGiamSoLuongMACT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                NavDirections action = NhaHangFMDirections.actionNhaHangFMToHomeFM();
-//                navController.navigate(action);
-//                NavDirections action = NhaHangChiTietFMDirections.actionNhaHangChiTietFMToNhaHangFM();
-//                navController.navigate(action);
+                int SoLuongMon = Integer.parseInt(fmBinding.txtSoLuongChiTiet.getText().toString());
+                int SL = SoLuongMon - 1;
+                if (SL >= 1){
+                    fmBinding.txtSoLuongChiTiet.setText(SL+"");
+                }else{
+                    fmBinding.txtSoLuongChiTiet.setText(0 + "");
+                }
+
+            }
+        });
+
+        fmBinding.imgTangSoLuongMACT.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int SoLuongMon = Integer.parseInt(fmBinding.txtSoLuongChiTiet.getText().toString());
+                int SL = SoLuongMon + 1;
+                fmBinding.txtSoLuongChiTiet.setText(SL+"");
             }
         });
 
         fmBinding.btnThemMonAnMonAnChiTiet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String _TENTK = DangNhapFM.TENTK;
-                int _MaMA = monAn.getMaMA();
-                int _SL = Integer.parseInt(fmBinding.txtSoLuongChiTiet.getText().toString());
-                ThemMonAnVaoGioHang(_TENTK, _MaMA, _SL);
+                _TENTK = DangNhapFM.TENTK;
+                _MaMA = monAn.getMaMA();
+                _SL = Integer.parseInt(fmBinding.txtSoLuongChiTiet.getText().toString());
+                ThemMonAnVaoGioHang();
             }
         });
 
@@ -111,7 +127,6 @@ public class MonAnChiTietFM extends Fragment {
             @Override
             public void onResponse(Call call, Response response) {
                 List<MonAn> arr = (List<MonAn>) response.body();
-                Log.d("arr", arr.size() + "");
                 StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
                 fmBinding.rvMonAnMonAnChiTiet.setLayoutManager(staggeredGridLayoutManager);
                 MonAnChiTietAdapter adapter = new MonAnChiTietAdapter(arr, getContext());
@@ -127,16 +142,46 @@ public class MonAnChiTietFM extends Fragment {
         });
     }
 
-    private void ThemMonAnVaoGioHang(String _TenTK, int _MaMA, int _SL) {
+    private void ThemMonAnVaoGioHang() {
         ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
-        Call call = serviceAPI.ThemMonAnVaoGioHang(_TenTK, _MaMA, _SL);
+        Call call = serviceAPI.ThemMonAnVaoGioHang(_TENTK, _MaMA, _SL);
         call.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
                 Message message = (Message) response.body();
-                Toast.makeText(getContext(), message.getNotification(), Toast.LENGTH_SHORT).show();
-                if(message.getStatus() == 1){
+                //2, "Món ăn khác nhà hàng"
+                //1, "Thêm món ăn vào giỏ hàng thành công"
+                //3, "Món ăn đã tồn tại trong giỏ hàng" và cộng thêm SL mới
+                if(message.getStatus() != 2){
+                    Toast.makeText(getContext(), message.getNotification(), Toast.LENGTH_SHORT).show();
+                }
 
+                if (message.getStatus() == 2) {
+                    diaLogConfirm();
+                }
+
+                dismissProgressDialog();
+            }
+
+            @Override
+            public void onFailure(Call call, Throwable t) {
+                dismissProgressDialog();
+                Toast.makeText(getContext(), "Lỗi", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void XoaDonHangKhiDatMonAnKhacNhaHang(String _TenTK) {
+        ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
+        Call call = serviceAPI.XoaDonHangKhiDatMonAnKhacNhaHang(_TenTK);
+        call.enqueue(new Callback() {
+            @Override
+            public void onResponse(Call call, Response response) {
+                Message message = (Message) response.body();
+//                Toast.makeText(getContext(), message.getNotification(), Toast.LENGTH_SHORT).show();
+                //1: "Xoá DHCT và Đơn hàng thành công" và tạo lại đơn hàng
+                if (message.getStatus() == 1) {
+                    ThemMonAnVaoGioHang();
                 }
                 dismissProgressDialog();
             }
@@ -147,5 +192,23 @@ public class MonAnChiTietFM extends Fragment {
                 Toast.makeText(getContext(), "Lỗi", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    private void diaLogConfirm() {
+        AlertDialog.Builder b = new AlertDialog.Builder(getContext());
+        b.setTitle("Xác nhận");
+        b.setMessage("Bạn đang có một đơn hàng ở nhà hàng khác. Bạn có muốn xoá đơn hàng đó và tạo đơn hàng mới với món ăn này?");
+        b.setPositiveButton("Đồng ý", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                XoaDonHangKhiDatMonAnKhacNhaHang(_TENTK);
+            }
+        });
+        b.setNegativeButton("Không đồng ý", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                dialog.cancel();
+            }
+        });
+        AlertDialog al = b.create();
+        al.show();
     }
 }

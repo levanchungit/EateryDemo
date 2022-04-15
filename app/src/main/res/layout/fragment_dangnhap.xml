@@ -34,7 +34,8 @@
         app:boxStrokeColor="#000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivLogo_DangNhap">
+        app:layout_constraintTop_toBottomOf="@+id/ivLogo_DangNhap"
+        app:startIconDrawable="@drawable/ic_username">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edtEmail_DangNhap"
@@ -57,9 +58,11 @@
         app:boxCornerRadiusTopEnd="10dp"
         app:boxCornerRadiusTopStart="10dp"
         app:boxStrokeColor="#000"
+        app:endIconMode="password_toggle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tilEmail_DangNhap">
+        app:layout_constraintTop_toBottomOf="@+id/tilEmail_DangNhap"
+        app:startIconDrawable="@drawable/ic_password">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edtMatKhau_DangNhap"
@@ -89,9 +92,7 @@
         android:layout_height="70dp"
         android:layout_marginTop="68dp"
         android:src="@drawable/google_logo"
-        app:layout_constraintEnd_toEndOf="@id/imgfacebook"
-        app:layout_constraintHorizontal_bias="0.595"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/imgfacebook"
         app:layout_constraintTop_toBottomOf="@+id/tilMatKhau_DangNhap" />
 
     <ImageView
@@ -112,14 +113,13 @@
         android:layout_marginTop="412dp"
         android:layout_marginEnd="92dp"
         android:src="@drawable/apple_logo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toEndOf="@id/imgfacebook"
+        app:layout_constraintTop_toBottomOf="@+id/tilMatKhau_DangNhap" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnLogin_DangNhap"
         android:layout_width="200dp"
         android:layout_height="50dp"
-
         android:layout_marginTop="30dp"
         android:background="@drawable/buttonlogin"
         android:text="Đăng nhập"
@@ -130,13 +130,24 @@
         app:layout_constraintTop_toBottomOf="@+id/imgfacebook" />
 
     <TextView
+        android:id="@+id/tvBanChuaCoTaiKhoan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/btnLogin_DangNhap"
+        android:text="Bạn chưa có tài khoản?"
+        app:layout_constraintLeft_toLeftOf="@+id/btnLogin_DangNhap"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/tvDangKy_DangNhap" />
+
+    <TextView
         android:id="@+id/tvDangKy_DangNhap"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/btnLogin_DangNhap"
-        app:layout_constraintRight_toRightOf="@+id/btnLogin_DangNhap"
         android:text="Đăng ký?"
         android:textColor="@color/black"
         android:textSize="15sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/btnLogin_DangNhap" />
 </androidx.constraintlayout.widget.ConstraintLayout>

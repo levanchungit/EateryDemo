@@ -5,7 +5,6 @@ import static com.example.eaterydemo.others.ShowNotifyUser.showProgressDialog;
 import static com.example.eaterydemo.service.GetRetrofit.getRetrofit;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,9 +21,12 @@ import com.bumptech.glide.Glide;
 import com.example.eaterydemo.R;
 import com.example.eaterydemo.adapter.MonAnAdapter;
 import com.example.eaterydemo.databinding.FragmentNhahangchitietBinding;
+import com.example.eaterydemo.model.Message;
 import com.example.eaterydemo.model.MonAn;
 import com.example.eaterydemo.model.NhaHang;
+import com.example.eaterydemo.model.NhaHangYeuThich;
 import com.example.eaterydemo.service.ServiceAPI;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.List;
 
@@ -44,7 +46,12 @@ public class NhaHangChiTietFM extends Fragment {
         GetAllMonAnNhaHangChiTiet();
         GetNhaHangChiTiet();
         initNavController(container);
-        isYeuThich();
+
+        //tắt bottom navigation
+        BottomNavigationView navbar = getActivity().findViewById(R.id.navBot);
+        navbar.setVisibility(View.GONE);
+
+        checkNhaHangYeuThich();
 
         showProgressDialog(getContext(), "Đang tải dữ liệu");
 
@@ -55,47 +62,29 @@ public class NhaHangChiTietFM extends Fragment {
         navController = Navigation.findNavController(viewFmProfileBinding);
     }
 
-    private void closeFragment() {
-        getActivity().getFragmentManager().popBackStack();
-    }
-
     private void initClick() {
-        fmBinding.imgBackNhaHangChiTiet.setOnClickListener(new View.OnClickListener() {
+
+        fmBinding.imgFav.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeFragment();
-//                NavDirections action = NhaHangFMDirections.actionNhaHangFMToHomeFM();
-//                navController.navigate(action);
-//                NavDirections action = NhaHangChiTietFMDirections.actionNhaHangChiTietFMToNhaHangFM();
-//                navController.navigate(action);
+                ThemHuyNhaHangYeuThich(new NhaHangYeuThich(DangNhapFM.TENTK, TrangChuFM.MaNH));
             }
         });
     }
 
-    private void isYeuThich() {
+    private void checkNhaHangYeuThich() {
         ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
-        int maNh = NhaHangChiTietFMArgs.fromBundle(getArguments()).getMaNh();
-        Call call = serviceAPI.GetNhaHangTheoMaNH(maNh);
+        Call call = serviceAPI.CheckNhaHangYeuThichCuaTaiKhoan(DangNhapFM.TENTK, TrangChuFM.MaNH);
         call.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
-                NhaHang nhaHang = (NhaHang) response.body();
-                fmBinding.imgFav.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        if (nhaHang.getIsYeuThich() == 0) {
-                            fmBinding.imgFav.setImageResource(R.drawable.favorites_troke);
-                            nhaHang.setIsYeuThich(1);
-                            Toast.makeText(getContext(), "Thêm nhà hàng vào yêu thích", Toast.LENGTH_SHORT).show();
-                        } else {
-                            fmBinding.imgFav.setImageResource(R.drawable.favorites);
-                            nhaHang.setIsYeuThich(0);
-                            Toast.makeText(getContext(), "Xóa nhà hàng khỏi yêu thích", Toast.LENGTH_SHORT).show();
+                Message message = (Message) response.body();
+                if(message.getStatus() == 1){
+                    fmBinding.imgFav.setImageResource(R.drawable.favorites);
+                }else{
+                    fmBinding.imgFav.setImageResource(R.drawable.favorites_troke);
 
-                        }
-                    }
-                });
-
+                }
                 dismissProgressDialog();
             }
 
@@ -107,10 +96,33 @@ public class NhaHangChiTietFM extends Fragment {
         });
     }
 
-    private void GetNhaHangChiTiet() {
+    private void ThemHuyNhaHangYeuThich(NhaHangYeuThich nhaHangYeuThich) {
         ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
-        int maNh = NhaHangChiTietFMArgs.fromBundle(getArguments()).getMaNh();
-        Call call = serviceAPI.GetNhaHangTheoMaNH(maNh);
+        Call call = serviceAPI.ThemHuyNhaHangYeuThich(nhaHangYeuThich);
+        call.enqueue(new Callback() {
+            @Override
+            public void onResponse(Call call, Response response) {
+                Message message = (Message) response.body();
+                Toast.makeText(requireContext(), message.getNotification(), Toast.LENGTH_SHORT).show();
+                if(message.getStatus() == 1){
+                    fmBinding.imgFav.setImageResource(R.drawable.favorites);
+                }else{
+                    fmBinding.imgFav.setImageResource(R.drawable.favorites_troke);
+                }
+                dismissProgressDialog();
+            }
+
+            @Override
+            public void onFailure(Call call, Throwable t) {
+                dismissProgressDialog();
+                Toast.makeText(getContext(), "Lỗi", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    public void GetNhaHangChiTiet() {
+        ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
+        Call call = serviceAPI.GetNhaHangTheoMaNH(TrangChuFM.MaNH);
         call.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
@@ -143,18 +155,18 @@ public class NhaHangChiTietFM extends Fragment {
 
     private void GetAllMonAnNhaHangChiTiet() {
         ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
-        int maNh = NhaHangChiTietFMArgs.fromBundle(getArguments()).getMaNh();
-        Call call = serviceAPI.GetAllMonAnTheoNhaHang(maNh);
+        Call call = serviceAPI.GetAllMonAnTheoNhaHang(TrangChuFM.MaNH);
         call.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
                 List<MonAn> arr = (List<MonAn>) response.body();
-                Log.d("arr", arr.size() + "");
-                StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
-                fmBinding.rvMonAnNhaHangChiTiet.setLayoutManager(staggeredGridLayoutManager);
-                MonAnAdapter adapter = new MonAnAdapter(arr, getContext());
-                fmBinding.rvMonAnNhaHangChiTiet.setAdapter(adapter);
-                dismissProgressDialog();
+                if(arr != null){
+                    StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
+                    fmBinding.rvMonAnNhaHangChiTiet.setLayoutManager(staggeredGridLayoutManager);
+                    MonAnAdapter adapter = new MonAnAdapter(arr, getContext());
+                    fmBinding.rvMonAnNhaHangChiTiet.setAdapter(adapter);
+                    dismissProgressDialog();
+                }
             }
 
             @Override

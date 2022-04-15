@@ -15,23 +15,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.eaterydemo.R;
-import com.example.eaterydemo.fragments.CCH_ItemQuanLyDanhSachMonAn;
-import com.example.eaterydemo.fragments.CCH_QuanLyNhaHangFMDirections;
-import com.example.eaterydemo.model.KhuyenMai;
-import com.example.eaterydemo.model.Message;
 import com.example.eaterydemo.model.MonAn;
 import com.example.eaterydemo.service.ServiceAPI;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;

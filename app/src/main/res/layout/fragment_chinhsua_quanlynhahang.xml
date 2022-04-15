@@ -23,18 +23,6 @@
             android:layout_height="wrap_content"
             android:src="@drawable/qlnhahang" />
 
-<!--        <TextView-->
-<!--            android:id="@+id/tvFullName"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_below="@+id/ivAvatar_EditQLNhaHang"-->
-<!--            android:layout_centerHorizontal="true"-->
-<!--            android:layout_marginTop="10dp"-->
-<!--            android:fontFamily="@font/montserrat_medium"-->
-<!--            android:text="TÊN NHÀ HÀNG"-->
-
-<!--            android:textColor="#000"-->
-<!--            android:textSize="10pt" />-->
 
         <EditText
             android:id="@+id/edtTenTKChuNhaHang"
@@ -48,15 +36,15 @@
             android:layout_marginBottom="10dp"
             android:fontFamily="@font/montserrat_regular"
             android:gravity=""
+            android:hint="Tên nhà hàng"
             android:inputType="textAutoComplete"
             android:padding="10dp"
             android:singleLine="true"
-            android:text="Tên TK chủ nhà hàng"
             android:textColor="@color/black"
             android:textColorHint="@color/black" />
 
         <EditText
-            android:id="@+id/edtTenChuCuaHang"
+            android:id="@+id/edtTenNhaHang"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/edtTenTKChuNhaHang"
@@ -78,7 +66,7 @@
             android:id="@+id/edtDiaChiEditQLNhaHang"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/edtTenChuCuaHang"
+            android:layout_below="@+id/edtTenNhaHang"
             android:layout_centerHorizontal="true"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
@@ -89,7 +77,7 @@
             android:inputType="textAutoComplete"
             android:padding="10dp"
             android:singleLine="true"
-            android:text="Địa chỉ"
+            android:hint="Địa chỉ"
             android:textColor="@color/black"
             android:textColorHint="@color/black" />
 
@@ -108,34 +96,16 @@
             android:inputType="textAutoComplete"
             android:padding="10dp"
             android:singleLine="true"
-            android:text="Mô tả"
+            android:hint="Mô tả"
             android:textColor="@color/black"
             android:textColorHint="@color/black" />
 
-        <EditText
-            android:id="@+id/edtMaLoaiEditQLNhaHang"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/edtMoTaEditQLNhaHang"
-            android:layout_centerHorizontal="true"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="10dp"
-            android:fontFamily="@font/montserrat_regular"
-            android:gravity=""
-            android:inputType="textAutoComplete"
-            android:padding="10dp"
-            android:singleLine="true"
-            android:text="Mã loại nhà hàng"
-            android:textColor="@color/black"
-            android:textColorHint="@color/black" />
 
         <ImageView
             android:id="@+id/btnChinhSua"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/edtMaLoaiEditQLNhaHang"
+            android:layout_below="@+id/edtMoTaEditQLNhaHang"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
             android:src="@drawable/editprofile_btn_chinhsua" />

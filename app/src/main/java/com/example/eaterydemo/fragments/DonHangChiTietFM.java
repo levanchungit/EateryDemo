@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
+import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
@@ -55,7 +56,6 @@ public class DonHangChiTietFM extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         tvTenNhaHang_DHChiTiet = view.findViewById(R.id.tvTenNhaHang_DHChiTiet);
-        tvNgayMuaDHChiTiet = view.findViewById(R.id.tvNgayMuaDHChiTiet);
         tvTongTien_DHChiTiet = view.findViewById(R.id.tvTongTien_DHChiTiet);
         tvMaDH_DHChiTiet = view.findViewById(R.id.tvMaDH_DHChiTiet);
         tvTenKH_DHChiTiet = view.findViewById(R.id.tvTenKH_DHChiTiet);
@@ -63,9 +63,19 @@ public class DonHangChiTietFM extends Fragment {
         tvDiaChi_DHChiTiet = view.findViewById(R.id.tvDiaChi_DHChiTiet);
 
         recieverDataDonHang();
+        initClick();
 
 
+    }
 
+    private void initClick() {
+        fmBinding.imgBackDonHang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavDirections action = DonHangChiTietFMDirections.actionDonHangChiTietFMToDonHangFM();
+                Navigation.findNavController(view).navigate(action);
+            }
+        });
     }
 
     private void recieverDataDonHang() {
@@ -75,9 +85,8 @@ public class DonHangChiTietFM extends Fragment {
         arrDHCT = donHang.getDONHANGCHITIETs();
         taiKhoan = donHang.getTAIKHOAN();
         tvTenNhaHang_DHChiTiet.setText(donHang.getNameRes());
-        tvNgayMuaDHChiTiet.setText(donHang.getNgayMua());
         tvTongTien_DHChiTiet.setText(df.format(donHang.getTongTien())+"đ");
-        tvMaDH_DHChiTiet.setText(donHang.getMaDonHang()+"");
+        tvMaDH_DHChiTiet.setText("#000"+donHang.getMaDonHang());
         tvTenKH_DHChiTiet.setText(taiKhoan.getHoTen());
         tvDiaChi_DHChiTiet.setText(donHang.getDiaChi());
         tvSDT_DHChiTiet.setText(taiKhoan.getSDT()+"");

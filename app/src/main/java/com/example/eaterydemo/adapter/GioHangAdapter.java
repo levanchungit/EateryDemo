@@ -4,6 +4,7 @@ import static com.example.eaterydemo.others.ShowNotifyUser.dismissProgressDialog
 import static com.example.eaterydemo.service.GetRetrofit.getRetrofit;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,21 +13,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.navigation.NavDirections;
-import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.eaterydemo.R;
-import com.example.eaterydemo.fragments.NhaHangChiTietFMDirections;
-import com.example.eaterydemo.model.DonHang;
 import com.example.eaterydemo.model.DonHangChiTiet;
-import com.example.eaterydemo.model.MonAn;
 import com.example.eaterydemo.service.ServiceAPI;
 
-import org.w3c.dom.Text;
-
+import java.text.NumberFormat;
 import java.util.List;
+import java.util.Locale;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -34,18 +30,28 @@ import retrofit2.Response;
 
 public class GioHangAdapter extends RecyclerView.Adapter<GioHangAdapter.ViewHolder> {
 
-
     List<DonHangChiTiet> arr;
+    List<DonHangChiTiet> arrDHCT;
     Context context;
+    TextView txtTongTienThanhToan, txtTongThanhToan;
+    int MaDH;
+    int SL = 0;
+    //chuyển đổi đơn vị tiền tệ
+    Locale localeVN = new Locale("vi", "VN");
+    NumberFormat currencyVN = NumberFormat.getCurrencyInstance(localeVN);
+    String tanghoacgiam = "";
 
-    public GioHangAdapter(List<DonHangChiTiet> arr, Context context) {
+    public GioHangAdapter(List<DonHangChiTiet> arr, Context context, TextView txtTongTienThanhToan, TextView txtTongThanhToan) {
         this.arr = arr;
         this.context = context;
+        this.txtTongTienThanhToan = txtTongTienThanhToan;
+        this.txtTongThanhToan = txtTongThanhToan;
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         ImageView img_ItemMonAnGioHang, img_TangSoLuong, img_GiamSoLuong, img_HuyMonAn;
         TextView txt_TenMonAn, txt_GiaMonAn, txt_SoLuong;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             txt_TenMonAn = itemView.findViewById(R.id.txt_TenMonAn_ItemThanhToan);
@@ -57,31 +63,31 @@ public class GioHangAdapter extends RecyclerView.Adapter<GioHangAdapter.ViewHold
             img_HuyMonAn = itemView.findViewById(R.id.img_Cancel_ItemThanhToan);
         }
 
-        public ImageView getimg_ItemMonAnGioHang(){
+        public ImageView getimg_ItemMonAnGioHang() {
             return img_ItemMonAnGioHang;
         }
 
-        public ImageView getimg_TangSoLuong(){
+        public ImageView getimg_TangSoLuong() {
             return img_TangSoLuong;
         }
 
-        public ImageView getimg_GiamSoLuong(){
+        public ImageView getimg_GiamSoLuong() {
             return img_GiamSoLuong;
         }
 
-        public TextView gettxt_TenMonAn(){
+        public TextView gettxt_TenMonAn() {
             return txt_TenMonAn;
         }
 
-        public TextView gettxt_GiaMonAn(){
+        public TextView gettxt_GiaMonAn() {
             return txt_GiaMonAn;
         }
 
-        public TextView gettxt_SoLuong(){
+        public TextView gettxt_SoLuong() {
             return txt_SoLuong;
         }
 
-        public ImageView getimg_cancle(){
+        public ImageView getimg_cancle() {
             return img_HuyMonAn;
         }
     }
@@ -100,6 +106,8 @@ public class GioHangAdapter extends RecyclerView.Adapter<GioHangAdapter.ViewHold
         DonHangChiTiet model = arr.get(position);
         int sl = (int) model.getSL();
         int i = (int) model.getGiaMA();
+        MaDH = model.getMaDHCT();
+
         ImageView img_ItemMonAnGioHang = holder.getimg_ItemMonAnGioHang();
         ImageView img_TangSoLuong = holder.getimg_TangSoLuong();
         ImageView img_GiamSoLuong = holder.getimg_GiamSoLuong();
@@ -107,15 +115,48 @@ public class GioHangAdapter extends RecyclerView.Adapter<GioHangAdapter.ViewHold
         TextView txt_TenMonAn = holder.gettxt_TenMonAn();
         TextView txt_GiaMonAn = holder.gettxt_GiaMonAn();
         TextView txt_SoLuong = holder.gettxt_SoLuong();
+
+        String str1 = currencyVN.format(i);
+
         Glide.with(context).load(model.getHinhAnh()).centerCrop().into(img_ItemMonAnGioHang);
         txt_TenMonAn.setText(model.getTenMA());
-        txt_GiaMonAn.setText(i + " đ");
+        txt_GiaMonAn.setText(str1);
         txt_SoLuong.setText(sl + "");
+
+
+//      Cập nhật số lượng món ăn trong giỏ hàng
+
 
         //Giảm số lượng
         img_GiamSoLuong.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                tanghoacgiam = "giam";
+                SL = (Integer.parseInt(txt_SoLuong.getText().toString()));
+                Log.d("so luong", SL - 1 +"");
+                txt_SoLuong.setText(SL - 1 +"");
+                Log.d("MaDHCT, MAMA", model.getMaDHCT() + "," +model.getMaMA());
+                ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
+                Call call = serviceAPI.CapNhatSoLuongTangGiamMonAn(model.getMaDHCT(), model.getMaMA(), tanghoacgiam);
+                call.enqueue(new Callback() {
+                    @Override
+                    public void onResponse(Call call, Response response) {
+                        Double tongtien = (Double) response.body();
+                        if (tongtien == 1314){
+                            XoaMonAnTrongDonHang(model.getMaDHCT(), model.getMaMA());
+                        }
+                        String str1 = currencyVN.format(tongtien);
+                        txtTongTienThanhToan.setText(str1);
+                        txtTongThanhToan.setText(str1);
+
+                    }
+
+                    @Override
+                    public void onFailure(Call call, Throwable t) {
+                        dismissProgressDialog();
+                        Toast.makeText(context, "Lỗi", Toast.LENGTH_SHORT).show();
+                    }
+                });
 
             }
         });
@@ -124,6 +165,28 @@ public class GioHangAdapter extends RecyclerView.Adapter<GioHangAdapter.ViewHold
         img_TangSoLuong.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                tanghoacgiam = "tang";
+                SL = (Integer.parseInt(txt_SoLuong.getText().toString()));
+                Log.d("so luong", SL + 1 + "");
+                txt_SoLuong.setText(SL + 1 +"");
+                Log.d("MaDHCT, MAMA", model.getMaDHCT() + "," +model.getMaMA());
+                ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
+                Call call = serviceAPI.CapNhatSoLuongTangGiamMonAn(model.getMaDHCT(), model.getMaMA(), tanghoacgiam);
+                call.enqueue(new Callback() {
+                    @Override
+                    public void onResponse(Call call, Response response) {
+                        Double tongtien = (Double) response.body();
+                        String str1 = currencyVN.format(tongtien);
+                        txtTongTienThanhToan.setText(str1);
+                        txtTongThanhToan.setText(str1);
+                    }
+
+                    @Override
+                    public void onFailure(Call call, Throwable t) {
+                        dismissProgressDialog();
+                        Toast.makeText(context, "Lỗi", Toast.LENGTH_SHORT).show();
+                    }
+                });
 
             }
         });
@@ -132,13 +195,61 @@ public class GioHangAdapter extends RecyclerView.Adapter<GioHangAdapter.ViewHold
         img_HuyMonAN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                int _MaDHCT = model.getMaDHCT();
+                int _MaMA = model.getMaMA();
+                XoaMonAnTrongDonHang(_MaDHCT, _MaMA);
             }
         });
     }
 
+
     @Override
     public int getItemCount() {
         return arr.size();
+    }
+
+    private void XoaMonAnTrongDonHang(int MaDHCT, int MaMA) {
+        ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
+        Call call = serviceAPI.XoaMonAnTrongDonHang(MaDHCT, MaMA);
+        call.enqueue(new Callback() {
+            @Override
+            public void onResponse(Call call, Response response) {
+                arrDHCT = (List<DonHangChiTiet>) response.body();
+                refresh();
+            }
+
+            @Override
+            public void onFailure(Call call, Throwable t) {
+                dismissProgressDialog();
+                Toast.makeText(context, "Lỗi", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void GetTongTienCuaDonHang() {
+        ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
+        Call call = serviceAPI.GetTongTienCuaDonHang(MaDH);
+        call.enqueue(new Callback() {
+            @Override
+            public void onResponse(Call call, Response response) {
+                double TongTien = (double) response.body();
+                String str1 = currencyVN.format(TongTien);
+                txtTongTienThanhToan.setText(str1);
+                txtTongThanhToan.setText(str1);
+            }
+
+            @Override
+            public void onFailure(Call call, Throwable t) {
+                dismissProgressDialog();
+                Toast.makeText(context, "Lỗi", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    public void refresh() {
+        arr.clear();
+        arr.addAll(arrDHCT);
+        GetTongTienCuaDonHang();
+        notifyDataSetChanged();
     }
 }

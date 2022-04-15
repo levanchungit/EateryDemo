@@ -8,6 +8,7 @@ public class TaiKhoan {
     private String DiaChi;
     private String HinhAnh;
     private String VaiTro;
+    private  boolean isDelete;
 
     public TaiKhoan(String tenTK, String matKhau, String hoTen, String SDT, String diaChi, String hinhAnh, String vaiTro) {
         TenTK = tenTK;
@@ -17,6 +18,17 @@ public class TaiKhoan {
         DiaChi = diaChi;
         HinhAnh = hinhAnh;
         VaiTro = vaiTro;
+    }
+
+    public TaiKhoan(String tenTK, String matKhau, String hoTen, String SDT, String diaChi, String hinhAnh, String vaiTro, boolean isDelete) {
+        TenTK = tenTK;
+        MatKhau = matKhau;
+        HoTen = hoTen;
+        this.SDT = SDT;
+        DiaChi = diaChi;
+        HinhAnh = hinhAnh;
+        VaiTro = vaiTro;
+        this.isDelete = isDelete;
     }
 
     public TaiKhoan() {
@@ -77,4 +89,8 @@ public class TaiKhoan {
     public void setVaiTro(String vaiTro) {
         VaiTro = vaiTro;
     }
+
+    public boolean isDelete() { return isDelete; }
+
+    public void setDelete(boolean delete) { isDelete = delete; }
 }

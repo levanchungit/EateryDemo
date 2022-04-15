@@ -20,11 +20,13 @@ import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 
 import com.bumptech.glide.Glide;
+import com.example.eaterydemo.R;
 import com.example.eaterydemo.activities.DrawerLayoutActivity;
 import com.example.eaterydemo.databinding.FragmentThongtinBinding;
 import com.example.eaterydemo.model.Message;
 import com.example.eaterydemo.model.TaiKhoan;
 import com.example.eaterydemo.service.ServiceAPI;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -39,6 +41,9 @@ public class ThongTinFM extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         fmProfileBinding = FragmentThongtinBinding.inflate(getLayoutInflater());
+
+
+
         initClick();
         GetThongTin(DangNhapFM.TENTK);
         initNavController(container);
@@ -88,6 +93,21 @@ public class ThongTinFM extends Fragment {
                 navController.navigate(action);
             }
         });
+
+        fmProfileBinding.ivDangXuat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getActivity().finish();
+            }
+        });
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        //tắt bottom navigation
+        BottomNavigationView navbar = getActivity().findViewById(R.id.navBot);
+        navbar.setVisibility(View.VISIBLE);
     }
 
     private void GetThongTin(String _TenTK) {
@@ -98,9 +118,11 @@ public class ThongTinFM extends Fragment {
             @Override
             public void onResponse(Call call, Response response) {
                 TaiKhoan taikhoan = (TaiKhoan) response.body();
-                fmProfileBinding.ivTen.setText(taikhoan.getHoTen());
-                Glide.with(getContext()).load(taikhoan.getHinhAnh()).centerCrop().into(fmProfileBinding.ivAvatarProfile);
-                dismissProgressDialog();
+                if (taikhoan != null) {
+                    fmProfileBinding.ivTen.setText(taikhoan.getHoTen());
+                    Glide.with(getContext()).load(taikhoan.getHinhAnh()).centerCrop().into(fmProfileBinding.ivAvatarProfile);
+                    dismissProgressDialog();
+                }
             }
 
             @Override

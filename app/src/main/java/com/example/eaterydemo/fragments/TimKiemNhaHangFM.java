@@ -14,15 +14,16 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.NavController;
 import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import com.example.eaterydemo.adapter.NhaHangHCNAdapter;
+import com.example.eaterydemo.R;
+import com.example.eaterydemo.adapter.NhaHangHCNTimKiemAdapter;
 import com.example.eaterydemo.databinding.FragmentTimkiemnhahangBinding;
 import com.example.eaterydemo.model.NhaHang;
 import com.example.eaterydemo.service.ServiceAPI;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.List;
 
@@ -33,15 +34,17 @@ import retrofit2.Response;
 
 public class TimKiemNhaHangFM extends Fragment {
     FragmentTimkiemnhahangBinding fmBinding;
-    NavController navController;
-    NhaHangHCNAdapter adapter;
+    NhaHangHCNTimKiemAdapter adapter;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         fmBinding = FragmentTimkiemnhahangBinding.inflate(getLayoutInflater());
         initClick();
-        initNavController(container);
+
+        //tắt bottom navigation
+        BottomNavigationView navbar = getActivity().findViewById(R.id.navBot);
+        navbar.setVisibility(View.GONE);
 
         getAllNhaHang();
         fmBinding.svTimKiemTimKiemNhaHang.requestFocus();
@@ -49,18 +52,7 @@ public class TimKiemNhaHangFM extends Fragment {
         return fmBinding.getRoot();
     }
 
-    private void initNavController(View viewFmProfileBinding) {
-        navController = Navigation.findNavController(viewFmProfileBinding);
-    }
-
     private void initClick() {
-        fmBinding.ivBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                NavDirections action = TimKiemNhaHangFMDirections.actionTimKiemNhaHangFMToMenuTrangChu2();
-                navController.navigate(action);
-            }
-        });
 
         fmBinding.svTimKiemTimKiemNhaHang.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -74,16 +66,24 @@ public class TimKiemNhaHangFM extends Fragment {
                 return false;
             }
         });
+
+        fmBinding.ivBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavDirections action = TimKiemNhaHangFMDirections.actionTimKiemNhaHangFMToMenuTrangChu();
+                Navigation.findNavController(view).navigate(action);
+            }
+        });
     }
 
     private void getAllNhaHang() {
         ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
-        Call call = serviceAPI.GetAllNhaHang();
+        Call call = serviceAPI.GetAllNhaHangChuaXoa();
         call.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
                 List<NhaHang> arr = (List<NhaHang>) response.body();
-                adapter = new NhaHangHCNAdapter(arr, getContext());
+                adapter = new NhaHangHCNTimKiemAdapter(arr, getContext());
                 fmBinding.rvTimKiemNhaHangTrangChu.setAdapter(adapter);
                 fmBinding.rvTimKiemNhaHangTrangChu.setLayoutManager(new LinearLayoutManager(getContext()));
                 dismissProgressDialog();

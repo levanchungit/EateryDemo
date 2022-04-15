@@ -18,6 +18,7 @@ import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 
 import com.bumptech.glide.Glide;
+import com.example.eaterydemo.activities.ChuCuaHangActivity;
 import com.example.eaterydemo.databinding.FragmentOwnerQuanlynhahangBinding;
 import com.example.eaterydemo.model.NhaHang;
 import com.example.eaterydemo.service.ServiceAPI;
@@ -45,11 +46,12 @@ public class CCH_QuanLyNhaHangFM extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        initClick();
+
         initNavController(_view);
 
         showProgressDialog(getContext(), "Đang tải dữ liệu");
-        getChuCuaHang();
+        GetThongTinNhaHang();
+        initClick();
     }
 
     private void initNavController(View viewFmProfileBinding) {
@@ -57,14 +59,26 @@ public class CCH_QuanLyNhaHangFM extends Fragment {
     }
 
     private void initClick() {
-        fmBinding.tvThongTinChuCuaHangCCHQuanLyNhaHang.setOnClickListener(new View.OnClickListener() {
+        fmBinding.ivQuanLyDonhangCCHQuanLyNhaHang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavDirections action = CCH_QuanLyNhaHangFMDirections.actionCCHQuanLyNhaHangFMToCCHChinhSuaThongTinNhaHangFM3();
+                NavDirections action = CCH_QuanLyNhaHangFMDirections.actionCCHQuanLyNhaHangFMToCCHQuanLyDonHangFM();
                 navController.navigate(action);
             }
         });
-
+        fmBinding.ivThongKeCCHQuanLyNhaHang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavDirections directions = CCH_QuanLyNhaHangFMDirections.actionCCHQuanLyNhaHangFMToThongKeFM();
+                navController.navigate(directions);
+            }
+        });
+        fmBinding.ivDangXuatCCHQuanLyNhaHang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getActivity().finish();
+            }
+        });
         fmBinding.ivQuanLyDanhSachMonAnCCHQuanLyNhaHang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -72,7 +86,6 @@ public class CCH_QuanLyNhaHangFM extends Fragment {
                 navController.navigate(action);
             }
         });
-
 
 
         fmBinding.tvThongTinChuCuaHangCCHQuanLyNhaHang.setOnClickListener(new View.OnClickListener() {
@@ -100,10 +113,9 @@ public class CCH_QuanLyNhaHangFM extends Fragment {
                 navController.navigate(action);
             }
         });
-
     }
 
-    private void getChuCuaHang() {
+    private void GetThongTinNhaHang() {
         ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
         Call call = serviceAPI.GetNhaHangTheoTenTK(DangNhapFM.TENTK);
         call.enqueue(new Callback() {

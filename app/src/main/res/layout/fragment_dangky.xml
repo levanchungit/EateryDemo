@@ -26,33 +26,42 @@
                 android:id="@+id/ivBack"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:layout_margin="10dp"
                 android:layout_gravity="left"
+                android:layout_margin="10dp"
                 android:src="@drawable/ic_back_black"
                 app:layout_constraintStart_toStartOf="@+id/scrollView2"
                 app:layout_constraintTop_toTopOf="@+id/scrollView2" />
 
-            <ImageView
-                android:id="@+id/imgImage_DangKy"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                android:layout_gravity="center"
-                android:src="@drawable/img_error" />
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvImage_DangKy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="12dp"
+                app:cardCornerRadius="100dp">
+
+                <ImageView
+                    android:id="@+id/imgImage_DangKy"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/img_error" />
+            </androidx.cardview.widget.CardView>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/tilEmail_DangNhap"
-                android:layout_width="300dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="30dp"
+                android:id="@+id/tilEmail_DangKy"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="300dp"
+                android:layout_height="75dp"
+                android:layout_marginTop="30dp"
                 android:textColor="@color/white"
                 app:boxBackgroundMode="outline"
                 app:boxCornerRadiusBottomEnd="10dp"
-                app:boxCornerRadiusTopEnd="10dp"
                 app:boxCornerRadiusBottomStart="10dp"
+                app:boxCornerRadiusTopEnd="10dp"
                 app:boxCornerRadiusTopStart="10dp"
-                app:boxStrokeColor="#000"
-                >
+                app:boxStrokeColor="#000">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edtEmail_DangKy"
@@ -68,18 +77,17 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/tilMatKhau_DangKy"
-                android:layout_width="300dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="4dp"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="300dp"
+                android:layout_height="75dp"
+                android:layout_marginTop="4dp"
                 android:textColor="@color/white"
                 app:boxBackgroundMode="outline"
                 app:boxCornerRadiusBottomEnd="10dp"
-                app:boxCornerRadiusTopEnd="10dp"
                 app:boxCornerRadiusBottomStart="10dp"
+                app:boxCornerRadiusTopEnd="10dp"
                 app:boxCornerRadiusTopStart="10dp"
-                app:boxStrokeColor="#000"
-                >
+                app:boxStrokeColor="#000">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edtMatKhau_DangKy"
@@ -94,18 +102,17 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/tilNhapLaiMatKhau_DangKy"
-                android:layout_width="300dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="4dp"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="300dp"
+                android:layout_height="75dp"
+                android:layout_marginTop="4dp"
                 android:textColor="@color/white"
                 app:boxBackgroundMode="outline"
                 app:boxCornerRadiusBottomEnd="10dp"
-                app:boxCornerRadiusTopEnd="10dp"
                 app:boxCornerRadiusBottomStart="10dp"
+                app:boxCornerRadiusTopEnd="10dp"
                 app:boxCornerRadiusTopStart="10dp"
-                app:boxStrokeColor="#000"
-                >
+                app:boxStrokeColor="#000">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edtNhapLaiMatKhau_DangKy"
@@ -120,18 +127,17 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/tilHoTen_DangKy"
-                android:layout_width="300dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="4dp"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="300dp"
+                android:layout_height="75dp"
+                android:layout_marginTop="4dp"
                 android:textColor="@color/white"
                 app:boxBackgroundMode="outline"
                 app:boxCornerRadiusBottomEnd="10dp"
-                app:boxCornerRadiusTopEnd="10dp"
                 app:boxCornerRadiusBottomStart="10dp"
+                app:boxCornerRadiusTopEnd="10dp"
                 app:boxCornerRadiusTopStart="10dp"
-                app:boxStrokeColor="#000"
-                >
+                app:boxStrokeColor="#000">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edtHoTen_DangKy"
@@ -146,18 +152,17 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/tilSdt_DangKy"
-                android:layout_width="300dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="4dp"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="300dp"
+                android:layout_height="75dp"
+                android:layout_marginTop="4dp"
                 android:textColor="@color/white"
                 app:boxBackgroundMode="outline"
                 app:boxCornerRadiusBottomEnd="10dp"
-                app:boxCornerRadiusTopEnd="10dp"
                 app:boxCornerRadiusBottomStart="10dp"
+                app:boxCornerRadiusTopEnd="10dp"
                 app:boxCornerRadiusTopStart="10dp"
-                app:boxStrokeColor="#000"
-                >
+                app:boxStrokeColor="#000">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edtSdt_DangKy"
@@ -172,18 +177,17 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/tilDiaChi_DangKy"
-                android:layout_width="300dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="4dp"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="300dp"
+                android:layout_height="75dp"
+                android:layout_marginTop="4dp"
                 android:textColor="@color/white"
                 app:boxBackgroundMode="outline"
                 app:boxCornerRadiusBottomEnd="10dp"
-                app:boxCornerRadiusTopEnd="10dp"
                 app:boxCornerRadiusBottomStart="10dp"
+                app:boxCornerRadiusTopEnd="10dp"
                 app:boxCornerRadiusTopStart="10dp"
-                app:boxStrokeColor="#000"
-                >
+                app:boxStrokeColor="#000">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edtDiaChi_DangKy"
@@ -200,91 +204,12 @@
                 android:id="@+id/btnLogin_DangKy"
                 android:layout_width="200dp"
                 android:layout_height="50dp"
-
                 android:layout_marginTop="30dp"
+                android:layout_marginBottom="30dp"
                 android:background="@drawable/buttonlogin"
                 android:text="Đăng ký"
-                android:textColor="@color/white"
-                 />
+                android:textColor="@color/white" />
 
         </LinearLayout>
     </ScrollView>
-
-
-
-
-    <!--    &lt;!&ndash;    //diachi&ndash;&gt;-->
-<!--    <TextView-->
-<!--        android:id="@+id/txtDiachi"-->
-<!--        android:layout_width="300dp"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginTop="510dp"-->
-<!--        android:text="Địa chỉ"-->
-<!--        android:textSize="15sp"-->
-<!--        android:textStyle="bold"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.505"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent" />-->
-
-<!--    <com.google.android.material.textfield.TextInputLayout-->
-<!--        android:id="@+id/textInputDiachi"-->
-<!--        android:layout_width="300dp"-->
-<!--        android:layout_height="50dp"-->
-<!--        android:layout_marginTop="4dp"-->
-<!--        android:background="@drawable/butonlogin"-->
-<!--        android:textColor="@color/white"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.494"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/txtDiachi">-->
-
-<!--        <com.google.android.material.textfield.TextInputEditText-->
-<!--            android:id="@+id/edtPassWord"-->
-<!--            android:layout_width="300dp"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:textSize="20sp"-->
-<!--            android:textStyle="bold"-->
-<!--            android:background="@drawable/butonlogin"-->
-<!--            android:hint="" />-->
-<!--    </com.google.android.material.textfield.TextInputLayout>-->
-
-
-<!--    <ImageView-->
-<!--        android:id="@+id/imggoogle"-->
-<!--        android:layout_width="70dp"-->
-<!--        android:layout_height="70dp"-->
-<!--        android:layout_marginTop="8dp"-->
-<!--        android:src="@drawable/google_logo"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.338"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/textInputDiachi" />-->
-
-<!--    <ImageView-->
-<!--        android:id="@+id/imgfacebook"-->
-<!--        android:layout_width="70dp"-->
-<!--        android:layout_height="70dp"-->
-<!--        android:layout_marginTop="8dp"-->
-<!--        android:src="@drawable/facebook_logo"-->
-
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.513"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/textInputDiachi" />-->
-
-<!--    <ImageView-->
-<!--        android:id="@+id/imgapple"-->
-<!--        android:layout_width="70dp"-->
-<!--        android:layout_height="70dp"-->
-<!--        android:layout_marginTop="8dp"-->
-
-<!--        android:src="@drawable/apple_logo"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.698"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/textInputDiachi" />-->
-
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
