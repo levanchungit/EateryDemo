@@ -13,10 +13,8 @@ import androidx.annotation.NonNull;
 import androidx.navigation.NavController;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
 import com.example.eaterydemo.R;
 import com.example.eaterydemo.model.DonHang;
-import com.example.eaterydemo.model.MonAn;
 
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
@@ -50,13 +48,12 @@ public class CCH_LichSuDonHangAdapter extends RecyclerView.Adapter<CCH_LichSuDon
         holder.tvTongTienVaSoLuong_DH_CCH.setText(model.getTongTien()+" | "+model.getCountSL()+"món");
         holder.tvTranThaiDH_CCH.setText(model.getTrangThaiDH()+"");
         String ngay = model.getNgayMua();
-        holder.tvNgayDH_CCH.setText(ngay.substring(0,10));
-
 
         TextView tvMaDH_CCH = holder.getTvMaDH();
         TextView tvTienSLMonDH_CCH = holder.getTvTienSLMonDH();
         TextView tvNgayDH = holder.getTvNgayDH();
         TextView tvTrangThai = holder.getTvTrangThaiDH();
+
 
         ImageView ivDoneDonHang = holder.getIvTrangThaiDH();
 //
@@ -65,6 +62,7 @@ public class CCH_LichSuDonHangAdapter extends RecyclerView.Adapter<CCH_LichSuDon
 //        tvSoLuongMon.setText(model.getCountSL() + " món");
 //        tvNgayDH.setText( model.getNgayMua());
 
+        tvNgayDH.setText(ngay.substring(0,10));
 
         int TT = model.getTrangThaiDH();
         if (TT == 3) {

@@ -9,7 +9,6 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,11 +24,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import com.example.eaterydemo.adapter.CCH_LichSuDonHangAdapter;
 import com.example.eaterydemo.databinding.FragmentCchLichsudonhangBinding;
 import com.example.eaterydemo.model.DonHang;
-import com.example.eaterydemo.model.KhuyenMai;
-import com.example.eaterydemo.model.MonAn;
 import com.example.eaterydemo.service.ServiceAPI;
 
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
 
@@ -58,6 +54,7 @@ public class CCH_LichSuDonHangFM extends Fragment {
 
             }
         });
+        fmBinding.txtdateLichSuCCH.setText("2022-03-21");
 
         fmBinding.txtdateLichSuCCH.addTextChangedListener(new TextWatcher() {
             @Override
@@ -67,13 +64,12 @@ public class CCH_LichSuDonHangFM extends Fragment {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                String ngay = fmBinding.txtdateLichSuCCH.toString().trim();
-                LichSuNhungDonHangTrong1NgayCuaNH(ngay);
+
             }
 
             @Override
             public void afterTextChanged(Editable editable) {
-
+                GetAllMonAnTheoNhaHang();
             }
         });
 
@@ -92,14 +88,12 @@ public class CCH_LichSuDonHangFM extends Fragment {
 
     private void GetAllMonAnTheoNhaHang() {
         String date = fmBinding.txtdateLichSuCCH.getText().toString().trim();
-        SimpleDateFormat ngay = new SimpleDateFormat("yyyy/MM/dd");
         ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
         Call call = serviceAPI.LichSuNhungDonHangTrong1NgayCuaNH(CCH_QuanLyNhaHangFM.MaNH,date);
         call.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
                 arr = (List<DonHang>) response.body();
-                Log.d("arr", arr.size() + "");
                 adapter = new CCH_LichSuDonHangAdapter(arr, getContext());
                 fmBinding.rvLichSuCCh.setAdapter(adapter);
                 fmBinding.rvLichSuCCh.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -134,26 +128,6 @@ public class CCH_LichSuDonHangFM extends Fragment {
 
         new DatePickerDialog(getContext() ,dateSetListener,calendar.get(calendar.YEAR),calendar.get(calendar.MONTH),calendar.get(calendar.DAY_OF_MONTH)).show();
     }
-
-    private void LichSuNhungDonHangTrong1NgayCuaNH(String NgayMua) {
-        ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
-        Call call = serviceAPI.LichSuNhungDonHangTrong1NgayCuaNH(CCH_QuanLyNhaHangFM.MaNH,NgayMua);
-        call.enqueue(new Callback() {
-            @Override
-            public void onResponse(Call call, Response response) {
-                arrThem = (List<DonHang>) response.body();
-//                refreshRecycler();
-                dismissProgressDialog();
-            }
-
-            @Override
-            public void onFailure(Call call, Throwable t) {
-                dismissProgressDialog();
-                Log.e("erroo", t.toString());
-            }
-        });
-    }
-
     private void refreshRecycler(){
         arr.clear();
         arr.addAll(arrThem);

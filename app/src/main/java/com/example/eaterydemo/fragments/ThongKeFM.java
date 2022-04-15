@@ -14,7 +14,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -25,20 +24,12 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.eaterydemo.R;
-import com.example.eaterydemo.adapter.DonHangAdapter;
 import com.example.eaterydemo.adapter.ThongKeAdapter;
-import com.example.eaterydemo.databinding.FragmentDonhangBinding;
 import com.example.eaterydemo.databinding.FragmentThongkeBinding;
-import com.example.eaterydemo.model.DonHang;
 import com.example.eaterydemo.model.ThongKe;
 import com.example.eaterydemo.service.ServiceAPI;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import java.text.DateFormatSymbols;
-import java.text.DecimalFormat;
 import java.text.NumberFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
@@ -226,7 +217,7 @@ public class ThongKeFM extends Fragment {
 
     private void thongKeTongDoanhThuTungMonAn() {
         ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
-        Call call = serviceAPI.GetTongDoanhThuCuaTungMonAnTheoNH(0);
+        Call call = serviceAPI.GetTongDoanhThuCuaTungMonAnTheoNH(CCH_QuanLyNhaHangFM.MaNH);
         call.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
