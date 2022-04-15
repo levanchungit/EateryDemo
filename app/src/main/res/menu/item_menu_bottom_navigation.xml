@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <item android:id="@+id/menu_TrangChu" android:title="Trang chủ" android:icon="@drawable/home_selector"/>
-    <item android:id="@+id/menu_YeuThich" android:title="Nhà hàng yêu thích" android:icon="@drawable/favorites_selector"/>
-    <item android:id="@+id/menu_ThanhToan" android:title="Thanh toán" android:icon="@drawable/cart_selector"/>
-    <item android:id="@+id/menu_ThongTin" android:title="Thông tin" android:icon="@drawable/profile_selector"/>
-</menu>
