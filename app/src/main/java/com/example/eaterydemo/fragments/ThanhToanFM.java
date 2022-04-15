@@ -279,8 +279,7 @@ public class ThanhToanFM extends Fragment {
 
                         int Sl = khuyenmai.getSL() - 1;
                         khuyenmai.setSL(Sl);
-//                        Log.d("maKM", khuyenmai.getSL()+"");
-//                        Log.d("maKM", Sl+"");
+
                         ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
                         Call call1 = serviceAPI.ChinhSuaMaKhuyenMaiTheoNH(khuyenmai);
                         call1.enqueue(new Callback() {
@@ -297,7 +296,8 @@ public class ThanhToanFM extends Fragment {
                         if (fmBinding.spPhuongThucThanhToan.getSelectedItemPosition() == 1) {
                             CreateOrder orderApi = new CreateOrder();
                             try {
-                                JSONObject data = orderApi.createOrder(DONHANG.getTongTien()+"");
+                                String amout = DONHANG.getTongTien()+"";
+                                JSONObject data = orderApi.createOrder(amout);
                                 String code = data.getString("returncode");
 
                                 if (code.equals("1")) {
