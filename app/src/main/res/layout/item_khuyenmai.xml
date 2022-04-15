@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="10dp" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/imgNhaHangKhuyenMai"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="12dp"
+                app:cardCornerRadius="70dp">
+
+                <ImageView
+                    android:id="@+id/imgMaKhuyen"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:scaleType="center"
+                    android:src="@drawable/demo_nhahang" />
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/txtTenKhuyenMai"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@+id/imgNhaHangKhuyenMai"
+                android:fontFamily="@font/montserrat_bold"
+                android:gravity="center"
+                android:text="Sài gòn giảm giá 50%"
+                android:textSize="18dp" />
+
+
+            <TextView
+                android:id="@+id/txtMa"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtTienKhuyenMaidialog"
+                android:layout_marginLeft="13dp"
+                android:layout_marginTop="-2dp"
+                android:layout_marginBottom="10dp"
+                android:layout_toRightOf="@id/imgNhaHangKhuyenMai"
+                android:background="@drawable/background_purple"
+                android:fontFamily="@font/montserrat_bold"
+                android:gravity="center"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="GGSG50"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
+
+
+            <TextView
+                android:id="@+id/txtSoLuongKhuyenMai"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtTenKhuyenMai"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/txtTienKhuyenMaidialog"
+                android:fontFamily="@font/montserrat_semibold"
+                android:layout_marginLeft="50dp"
+                android:text="SL: 10"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/txtTienKhuyenMaidialog"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtTenKhuyenMai"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_toRightOf="@+id/imgNhaHangKhuyenMai"
+                android:fontFamily="@font/montserrat_semibold"
+                android:text="Tiền"
+                android:textSize="15dp" />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/txtSoLuongKhuyenMai"
+                android:layout_marginLeft="50dp">
+
+                <ImageView
+                    android:id="@+id/imgEdit"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:clickable="true"
+                    app:srcCompat="@drawable/ic_baseline_create_24" />
+
+                <ImageView
+                    android:id="@+id/imgDelete"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_below="@id/imgEdit"
+                    android:clickable="true"
+                    app:srcCompat="@drawable/ic_baseline_delete_24" />
+
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>

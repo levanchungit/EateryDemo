@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/menu_TrangChu">
+                       <fragment
+        android:id="@+id/menu_ThongTin"
+        tools:layout="@layout/fragment_thongtin"
+        android:name="com.example.eaterydemo.fragments.ThongTinFM"
+        android:label="ProfileFM">
+        <action
+            android:id="@+id/action_profileFM_to_homeFM"
+            app:destination="@id/menu_TrangChu" />
+        <action
+            android:id="@+id/action_menu_ThongTin_to_doiMatKhauFM"
+            app:destination="@id/doiMatKhauFM" />
+        <action
+            android:id="@+id/action_menu_ThongTin_to_editProfileFM"
+            app:destination="@id/editProfileFM" />
+        <action
+            android:id="@+id/action_menu_ThongTin_to_phuongThucThanhToanFM"
+            app:destination="@id/phuongThucThanhToanFM" />
+        <action
+            android:id="@+id/action_menu_ThongTin_to_DonHangFM"
+            app:destination="@id/DonHangFM" />
+          <action
+              android:id="@+id/action_menu_ThongTin_to_veChungToiFM"
+              app:destination="@id/veChungToiFM" />
+      </fragment>
+    <fragment
+        android:id="@+id/editProfileFM"
+        tools:layout="@layout/fragment_chinhsua_thongtin"
+        android:name="com.example.eaterydemo.fragments.ChinhSuaThongTinFM"
+        android:label="EditProfileFM">
+        <action
+            android:id="@+id/action_editProfileFM_to_menu_ThongTin"
+            app:destination="@id/menu_ThongTin" />
+    </fragment>
+    <fragment
+        android:id="@+id/menu_TrangChu"
+        tools:layout="@layout/fragment_trangchu"
+        android:name="com.example.eaterydemo.fragments.TrangChuFM"
+
+        android:label="HomeFM" >
+        <action
+            android:id="@+id/action_homeFM_to_NhaHangFM"
+            app:destination="@id/NhaHangFM" />
+        <action
+            android:id="@+id/action_homeFM_to_profileFM2"
+            app:destination="@id/menu_ThongTin" />
+        <action
+            android:id="@+id/action_menu_TrangChu_to_timKiemNhaHangFM"
+            app:destination="@id/timKiemNhaHangFM" />
+        <action
+            android:id="@+id/action_menu_TrangChu_to_nhaHangChiTietFM"
+            app:destination="@id/nhaHangChiTietFM" />
+        <action
+            android:id="@+id/action_menu_TrangChu_to_nhaHangChiTietFM2"
+            app:destination="@id/nhaHangChiTietFM" />
+    </fragment>
+    <fragment
+        android:id="@+id/NhaHangFM"
+        tools:layout="@layout/fragment_nhahang"
+        android:name="com.example.eaterydemo.fragments.NhaHangFM"
+        android:label="LoaiNhaHangFM" >
+        <argument
+            android:name="maLoaiNH"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_NhaHangFM_to_nhaHangChiTietFM2"
+            app:destination="@id/nhaHangChiTietFM" />
+        <action
+            android:id="@+id/action_NhaHangFM_to_menu_TrangChu"
+            app:destination="@id/menu_TrangChu" />
+    </fragment>
+    <fragment
+        android:id="@+id/doiMatKhauFM"
+        tools:layout="@layout/fragment_doimatkhau"
+        android:name="com.example.eaterydemo.fragments.DoiMatKhauFM"
+        android:label="DoiMatKhauFM" />
+    <fragment
+        android:id="@+id/timKiemNhaHangFM"
+        tools:layout="@layout/fragment_timkiemnhahang"
+        android:name="com.example.eaterydemo.fragments.TimKiemNhaHangFM"
+        android:label="TimKiemNhaHangFM" >
+        <action
+            android:id="@+id/action_timKiemNhaHangFM_to_nhaHangChiTietFM"
+            app:destination="@id/nhaHangChiTietFM" />
+        <action
+            android:id="@+id/action_timKiemNhaHangFM_to_menu_TrangChu2"
+            app:destination="@id/menu_TrangChu" />
+    </fragment>
+    <fragment
+        android:id="@+id/nhaHangChiTietFM"
+        tools:layout="@layout/fragment_nhahangchitiet"
+        android:name="com.example.eaterydemo.fragments.NhaHangChiTietFM"
+        android:label="NhaHangChiTietFM" >
+        <action
+            android:id="@+id/action_nhaHangChiTietFM_to_NhaHangFM"
+            app:destination="@id/NhaHangFM" />
+        <argument
+            android:name="maNh"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_nhaHangChiTietFM_to_monAnChiTietFM"
+            app:destination="@id/monAnChiTietFM"
+            app:launchSingleTop="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/menu_YeuThich"
+        tools:layout="@layout/fragment_nhahangyeuthich"
+        android:name="com.example.eaterydemo.fragments.NhaHangYeuThichFM"
+        android:label="NhaHangYeuThichFM" >
+        <action
+            android:id="@+id/action_menu_YeuThich_to_nhaHangChiTietFM"
+            app:destination="@id/nhaHangChiTietFM" />
+    </fragment>
+    <fragment
+        android:id="@+id/menu_ThanhToan"
+        tools:layout="@layout/fragment_thanhtoan"
+        android:name="com.example.eaterydemo.fragments.ThanhToanFM"
+        android:label="ThanhToanFM" />
+    <fragment
+        android:id="@+id/thanhToanThanhCongFM"
+        tools:layout="@layout/fragment_thanhtoanthanhcong"
+        android:name="com.example.eaterydemo.fragments.ThanhToanThanhCongFM"
+        android:label="ThanhToanThanhCongFM" />
+    <fragment
+        android:id="@+id/DonHangFM"
+        tools:layout="@layout/fragment_donhang"
+        android:name="com.example.eaterydemo.fragments.DonHangFM"
+        android:label="DonHangFM" >
+        <action
+            android:id="@+id/action_DonHangFM_to_DonHangChiTietFM"
+            app:destination="@id/DonHangChiTietFM" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/DonHangChiTietFM"
+        tools:layout="@layout/fragment_chitietdonhang_nguoidung"
+        android:name="com.example.eaterydemo.fragments.DonHangChiTietFM"
+        android:label="DonHangChiTietFM" >
+        <argument
+            android:name="donhangchitiet"
+            app:argType="com.example.eaterydemo.model.DonHang" />
+    </fragment>
+    <fragment
+        android:id="@+id/phuongThucThanhToanFM"
+        tools:layout="@layout/fragment_phuongthucthanhtoan"
+        android:name="com.example.eaterydemo.fragments.PhuongThucThanhToanFM"
+        android:label="PhuongThucThanhToanFM" />
+    <fragment
+        android:id="@+id/veChungToiFM"
+        tools:layout="@layout/fragment_vechungtoi"
+        android:name="com.example.eaterydemo.fragments.VeChungToiFM"
+        android:label="VeChungToiFM" />
+            
+            
+    <fragment
+        android:id="@+id/monAnChiTietFM"
+        android:name="com.example.eaterydemo.fragments.MonAnChiTietFM"
+        android:label="MonAnChiTietFM" >
+        <argument
+            android:name="maNH"
+            app:argType="integer" />
+        <argument
+            android:name="maMA"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_monAnChiTietFM_self"
+            app:destination="@id/monAnChiTietFM" />
+    </fragment>
+</navigation>

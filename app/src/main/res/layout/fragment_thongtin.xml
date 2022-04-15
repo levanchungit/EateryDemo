@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#D4D4D4"
+        tools:context=".activities.ProfileActivity">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="221dp">
+
+            <ImageView
+                android:id="@+id/ivAnhNen"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="0dp"
+                android:background="#ABA0A0" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="33dp"
+                android:layout_marginLeft="33dp"
+                android:layout_marginTop="70dp"
+                android:layout_marginBottom="50dp"
+                app:cardCornerRadius="50dp">
+
+                <ImageView
+                    android:id="@+id/ivAvatar_Profile"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/avatar" />
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/ivTen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="150dp"
+                android:layout_marginTop="100dp"
+                android:layout_marginBottom="50dp"
+                android:fontFamily="@font/montserrat_medium"
+                android:text="Lalisa"
+                android:textColor="#FFF"
+                android:textSize="10pt" />
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/ivThongTin"
+            android:layout_gravity="center"
+            android:src="@drawable/item_thongtin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:id="@+id/ivDonHangCuaBan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/item_donhangcuaban" />
+
+        <ImageView
+            android:id="@+id/ivPhuongThucThanhToan"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/item_phuongthucthanhtoan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:id="@+id/ivVeChungToi"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/item_vechungtoi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:id="@+id/ivDoiMatKhau"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/item_doimatkhau"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:id="@+id/ivDangXuat"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/item_dangxuat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+</layout>

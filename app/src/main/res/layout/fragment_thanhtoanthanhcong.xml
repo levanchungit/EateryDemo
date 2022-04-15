@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ImageView
+        android:id="@+id/imgBack"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:clickable="true"
+        app:srcCompat="@drawable/ic_baseline_arrow_back_24" />
+
+    <ImageView
+        android:id="@+id/imgChecked"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imgBack"
+        android:layout_centerHorizontal="true"
+        app:srcCompat="@drawable/checked" />
+
+    <TextView
+        android:id="@+id/txtThongBaoCheckout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imgChecked"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="36dp"
+        android:text="Thanh toán thành công"
+        android:fontFamily="@font/montserrat_regular"
+        android:textSize="24dp" />
+
+    <TextView
+        android:id="@+id/txtThongBao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txtThongBaoCheckout"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:fontFamily="@font/montserrat_regular"
+        android:text="Eatery xin cảm ơn! \n Chúc quý khách ngon miệng"
+        android:textSize="12dp" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        app:cardElevation="10dp"
+        app:cardCornerRadius="20dp"
+        android:layout_margin="20dp"
+        app:cardBackgroundColor="@color/white"
+        android:layout_centerHorizontal="true"
+        app:cardPreventCornerOverlap="true"
+        android:layout_below="@id/txtThongBao" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/txtTitle1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="21dp"
+                android:layout_marginTop="20dp"
+                android:text="Tổng"
+                android:fontFamily="@font/montserrat_regular"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/txtTitle2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/txtTitle1"
+                android:layout_marginTop="14dp"
+                android:layout_marginLeft="21dp"
+                android:textSize="16dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="Vận chuyển" />
+
+            <TextView
+                android:id="@+id/txtTitle3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtTitle2"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="21dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="25dp"
+                android:text="Tổng tiền"
+                android:textSize="18dp"
+                android:fontFamily="@font/montserrat_extrabold"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtTong"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="21dp"
+                android:layout_alignParentRight="true"
+                android:textSize="16dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="608.000đ" />
+
+            <TextView
+                android:id="@+id/txtVanChuyen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="14dp"
+                android:layout_marginRight="21dp"
+                android:textSize="16dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:layout_below="@+id/txtTong"
+                android:text="20.000đ" />
+
+            <TextView
+                android:id="@+id/txtTongTien"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="50dp"
+                android:layout_marginRight="21dp"
+                android:layout_marginBottom="25dp"
+                android:textSize="18dp"
+                android:fontFamily="@font/montserrat_extrabold"
+                android:layout_below="@+id/txtVanChuyen"
+                android:text="628.000đ" />
+
+            <ImageView
+                android:id="@+id/line"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/txtVanChuyen"
+                android:layout_marginTop="20dp"
+                app:srcCompat="@drawable/line" />
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+
+</RelativeLayout>

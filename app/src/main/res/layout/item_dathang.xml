@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/Rl_donhang"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp">
+
+        <ImageView
+            android:id="@+id/ivDoneDonHang"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/ic_baseline_done_24" />
+
+        <TextView
+            android:id="@+id/tvTrangThaiDatHang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15dp"
+            android:layout_toRightOf="@+id/ivDoneDonHang"
+            android:text="Đã giao"
+            android:fontFamily="@font/montserrat_semibold"
+            android:textSize="20dp" />
+
+        <ImageView
+            android:id="@+id/ivDauCham_DH"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_toRightOf="@+id/tvTrangThaiDatHang"
+            android:src="@drawable/daucham_donhang" />
+
+        <TextView
+            android:id="@+id/tvNgayDatHang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/ivDauCham_DH"
+            android:text="16 tháng 4"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/tvTenNhaHangDatHang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvTrangThaiDatHang"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/montserrat_medium"
+            android:text="Cơm Tấm Và Bún Thịt Nướng_Sài Gòn"
+            android:textColor="@color/black"
+            android:textSize="18dp" />
+
+        <ImageView
+            android:id="@+id/ivDetailDatHang"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_below="@+id/tvNgayDatHang"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/ic_arrow_toright" />
+
+        <TextView
+            android:id="@+id/tvTienDatHang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvTenNhaHangDatHang"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="20dp"
+            android:text="50.000đ"
+            android:fontFamily="@font/montserrat_medium"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
+
+        <ImageView
+            android:id="@+id/ivDauChamDuoi_DH"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_toRightOf="@+id/tvTienDatHang"
+            android:layout_below="@+id/tvTenNhaHangDatHang"
+            android:src="@drawable/daucham_donhang" />
+
+        <TextView
+            android:id="@+id/tvSoMon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvTenNhaHangDatHang"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@+id/ivDauChamDuoi_DH"
+            android:text="5 món"
+            android:textColor="@color/black"
+            android:fontFamily="@font/montserrat_medium"
+            android:textSize="20dp" />
+
+
+    </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="20dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="QUẢN LÝ NHÀ HÀNG"
+        android:fontFamily="@font/montserrat_bold"
+        android:textColor="#000"
+        android:textSize="30dp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/ivImage_CCH_QuanLyNhaHang"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/qlnhahang" />
+
+    <TextView
+        android:id="@+id/tvTenNhaHang_CCH_QuanLyNhaHang"
+        android:layout_width="410dp"
+        android:layout_height="wrap_content"
+        android:text="TÊN NHÀ HÀNG"
+        android:fontFamily="@font/montserrat_bold"
+        android:textColor="#000"
+        android:paddingLeft="10dp"
+        android:textSize="26sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvDiaChi_CCH_QuanLyNhaHang"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_bold"
+        android:paddingLeft="10dp"
+        android:text="ĐỊA CHỈ"
+        android:textColor="#000"
+        android:textSize="26sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:id="@+id/tvThongTinChuCuaHang_CCH_QuanLyNhaHang"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:fontFamily="@font/montserrat_medium"
+            android:textColor="#000"
+            android:paddingLeft="10dp"
+            android:text="Thông tin chủ cửa hàng"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/tvTenChuCuaHang_CCH_QuanLyNhaHang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nguyễn Tuyết Trinh"
+            android:fontFamily="@font/montserrat_medium"
+            android:textColor="#000"
+            android:paddingLeft="10dp"
+            android:textSize="15dp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="19dp"
+            android:src="@drawable/ic_arrow_toright" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/ivQuanLyDonhang_CCH_QuanLyNhaHang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/item_chucuahang_qldonhang"
+            android:layout_marginBottom="5dp"/>
+
+        <ImageView
+            android:id="@+id/ivQuanLyDanhSachMonAn_CCH_QuanLyNhaHang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:src="@drawable/item_chucuahang_qldanhsachmonan"/>
+
+        <ImageView
+            android:id="@+id/ivQuanLyMaKhuyenMai_CCH_QuanLyNhaHang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:src="@drawable/item_chucuahahang_qlmakhuyenmai"/>
+        <ImageView
+            android:id="@+id/ivLichSuDonHang_CCH_QuanLyNhaHang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:src="@drawable/item_chucuahahang_lsdonhang"/>
+
+        <ImageView
+            android:id="@+id/ivDangXuat_CCH_QuanLyNhaHang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:src="@drawable/item_chucuahang_dangxuat"/>
+    </LinearLayout>
+</LinearLayout>

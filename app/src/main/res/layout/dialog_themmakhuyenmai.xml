@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="230dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="10dp" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tlChinhssua"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/montserrat_bold"
+                android:text="Chỉnh sửa mã khuyến mãi"
+                android:textColor="@color/black"
+                android:textSize="25sp" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/imgNhaHangKhuyenMai"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="12dp"
+                app:cardCornerRadius="70dp"
+                android:layout_below="@+id/tlChinhssua">
+
+                <ImageView
+                    android:id="@+id/imgMaKhuyen"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+
+                    android:scaleType="center"
+                    android:src="@drawable/demo_nhahang" />
+            </androidx.cardview.widget.CardView>
+
+            <EditText
+                android:id="@+id/txtTenKhuyenMaidialog"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tlChinhssua"
+
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/montserrat_bold"
+                android:gravity="center"
+                android:hint="Tên MaKM"
+                android:textSize="18dp" />
+
+
+            <EditText
+                android:id="@+id/txtThemMadialog"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtTenKhuyenMaidialog"
+
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/background_purple"
+                android:fontFamily="@font/montserrat_bold"
+                android:gravity="center"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:hint="Mã KM"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
+
+
+            <EditText
+                android:id="@+id/txtSoLuongKhuyenMaidialog"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tlChinhssua"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="11dp"
+                android:layout_marginLeft="23dp"
+                android:layout_marginTop="100dp"
+                android:layout_toEndOf="@+id/txtTenKhuyenMaidialog"
+                android:fontFamily="@font/montserrat_semibold"
+                android:hint="So lương"
+                android:textSize="15dp" />
+
+
+            <EditText
+                android:id="@+id/txtTienKhuyenMaidialog"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tlChinhssua"
+                android:layout_marginStart="21dp"
+                android:layout_marginLeft="23dp"
+                android:layout_marginTop="10dp"
+                android:layout_toEndOf="@+id/txtTenKhuyenMaidialog"
+                android:fontFamily="@font/montserrat_semibold"
+                android:hint="Tiền"
+                android:textSize="20sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:orientation="horizontal"
+                android:layout_below="@id/txtThemMadialog"
+                android:gravity="center_horizontal">
+
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnChinhSuadialog"
+                    android:layout_width="120dp"
+                    android:layout_height="50dp"
+
+                    android:background="@drawable/background_purple"
+                    android:text="Thêm"
+                    android:textColor="@color/white" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnHuydialog"
+                    android:layout_width="120dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="20dp"
+
+                    android:background="@drawable/background_purple"
+
+                    android:text="Hủy"
+                    android:textColor="@color/white"
+                    />
+
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+
+
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>
