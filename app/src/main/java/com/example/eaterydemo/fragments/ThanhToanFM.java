@@ -65,7 +65,6 @@ public class ThanhToanFM extends Fragment {
     List<KhuyenMai> arr2 = new ArrayList<>();
     String[] thanhtoan = {"VNĐ", "ZaLo Pay", "PayPal", "MoMo"};
     KhuyenMai khuyenmai = new KhuyenMai();
-    String amount = "10000";
 
     KhuyenMai km;
 
@@ -213,6 +212,8 @@ public class ThanhToanFM extends Fragment {
 
             }
         });
+
+
 
     }
 

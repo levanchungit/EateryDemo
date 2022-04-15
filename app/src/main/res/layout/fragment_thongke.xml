@@ -30,19 +30,27 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/llThongKe"
+        android:gravity="center"
         android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Từ | "
-            android:textSize="20dp" />
+            android:text="Từ |"
+            android:textSize="17dp" />
 
         <EditText
             android:id="@+id/edtTuNgay_ThongKe"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="13dp"
             android:hint="2021-04-06" />
+
+        <ImageView
+            android:id="@+id/ivDateTimePickerTuNgay"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/date"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -53,15 +61,20 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Đến | "
-                android:textSize="20dp" />
+                android:text="Đến |"
+                android:textSize="17dp" />
 
             <EditText
                 android:id="@+id/edtDenNgay_ThongKe"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="13dp"
                 android:hint="2022-04-08" />
-
+            <ImageView
+                android:id="@+id/ivDateTimePickerDenNgay"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/date"/>
         </LinearLayout>
 
 

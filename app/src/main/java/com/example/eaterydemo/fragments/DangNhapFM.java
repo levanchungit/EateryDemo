@@ -47,9 +47,8 @@ public class DangNhapFM extends Fragment {
         initClick();
         initNavController(container);
 
-        fmBinding.edtEmailDangNhap.setText("user2@gmail.com");
-        fmBinding.edtMatKhauDangNhap.setText("222");
-
+        fmBinding.edtEmailDangNhap.setText("chucuahang10@gmail.com");
+        fmBinding.edtMatKhauDangNhap.setText("123");
         return fmBinding.getRoot();
     }
 
@@ -58,7 +57,6 @@ public class DangNhapFM extends Fragment {
     }
 
     private void initClick() {
-
         fmBinding.btnLoginDangNhap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
