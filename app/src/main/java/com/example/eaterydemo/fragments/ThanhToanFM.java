@@ -183,7 +183,7 @@ public class ThanhToanFM extends Fragment {
                                 String str1 = currencyVN.format(i);
                                 fmBinding.txtTongTienThanhToan.setText(str1);
                                 khuyenmai = khuyenMai2;
-
+                                Toast.makeText(getContext(), "Đã áp dụng mã khuyến mãi giảm "+ khuyenMai2.getTienKM() + "%", Toast.LENGTH_SHORT).show();
                                 break;
                             } else {
                                 int i = (int) DONHANG.getTongTien();
@@ -295,9 +295,11 @@ public class ThanhToanFM extends Fragment {
                         });
                         if (fmBinding.spPhuongThucThanhToan.getSelectedItemPosition() == 1) {
                             CreateOrder orderApi = new CreateOrder();
+                            int tien = (int) DONHANG.getTongTien();
+                            Log.d("tien int : ", tien + "");
                             try {
-                                String amout = DONHANG.getTongTien()+"";
-                                JSONObject data = orderApi.createOrder(amout);
+
+                                JSONObject data = orderApi.createOrder(tien+"");
                                 String code = data.getString("returncode");
 
                                 if (code.equals("1")) {

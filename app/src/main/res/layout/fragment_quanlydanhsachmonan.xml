@@ -4,35 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="8dp"
+    android:padding="10dp"
     android:orientation="vertical">
 
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:src="@drawable/mdi_light_arrow_left"/>
+
 
     <TextView
         android:id="@+id/tvQuanLyDanhSachMonAn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Quản lý danh sách món ăn"
-        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
+        android:text="Quản lý danh sách món ăn"
         android:textAlignment="center"
-        android:textSize="25sp"
         android:textColor="@color/black"
-        />
+        android:textSize="25sp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvQuanLyDanhSachMonAn"
-        android:layout_below="@+id/tvQuanLyDanhSachMonAn"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvQuanLyDanhSachMonAn" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fadd_ThemMon"

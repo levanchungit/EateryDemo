@@ -27,15 +27,15 @@
 
                 <ImageView
                     android:id="@+id/ivImage_AdminQuanLy"
-                    android:layout_width="125dp"
-                    android:layout_height="125dp"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
                     android:scaleType="center"
                     android:src="@drawable/demo_nhahang" />
             </androidx.cardview.widget.CardView>
 
             <TextView
                 android:id="@+id/tv_AdminQuanly1"
-                android:layout_width="170dp"
+                android:layout_width="140dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="20dp"
@@ -48,7 +48,7 @@
 
             <TextView
                 android:id="@+id/tv_AdminQuanly2"
-                android:layout_width="wrap_content"
+                android:layout_width="140dp"
                 android:layout_height="18dp"
                 android:layout_below="@+id/tv_AdminQuanly1"
                 android:layout_marginBottom="5dp"
@@ -58,7 +58,7 @@
 
             <TextView
                 android:id="@+id/tv_AdminQuanly3"
-                android:layout_width="170dp"
+                android:layout_width="140dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tv_AdminQuanly2"
                 android:layout_marginBottom="10dp"
@@ -69,24 +69,24 @@
 
             <ImageView
                 android:id="@+id/img_EditAdminQuanLy"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                app:srcCompat="@drawable/ic_baseline_edit_24"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:layout_alignParentRight="true"
-                android:clickable="true"
                 android:layout_marginTop="20dp"
-                android:layout_marginRight="20dp"/>
+                android:layout_marginRight="10dp"
+                android:clickable="true"
+                app:srcCompat="@drawable/ic_baseline_edit_24" />
 
             <ImageView
                 android:id="@+id/img_DeleteAdminQuanLy"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                app:srcCompat="@drawable/ic_baseline_delete_24"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentBottom="true"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="47dp"
                 android:clickable="true"
-                android:layout_marginBottom="20dp"
-                android:layout_marginRight="20dp"/>
+                app:srcCompat="@drawable/ic_baseline_delete_24" />
 
         </RelativeLayout>
     </androidx.cardview.widget.CardView>

@@ -24,7 +24,9 @@ import com.example.eaterydemo.R;
 import com.example.eaterydemo.model.MonAn;
 import com.example.eaterydemo.service.ServiceAPI;
 
+import java.text.NumberFormat;
 import java.util.List;
+import java.util.Locale;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -59,7 +61,12 @@ public class CCH_Item_QuanLyDanhSachMonAnAdapter extends RecyclerView.Adapter<CC
 
         Glide.with(context).load(model.getHinhAnh()).into(holder.ivImage);
         holder.txtMonAn.setText(model.getTenMA());
-        holder.txtPrice.setText(model.getGia()+"");
+        int i = (int) model.getGia();
+        Locale localeVN = new Locale("vi", "VN");
+        NumberFormat currencyVN = NumberFormat.getCurrencyInstance(localeVN);
+        String str1 = currencyVN.format(i);
+        holder.txtPrice.setText(str1);
+//        holder.txtPrice.setText(model.getGia()+"");
         holder.imgUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

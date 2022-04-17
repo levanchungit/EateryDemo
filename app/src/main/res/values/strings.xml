@@ -1,7 +1,8 @@
 <resources>
     <string name="app_name">EateryDemo</string>
-    <string name="t1">Eatery với mong muốn "Giúp mọi người ăn ngon mọi lúc mọi nơi" đã giao hàng triệu món ăn yêu thích đến với khách hàng chỉ với một vài thao tác đơn giản.
+    <string name="t1"><b>Eatery</b> với mong muốn "Giúp mọi người ăn ngon mọi lúc mọi nơi" đã giao hàng triệu món ăn yêu thích đến với khách hàng chỉ với một vài thao tác đơn giản.
 </string>
+    <string name="t2"><b>Eatery</b> tin chắc rằng, với bề dày kinh nghiệm nhiều năm tại thị trường Hàn Quốc, công ty sẽ tạo nên mối liên kết hiệu quả giữa Đối tác Nhà hàng, Khách hàng và đội ngũ chuyên gia giao đồ ăn.></string>
     <string name="title_activity_home">HomeActivity</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
