@@ -100,7 +100,7 @@ public class ADM_ChinhSuaThongTinTaiKhoanFM extends Fragment {
                 Message message = (Message) response.body();
                 Toast.makeText(getContext(), message.getNotification(), Toast.LENGTH_SHORT).show();
                 Log.e("LOGIN",message.getNotification());
-                NavDirections action = ADM_ChinhSuaThongTinFMDirections.actionADMChinhSuaThongTinFMToAdminQuanLyTaiKhoanFM();
+                NavDirections action = ADM_ChinhSuaThongTinTaiKhoanFMDirections.actionADMChinhSuaThongTinTaiKhoanFMToAdminQuanLyTaiKhoanFM();
                 navController.navigate(action);
                 dismissProgressDialog();
             }

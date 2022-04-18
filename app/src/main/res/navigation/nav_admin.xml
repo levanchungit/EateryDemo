@@ -22,11 +22,11 @@
         android:label="AdminQuanLyTaiKhoanFM"
         tools:layout="@layout/fragment_admin_quanlytaikhoan">
         <action
-            android:id="@+id/action_adminQuanLyTaiKhoanFM_to_ADM_ChinhSuaThongTinFM"
-            app:destination="@id/ADM_ChinhSuaThongTinFM" />
-        <action
             android:id="@+id/action_adminQuanLyTaiKhoanFM_to_ADM_AddTaiKhoanFM"
             app:destination="@id/ADM_AddTaiKhoanFM" />
+        <action
+            android:id="@+id/action_adminQuanLyTaiKhoanFM_to_ADM_ChinhSuaThongTinTaiKhoanFM"
+            app:destination="@id/ADM_ChinhSuaThongTinTaiKhoanFM" />
     </fragment>
     <fragment
         android:id="@+id/ADM_QuanTriHeThongFM"
@@ -109,5 +109,19 @@
             app:destination="@id/adminQuanLyCuaHangFM"
             app:popUpTo="@id/adminQuanLyCuaHangFM"
             app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/ADM_ChinhSuaThongTinTaiKhoanFM"
+        android:name="com.example.eaterydemo.fragments.ADM_ChinhSuaThongTinTaiKhoanFM"
+        android:label="ADM_ChinhSuaThongTinTaiKhoanFM"
+        tools:layout="@layout/fragment_chinhsua_thongtin">
+        <action
+            android:id="@+id/action_ADM_ChinhSuaThongTinTaiKhoanFM_to_adminQuanLyTaiKhoanFM"
+            app:destination="@id/adminQuanLyTaiKhoanFM"
+            app:popUpTo="@id/adminQuanLyTaiKhoanFM"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="tenTk"
+            app:argType="string" />
     </fragment>
 </navigation>

@@ -97,6 +97,18 @@
                       </LayoutPositions>
                     </value>
                   </entry>
+                  <entry key="ADM_ChinhSuaThongTinTaiKhoanFM">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="526" />
+                            <option name="y" value="762" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
                   <entry key="ADM_DoiMatKhauFM">
                     <value>
                       <LayoutPositions>

@@ -92,7 +92,7 @@ public class AdminQuanLyTaiKhoanAdapter extends RecyclerView.Adapter<AdminQuanLy
             @Override
             public void onClick(View view) {
                 String tenTk = model.getTenTK();
-                NavDirections action = ADM_QuanLyTaiKhoanFMDirections.actionAdminQuanLyTaiKhoanFMToADMChinhSuaThongTinFM(tenTk);
+                NavDirections action = ADM_QuanLyTaiKhoanFMDirections.actionAdminQuanLyTaiKhoanFMToADMChinhSuaThongTinTaiKhoanFM(tenTk);
                 Navigation.findNavController(view).navigate(action);
             }
         });
