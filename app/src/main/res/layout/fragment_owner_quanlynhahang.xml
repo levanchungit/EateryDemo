@@ -24,7 +24,7 @@
 
     <TextView
         android:id="@+id/tvTenNhaHang_CCH_QuanLyNhaHang"
-        android:layout_width="410dp"
+        android:layout_width="370dp"
         android:layout_height="wrap_content"
         android:text="TÊN NHÀ HÀNG"
         android:fontFamily="@font/montserrat_bold"

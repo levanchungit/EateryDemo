@@ -120,7 +120,7 @@ public class ADM_QuanTriHeThongFM extends Fragment {
                 fmBinding.llDangXuatAdmin.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-
+                        getActivity().finish();
                     }
                 });
                 dismissProgressDialog();

@@ -98,7 +98,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/rv_DonHang_ThanhToan"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp">
 
@@ -202,28 +202,33 @@
 
                 <Spinner
                     android:id="@+id/spPhuongThucThanhToan"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_width="300dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginLeft="70dp"
                     android:layout_toRightOf="@+id/tvThanhToan" />
 
 
             </RelativeLayout>
 
-            <ImageView
-                android:id="@+id/img_ThanhToan_ThanhToan"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:layout_below="@id/rlPhuongThucThanhToan"
-                android:layout_alignParentRight="true"
-                app:srcCompat="@drawable/btn_thanhtoan" />
+            <TextView
+                android:id="@+id/tvTranThaiMaKhuyenMai"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rlPhuongThucThanhToan"
+                android:layout_marginLeft="20dp"
+                android:layout_marginBottom="4dp"
+                android:text="Nhập mã khuyến mãi của bạn nếu có"
+                android:textSize="16dp" />
 
             <EditText
                 android:id="@+id/edt_MaKhuyenMai_ThanhToan"
-                android:layout_width="140dp"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/rlPhuongThucThanhToan"
+                android:layout_below="@+id/tvTranThaiMaKhuyenMai"
                 android:layout_alignParentLeft="true"
                 android:layout_marginLeft="20dp"
+                android:layout_toLeftOf="@+id/img_ThanhToan_ThanhToan"
                 android:background="@drawable/bg_makhuyenmai"
                 android:fontFamily="@font/montserrat_semibold"
                 android:hint="Mã KM"
@@ -231,6 +236,13 @@
                 android:paddingRight="10dp"
                 android:paddingBottom="10dp" />
 
+            <ImageView
+                android:id="@+id/img_ThanhToan_ThanhToan"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_below="@id/tvTranThaiMaKhuyenMai"
+                android:layout_alignParentRight="true"
+                app:srcCompat="@drawable/btn_thanhtoan" />
 
         </RelativeLayout>
     </ScrollView>
