@@ -21,12 +21,11 @@
             android:id="@+id/ivAvatar_EditQLNhaHang"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
             android:src="@drawable/qlnhahang" />
 
 
         <EditText
-            android:id="@+id/edtTenChuNhaHang"
+            android:id="@+id/edtTenTKChuNhaHang"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/ivAvatar_EditQLNhaHang"
@@ -37,11 +36,10 @@
             android:layout_marginBottom="10dp"
             android:fontFamily="@font/montserrat_regular"
             android:gravity=""
-            android:hint="Tên chủ nhà hàng"
+            android:hint="Tên nhà hàng"
             android:inputType="textAutoComplete"
             android:padding="10dp"
             android:singleLine="true"
-            android:enabled="false"
             android:textColor="@color/black"
             android:textColorHint="@color/black" />
 
@@ -49,7 +47,7 @@
             android:id="@+id/edtTenNhaHang"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/edtTenChuNhaHang"
+            android:layout_below="@+id/edtTenTKChuNhaHang"
             android:layout_centerHorizontal="true"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
@@ -60,7 +58,7 @@
             android:inputType="textAutoComplete"
             android:padding="10dp"
             android:singleLine="true"
-            android:hint="Tên nhà hàng"
+            android:text="Họ Tên Chủ Cửa Hàng"
             android:textColor="@color/black"
             android:textColorHint="@color/black" />
 
@@ -104,7 +102,7 @@
 
 
         <ImageView
-            android:id="@+id/ivChinhSua_QuanLyNhaHang"
+            android:id="@+id/btnChinhSua"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/edtMoTaEditQLNhaHang"

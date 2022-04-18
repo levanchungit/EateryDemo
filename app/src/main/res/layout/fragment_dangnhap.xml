@@ -90,6 +90,7 @@
         android:id="@+id/imggoogle"
         android:layout_width="70dp"
         android:layout_height="70dp"
+        android:layout_marginRight="10dp"
         android:layout_marginTop="68dp"
         android:src="@drawable/google_logo"
         app:layout_constraintEnd_toStartOf="@id/imgfacebook"
@@ -101,7 +102,6 @@
         android:layout_height="70dp"
         android:layout_marginTop="68dp"
         android:src="@drawable/facebook_logo"
-
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tilMatKhau_DangNhap" />
@@ -110,6 +110,7 @@
         android:id="@+id/imgapple"
         android:layout_width="70dp"
         android:layout_height="70dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="68dp"
         android:src="@drawable/apple_logo"
         app:layout_constraintStart_toEndOf="@id/imgfacebook"
@@ -129,28 +130,27 @@
         app:layout_constraintTop_toBottomOf="@+id/imgfacebook" />
 
     <TextView
-        android:id="@+id/txtTaikhoan"
+        android:id="@+id/tvBanChuaCoTaiKhoan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="8dp"
         android:text="Bạn chưa có tài khoản?"
         android:textSize="15sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/tvDangKy_DangNhap"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@id/btnLogin_DangNhap"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnLogin_DangNhap" />
 
     <TextView
         android:id="@+id/tvDangKy_DangNhap"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="48dp"
         android:text="Đăng ký?"
         android:textColor="@color/black"
         android:textSize="15sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/btnLogin_DangNhap"
-        app:layout_constraintLeft_toRightOf="@id/txtTaikhoan"
+        app:layout_constraintLeft_toRightOf="@+id/tvBanChuaCoTaiKhoan"
         app:layout_constraintTop_toBottomOf="@+id/btnLogin_DangNhap" />
 </androidx.constraintlayout.widget.ConstraintLayout>

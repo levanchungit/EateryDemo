@@ -5,22 +5,42 @@ import org.jetbrains.annotations.NotNull;
 import java.util.List;
 
 public class KhuyenMai {
-    private String MaKM;
-    private int MaNH;
     private NhaHang NHAHANG;
-    private int SL;
-    private String TenMaKhuyenMai;
+    private String MaKM;
+    private String TenKhuyenMai;
     private int TienKM;
+    private int SL;
+    private int MaNH;
     private String HinhAnh;
 
-    public KhuyenMai(String maKM, int maNH, NhaHang NHAHANG, int SL, String tenMaKhuyenMai, int tienKM, String HinhAnh) {
-        MaKM = maKM;
-        MaNH = maNH;
+    public KhuyenMai(NhaHang NHAHANG, String maKM, String tenKhuyenMai, int tienKM, int SL, int maNH, String hinhAnh) {
         this.NHAHANG = NHAHANG;
-        this.SL = SL;
-        TenMaKhuyenMai = tenMaKhuyenMai;
+        MaKM = maKM;
+        TenKhuyenMai = tenKhuyenMai;
         TienKM = tienKM;
-        this.HinhAnh = HinhAnh;
+        this.SL = SL;
+        MaNH = maNH;
+        HinhAnh = hinhAnh;
+    }
+
+    public KhuyenMai(String maKM, String tenKhuyenMai, int tienKM, int SL, int maNH, String hinhAnh) {
+        MaKM = maKM;
+        TenKhuyenMai = tenKhuyenMai;
+        TienKM = tienKM;
+        this.SL = SL;
+        MaNH = maNH;
+        HinhAnh = hinhAnh;
+    }
+
+    public KhuyenMai(String maKM, String tenKhuyenMai, int tienKM, int SL, int maNH) {
+        MaKM = maKM;
+        TenKhuyenMai = tenKhuyenMai;
+        TienKM = tienKM;
+        this.SL = SL;
+        MaNH = maNH;
+    }
+
+    public KhuyenMai() {
     }
 
     public String getMaKM() {
@@ -63,12 +83,12 @@ public class KhuyenMai {
         this.SL = SL;
     }
 
-    public String getTenMaKhuyenMai() {
-        return TenMaKhuyenMai;
+    public String getTenKhuyenMai() {
+        return TenKhuyenMai;
     }
 
-    public void setTenMaKhuyenMai(String tenMaKhuyenMai) {
-        TenMaKhuyenMai = tenMaKhuyenMai;
+    public void setTenMaKhuyenMai(String TenKhuyenMai) {
+        TenKhuyenMai = TenKhuyenMai;
     }
 
     public int getTienKM() {

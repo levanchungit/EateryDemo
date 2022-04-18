@@ -38,8 +38,8 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginBottom="15dp"
                 android:fontFamily="@font/montserrat_regular"
-                android:textColor="@color/black"
                 android:text="43.000đ | 3 Món"
+                android:textColor="@color/black"
                 android:textSize="16dp" />
 
             <TextView
@@ -51,7 +51,7 @@
                 android:layout_marginRight="20dp"
                 android:fontFamily="@font/montserrat_regular"
                 android:text="Chờ xác nhận"
-                android:textColor="#F11111"
+                android:textColor="#000000"
                 android:textSize="18dp" />
 
             <LinearLayout
@@ -59,19 +59,19 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentRight="true"
-                android:layout_marginBottom="15dp">
+                android:layout_marginBottom="12dp">
 
                 <TextView
                     android:id="@+id/tvNgayDH_CCH"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:layout_marginRight="20dp"
+                    android:layout_marginRight="7dp"
                     android:layout_toLeftOf="@id/ivTrangThaiDH_CCH"
                     android:fontFamily="@font/montserrat_regular"
                     android:text="14-3-2022"
                     android:textColor="@color/black"
-                    android:textSize="16dp" />
+                    android:textSize="15dp" />
 
                 <ImageView
                     android:id="@+id/ivTrangThaiDH_CCH"

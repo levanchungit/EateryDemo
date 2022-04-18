@@ -7,10 +7,15 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.os.StrictMode;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -22,6 +27,8 @@ import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.example.eaterydemo.Helper.AppInfo;
+import com.example.eaterydemo.Helper.CreateOrder;
 import com.example.eaterydemo.R;
 import com.example.eaterydemo.adapter.GioHangAdapter;
 import com.example.eaterydemo.databinding.FragmentThanhtoanBinding;
@@ -32,6 +39,8 @@ import com.example.eaterydemo.model.Message;
 import com.example.eaterydemo.service.ServiceAPI;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import org.json.JSONObject;
+
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -40,6 +49,10 @@ import java.util.Locale;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import vn.zalopay.sdk.Environment;
+import vn.zalopay.sdk.ZaloPayError;
+import vn.zalopay.sdk.ZaloPaySDK;
+import vn.zalopay.sdk.listeners.PayOrderListener;
 
 
 public class ThanhToanFM extends Fragment {
@@ -49,6 +62,9 @@ public class ThanhToanFM extends Fragment {
     DonHang DONHANG;
     GioHangAdapter adapter;
     EditText diachi;
+    List<KhuyenMai> arr2 = new ArrayList<>();
+    String[] thanhtoan = {"VNĐ", "ZaLo Pay", "PayPal", "MoMo"};
+    KhuyenMai khuyenmai = new KhuyenMai();
 
     KhuyenMai km;
 
@@ -56,10 +72,15 @@ public class ThanhToanFM extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         fmBinding = FragmentThanhtoanBinding.inflate(getLayoutInflater());
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, thanhtoan);
+        fmBinding.spPhuongThucThanhToan.setAdapter(adapter);
+        fmBinding.spPhuongThucThanhToan.setSelected(true);
         initClick();
         initNavController(container);
         GetThongTinDonHang();
+
         return fmBinding.getRoot();
+
     }
 
     private void initNavController(View viewFmProfileBinding) {
@@ -118,7 +139,7 @@ public class ThanhToanFM extends Fragment {
         fmBinding.imgThanhToanThanhToan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(DONHANG != null){
+                if (DONHANG != null) {
                     int _MaDH = DONHANG.getMaDonHang();
                     String _DiaChi = fmBinding.txtDiaChiThanhToan.getText().toString();
                     int _TrangThaiDH = 1;
@@ -128,6 +149,72 @@ public class ThanhToanFM extends Fragment {
                 }
             }
         });
+
+//        Nhập mã khuyến mãi
+        fmBinding.edtMaKhuyenMaiThanhToan.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                String maKM = fmBinding.edtMaKhuyenMaiThanhToan.getText().toString();
+                ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
+                Call call = serviceAPI.GetAllKhuyenMai();
+                call.enqueue(new Callback() {
+                    @Override
+                    public void onResponse(Call call, Response response) {
+                        List<KhuyenMai> arr = (List<KhuyenMai>) response.body();
+                        for (KhuyenMai khuyenMai : arr) {
+                            if (DONHANG.getMaNH() == khuyenMai.getMaNH()) {
+                                arr2.add(khuyenMai);
+                            }
+                        }
+                        for (KhuyenMai khuyenMai2 : arr2) {
+                            Log.d("maKM", khuyenMai2.getMaKM());
+                            if (khuyenMai2.getMaKM().equals(maKM) && khuyenMai2.getSL() >= 1) {
+                                int tienKM = khuyenMai2.getTienKM();
+
+                                int i = (int) (DONHANG.getTongTien() - ((DONHANG.getTongTien() * tienKM) / 100));
+                                //chuyển đổi đơn vị tiền tệ
+                                Locale localeVN = new Locale("vi", "VN");
+                                NumberFormat currencyVN = NumberFormat.getCurrencyInstance(localeVN);
+                                String str1 = currencyVN.format(i);
+                                fmBinding.txtTongTienThanhToan.setText(str1);
+                                khuyenmai = khuyenMai2;
+                                Toast.makeText(getContext(), "Đã áp dụng mã khuyến mãi giảm "+ khuyenMai2.getTienKM() + "%", Toast.LENGTH_SHORT).show();
+                                break;
+                            } else {
+                                int i = (int) DONHANG.getTongTien();
+                                //chuyển đổi đơn vị tiền tệ
+                                Locale localeVN = new Locale("vi", "VN");
+                                NumberFormat currencyVN = NumberFormat.getCurrencyInstance(localeVN);
+                                String str1 = currencyVN.format(i);
+                                fmBinding.txtTongTienThanhToan.setText(str1);
+                                Toast.makeText(getContext(), "Mã khuyến mãi không tồn tại hoặc đã hết số lượng", Toast.LENGTH_SHORT).show();
+                            }
+                            break;
+                        }
+                        dismissProgressDialog();
+                    }
+
+                    @Override
+                    public void onFailure(Call call, Throwable t) {
+                        dismissProgressDialog();
+                        Toast.makeText(getContext(), "Lỗi", Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
+
+
     }
 
     @Override
@@ -162,7 +249,7 @@ public class ThanhToanFM extends Fragment {
                         }
                         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
                         fmBinding.rvDonHangThanhToan.setLayoutManager(linearLayoutManager);
-                        adapter = new GioHangAdapter(arr, getContext(),fmBinding.txtTongTienThanhToan,fmBinding.txtTongThanhToan);
+                        adapter = new GioHangAdapter(arr, getContext(), fmBinding.txtTongTienThanhToan, fmBinding.txtTongThanhToan);
                         fmBinding.rvDonHangThanhToan.setAdapter(adapter);
                         dismissProgressDialog();
                     }
@@ -189,8 +276,64 @@ public class ThanhToanFM extends Fragment {
                     Toast.makeText(getContext(), message.getNotification(), Toast.LENGTH_SHORT).show();
                     if (message.getStatus() == 1) {
                         Log.e("TrangThaiDH", "Đơn hàng đã được chuyển trạng thái là 1");
-                        NavDirections action = ThanhToanFMDirections.actionMenuThanhToanToThanhToanThanhCongFM(DONHANG);
-                        Navigation.findNavController(getView()).navigate(action);
+
+                        int Sl = khuyenmai.getSL() - 1;
+                        khuyenmai.setSL(Sl);
+
+                        ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
+                        Call call1 = serviceAPI.ChinhSuaMaKhuyenMaiTheoNH(khuyenmai);
+                        call1.enqueue(new Callback() {
+                            @Override
+                            public void onResponse(Call call, Response response) {
+                                Toast.makeText(getContext(), "cập nhật thành công", Toast.LENGTH_SHORT).show();
+                            }
+
+                            @Override
+                            public void onFailure(Call call, Throwable t) {
+
+                            }
+                        });
+                        if (fmBinding.spPhuongThucThanhToan.getSelectedItemPosition() == 1) {
+                            CreateOrder orderApi = new CreateOrder();
+                            int tien = (int) DONHANG.getTongTien();
+                            Log.d("tien int : ", tien + "");
+                            try {
+
+                                JSONObject data = orderApi.createOrder(tien+"");
+                                String code = data.getString("returncode");
+
+                                if (code.equals("1")) {
+
+                                    String token = data.getString("zptranstoken");
+
+                                    ZaloPaySDK.getInstance().payOrder(getActivity(), token, "demozpdk://app", new PayOrderListener() {
+                                        @Override
+                                        public void onPaymentSucceeded(final String transactionId, final String transToken, final String appTransID) {
+                                            Toast.makeText(getActivity(), "Thanh toán thành công", Toast.LENGTH_SHORT).show();
+                                            NavDirections action = ThanhToanFMDirections.actionMenuThanhToanToThanhToanThanhCongFM(DONHANG);
+                                            Navigation.findNavController(getView()).navigate(action);
+                                        }
+
+                                        @Override
+                                        public void onPaymentCanceled(String zpTransToken, String appTransID) {
+                                            Toast.makeText(getActivity(), "Thanh toán bị hủy", Toast.LENGTH_SHORT).show();
+                                        }
+
+                                        @Override
+                                        public void onPaymentError(ZaloPayError zaloPayError, String zpTransToken, String appTransID) {
+                                            Toast.makeText(getActivity(), "Thanh toán thất bại", Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
+                                }
+
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+
+
+                        }
+
+
                     }
                 }
             }
@@ -201,4 +344,10 @@ public class ThanhToanFM extends Fragment {
             }
         });
     }
+//        @Override
+//    protected void onNewIntent(Intent intent) {
+//        super.onNewIntent(intent);
+//        setIntent(intent);
+//        ZaloPaySDK.getInstance().onResult(intent);
+//    }
 }

@@ -151,7 +151,7 @@ public class MonAnChiTietFM extends Fragment {
                 Message message = (Message) response.body();
                 //2, "Món ăn khác nhà hàng"
                 //1, "Thêm món ăn vào giỏ hàng thành công"
-                //0, "Món ăn đã tồn tại trong giỏ hàng"
+                //3, "Món ăn đã tồn tại trong giỏ hàng" và cộng thêm SL mới
                 if(message.getStatus() != 2){
                     Toast.makeText(getContext(), message.getNotification(), Toast.LENGTH_SHORT).show();
                 }
@@ -197,7 +197,7 @@ public class MonAnChiTietFM extends Fragment {
     private void diaLogConfirm() {
         AlertDialog.Builder b = new AlertDialog.Builder(getContext());
         b.setTitle("Xác nhận");
-        b.setMessage("Bạn đang có một đơn hàng ở nhà nhà khác. Bạn có muốn xoá đơn hàng đó và tạo đơn hàng mới với món ăn này?");
+        b.setMessage("Bạn đang có một đơn hàng ở nhà hàng khác. Bạn có muốn xoá đơn hàng đó và tạo đơn hàng mới với món ăn này?");
         b.setPositiveButton("Đồng ý", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 XoaDonHangKhiDatMonAnKhacNhaHang(_TENTK);

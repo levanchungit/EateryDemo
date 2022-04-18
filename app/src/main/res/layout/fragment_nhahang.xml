@@ -9,15 +9,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:layout_toRightOf="@+id/ivBack"
         android:src="@drawable/search" />
 
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvNhaHang_NhaHang"
-        tools:listitem="@layout/item_nhahang"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/ivTimKiemNhaHang_TrangChu" />
+        android:layout_below="@+id/ivTimKiemNhaHang_TrangChu"
+        tools:listitem="@layout/item_nhahang" />
 
 
 </RelativeLayout>

@@ -32,9 +32,9 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="15dp"
             android:layout_toRightOf="@+id/ivDoneDonHang"
-            android:text="Đã giao"
             android:fontFamily="@font/montserrat_semibold"
-            android:textSize="20dp" />
+            android:text="Đã giao"
+            android:textSize="17dp" />
 
         <ImageView
             android:id="@+id/ivDauCham_DH"
@@ -47,12 +47,13 @@
 
         <TextView
             android:id="@+id/tvNgayDatHang"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/ivDauCham_DH"
             android:text="16 tháng 4"
             android:textColor="@color/black"
-            android:textSize="20dp" />
+            android:gravity="right"
+            android:textSize="17dp" />
 
         <TextView
             android:id="@+id/tvTenNhaHangDatHang"

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rlitem_adminquanly"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="230dp"
+
+        app:cardCornerRadius="20dp"
+        app:cardElevation="10dp">
+
+
+        <TextView
+            android:id="@+id/tvThemMonAn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:fontFamily="@font/montserrat_bold"
+            android:text="Thêm món ăn"
+            android:textColor="@color/black"
+            android:textSize="25sp" />
+
+        <RelativeLayout
+            android:id="@+id/rv2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_ThemMonAn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="30dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="12dp"
+                app:cardCornerRadius="60dp">
+
+                <ImageView
+                    android:id="@+id/img_ThemMonAn"
+                    android:layout_width="125dp"
+                    android:layout_height="125dp"
+                    android:scaleType="center"
+                    android:src="@drawable/demo_nhahang" />
+            </androidx.cardview.widget.CardView>
+
+            <EditText
+                android:id="@+id/txtTenMon_ThemMonAn"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="9dp"
+                android:layout_marginTop="58dp"
+                android:layout_marginBottom="5dp"
+                android:layout_toRightOf="@+id/cv_ThemMonAn"
+                android:fontFamily="@font/montserrat_extrabold"
+                android:hint="Tên món ăn"
+                android:textColor="#000"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/txtPrice_ThemMonAn"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_below="@+id/txtTenMon_ThemMonAn"
+                android:layout_marginLeft="9dp"
+                android:layout_marginBottom="5dp"
+                android:layout_toRightOf="@id/cv_ThemMonAn"
+                android:fontFamily="@font/montserrat_bold"
+                android:hint="Giá" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_below="@id/cv_ThemMonAn"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_ThemMonAn"
+                    android:layout_width="120dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/background_purple"
+                    android:text="Thêm"
+                    android:textColor="@color/white" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnHuyThemMonAn"
+                    android:layout_width="120dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="20dp"
+                    android:background="@drawable/background_purple"
+                    android:text="Hủy"
+                    android:textColor="@color/white" />
+
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+
+</RelativeLayout>

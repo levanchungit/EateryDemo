@@ -6,14 +6,14 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        app:cardCornerRadius="20dp"
-        app:cardElevation="10dp">
+        app:cardCornerRadius="20dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:padding="10dp">
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cv_ItemMonAn_ThanhToan"
@@ -35,7 +35,7 @@
 
             <TextView
                 android:id="@+id/txt_TenMonAn_ItemThanhToan"
-                android:layout_width="150dp"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_toRightOf="@id/cv_ItemMonAn_ThanhToan"

@@ -4,7 +4,13 @@ import static com.example.eaterydemo.fragments.DangNhapFM.validateEditText;
 import static com.example.eaterydemo.others.ShowNotifyUser.dismissProgressDialog;
 import static com.example.eaterydemo.service.GetRetrofit.getRetrofit;
 
+import static com.example.eaterydemo.others.ShowNotifyUser.dismissProgressDialog;
+import static com.example.eaterydemo.others.ShowNotifyUser.showProgressDialog;
+import static com.example.eaterydemo.service.GetRetrofit.getRetrofit;
+
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +27,11 @@ import com.example.eaterydemo.databinding.FragmentDoimatkhauBinding;
 import com.example.eaterydemo.model.Message;
 import com.example.eaterydemo.service.ServiceAPI;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.example.eaterydemo.activities.DrawerLayoutActivity;
+import com.example.eaterydemo.databinding.FragmentDoimatkhauBinding;
+import com.example.eaterydemo.model.Message;
+import com.example.eaterydemo.model.TaiKhoan;
+import com.example.eaterydemo.service.ServiceAPI;
 
 import retrofit2.Call;
 import retrofit2.Callback;

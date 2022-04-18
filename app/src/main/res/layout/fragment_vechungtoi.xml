@@ -13,7 +13,7 @@
         android:src="@drawable/ic_back_black" />
 
     <ImageView
-        android:layout_width="370dp"
+        android:layout_width="match_parent"
         android:layout_height="72dp"
         android:src="@mipmap/logoeatery" />
 
@@ -21,7 +21,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
-        android:text="Eatery với mong muốn Giúp mọi người ăn ngon mọi lúc mọi nơi đã giao hàng triệu món ăn yêu thích đến với khách hàng chỉ với một vài thao tác đơn giản." />
+        android:textAlignment="inherit"
+        android:justificationMode="inter_word"
+        android:text="@string/t1" />
 
     <TextView
         android:layout_width="match_parent"
@@ -33,12 +35,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
-        android:text="Eatery tin chắc rằng, với bề dày kinh nghiệm nhiều năm tại thị trường Hàn Quốc, công ty sẽ tạo nên mối liên kết hiệu quả giữa Đối tác Nhà hàng, Khách hàng và đội ngũ chuyên gia giao đồ ăn." />
+        android:justificationMode="inter_word"
+        android:text="@string/t2" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
+        android:justificationMode="inter_word"
         android:text="Khi trở thành đối tác của Eatery, những món ăn ngon lành trong bếp của bạn sẽ được giao đến khách hàng theo cách chuyên nghiệp nhất!" />
 
     <TextView

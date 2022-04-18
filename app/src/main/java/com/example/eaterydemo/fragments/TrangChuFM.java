@@ -102,23 +102,7 @@ public class TrangChuFM extends Fragment {
                 navController.navigate(action);
             }
         });
-        fmBinding.ivthucuong.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String loaiNh = "ThucUong";
-                NavDirections action = TrangChuFMDirections.actionHomeFMToNhaHangFM(loaiNh);
-                navController.navigate(action);
-            }
-        });
 
-        fmBinding.ivanvat.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String loaiNh = "AnVat";
-                NavDirections action = TrangChuFMDirections.actionHomeFMToNhaHangFM(loaiNh);
-                navController.navigate(action);
-            }
-        });
         fmBinding.ivdacsan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -127,7 +111,7 @@ public class TrangChuFM extends Fragment {
                 navController.navigate(action);
             }
         });
-        fmBinding.ivthucannhanh.setOnClickListener(new View.OnClickListener() {
+        fmBinding.ivthucuong.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String loaiNh = "ThucUong";
@@ -136,14 +120,6 @@ public class TrangChuFM extends Fragment {
             }
         });
         fmBinding.ivanvat.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String loaiNh = "AnVat";
-                NavDirections action = TrangChuFMDirections.actionHomeFMToNhaHangFM(loaiNh);
-                navController.navigate(action);
-            }
-        });
-        fmBinding.ivdacsan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String loaiNh = "DacSan";
@@ -257,8 +233,8 @@ public class TrangChuFM extends Fragment {
             public void onResponse(Call call, Response response) {
                 List<NhaHang> arr = (List<NhaHang>) response.body();
                 NhaHangHCNNHGanBanAdapter adapter = new NhaHangHCNNHGanBanAdapter(arr, getContext());
-                fmBinding.rvNhaHangGanBan.setAdapter(adapter);
-                fmBinding.rvNhaHangGanBan.setLayoutManager(new LinearLayoutManager(getContext()));
+                fmBinding.rvNhaHangGanBanTrangChu.setAdapter(adapter);
+                fmBinding.rvNhaHangGanBanTrangChu.setLayoutManager(new LinearLayoutManager(getContext()));
                 dismissProgressDialog();
             }
 

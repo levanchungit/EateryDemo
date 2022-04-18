@@ -18,6 +18,7 @@ import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 
 import com.bumptech.glide.Glide;
+import com.example.eaterydemo.activities.ChuCuaHangActivity;
 import com.example.eaterydemo.databinding.FragmentOwnerQuanlynhahangBinding;
 import com.example.eaterydemo.model.NhaHang;
 import com.example.eaterydemo.service.ServiceAPI;
@@ -31,6 +32,8 @@ public class CCH_QuanLyNhaHangFM extends Fragment {
     FragmentOwnerQuanlynhahangBinding fmBinding;
     NavController navController;
     View _view;
+    public static int MaNH;
+
 
     @Nullable
     @Override
@@ -70,6 +73,46 @@ public class CCH_QuanLyNhaHangFM extends Fragment {
                 navController.navigate(directions);
             }
         });
+        fmBinding.ivDangXuatCCHQuanLyNhaHang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getActivity().finish();
+            }
+        });
+        fmBinding.ivQuanLyDanhSachMonAnCCHQuanLyNhaHang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavDirections action = CCH_QuanLyNhaHangFMDirections.actionCCHQuanLyNhaHangFMToCCHItemQuanLyDanhSachMonAn();
+                navController.navigate(action);
+            }
+        });
+
+
+        fmBinding.tvThongTinChuCuaHangCCHQuanLyNhaHang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavDirections action = CCH_QuanLyNhaHangFMDirections.actionCCHQuanLyNhaHangFMToCCHChinhSuaThongTinNhaHangFM3();
+                navController.navigate(action);
+            }
+        });
+
+
+        fmBinding.ivQuanLyMaKhuyenMaiCCHQuanLyNhaHang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavDirections action = CCH_QuanLyNhaHangFMDirections.actionCCHQuanLyNhaHangFMToMaKhuyenMai();
+                navController.navigate(action);
+            }
+        });
+
+
+        fmBinding.ivLichSuDonHangCCHQuanLyNhaHang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavDirections action = CCH_QuanLyNhaHangFMDirections.actionCCHQuanLyNhaHangFMToCCHLichSuDonHang();
+                navController.navigate(action);
+            }
+        });
     }
 
     private void GetThongTinNhaHang() {
@@ -79,6 +122,7 @@ public class CCH_QuanLyNhaHangFM extends Fragment {
             @Override
             public void onResponse(Call call, Response response) {
                 NhaHang nh = (NhaHang) response.body();
+                MaNH = nh.getMaNH();
                 Glide.with(requireContext()).load(nh.getHinhAnh()).centerCrop().into(fmBinding.ivImageCCHQuanLyNhaHang);
                 fmBinding.tvTenNhaHangCCHQuanLyNhaHang.setText(nh.getTenNH());
                 fmBinding.tvDiaChiCCHQuanLyNhaHang.setText(nh.getDiaChi());

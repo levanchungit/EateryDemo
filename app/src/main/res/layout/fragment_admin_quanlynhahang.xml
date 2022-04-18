@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="8dp"
+    android:padding="10dp"
     android:orientation="vertical">
 
 
@@ -29,8 +29,8 @@
         android:id="@+id/rvQuanLyCuaHang"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:listitem="@layout/item_adminquanly"
-        android:layout_below="@+id/llQuanLyCuaHang" />
+        android:layout_below="@+id/llQuanLyCuaHang"
+        tools:listitem="@layout/item_adminquanly" />
 
     <ImageView
         android:id="@+id/ivAdd_AdminQuanLyNhaHang"

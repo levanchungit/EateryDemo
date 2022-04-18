@@ -4,6 +4,7 @@ import static com.example.eaterydemo.others.ShowNotifyUser.dismissProgressDialog
 import static com.example.eaterydemo.service.GetRetrofit.getRetrofit;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,9 +35,11 @@ public class GioHangAdapter extends RecyclerView.Adapter<GioHangAdapter.ViewHold
     Context context;
     TextView txtTongTienThanhToan, txtTongThanhToan;
     int MaDH;
+    int SL = 0;
     //chuyển đổi đơn vị tiền tệ
     Locale localeVN = new Locale("vi", "VN");
     NumberFormat currencyVN = NumberFormat.getCurrencyInstance(localeVN);
+    String tanghoacgiam = "";
 
     public GioHangAdapter(List<DonHangChiTiet> arr, Context context, TextView txtTongTienThanhToan, TextView txtTongThanhToan) {
         this.arr = arr;
@@ -120,10 +123,40 @@ public class GioHangAdapter extends RecyclerView.Adapter<GioHangAdapter.ViewHold
         txt_GiaMonAn.setText(str1);
         txt_SoLuong.setText(sl + "");
 
+
+//      Cập nhật số lượng món ăn trong giỏ hàng
+
+
         //Giảm số lượng
         img_GiamSoLuong.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                tanghoacgiam = "giam";
+                SL = (Integer.parseInt(txt_SoLuong.getText().toString()));
+                Log.d("so luong", SL - 1 +"");
+                txt_SoLuong.setText(SL - 1 +"");
+                Log.d("MaDHCT, MAMA", model.getMaDHCT() + "," +model.getMaMA());
+                ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
+                Call call = serviceAPI.CapNhatSoLuongTangGiamMonAn(model.getMaDHCT(), model.getMaMA(), tanghoacgiam);
+                call.enqueue(new Callback() {
+                    @Override
+                    public void onResponse(Call call, Response response) {
+                        Double tongtien = (Double) response.body();
+                        if (tongtien == 1314){
+                            XoaMonAnTrongDonHang(model.getMaDHCT(), model.getMaMA());
+                        }
+                        String str1 = currencyVN.format(tongtien);
+                        txtTongTienThanhToan.setText(str1);
+                        txtTongThanhToan.setText(str1);
+
+                    }
+
+                    @Override
+                    public void onFailure(Call call, Throwable t) {
+                        dismissProgressDialog();
+                        Toast.makeText(context, "Lỗi", Toast.LENGTH_SHORT).show();
+                    }
+                });
 
             }
         });
@@ -132,6 +165,28 @@ public class GioHangAdapter extends RecyclerView.Adapter<GioHangAdapter.ViewHold
         img_TangSoLuong.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                tanghoacgiam = "tang";
+                SL = (Integer.parseInt(txt_SoLuong.getText().toString()));
+                Log.d("so luong", SL + 1 + "");
+                txt_SoLuong.setText(SL + 1 +"");
+                Log.d("MaDHCT, MAMA", model.getMaDHCT() + "," +model.getMaMA());
+                ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
+                Call call = serviceAPI.CapNhatSoLuongTangGiamMonAn(model.getMaDHCT(), model.getMaMA(), tanghoacgiam);
+                call.enqueue(new Callback() {
+                    @Override
+                    public void onResponse(Call call, Response response) {
+                        Double tongtien = (Double) response.body();
+                        String str1 = currencyVN.format(tongtien);
+                        txtTongTienThanhToan.setText(str1);
+                        txtTongThanhToan.setText(str1);
+                    }
+
+                    @Override
+                    public void onFailure(Call call, Throwable t) {
+                        dismissProgressDialog();
+                        Toast.makeText(context, "Lỗi", Toast.LENGTH_SHORT).show();
+                    }
+                });
 
             }
         });

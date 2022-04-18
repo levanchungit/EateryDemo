@@ -1,87 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rlitem_adminquanly"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_rowWeight="1"
-        android:layout_columnWeight="1"
-        android:layout_margin="16dp"
-        app:cardCornerRadius="8dp"
-        app:cardElevation="8dp">
-        <LinearLayout
+        android:layout_height="170dp"
+        android:layout_margin="10dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="10dp">
+
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="10dp"
-            android:weightSum="10">
+            android:layout_height="match_parent">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_ItemAdminQuanLy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="12dp"
+                app:cardCornerRadius="60dp">
+
+                <ImageView
+                    android:id="@+id/img_QuanLyDanhSachMonAn"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:scaleType="center"
+                    android:src="@drawable/demo_nhahang" />
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/txtTenMon_QuanLyDanhSachMonAn"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="39dp"
+                android:layout_marginBottom="5dp"
+                android:layout_toRightOf="@+id/cv_ItemAdminQuanLy"
+                android:fontFamily="@font/montserrat_extrabold"
+                android:text="TextView"
+                android:textColor="#000"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/txtPrice_QuanLyDanhSachMonAn"
+                android:layout_width="wrap_content"
+                android:layout_height="18dp"
+                android:layout_below="@+id/txtTenMon_QuanLyDanhSachMonAn"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="5dp"
+                android:layout_toRightOf="@id/cv_ItemAdminQuanLy"
+                android:fontFamily="@font/montserrat_bold"
+                android:text="TextView2" />
 
             <ImageView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="2"
-                android:src="@drawable/logo_light" />
+                android:id="@+id/imgupdate_QuanLyDanhSachMonAn"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="10dp"
+                android:clickable="true"
+                app:srcCompat="@drawable/ic_baseline_create_24" />
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="7"
-                android:layout_margin="8dp"
+            <ImageView
+                android:id="@+id/imgDelete_QuanLyDanhSachMonAn"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="40dp"
 
-                android:orientation="vertical">
+                android:clickable="true"
+                app:srcCompat="@drawable/ic_baseline_delete_24" />
 
-                <TextView
-
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/black"
-                    android:textAlignment="center"
-                    android:text="Tên món"
-                    android:textSize="25sp"
-                    android:textStyle="bold" />
-
-
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="50.000đ"
-                    android:textStyle="bold"
-                    android:textSize="20sp"
-                    android:textAlignment="center"/>
-
-
-
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:weightSum="2"
-                android:layout_gravity="center"
-                android:orientation="vertical">
-
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_gravity="center"
-                    android:src="@drawable/ic_baseline_create_24"/>
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_gravity="center"
-                    android:src="@drawable/ic_baseline_delete_24"/>
-            </LinearLayout>
-        </LinearLayout>
+        </RelativeLayout>
     </androidx.cardview.widget.CardView>
 
 
-</LinearLayout>
+</RelativeLayout>

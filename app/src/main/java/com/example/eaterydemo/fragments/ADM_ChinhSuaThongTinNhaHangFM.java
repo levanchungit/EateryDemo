@@ -9,7 +9,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -20,15 +19,10 @@ import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 
 import com.bumptech.glide.Glide;
-import com.example.eaterydemo.R;
 import com.example.eaterydemo.databinding.FragmentChinhsuaQuanlynhahangBinding;
-import com.example.eaterydemo.databinding.FragmentOwnerQuanlynhahangBinding;
 import com.example.eaterydemo.model.Message;
 import com.example.eaterydemo.model.NhaHang;
-import com.example.eaterydemo.model.TaiKhoan;
 import com.example.eaterydemo.service.ServiceAPI;
-
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -72,7 +66,7 @@ public class ADM_ChinhSuaThongTinNhaHangFM extends Fragment {
                 Navigation.findNavController(getView()).navigate(action);
             }
         });
-        fmBinding.ivChinhSuaQuanLyNhaHang.setOnClickListener(new View.OnClickListener() {
+        fmBinding.btnChinhSua.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 int _MaNH = ADM_QuanLyCuaHangFM.MaNH;
@@ -96,7 +90,7 @@ public class ADM_ChinhSuaThongTinNhaHangFM extends Fragment {
                 Glide.with(requireContext()).load(nh.getHinhAnh()).centerCrop().into(fmBinding.ivAvatarEditQLNhaHang);
                 fmBinding.edtTenNhaHang.setText(nh.getTenNH());
                 fmBinding.edtDiaChiEditQLNhaHang.setText(nh.getDiaChi());
-                fmBinding.edtTenChuNhaHang.setText(nh.getHoTen());
+                fmBinding.edtTenTKChuNhaHang.setText(nh.getHoTen());
                 fmBinding.edtMoTaEditQLNhaHang.setText(nh.getMoTa());
                 dismissProgressDialog();
             }
