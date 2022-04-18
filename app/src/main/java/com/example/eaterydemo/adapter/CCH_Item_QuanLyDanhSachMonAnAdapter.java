@@ -25,6 +25,7 @@ import com.example.eaterydemo.model.MonAn;
 import com.example.eaterydemo.service.ServiceAPI;
 
 import java.text.NumberFormat;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -37,7 +38,7 @@ public class CCH_Item_QuanLyDanhSachMonAnAdapter extends RecyclerView.Adapter<CC
 
     MonAn model;
     List<MonAn> arr;
-    List<MonAn> arrRong;
+    List<MonAn> arrRong = new ArrayList<>();
 
     public static int MaMA;
 
@@ -58,6 +59,7 @@ public class CCH_Item_QuanLyDanhSachMonAnAdapter extends RecyclerView.Adapter<CC
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
          model = arr.get(position);
+        Log.d("arrtrc : ", arr.size()+"");
 
         Glide.with(context).load(model.getHinhAnh()).into(holder.ivImage);
         holder.txtMonAn.setText(model.getTenMA());
@@ -113,7 +115,7 @@ public class CCH_Item_QuanLyDanhSachMonAnAdapter extends RecyclerView.Adapter<CC
         EditText gia = view.findViewById(R.id.edtPrice_QuanLyDanhSachMonAn);
         ImageView hinhanh = view.findViewById(R.id.img_ChinhSuaMonAn);
         Button btnChinhSua = view.findViewById(R.id.btnChinhMonAn);
-        Button btnhuy = view.findViewById(R.id.btnChinhSuadialog);
+        Button btnhuy = view.findViewById(R.id.btnHuydialog);
 
         ten.setText(model.getTenMA());
         gia.setText(model.getGia()+"");
@@ -125,15 +127,19 @@ public class CCH_Item_QuanLyDanhSachMonAnAdapter extends RecyclerView.Adapter<CC
                 int maMA = model.getMaMA();
                 int maNH = model.getMaNH();
                 String tenMA = ten.getText().toString().trim();
-
                 Double giaMA = Double.parseDouble(gia.getText().toString().trim());
-
-
                 ChinhSuaMonAnTrongNhaHang(new MonAn(maMA,tenMA,giaMA,model.getHinhAnh(),maNH));
-//                refreshRecycler();
                 dialog.dismiss();
             }
         });
+
+//        btnhuy.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//                dialog.dismiss();
+//            }
+//        });
 
 
 
@@ -142,12 +148,12 @@ public class CCH_Item_QuanLyDanhSachMonAnAdapter extends RecyclerView.Adapter<CC
     private void diaLogConfirm() {
         AlertDialog.Builder b = new AlertDialog.Builder(context);
         b.setTitle("Xác nhận");
-        b.setMessage("Tiêu đề thông báo");
+        b.setMessage("Bạn có chắc chắn muốn xóa món ăn này không");
         b.setPositiveButton("Đồng ý", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 int maMa = model.getMaMA();
-
                 XoaMonAnTrongNhaHang(maMa);
+                refreshRecycler();
             }
         });
         b.setNegativeButton("Không đồng ý", new DialogInterface.OnClickListener() {
@@ -166,6 +172,7 @@ public class CCH_Item_QuanLyDanhSachMonAnAdapter extends RecyclerView.Adapter<CC
             @Override
             public void onResponse(Call call, Response response) {
                 arrRong = (List<MonAn>) response.body();
+                Log.d("arrsau : ", arrRong.size()+"");
                 refreshRecycler();
                 dismissProgressDialog();
             }

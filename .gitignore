@@ -86,3 +86,6 @@ lint/tmp/
 app/src/main/res/drawable/bieudothongke.png
 app/src/main/res/drawable/bieudothongke.png
 app/src/main/res/drawable/bieudothongke.png
+.gradle/7.2/fileHashes/fileHashes.lock
+.gradle/7.2/fileHashes/resourceHashesCache.bin
+.gradle/buildOutputCleanup/buildOutputCleanup.lock

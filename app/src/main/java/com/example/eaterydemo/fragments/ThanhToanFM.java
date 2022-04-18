@@ -6,6 +6,7 @@ import static com.example.eaterydemo.service.GetRetrofit.getRetrofit;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.text.Editable;
@@ -54,7 +55,6 @@ import vn.zalopay.sdk.ZaloPayError;
 import vn.zalopay.sdk.ZaloPaySDK;
 import vn.zalopay.sdk.listeners.PayOrderListener;
 
-
 public class ThanhToanFM extends Fragment {
     FragmentThanhtoanBinding fmBinding;
     NavController navController;
@@ -65,7 +65,7 @@ public class ThanhToanFM extends Fragment {
     List<KhuyenMai> arr2 = new ArrayList<>();
     String[] thanhtoan = {"VNĐ", "ZaLo Pay", "PayPal", "MoMo"};
     KhuyenMai khuyenmai = new KhuyenMai();
-
+    List<DonHangChiTiet> arrDHCT = new ArrayList<>();
     KhuyenMai km;
 
     @Nullable
@@ -78,11 +78,9 @@ public class ThanhToanFM extends Fragment {
         initClick();
         initNavController(container);
         GetThongTinDonHang();
-
         return fmBinding.getRoot();
 
     }
-
     private void initNavController(View viewFmProfileBinding) {
         navController = Navigation.findNavController(viewFmProfileBinding);
     }
@@ -94,8 +92,8 @@ public class ThanhToanFM extends Fragment {
             @Override
             public void onClick(View view) {
 
-                android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(getContext());
-                LayoutInflater inflater = ((Activity) getActivity()).getLayoutInflater();
+                AlertDialog.Builder builder = new android.app.AlertDialog.Builder(getContext());
+                LayoutInflater inflater =  getActivity().getLayoutInflater();
                 View v = inflater.inflate(R.layout.dialog_thaydoi_diachi_thanhtoan, null);
                 diachi = v.findViewById(R.id.edtThayDoiDiaChi_ThanhToan);
                 diachi.setText(fmBinding.txtDiaChiThanhToan.getText().toString());
@@ -105,7 +103,7 @@ public class ThanhToanFM extends Fragment {
                     public void onClick(DialogInterface dialogInterface, int i) {
                         String diachi1 = diachi.getText().toString();
                         ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
-                        Call call = serviceAPI.CapNhatDiaChiGiaoHang(64, diachi1);
+                        Call call = serviceAPI.CapNhatDiaChiGiaoHang(DONHANG.getMaDonHang(), diachi1);
                         call.enqueue(new Callback() {
                             @Override
                             public void onResponse(Call call, Response response) {
@@ -146,6 +144,8 @@ public class ThanhToanFM extends Fragment {
                     float _TongTien = DONHANG.getTongTien();
                     String _TenTK = DONHANG.getTenTK();
                     CapNhatTrangThaiDonHangCuaTK(new DonHang(_MaDH, _DiaChi, _TrangThaiDH, _TongTien, _TenTK));
+                    fmBinding.tvTranThaiMaKhuyenMai.setText("");
+
                 }
             }
         });
@@ -154,7 +154,6 @@ public class ThanhToanFM extends Fragment {
         fmBinding.edtMaKhuyenMaiThanhToan.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
             }
 
             @Override
@@ -183,7 +182,8 @@ public class ThanhToanFM extends Fragment {
                                 String str1 = currencyVN.format(i);
                                 fmBinding.txtTongTienThanhToan.setText(str1);
                                 khuyenmai = khuyenMai2;
-                                Toast.makeText(getContext(), "Đã áp dụng mã khuyến mãi giảm "+ khuyenMai2.getTienKM() + "%", Toast.LENGTH_SHORT).show();
+                                fmBinding.tvTranThaiMaKhuyenMai.setText("Đã áp dụng mã khuyến mãi giảm " + khuyenMai2.getTienKM() + "%");
+                                fmBinding.tvTranThaiMaKhuyenMai.setTextColor(Color.RED);
                                 break;
                             } else {
                                 int i = (int) DONHANG.getTongTien();
@@ -192,7 +192,8 @@ public class ThanhToanFM extends Fragment {
                                 NumberFormat currencyVN = NumberFormat.getCurrencyInstance(localeVN);
                                 String str1 = currencyVN.format(i);
                                 fmBinding.txtTongTienThanhToan.setText(str1);
-                                Toast.makeText(getContext(), "Mã khuyến mãi không tồn tại hoặc đã hết số lượng", Toast.LENGTH_SHORT).show();
+                                fmBinding.tvTranThaiMaKhuyenMai.setText("Mã khuyến mãi không tồn tại hoặc đã hết số lượng");
+                                fmBinding.tvTranThaiMaKhuyenMai.setTextColor(Color.RED);
                             }
                             break;
                         }
@@ -217,13 +218,7 @@ public class ThanhToanFM extends Fragment {
 
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        //tắt bottom navigation
-        BottomNavigationView navbar = getActivity().findViewById(R.id.navBot);
-        navbar.setVisibility(View.VISIBLE);
-    }
+
 
     private void GetThongTinDonHang() {
         ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
@@ -242,14 +237,11 @@ public class ThanhToanFM extends Fragment {
                     String str1 = currencyVN.format(i);
                     fmBinding.txtTongTienThanhToan.setText(str1);
                     fmBinding.txtTongThanhToan.setText(str1);
-
-                    if (donHang.getDONHANGCHITIETs() != null) {
-                        for (int j = 0; j < donHang.getDONHANGCHITIETs().size(); j++) {
-                            arr.add(donHang.getDONHANGCHITIETs().get(j));
-                        }
+                    arrDHCT = DONHANG.getDONHANGCHITIETs();
+                    if (arrDHCT != null) {
                         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
                         fmBinding.rvDonHangThanhToan.setLayoutManager(linearLayoutManager);
-                        adapter = new GioHangAdapter(arr, getContext(), fmBinding.txtTongTienThanhToan, fmBinding.txtTongThanhToan);
+                        adapter = new GioHangAdapter(arrDHCT, getContext(), fmBinding.txtTongTienThanhToan, fmBinding.txtTongThanhToan);
                         fmBinding.rvDonHangThanhToan.setAdapter(adapter);
                         dismissProgressDialog();
                     }
@@ -276,7 +268,7 @@ public class ThanhToanFM extends Fragment {
                     Toast.makeText(getContext(), message.getNotification(), Toast.LENGTH_SHORT).show();
                     if (message.getStatus() == 1) {
                         Log.e("TrangThaiDH", "Đơn hàng đã được chuyển trạng thái là 1");
-
+                        refresh();
                         int Sl = khuyenmai.getSL() - 1;
                         khuyenmai.setSL(Sl);
 
@@ -338,16 +330,35 @@ public class ThanhToanFM extends Fragment {
                 }
             }
 
+
+
             @Override
             public void onFailure(Call call, Throwable t) {
 
             }
         });
     }
-//        @Override
-//    protected void onNewIntent(Intent intent) {
-//        super.onNewIntent(intent);
-//        setIntent(intent);
-//        ZaloPaySDK.getInstance().onResult(intent);
-//    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+    }
+    public void refresh() {
+        arrDHCT.clear();
+        arrDHCT.addAll(arrDHCT);
+        adapter.notifyDataSetChanged();
+        GetThongTinDonHang();
+        fmBinding.edtMaKhuyenMaiThanhToan.setText("");
+        fmBinding.edtMaKhuyenMaiThanhToan.setFocusable(false);
+
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        //tắt bottom navigation
+        BottomNavigationView navbar = getActivity().findViewById(R.id.navBot);
+        navbar.setVisibility(View.VISIBLE);
+    }
+
 }
