@@ -102,6 +102,21 @@ public class ThanhToanFM extends Fragment {
                 builder.setNegativeButton("Cập nhật", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                });
+                builder.setPositiveButton("HỦY", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.cancel();
+                    }
+                });
+
+                AlertDialog dialog = builder.create();
+                dialog.show();
+                dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
                         String diachi1 = diachi.getText().toString();
                         if (diachi1.length() == 0){
                             Toast.makeText(getContext(), "Vui lòng nhập địa chỉ thay đổi", Toast.LENGTH_SHORT).show();
@@ -123,19 +138,10 @@ public class ThanhToanFM extends Fragment {
                                     Toast.makeText(getContext(), "Lỗi", Toast.LENGTH_SHORT).show();
                                 }
                             });
-                            dialogInterface.cancel();
+                            dialog.dismiss();
                         }
                     }
                 });
-                builder.setPositiveButton("HỦY", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        dialogInterface.cancel();
-                    }
-                });
-
-                AlertDialog dialog = builder.create();
-                dialog.show();
             }
         });
 
