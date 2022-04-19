@@ -85,8 +85,13 @@ public class DangKyFM extends Fragment {
                         | !validateEditText(fmBinding.tilNhapLaiMatKhauDangKy,fmBinding.edtNhapLaiMatKhauDangKy)
                         | !validateEditText(fmBinding.tilHoTenDangKy,fmBinding.edtHoTenDangKy)
                         | !validateEditText(fmBinding.tilSdtDangKy,fmBinding.edtSdtDangKy)
-                        | !validateEditText(fmBinding.tilDiaChiDangKy,fmBinding.edtDiaChiDangKy)) {
-                    return;
+                        | !validateEditText(fmBinding.tilDiaChiDangKy,fmBinding.edtDiaChiDangKy)
+                        | !validateEditTextEmail(fmBinding.tilEmailDangKy,fmBinding.edtEmailDangKy)
+                        | !validateEditTextMK(fmBinding.tilMatKhauDangKy,fmBinding.edtMatKhauDangKy,
+                            fmBinding.tilNhapLaiMatKhauDangKy, fmBinding.edtNhapLaiMatKhauDangKy)
+                        | !validateEditTextSDT(fmBinding.tilSdtDangKy,fmBinding.edtSdtDangKy)){
+                        return;
+
                 }
 
                 //load hình ảnh lên cloudinary
@@ -244,8 +249,14 @@ public class DangKyFM extends Fragment {
 
     public static boolean validateEditTextSDT(TextInputLayout til, TextInputEditText edt) {
         String _str = edt.getText().toString().trim();
-
-        if (_str.length()<10 | _str.length()>10) {
+//        Pattern pattern = Pattern.compile("^\\(0)+([0-9]{8}+$", Pattern.CASE_INSENSITIVE);
+//        Matcher matcher = pattern.matcher(_str);
+//
+//        if (matcher.matches() == false){
+//            til.setError("vui long nhập đúng định dạng");
+//            return false;
+//        }else
+            if (_str.length()<10 | _str.length()>10) {
             til.setError("Số điện thoại phải đúng 10 ký tự");
             return false;
         } else {

@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.eaterydemo.R;
+import com.example.eaterydemo.fragments.ThanhToanFM;
 import com.example.eaterydemo.model.DonHangChiTiet;
 import com.example.eaterydemo.service.ServiceAPI;
 
@@ -40,6 +41,7 @@ public class GioHangAdapter extends RecyclerView.Adapter<GioHangAdapter.ViewHold
     Locale localeVN = new Locale("vi", "VN");
     NumberFormat currencyVN = NumberFormat.getCurrencyInstance(localeVN);
     String tanghoacgiam = "";
+    Double tongtienDH;
 
     public GioHangAdapter(List<DonHangChiTiet> arr, Context context, TextView txtTongTienThanhToan, TextView txtTongThanhToan) {
         this.arr = arr;
@@ -145,9 +147,12 @@ public class GioHangAdapter extends RecyclerView.Adapter<GioHangAdapter.ViewHold
                         if (tongtien == 1314){
                             XoaMonAnTrongDonHang(model.getMaDHCT(), model.getMaMA());
                         }
+                        tongtienDH = tongtien;
+                        int tiensauKM = (int) (tongtien -((tongtien* ThanhToanFM.maKMDH)/100));
                         String str1 = currencyVN.format(tongtien);
-                        txtTongTienThanhToan.setText(str1);
+                        String str2 = currencyVN.format(tiensauKM);
                         txtTongThanhToan.setText(str1);
+                        txtTongTienThanhToan.setText(str2);
 
                     }
 
@@ -176,9 +181,12 @@ public class GioHangAdapter extends RecyclerView.Adapter<GioHangAdapter.ViewHold
                     @Override
                     public void onResponse(Call call, Response response) {
                         Double tongtien = (Double) response.body();
+                        int tiensauKM = (int) (tongtien -((tongtien* ThanhToanFM.maKMDH)/100));
+                        tongtienDH = tongtien;
                         String str1 = currencyVN.format(tongtien);
-                        txtTongTienThanhToan.setText(str1);
+                        String str2 = currencyVN.format(tiensauKM);
                         txtTongThanhToan.setText(str1);
+                        txtTongTienThanhToan.setText(str2);
                     }
 
                     @Override
@@ -234,8 +242,13 @@ public class GioHangAdapter extends RecyclerView.Adapter<GioHangAdapter.ViewHold
             public void onResponse(Call call, Response response) {
                 double TongTien = (double) response.body();
                 String str1 = currencyVN.format(TongTien);
-                txtTongTienThanhToan.setText(str1);
+                int tiensauKM = (int) (TongTien -((TongTien* ThanhToanFM.maKMDH)/100));
+                String str2 = currencyVN.format(tiensauKM);
+                Log.d("Tien KM : ", TongTien+"");
+                Log.d("Tien KM : ", str2+"");
                 txtTongThanhToan.setText(str1);
+                txtTongTienThanhToan.setText(str2);
+
             }
 
             @Override

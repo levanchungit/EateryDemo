@@ -67,6 +67,7 @@ public class ThanhToanFM extends Fragment {
     KhuyenMai khuyenmai = new KhuyenMai();
     List<DonHangChiTiet> arrDHCT = new ArrayList<>();
     KhuyenMai km;
+    public static int maKMDH;
 
     @Nullable
     @Override
@@ -102,23 +103,28 @@ public class ThanhToanFM extends Fragment {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         String diachi1 = diachi.getText().toString();
-                        ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
-                        Call call = serviceAPI.CapNhatDiaChiGiaoHang(DONHANG.getMaDonHang(), diachi1);
-                        call.enqueue(new Callback() {
-                            @Override
-                            public void onResponse(Call call, Response response) {
-                                String diachimoi = (String) response.body();
-                                fmBinding.txtDiaChiThanhToan.setText(diachimoi);
-                                Toast.makeText(requireContext(), "cập nhật thành công", Toast.LENGTH_SHORT).show();
-                                dismissProgressDialog();
-                            }
+                        if (diachi1.length() == 0){
+                            Toast.makeText(getContext(), "Vui lòng nhập địa chỉ thay đổi", Toast.LENGTH_SHORT).show();
+                        }else{
+                            ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
+                            Call call = serviceAPI.CapNhatDiaChiGiaoHang(DONHANG.getMaDonHang(), diachi1);
+                            call.enqueue(new Callback() {
+                                @Override
+                                public void onResponse(Call call, Response response) {
+                                    String diachimoi = (String) response.body();
+                                    fmBinding.txtDiaChiThanhToan.setText(diachimoi);
+                                    Toast.makeText(requireContext(), "cập nhật thành công", Toast.LENGTH_SHORT).show();
+                                    dismissProgressDialog();
+                                }
 
-                            @Override
-                            public void onFailure(Call call, Throwable t) {
-                                dismissProgressDialog();
-                                Toast.makeText(getContext(), "Lỗi", Toast.LENGTH_SHORT).show();
-                            }
-                        });
+                                @Override
+                                public void onFailure(Call call, Throwable t) {
+                                    dismissProgressDialog();
+                                    Toast.makeText(getContext(), "Lỗi", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                            dialogInterface.cancel();
+                        }
                     }
                 });
                 builder.setPositiveButton("HỦY", new DialogInterface.OnClickListener() {
@@ -158,45 +164,14 @@ public class ThanhToanFM extends Fragment {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                String maKM = fmBinding.edtMaKhuyenMaiThanhToan.getText().toString();
+
                 ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
                 Call call = serviceAPI.GetAllKhuyenMai();
                 call.enqueue(new Callback() {
                     @Override
                     public void onResponse(Call call, Response response) {
                         List<KhuyenMai> arr = (List<KhuyenMai>) response.body();
-                        for (KhuyenMai khuyenMai : arr) {
-                            if (DONHANG.getMaNH() == khuyenMai.getMaNH()) {
-                                arr2.add(khuyenMai);
-                            }
-                        }
-                        for (KhuyenMai khuyenMai2 : arr2) {
-                            Log.d("maKM", khuyenMai2.getMaKM());
-                            if (khuyenMai2.getMaKM().equals(maKM) && khuyenMai2.getSL() >= 1) {
-                                int tienKM = khuyenMai2.getTienKM();
-
-                                int i = (int) (DONHANG.getTongTien() - ((DONHANG.getTongTien() * tienKM) / 100));
-                                //chuyển đổi đơn vị tiền tệ
-                                Locale localeVN = new Locale("vi", "VN");
-                                NumberFormat currencyVN = NumberFormat.getCurrencyInstance(localeVN);
-                                String str1 = currencyVN.format(i);
-                                fmBinding.txtTongTienThanhToan.setText(str1);
-                                khuyenmai = khuyenMai2;
-                                fmBinding.tvTranThaiMaKhuyenMai.setText("Đã áp dụng mã khuyến mãi giảm " + khuyenMai2.getTienKM() + "%");
-                                fmBinding.tvTranThaiMaKhuyenMai.setTextColor(Color.RED);
-                                break;
-                            } else {
-                                int i = (int) DONHANG.getTongTien();
-                                //chuyển đổi đơn vị tiền tệ
-                                Locale localeVN = new Locale("vi", "VN");
-                                NumberFormat currencyVN = NumberFormat.getCurrencyInstance(localeVN);
-                                String str1 = currencyVN.format(i);
-                                fmBinding.txtTongTienThanhToan.setText(str1);
-                                fmBinding.tvTranThaiMaKhuyenMai.setText("Mã khuyến mãi không tồn tại hoặc đã hết số lượng");
-                                fmBinding.tvTranThaiMaKhuyenMai.setTextColor(Color.RED);
-                            }
-                            break;
-                        }
+                        GetMaKhuyenMai(arr);
                         dismissProgressDialog();
                     }
 
@@ -219,6 +194,43 @@ public class ThanhToanFM extends Fragment {
     }
 
 
+    private void GetMaKhuyenMai(List<KhuyenMai> arr) {
+        String maKM = fmBinding.edtMaKhuyenMaiThanhToan.getText().toString();
+        for (KhuyenMai khuyenMai : arr) {
+            if (DONHANG.getMaNH() == khuyenMai.getMaNH()) {
+                arr2.add(khuyenMai);
+            }
+        }
+        for (KhuyenMai khuyenMai2 : arr2) {
+            Log.d("maKM", khuyenMai2.getMaKM());
+            if (khuyenMai2.getMaKM().equals(maKM) && khuyenMai2.getSL() >= 1) {
+                int tienKM = khuyenMai2.getTienKM();
+                maKMDH = tienKM;
+                int i = (int) (DONHANG.getTongTien() - ((DONHANG.getTongTien() * tienKM) / 100));
+                Log.d("Tien KM : ", DONHANG.getTongTien()+"");
+                Log.d("Tien KM : ", i+"");
+                //chuyển đổi đơn vị tiền tệ
+                Locale localeVN = new Locale("vi", "VN");
+                NumberFormat currencyVN = NumberFormat.getCurrencyInstance(localeVN);
+                String str1 = currencyVN.format(i);
+                fmBinding.txtTongTienThanhToan.setText(str1);
+                khuyenmai = khuyenMai2;
+                fmBinding.tvTranThaiMaKhuyenMai.setText("Đã áp dụng mã khuyến mãi giảm " + khuyenMai2.getTienKM() + "%");
+                fmBinding.tvTranThaiMaKhuyenMai.setTextColor(Color.RED);
+                break;
+            } else {
+                int i = (int) DONHANG.getTongTien();
+                //chuyển đổi đơn vị tiền tệ
+                Locale localeVN = new Locale("vi", "VN");
+                NumberFormat currencyVN = NumberFormat.getCurrencyInstance(localeVN);
+                String str1 = currencyVN.format(i);
+                fmBinding.txtTongTienThanhToan.setText(str1);
+                fmBinding.tvTranThaiMaKhuyenMai.setText("Mã khuyến mãi không tồn tại hoặc đã hết số lượng");
+                fmBinding.tvTranThaiMaKhuyenMai.setTextColor(Color.RED);
+            }
+            break;
+        }
+    }
 
     private void GetThongTinDonHang() {
         ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
@@ -359,6 +371,7 @@ public class ThanhToanFM extends Fragment {
         //tắt bottom navigation
         BottomNavigationView navbar = getActivity().findViewById(R.id.navBot);
         navbar.setVisibility(View.VISIBLE);
+
     }
 
 }
