@@ -4,9 +4,7 @@ import static com.example.eaterydemo.others.ShowNotifyUser.dismissProgressDialog
 import static com.example.eaterydemo.others.ShowNotifyUser.showProgressDialog;
 import static com.example.eaterydemo.service.GetRetrofit.getRetrofit;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,9 +19,7 @@ import androidx.navigation.Navigation;
 
 import com.bumptech.glide.Glide;
 import com.example.eaterydemo.R;
-import com.example.eaterydemo.activities.DrawerLayoutActivity;
 import com.example.eaterydemo.databinding.FragmentThongtinBinding;
-import com.example.eaterydemo.model.Message;
 import com.example.eaterydemo.model.TaiKhoan;
 import com.example.eaterydemo.service.ServiceAPI;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -41,9 +37,6 @@ public class ThongTinFM extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         fmProfileBinding = FragmentThongtinBinding.inflate(getLayoutInflater());
-
-
-
         initClick();
         GetThongTin(DangNhapFM.TENTK);
         initNavController(container);

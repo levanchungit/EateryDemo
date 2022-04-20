@@ -1,7 +1,6 @@
 package com.example.eaterydemo.fragments;
 
 
-import static com.example.eaterydemo.fragments.DangNhapFM.validateEditText;
 import static com.example.eaterydemo.others.ShowNotifyUser.dismissProgressDialog;
 import static com.example.eaterydemo.others.ShowNotifyUser.showProgressDialog;
 import static com.example.eaterydemo.service.GetRetrofit.getRetrofit;
@@ -164,6 +163,7 @@ public class DangKyFM extends Fragment {
             Toast.makeText(getContext(), "Vui lòng chọn ảnh", Toast.LENGTH_SHORT).show();
             return;
         }
+        showProgressDialog(getContext(), "Đang đăng ký...");
         MediaManager.get().upload(imagePath).callback(new UploadCallback() {
             @Override
             public void onStart(String requestId) {
@@ -192,6 +192,7 @@ public class DangKyFM extends Fragment {
             @Override
             public void onError(String requestId, ErrorInfo error) {
                 Toast.makeText(getContext(), "Task Not successful " + error, Toast.LENGTH_SHORT).show();
+                dismissProgressDialog();
             }
 
             @Override

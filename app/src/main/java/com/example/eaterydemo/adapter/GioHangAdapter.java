@@ -125,8 +125,6 @@ public class GioHangAdapter extends RecyclerView.Adapter<GioHangAdapter.ViewHold
 
 
 //      Cập nhật số lượng món ăn trong giỏ hàng
-
-
         //Giảm số lượng
         img_GiamSoLuong.setOnClickListener(new View.OnClickListener() {
             @Override

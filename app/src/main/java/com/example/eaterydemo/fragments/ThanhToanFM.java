@@ -3,12 +3,10 @@ package com.example.eaterydemo.fragments;
 import static com.example.eaterydemo.others.ShowNotifyUser.dismissProgressDialog;
 import static com.example.eaterydemo.service.GetRetrofit.getRetrofit;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.os.StrictMode;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -16,7 +14,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -28,7 +25,6 @@ import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import com.example.eaterydemo.Helper.AppInfo;
 import com.example.eaterydemo.Helper.CreateOrder;
 import com.example.eaterydemo.R;
 import com.example.eaterydemo.adapter.GioHangAdapter;
@@ -50,7 +46,6 @@ import java.util.Locale;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import vn.zalopay.sdk.Environment;
 import vn.zalopay.sdk.ZaloPayError;
 import vn.zalopay.sdk.ZaloPaySDK;
 import vn.zalopay.sdk.listeners.PayOrderListener;
@@ -81,6 +76,7 @@ public class ThanhToanFM extends Fragment {
         return fmBinding.getRoot();
 
     }
+
     private void initNavController(View viewFmProfileBinding) {
         navController = Navigation.findNavController(viewFmProfileBinding);
     }
@@ -93,7 +89,7 @@ public class ThanhToanFM extends Fragment {
             public void onClick(View view) {
 
                 AlertDialog.Builder builder = new android.app.AlertDialog.Builder(getContext());
-                LayoutInflater inflater =  getActivity().getLayoutInflater();
+                LayoutInflater inflater = getActivity().getLayoutInflater();
                 View v = inflater.inflate(R.layout.dialog_thaydoi_diachi_thanhtoan, null);
                 diachi = v.findViewById(R.id.edtThayDoiDiaChi_ThanhToan);
                 diachi.setText(fmBinding.txtDiaChiThanhToan.getText().toString());
@@ -213,12 +209,7 @@ public class ThanhToanFM extends Fragment {
 
             }
         });
-
-
-
     }
-
-
 
     private void GetThongTinDonHang() {
         ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
@@ -291,7 +282,7 @@ public class ThanhToanFM extends Fragment {
                             Log.d("tien int : ", tien + "");
                             try {
 
-                                JSONObject data = orderApi.createOrder(tien+"");
+                                JSONObject data = orderApi.createOrder(tien + "");
                                 String code = data.getString("returncode");
 
                                 if (code.equals("1")) {
@@ -321,16 +312,10 @@ public class ThanhToanFM extends Fragment {
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
-
-
                         }
-
-
                     }
                 }
             }
-
-
 
             @Override
             public void onFailure(Call call, Throwable t) {
@@ -343,6 +328,7 @@ public class ThanhToanFM extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
     }
+
     public void refresh() {
         arrDHCT.clear();
         arrDHCT.addAll(arrDHCT);
@@ -350,7 +336,6 @@ public class ThanhToanFM extends Fragment {
         GetThongTinDonHang();
         fmBinding.edtMaKhuyenMaiThanhToan.setText("");
         fmBinding.edtMaKhuyenMaiThanhToan.setFocusable(false);
-
     }
 
     @Override
