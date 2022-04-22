@@ -61,11 +61,8 @@ public class DonHangChiTietFM extends Fragment {
         tvTenKH_DHChiTiet = view.findViewById(R.id.tvTenKH_DHChiTiet);
         tvSDT_DHChiTiet = view.findViewById(R.id.tvSDT_DHChiTiet);
         tvDiaChi_DHChiTiet = view.findViewById(R.id.tvDiaChi_DHChiTiet);
-
         recieverDataDonHang();
         initClick();
-
-
     }
 
     private void initClick() {

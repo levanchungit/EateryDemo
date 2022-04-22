@@ -19,12 +19,8 @@ import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import com.example.eaterydemo.adapter.AdminQuanLyCuaHangAdapter;
 import com.example.eaterydemo.adapter.AdminQuanLyTaiKhoanAdapter;
-import com.example.eaterydemo.adapter.NhaHangHCNAdapter;
 import com.example.eaterydemo.databinding.FragmentAdminQuanlytaikhoanBinding;
-import com.example.eaterydemo.databinding.FragmentNhahangBinding;
-import com.example.eaterydemo.model.NhaHang;
 import com.example.eaterydemo.model.TaiKhoan;
 import com.example.eaterydemo.service.ServiceAPI;
 
@@ -47,7 +43,7 @@ public class ADM_QuanLyTaiKhoanFM extends Fragment {
         initNavController(container);
 
         showProgressDialog(getContext(), "Đang tải dữ liệu");
-        GetAllNhaHang();
+        GetAllTaiKhoanChuaXoa();
 
         return fmBinding.getRoot();
     }
@@ -66,9 +62,9 @@ public class ADM_QuanLyTaiKhoanFM extends Fragment {
         });
     }
 
-    private void GetAllNhaHang() {
+    private void GetAllTaiKhoanChuaXoa() {
         ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
-        Call call = serviceAPI.GetAllTaiKhoanChuaXoa();
+        Call call = serviceAPI.GetAllTaiKhoanChuaXoa(DangNhapFM.TENTK);
         call.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {

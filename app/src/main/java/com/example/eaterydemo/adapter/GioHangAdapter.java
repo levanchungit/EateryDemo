@@ -127,33 +127,30 @@ public class GioHangAdapter extends RecyclerView.Adapter<GioHangAdapter.ViewHold
 
 
 //      Cập nhật số lượng món ăn trong giỏ hàng
-
-
         //Giảm số lượng
         img_GiamSoLuong.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 tanghoacgiam = "giam";
                 SL = (Integer.parseInt(txt_SoLuong.getText().toString()));
-                Log.d("so luong", SL - 1 +"");
-                txt_SoLuong.setText(SL - 1 +"");
-                Log.d("MaDHCT, MAMA", model.getMaDHCT() + "," +model.getMaMA());
+                Log.d("so luong", SL - 1 + "");
+                txt_SoLuong.setText(SL - 1 + "");
+                Log.d("MaDHCT, MAMA", model.getMaDHCT() + "," + model.getMaMA());
                 ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
                 Call call = serviceAPI.CapNhatSoLuongTangGiamMonAn(model.getMaDHCT(), model.getMaMA(), tanghoacgiam);
                 call.enqueue(new Callback() {
                     @Override
                     public void onResponse(Call call, Response response) {
-                        Double tongtien = (Double) response.body();
-                        if (tongtien == 1314){
+                        double tongtien = (double) response.body();
+                        if (tongtien == 1314.0) {
                             XoaMonAnTrongDonHang(model.getMaDHCT(), model.getMaMA());
                         }
                         tongtienDH = tongtien;
-                        int tiensauKM = (int) (tongtien -((tongtien* ThanhToanFM.maKMDH)/100));
+                        int tiensauKM = (int) (tongtien - ((tongtien * ThanhToanFM.maKMDH) / 100));
                         String str1 = currencyVN.format(tongtien);
                         String str2 = currencyVN.format(tiensauKM);
                         txtTongThanhToan.setText(str1);
                         txtTongTienThanhToan.setText(str2);
-
                     }
 
                     @Override
@@ -173,15 +170,15 @@ public class GioHangAdapter extends RecyclerView.Adapter<GioHangAdapter.ViewHold
                 tanghoacgiam = "tang";
                 SL = (Integer.parseInt(txt_SoLuong.getText().toString()));
                 Log.d("so luong", SL + 1 + "");
-                txt_SoLuong.setText(SL + 1 +"");
-                Log.d("MaDHCT, MAMA", model.getMaDHCT() + "," +model.getMaMA());
+                txt_SoLuong.setText(SL + 1 + "");
+                Log.d("MaDHCT, MAMA", model.getMaDHCT() + "," + model.getMaMA());
                 ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
                 Call call = serviceAPI.CapNhatSoLuongTangGiamMonAn(model.getMaDHCT(), model.getMaMA(), tanghoacgiam);
                 call.enqueue(new Callback() {
                     @Override
                     public void onResponse(Call call, Response response) {
-                        Double tongtien = (Double) response.body();
-                        int tiensauKM = (int) (tongtien -((tongtien* ThanhToanFM.maKMDH)/100));
+                        double tongtien = (double) response.body();
+                        int tiensauKM = (int) (tongtien - ((tongtien * ThanhToanFM.maKMDH) / 100));
                         tongtienDH = tongtien;
                         String str1 = currencyVN.format(tongtien);
                         String str2 = currencyVN.format(tiensauKM);
@@ -242,10 +239,10 @@ public class GioHangAdapter extends RecyclerView.Adapter<GioHangAdapter.ViewHold
             public void onResponse(Call call, Response response) {
                 double TongTien = (double) response.body();
                 String str1 = currencyVN.format(TongTien);
-                int tiensauKM = (int) (TongTien -((TongTien* ThanhToanFM.maKMDH)/100));
+                int tiensauKM = (int) (TongTien - ((TongTien * ThanhToanFM.maKMDH) / 100));
                 String str2 = currencyVN.format(tiensauKM);
-                Log.d("Tien KM : ", TongTien+"");
-                Log.d("Tien KM : ", str2+"");
+                Log.d("Tien KM : ", TongTien + "");
+                Log.d("Tien KM : ", str2 + "");
                 txtTongThanhToan.setText(str1);
                 txtTongTienThanhToan.setText(str2);
 

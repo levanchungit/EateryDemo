@@ -49,6 +49,7 @@ public class DangNhapFM extends Fragment {
 
         fmBinding.edtEmailDangNhap.setText("chucuahang11@gmail.com");
         fmBinding.edtMatKhauDangNhap.setText("123");
+
         return fmBinding.getRoot();
     }
 

@@ -1,7 +1,6 @@
 package com.example.eaterydemo.adapter;
 
 import static com.example.eaterydemo.others.ShowNotifyUser.dismissProgressDialog;
-import static com.example.eaterydemo.others.ShowNotifyUser.showProgressDialog;
 import static com.example.eaterydemo.service.GetRetrofit.getRetrofit;
 
 import android.content.Context;
@@ -11,7 +10,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,12 +22,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.eaterydemo.R;
-import com.example.eaterydemo.fragments.ADM_ChinhSuaThongTinFMDirections;
 import com.example.eaterydemo.fragments.ADM_QuanLyTaiKhoanFMDirections;
-import com.example.eaterydemo.fragments.NhaHangFMDirections;
-import com.example.eaterydemo.fragments.NhaHangYeuThichFMDirections;
-import com.example.eaterydemo.model.Message;
-import com.example.eaterydemo.model.NhaHang;
+import com.example.eaterydemo.fragments.DangNhapFM;
 import com.example.eaterydemo.model.TaiKhoan;
 import com.example.eaterydemo.service.ServiceAPI;
 
@@ -108,7 +102,7 @@ public class AdminQuanLyTaiKhoanAdapter extends RecyclerView.Adapter<AdminQuanLy
                 builder.setPositiveButton("Có", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int i) {
-                        XoaTaiKhoan(model.getTenTK());
+                        XoaTaiKhoan(DangNhapFM.TENTK, model.getTenTK());
                         notifyDataSetChanged();
                         dialog.dismiss();
                     }
@@ -127,9 +121,9 @@ public class AdminQuanLyTaiKhoanAdapter extends RecyclerView.Adapter<AdminQuanLy
 
 
     }
-    private void XoaTaiKhoan(String TenTk) {
+    private void XoaTaiKhoan(String TenTKHT, String TenTK) {
         ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
-        Call call = serviceAPI.XoaTaiKhoanTheoTenTK(TenTk);
+        Call call = serviceAPI.XoaTaiKhoanTheoTenTK(TenTKHT, TenTK);
         call.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {

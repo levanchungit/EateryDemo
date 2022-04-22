@@ -1,7 +1,6 @@
 package com.example.eaterydemo.fragments;
 
 
-import static com.example.eaterydemo.fragments.DangNhapFM.validateEditText;
 import static com.example.eaterydemo.others.ShowNotifyUser.dismissProgressDialog;
 import static com.example.eaterydemo.others.ShowNotifyUser.showProgressDialog;
 import static com.example.eaterydemo.service.GetRetrofit.getRetrofit;
@@ -91,7 +90,6 @@ public class DangKyFM extends Fragment {
                             fmBinding.tilNhapLaiMatKhauDangKy, fmBinding.edtNhapLaiMatKhauDangKy)
                         | !validateEditTextSDT(fmBinding.tilSdtDangKy,fmBinding.edtSdtDangKy)){
                         return;
-
                 }
 
                 //load hình ảnh lên cloudinary
@@ -141,13 +139,13 @@ public class DangKyFM extends Fragment {
         call.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
+                dismissProgressDialog();
                 Message message = (Message) response.body();
                 Toast.makeText(getContext(), message.getNotification(), Toast.LENGTH_SHORT).show();
                 if (message.getStatus() == 1) {
                     NavDirections action = DangKyFMDirections.actionDangKyFMToDangNhapFM();
                     navController.navigate(action);
                 }
-                dismissProgressDialog();
             }
 
             @Override
@@ -169,6 +167,7 @@ public class DangKyFM extends Fragment {
             Toast.makeText(getContext(), "Vui lòng chọn ảnh", Toast.LENGTH_SHORT).show();
             return;
         }
+        showProgressDialog(getContext(), "Đang đăng ký...");
         MediaManager.get().upload(imagePath).callback(new UploadCallback() {
             @Override
             public void onStart(String requestId) {
@@ -197,6 +196,7 @@ public class DangKyFM extends Fragment {
             @Override
             public void onError(String requestId, ErrorInfo error) {
                 Toast.makeText(getContext(), "Task Not successful " + error, Toast.LENGTH_SHORT).show();
+                dismissProgressDialog();
             }
 
             @Override
@@ -249,13 +249,6 @@ public class DangKyFM extends Fragment {
 
     public static boolean validateEditTextSDT(TextInputLayout til, TextInputEditText edt) {
         String _str = edt.getText().toString().trim();
-//        Pattern pattern = Pattern.compile("^\\(0)+([0-9]{8}+$", Pattern.CASE_INSENSITIVE);
-//        Matcher matcher = pattern.matcher(_str);
-//
-//        if (matcher.matches() == false){
-//            til.setError("vui long nhập đúng định dạng");
-//            return false;
-//        }else
             if (_str.length()<10 | _str.length()>10) {
             til.setError("Số điện thoại phải đúng 10 ký tự");
             return false;

@@ -36,8 +36,8 @@
                 android:id="@+id/cvImage_DangKy"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
                 android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
                 android:layout_marginRight="12dp"
                 app:cardCornerRadius="100dp">
 
@@ -87,7 +87,8 @@
                 app:boxCornerRadiusBottomStart="10dp"
                 app:boxCornerRadiusTopEnd="10dp"
                 app:boxCornerRadiusTopStart="10dp"
-                app:boxStrokeColor="#000">
+                app:boxStrokeColor="#000"
+                app:endIconMode="password_toggle">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edtMatKhau_DangKy"
@@ -112,7 +113,8 @@
                 app:boxCornerRadiusBottomStart="10dp"
                 app:boxCornerRadiusTopEnd="10dp"
                 app:boxCornerRadiusTopStart="10dp"
-                app:boxStrokeColor="#000">
+                app:boxStrokeColor="#000"
+                app:endIconMode="password_toggle">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edtNhapLaiMatKhau_DangKy"

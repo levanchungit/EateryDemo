@@ -14,11 +14,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.NavController;
-import androidx.navigation.NavDirections;
-import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
-
 
 import com.example.eaterydemo.R;
 import com.example.eaterydemo.adapter.DonHangAdapter;
@@ -29,7 +25,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.List;
 
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -37,9 +32,8 @@ import retrofit2.Response;
 
 public class DonHangFM extends Fragment {
     FragmentDonhangBinding fmBinding;
-    NavController navController;
     View _view;
-    private  List<DonHang> arr;
+    private List<DonHang> arr;
     DonHangAdapter adapter;
 
     @Nullable
@@ -50,37 +44,18 @@ public class DonHangFM extends Fragment {
         //tắt bottom navigation
         BottomNavigationView navbar = getActivity().findViewById(R.id.navBot);
         navbar.setVisibility(View.GONE);
-
-//        initClick();
-        initNavController(container);
         _view = container;
         return fmBinding.getRoot();
     }
 
-//    private void initClick() {
-//        fmBinding.imgBackDonHang.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                NavDirections action = DonHangFMDirections.actionDonHangFMToMenuThongTin();
-//                Navigation.findNavController(view).navigate(action);
-//            }
-//        });
-//    }
-
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        initNavController(_view);
         showProgressDialog(getContext(), "Đang tải dữ liệu");
         getAllDonHang();
     }
 
-    private void initNavController(View viewFmProfileBinding) {
-        navController = Navigation.findNavController(viewFmProfileBinding);
-    }
-
-
-        private void getAllDonHang() {
+    private void getAllDonHang() {
         ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
         Call call = serviceAPI.GetALLDonHang(DangNhapFM.TENTK);
         call.enqueue(new Callback() {
