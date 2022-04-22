@@ -75,9 +75,9 @@ public class ThongKeFM extends Fragment {
         fmBinding.edtTuNgayThongKe.setFocusable(false);
         fmBinding.edtDenNgayThongKe.setFocusable(false);
 
-        showProgressDialog(getContext(), "Đang tải dữ liệu");
+//        showProgressDialog(getContext(), "Đang tải dữ liệu");
         thongKeTongDoanhThuNhaHangTheoNgay();
-        thongKeTongDoanhThuTungMonAn();
+//        thongKeTongDoanhThuTungMonAn();
     }
 
     private void initNavController(View viewFmProfileBinding) {
@@ -153,11 +153,11 @@ public class ThongKeFM extends Fragment {
                     @Override
                     public void onResponse(Call call, Response response) {
                         Double TongTien = (Double) response.body();
-                        if (TongTien != null){
+                        if (TongTien != null) {
                             String str1 = currencyVN.format(TongTien);
                             Log.d("tong tien", str1);
                             fmBinding.tvTongTienDoanhThuThongKe.setText(str1);
-
+                            thongKeTongDoanhThuTungMonAn();
                         }
 
                         dismissProgressDialog();
@@ -196,6 +196,7 @@ public class ThongKeFM extends Fragment {
                             String str1 = currencyVN.format(TongTien);
                             Log.d("tong tien", str1);
                             fmBinding.tvTongTienDoanhThuThongKe.setText(str1);
+                            thongKeTongDoanhThuTungMonAn();
                         }
                         dismissProgressDialog();
                     }
