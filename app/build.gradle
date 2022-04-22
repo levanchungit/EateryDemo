@@ -48,6 +48,7 @@ dependencies {
     implementation fileTree(dir: 'C:\\Users\\quyen\\Downloads\\DemoZPDK_Android\\ZPDK-Android', include: ['*.aar', '*.jar'], exclude: [])
     implementation fileTree(dir: 'D:\\Github\\DemoZPDK_Android\\ZPDK-Android', include: ['*.aar', '*.jar'], exclude: [])
     implementation fileTree(dir: 'C:\\Users\\HOME\\OneDrive\\Documents\\FPT\\Du an 1\\DemoZPDK_Android\\DemoZPDK_Android\\ZPDK-Android', include: ['*.aar', '*.jar'], exclude: [])
+    implementation fileTree(dir: 'C:\\Users\\ASUS\\Downloads\\DemoZPDK_Android\\ZPDK-Android', include: ['*.aar', '*.jar'], exclude: [])
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'

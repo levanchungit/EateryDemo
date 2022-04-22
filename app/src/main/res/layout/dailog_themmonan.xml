@@ -49,7 +49,7 @@
 
             <EditText
                 android:id="@+id/txtTenMon_ThemMonAn"
-                android:layout_width="160dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_marginLeft="9dp"
@@ -63,8 +63,8 @@
 
             <EditText
                 android:id="@+id/txtPrice_ThemMonAn"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_below="@+id/txtTenMon_ThemMonAn"
                 android:layout_marginLeft="9dp"
                 android:layout_marginBottom="5dp"
