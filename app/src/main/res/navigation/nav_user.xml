@@ -138,8 +138,8 @@
         android:name="com.example.eaterydemo.fragments.ThanhToanThanhCongFM"
         android:label="ThanhToanThanhCongFM" >
         <argument
-            android:name="DonHang"
-            app:argType="com.example.eaterydemo.model.DonHang" />
+            android:name="TongTien"
+            app:argType="string" />
         <action
             android:id="@+id/action_thanhToanThanhCongFM_to_menu_ThanhToan"
             app:destination="@id/menu_ThanhToan"

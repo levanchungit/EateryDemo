@@ -14,11 +14,7 @@ import androidx.navigation.Navigation;
 
 import com.example.eaterydemo.R;
 import com.example.eaterydemo.databinding.FragmentThanhtoanthanhcongBinding;
-import com.example.eaterydemo.model.DonHang;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
-import java.text.NumberFormat;
-import java.util.Locale;
 
 
 public class ThanhToanThanhCongFM extends Fragment {
@@ -36,13 +32,13 @@ public class ThanhToanThanhCongFM extends Fragment {
 
         initClick();
         initNavController(container);
-        DonHang DONHANG = ThanhToanThanhCongFMArgs.fromBundle(getArguments()).getDonHang();
-        fmBinding.txtTong.setText(DONHANG.getTongTien()+"");
-        Locale localeVN = new Locale("vi", "VN");
-        NumberFormat currencyVN = NumberFormat.getCurrencyInstance(localeVN);
-        String str1 = currencyVN.format(DONHANG.getTongTien());
-        fmBinding.txtTong.setText(str1);
-        fmBinding.txtTongTien.setText(str1);
+        String tongTien = ThanhToanThanhCongFMArgs.fromBundle(getArguments()).getTongTien();
+        fmBinding.txtTong.setText(tongTien);
+//        Locale localeVN = new Locale("vi", "VN");
+//        NumberFormat currencyVN = NumberFormat.getCurrencyInstance(localeVN);
+//        String str1 = currencyVN.format(tongTien);
+        fmBinding.txtTong.setText(tongTien);
+        fmBinding.txtTongTien.setText(tongTien);
 
 
         return fmBinding.getRoot();

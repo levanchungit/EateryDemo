@@ -1,9 +1,6 @@
 package com.example.eaterydemo.fragments;
 
 import static com.example.eaterydemo.fragments.DangKyFM.validateEditText;
-import static com.example.eaterydemo.fragments.DangKyFM.validateEditTextEmail;
-import static com.example.eaterydemo.fragments.DangKyFM.validateEditTextMK;
-import static com.example.eaterydemo.fragments.DangKyFM.validateEditTextSDT;
 import static com.example.eaterydemo.others.ShowNotifyUser.dismissProgressDialog;
 import static com.example.eaterydemo.others.ShowNotifyUser.showProgressDialog;
 import static com.example.eaterydemo.service.GetRetrofit.getRetrofit;
@@ -36,7 +33,6 @@ import com.cloudinary.android.MediaManager;
 import com.cloudinary.android.callback.ErrorInfo;
 import com.cloudinary.android.callback.UploadCallback;
 import com.example.eaterydemo.databinding.FragmentAdminAddnhahangBinding;
-import com.example.eaterydemo.databinding.FragmentChinhsuaQuanlynhahangBinding;
 import com.example.eaterydemo.model.LoaiNhaHang;
 import com.example.eaterydemo.model.Message;
 import com.example.eaterydemo.model.NhaHang;
@@ -79,9 +75,6 @@ public class ADM_AddNhaHangFM extends Fragment {
         GetLoaiNHSpinner();
         initClick();
         initNavController(_view);
-
-//        showProgressDialog(getContext(), "Đang tải dữ liệu");
-
     }
 
     private void initNavController(View viewFmProfileBinding) {
@@ -102,7 +95,7 @@ public class ADM_AddNhaHangFM extends Fragment {
                 validate();
                 if (isValid == 1){
                     //load hình ảnh lên cloudinary
-                    showProgressDialog(getContext(), "Đang tải dữ liệu");
+
                     uploadToCloudinary();
                     dismissProgressDialog();
                 }
@@ -259,12 +252,6 @@ public class ADM_AddNhaHangFM extends Fragment {
                     String _mota = fmBinding.edtMoTaAddNhaHang.getText().toString().trim();
                     String _hinhAnh = resultData.get("url").toString();
                     NhaHang nhaHang = new NhaHang(_tennh, _diachi, _hinhAnh, _mota, _tentk, _loainh);
-//                    NhaHang nhaHang = new NhaHang("Nhà hàng number 1",
-//                            "CG LA",
-//                            "https://images.foody.vn/video/s800x450/foody-upload-api-foody-aka%20house%20v%E1%BA%A1n%20h%E1%BA%A1nh%20mall%20-%2026.2.2018.mp4_snap-180309122307.jpg",
-//                            "Aka House giá siêu rẻ ngon hấp dẫn",
-//                            "chucuahang16@gmail.com",
-//                            "COM");
                     AddNhaHang(nhaHang);
                 }
 

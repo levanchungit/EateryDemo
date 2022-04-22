@@ -1,5 +1,6 @@
 package com.example.eaterydemo.fragments;
 
+import static com.example.eaterydemo.fragments.DangNhapFM.hideKeyboard;
 import static com.example.eaterydemo.others.ShowNotifyUser.dismissProgressDialog;
 import static com.example.eaterydemo.service.GetRetrofit.getRetrofit;
 
@@ -58,7 +59,7 @@ public class ThanhToanFM extends Fragment {
     GioHangAdapter adapter;
     EditText diachi;
     List<KhuyenMai> arr2 = new ArrayList<>();
-    String[] thanhtoan = {"VNĐ", "ZaLo Pay", "PayPal", "MoMo"};
+    String[] thanhtoan = {"VNĐ", "ZaloPay", "PayPal", "MoMo"};
     KhuyenMai khuyenmai = new KhuyenMai();
     List<DonHangChiTiet> arrDHCT = new ArrayList<>();
     KhuyenMai km;
@@ -114,9 +115,9 @@ public class ThanhToanFM extends Fragment {
                     @Override
                     public void onClick(View view) {
                         String diachi1 = diachi.getText().toString();
-                        if (diachi1.length() == 0){
+                        if (diachi1.length() == 0) {
                             Toast.makeText(getContext(), "Vui lòng nhập địa chỉ thay đổi", Toast.LENGTH_SHORT).show();
-                        }else{
+                        } else {
                             ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
                             Call call = serviceAPI.CapNhatDiaChiGiaoHang(DONHANG.getMaDonHang(), diachi1);
                             call.enqueue(new Callback() {
@@ -149,7 +150,11 @@ public class ThanhToanFM extends Fragment {
                     int _MaDH = DONHANG.getMaDonHang();
                     String _DiaChi = fmBinding.txtDiaChiThanhToan.getText().toString();
                     int _TrangThaiDH = 1;
-                    float _TongTien = DONHANG.getTongTien();
+
+                    String _tt = fmBinding.txtTongTienThanhToan.getText().toString();
+                    String str = _tt.replaceAll("[^0-9]", "");
+                    float _TongTien = Float.parseFloat(str);
+                    Log.e("TT", _TongTien + "");
                     String _TenTK = DONHANG.getTenTK();
                     CapNhatTrangThaiDonHangCuaTK(new DonHang(_MaDH, _DiaChi, _TrangThaiDH, _TongTien, _TenTK));
                     fmBinding.tvTranThaiMaKhuyenMai.setText("");
@@ -206,8 +211,6 @@ public class ThanhToanFM extends Fragment {
                 int tienKM = khuyenMai2.getTienKM();
                 maKMDH = tienKM;
                 int i = (int) (DONHANG.getTongTien() - ((DONHANG.getTongTien() * tienKM) / 100));
-                Log.d("Tien KM : ", DONHANG.getTongTien()+"");
-                Log.d("Tien KM : ", i+"");
                 //chuyển đổi đơn vị tiền tệ
                 Locale localeVN = new Locale("vi", "VN");
                 NumberFormat currencyVN = NumberFormat.getCurrencyInstance(localeVN);
@@ -288,7 +291,8 @@ public class ThanhToanFM extends Fragment {
                         call1.enqueue(new Callback() {
                             @Override
                             public void onResponse(Call call, Response response) {
-                                Toast.makeText(getContext(), "cập nhật thành công", Toast.LENGTH_SHORT).show();
+                                Log.e("SL mã khuyến mãi", "SL đã trừ 1");
+                                hideKeyboard(getActivity());
                             }
 
                             @Override
@@ -297,8 +301,11 @@ public class ThanhToanFM extends Fragment {
                             }
                         });
                         if (fmBinding.spPhuongThucThanhToan.getSelectedItemPosition() == 1) {
+
+                            String _tt = fmBinding.txtTongTienThanhToan.getText().toString();
+                            String str = _tt.replaceAll("[^0-9]", "");
                             CreateOrder orderApi = new CreateOrder();
-                            int tien = (int) DONHANG.getTongTien();
+                            int tien = Integer.parseInt(str);
                             Log.d("tien int : ", tien + "");
                             try {
 
@@ -313,7 +320,7 @@ public class ThanhToanFM extends Fragment {
                                         @Override
                                         public void onPaymentSucceeded(final String transactionId, final String transToken, final String appTransID) {
                                             Toast.makeText(getActivity(), "Thanh toán thành công", Toast.LENGTH_SHORT).show();
-                                            NavDirections action = ThanhToanFMDirections.actionMenuThanhToanToThanhToanThanhCongFM(DONHANG);
+                                            NavDirections action = ThanhToanFMDirections.actionMenuThanhToanToThanhToanThanhCongFM(fmBinding.txtTongTienThanhToan.getText().toString());
                                             Navigation.findNavController(getView()).navigate(action);
                                         }
 
@@ -332,6 +339,9 @@ public class ThanhToanFM extends Fragment {
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
+                        } else {
+                            NavDirections action = ThanhToanFMDirections.actionMenuThanhToanToThanhToanThanhCongFM(fmBinding.txtTongTienThanhToan.getText().toString());
+                            Navigation.findNavController(getView()).navigate(action);
                         }
                     }
                 }

@@ -5,18 +5,15 @@ import static com.example.eaterydemo.service.GetRetrofit.getRetrofit;
 
 import android.content.Context;
 import android.content.DialogInterface;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
-import androidx.navigation.NavController;
 import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
@@ -25,10 +22,6 @@ import com.bumptech.glide.Glide;
 import com.example.eaterydemo.R;
 import com.example.eaterydemo.fragments.ADM_QuanLyCuaHangFM;
 import com.example.eaterydemo.fragments.ADM_QuanLyCuaHangFMDirections;
-import com.example.eaterydemo.fragments.ADM_QuanLyTaiKhoanFMDirections;
-import com.example.eaterydemo.fragments.NhaHangFMDirections;
-import com.example.eaterydemo.fragments.NhaHangYeuThichFMDirections;
-import com.example.eaterydemo.model.Message;
 import com.example.eaterydemo.model.NhaHang;
 import com.example.eaterydemo.service.ServiceAPI;
 
@@ -44,7 +37,6 @@ public class AdminQuanLyCuaHangAdapter extends RecyclerView.Adapter<AdminQuanLyC
     List<NhaHang> arr;
     List<NhaHang> getArr;
     Context context;
-    NavController navController;
 
     public AdminQuanLyCuaHangAdapter(List<NhaHang> arr, Context context) {
         this.arr = arr;

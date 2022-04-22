@@ -90,7 +90,6 @@ public class DangKyFM extends Fragment {
                             fmBinding.tilNhapLaiMatKhauDangKy, fmBinding.edtNhapLaiMatKhauDangKy)
                         | !validateEditTextSDT(fmBinding.tilSdtDangKy,fmBinding.edtSdtDangKy)){
                         return;
-
                 }
 
                 //load hình ảnh lên cloudinary
@@ -140,13 +139,13 @@ public class DangKyFM extends Fragment {
         call.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
+                dismissProgressDialog();
                 Message message = (Message) response.body();
                 Toast.makeText(getContext(), message.getNotification(), Toast.LENGTH_SHORT).show();
                 if (message.getStatus() == 1) {
                     NavDirections action = DangKyFMDirections.actionDangKyFMToDangNhapFM();
                     navController.navigate(action);
                 }
-                dismissProgressDialog();
             }
 
             @Override
@@ -250,13 +249,6 @@ public class DangKyFM extends Fragment {
 
     public static boolean validateEditTextSDT(TextInputLayout til, TextInputEditText edt) {
         String _str = edt.getText().toString().trim();
-//        Pattern pattern = Pattern.compile("^\\(0)+([0-9]{8}+$", Pattern.CASE_INSENSITIVE);
-//        Matcher matcher = pattern.matcher(_str);
-//
-//        if (matcher.matches() == false){
-//            til.setError("vui long nhập đúng định dạng");
-//            return false;
-//        }else
             if (_str.length()<10 | _str.length()>10) {
             til.setError("Số điện thoại phải đúng 10 ký tự");
             return false;

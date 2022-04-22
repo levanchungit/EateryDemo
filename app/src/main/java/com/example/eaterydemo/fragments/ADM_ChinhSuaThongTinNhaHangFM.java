@@ -14,7 +14,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.NavController;
 import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 
@@ -31,13 +30,14 @@ import retrofit2.Response;
 
 public class ADM_ChinhSuaThongTinNhaHangFM extends Fragment {
     FragmentChinhsuaQuanlynhahangBinding fmBinding;
-    NavController navController;
     View _view;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         fmBinding = FragmentChinhsuaQuanlynhahangBinding.inflate(getLayoutInflater());
+
+        fmBinding.edtTenTKChuNhaHang.setEnabled(false);
 
         _view = container;
         return fmBinding.getRoot();
@@ -48,16 +48,10 @@ public class ADM_ChinhSuaThongTinNhaHangFM extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         GetThongTinNhaHang();
         initClick();
-        initNavController(_view);
 
         showProgressDialog(getContext(), "Đang tải dữ liệu");
 
     }
-
-    private void initNavController(View viewFmProfileBinding) {
-        navController = Navigation.findNavController(viewFmProfileBinding);
-    }
-
     private void initClick() {
         fmBinding.ivBack.setOnClickListener(new View.OnClickListener() {
             @Override

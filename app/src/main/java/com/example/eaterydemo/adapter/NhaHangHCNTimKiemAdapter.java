@@ -133,6 +133,7 @@ public class NhaHangHCNTimKiemAdapter extends RecyclerView.Adapter<NhaHangHCNTim
         Filter filter = new Filter() {
             @Override
             protected FilterResults performFiltering(CharSequence constraint) {
+
                 FilterResults filterResults = new FilterResults();
                 if (constraint == null || constraint.length() == 0) {
                     filterResults.count = arrNH.size();
@@ -144,8 +145,9 @@ public class NhaHangHCNTimKiemAdapter extends RecyclerView.Adapter<NhaHangHCNTim
 
                     for (NhaHang itemsModel : arrNH) {
                         String title = itemsModel.getTenNH();
-                        String _title = removeAccent(title);
-                        if (_title.toLowerCase().contains(searchStr)) {
+                        if (title.toLowerCase().contains(searchStr)) {
+                            resultsModel.add(itemsModel);
+                        }else if(removeAccent(title).toLowerCase().contains(searchStr)){
                             resultsModel.add(itemsModel);
                         }
                         filterResults.count = resultsModel.size();
@@ -165,7 +167,6 @@ public class NhaHangHCNTimKiemAdapter extends RecyclerView.Adapter<NhaHangHCNTim
         return filter;
     }
 
-    //xoá dấu tiếng việt và
     public String removeAccent(String s) {
         String temp = Normalizer.normalize(s, Normalizer.Form.NFD);
         Pattern pattern = Pattern.compile("\\p{InCombiningDiacriticalMarks}+");

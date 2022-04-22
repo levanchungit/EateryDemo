@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -33,6 +34,7 @@ import retrofit2.Response;
 public class NhaHangYeuThichFM extends Fragment {
     FragmentNhahangyeuthichBinding fmBinding;
     NavController navController;
+    NhaHangHCNYeuThichAdapter adapter;
 
     @Nullable
     @Override
@@ -50,7 +52,18 @@ public class NhaHangYeuThichFM extends Fragment {
     }
 
     private void initClick() {
+        fmBinding.svTimKiemTimKiemNhaHang.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
 
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                adapter.getFilter().filter(newText);
+                return false;
+            }
+        });
     }
 
     @Override
@@ -70,7 +83,7 @@ public class NhaHangYeuThichFM extends Fragment {
                 if(arr!=null){
                     LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
                     fmBinding.rvNhaHangYeuThich.setLayoutManager(linearLayoutManager);
-                    NhaHangHCNYeuThichAdapter adapter = new NhaHangHCNYeuThichAdapter(arr, getContext());
+                    adapter = new NhaHangHCNYeuThichAdapter(arr, getContext());
                     fmBinding.rvNhaHangYeuThich.setAdapter(adapter);
                     dismissProgressDialog();
                 }

@@ -115,7 +115,7 @@ public interface ServiceAPI {
     Call<Message> DangNhap(@Query("TenTK") String TenTK, @Query("MatKhau") String MatKhau);
 
     @GET("api/GetAllTaiKhoanChuaXoa")
-    Call<ArrayList<TaiKhoan>> GetAllTaiKhoanChuaXoa();
+    Call<ArrayList<TaiKhoan>> GetAllTaiKhoanChuaXoa(@Query("TenTK") String TenTK);
 
     @POST("api/dangky")
     Call<Message> DangKy(@Body TaiKhoan taiKhoan);
@@ -148,7 +148,7 @@ public interface ServiceAPI {
 
 
     @POST("api/XoaTaiKhoan")
-    Call<ArrayList<TaiKhoan>> XoaTaiKhoanTheoTenTK(@Query("TenTK") String TenTK);
+    Call<ArrayList<TaiKhoan>> XoaTaiKhoanTheoTenTK(@Query("TenTKHT") String TenTKHT, @Query("TenTK") String TenTK);
 
     @POST("api/CapNhatMatKhauCuaTK")
     Call<Message> CapNhatMatKhauCuaTK(@Query("TenTK") String TenTK, @Query("MatKhauCu") String MatKhauCu, @Query("MatKhauMoi") String MatKhauMoi, @Query("NhapLaiMatKhauMoi") String NhapLaiMatKhauMoi);
