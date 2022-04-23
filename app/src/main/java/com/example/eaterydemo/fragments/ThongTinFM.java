@@ -4,6 +4,7 @@ import static com.example.eaterydemo.others.ShowNotifyUser.dismissProgressDialog
 import static com.example.eaterydemo.others.ShowNotifyUser.showProgressDialog;
 import static com.example.eaterydemo.service.GetRetrofit.getRetrofit;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +20,7 @@ import androidx.navigation.Navigation;
 
 import com.bumptech.glide.Glide;
 import com.example.eaterydemo.R;
+import com.example.eaterydemo.activities.MainActivity;
 import com.example.eaterydemo.databinding.FragmentThongtinBinding;
 import com.example.eaterydemo.model.TaiKhoan;
 import com.example.eaterydemo.service.ServiceAPI;
@@ -125,5 +127,6 @@ public class ThongTinFM extends Fragment {
             }
         });
     }
+
 
 }

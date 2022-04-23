@@ -12,6 +12,7 @@ import com.example.eaterydemo.model.TaiKhoan;
 import com.example.eaterydemo.model.ThongKe;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -201,7 +202,7 @@ public interface ServiceAPI {
     Call<Double> GetTongDoanhThuDonHangTheoNH(@Query("MaNH") int MaNH, @Query("TuNgay") String TuNgay, @Query("DenNgay") String DenNgay);
 
     @GET("api/GetTongDoanhThuCuaTungMonAnTheoNH ")
-    Call<ArrayList<ThongKe>> GetTongDoanhThuCuaTungMonAnTheoNH(@Query("MaNH") int MaNH);
+    Call<ArrayList<ThongKe>> GetTongDoanhThuCuaTungMonAnTheoNH(@Query("MaNH") int MaNH, @Query("ngaybatdau") String ngaybatdau, @Query("ngayketthuc") String ngayketthuc);
 
 
     //    Cập nhật số lượng món ăn trong giỏ hàng

@@ -3,13 +3,13 @@ package com.example.eaterydemo.model;
 public class ThongKe {
     public int MaMA;
     public String TenMA;
-    public String HinnhAnhMA;
-    public Double TongDoanhThu;
+    public String HinhAnh;
+    public double TongDoanhThu;
 
-    public ThongKe(int maMA, String tenMA, String hinhAnh, Double tongDoanhThu) {
+    public ThongKe(int maMA, String tenMA, String hinhAnh, double tongDoanhThu) {
         MaMA = maMA;
         TenMA = tenMA;
-        HinnhAnhMA = hinhAnh;
+        HinhAnh = hinhAnh;
         TongDoanhThu = tongDoanhThu;
     }
 
@@ -33,18 +33,18 @@ public class ThongKe {
     }
 
     public String getHinhAnh() {
-        return HinnhAnhMA;
+        return HinhAnh;
     }
 
     public void setHinhAnh(String hinhAnh) {
-        HinnhAnhMA = hinhAnh;
+        HinhAnh = hinhAnh;
     }
 
-    public Double getTongDoanhThu() {
+    public double getTongDoanhThu() {
         return TongDoanhThu;
     }
 
-    public void setTongDoanhThu(Double tongDoanhThu) {
+    public void setTongDoanhThu(double tongDoanhThu) {
         TongDoanhThu = tongDoanhThu;
     }
 }

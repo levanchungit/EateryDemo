@@ -30,7 +30,10 @@ import com.example.eaterydemo.model.ThongKe;
 import com.example.eaterydemo.service.ServiceAPI;
 
 import java.text.NumberFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -50,7 +53,7 @@ public class ThongKeFM extends Fragment {
     Locale localeVN = new Locale("vi", "VN");
     NumberFormat currencyVN = NumberFormat.getCurrencyInstance(localeVN);
     int x = 0;
-
+    SimpleDateFormat sfd = new SimpleDateFormat("yyyy-MM-dd");
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -75,9 +78,9 @@ public class ThongKeFM extends Fragment {
         fmBinding.edtTuNgayThongKe.setFocusable(false);
         fmBinding.edtDenNgayThongKe.setFocusable(false);
 
-        showProgressDialog(getContext(), "Đang tải dữ liệu");
+//        showProgressDialog(getContext(), "Đang tải dữ liệu");
         thongKeTongDoanhThuNhaHangTheoNgay();
-        thongKeTongDoanhThuTungMonAn();
+//        thongKeTongDoanhThuTungMonAn();
     }
 
     private void initNavController(View viewFmProfileBinding) {
@@ -153,10 +156,11 @@ public class ThongKeFM extends Fragment {
                     @Override
                     public void onResponse(Call call, Response response) {
                         Double TongTien = (Double) response.body();
-                        if (TongTien != null){
+                        if (TongTien != null) {
                             String str1 = currencyVN.format(TongTien);
                             Log.d("tong tien", str1);
                             fmBinding.tvTongTienDoanhThuThongKe.setText(str1);
+                                thongKeTongDoanhThuTungMonAn(tuNgay, denNgay);
 
                         }
 
@@ -196,6 +200,13 @@ public class ThongKeFM extends Fragment {
                             String str1 = currencyVN.format(TongTien);
                             Log.d("tong tien", str1);
                             fmBinding.tvTongTienDoanhThuThongKe.setText(str1);
+                            Date ngayBatDau ;
+                            Date ngayKetThuc ;
+
+                                 thongKeTongDoanhThuTungMonAn(tuNgay, denNgay);
+
+
+
                         }
                         dismissProgressDialog();
                     }
@@ -215,9 +226,10 @@ public class ThongKeFM extends Fragment {
         });
     }
 
-    private void thongKeTongDoanhThuTungMonAn() {
+    private void thongKeTongDoanhThuTungMonAn(String tungay, String denngay) {
         ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
-        Call call = serviceAPI.GetTongDoanhThuCuaTungMonAnTheoNH(CCH_QuanLyNhaHangFM.MaNH);
+        Log.e("ngaybatdau", tungay + " ngay ket thuc : " + denngay);
+        Call call = serviceAPI.GetTongDoanhThuCuaTungMonAnTheoNH(CCH_QuanLyNhaHangFM.MaNH, tungay, denngay );
         call.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
