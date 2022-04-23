@@ -4,9 +4,9 @@ public class ThongKe {
     public int MaMA;
     public String TenMA;
     public String HinhAnh;
-    public Double TongDoanhThu;
+    public double TongDoanhThu;
 
-    public ThongKe(int maMA, String tenMA, String hinhAnh, Double tongDoanhThu) {
+    public ThongKe(int maMA, String tenMA, String hinhAnh, double tongDoanhThu) {
         MaMA = maMA;
         TenMA = tenMA;
         HinhAnh = hinhAnh;
@@ -40,11 +40,11 @@ public class ThongKe {
         HinhAnh = hinhAnh;
     }
 
-    public Double getTongDoanhThu() {
+    public double getTongDoanhThu() {
         return TongDoanhThu;
     }
 
-    public void setTongDoanhThu(Double tongDoanhThu) {
+    public void setTongDoanhThu(double tongDoanhThu) {
         TongDoanhThu = tongDoanhThu;
     }
 }

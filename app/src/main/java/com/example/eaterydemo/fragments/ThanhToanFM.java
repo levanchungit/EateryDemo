@@ -167,6 +167,7 @@ public class ThanhToanFM extends Fragment {
         fmBinding.edtMaKhuyenMaiThanhToan.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                getDonHang();
             }
 
             @Override
@@ -197,8 +198,27 @@ public class ThanhToanFM extends Fragment {
         });
     }
 
+    private void getDonHang () {
+        ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
+        Call call = serviceAPI.GetDonHangTheoTK(DangNhapFM.TENTK);
+        call.enqueue(new Callback() {
+            @Override
+            public void onResponse(Call call, Response response) {
+                DonHang donHang = (DonHang) response.body();
+                if (donHang != null) {
+                    DONHANG = donHang;
+                }
+            }
+            @Override
+            public void onFailure(Call call, Throwable t) {
+                dismissProgressDialog();
+                Toast.makeText(getContext(), "Lỗi", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
 
     private void GetMaKhuyenMai(List<KhuyenMai> arr) {
+
         String maKM = fmBinding.edtMaKhuyenMaiThanhToan.getText().toString();
         for (KhuyenMai khuyenMai : arr) {
             if (DONHANG.getMaNH() == khuyenMai.getMaNH()) {
@@ -210,6 +230,7 @@ public class ThanhToanFM extends Fragment {
             if (khuyenMai2.getMaKM().equals(maKM) && khuyenMai2.getSL() >= 1) {
                 int tienKM = khuyenMai2.getTienKM();
                 maKMDH = tienKM;
+                Log.d("tong tien :", DONHANG.getTongTien()+"");
                 int i = (int) (DONHANG.getTongTien() - ((DONHANG.getTongTien() * tienKM) / 100));
                 //chuyển đổi đơn vị tiền tệ
                 Locale localeVN = new Locale("vi", "VN");
@@ -221,6 +242,7 @@ public class ThanhToanFM extends Fragment {
                 fmBinding.tvTranThaiMaKhuyenMai.setTextColor(Color.RED);
                 break;
             } else {
+                maKMDH = 0;
                 int i = (int) DONHANG.getTongTien();
                 //chuyển đổi đơn vị tiền tệ
                 Locale localeVN = new Locale("vi", "VN");
@@ -230,7 +252,7 @@ public class ThanhToanFM extends Fragment {
                 fmBinding.tvTranThaiMaKhuyenMai.setText("Mã khuyến mãi không tồn tại hoặc đã hết số lượng");
                 fmBinding.tvTranThaiMaKhuyenMai.setTextColor(Color.RED);
             }
-            break;
+
         }
     }
 
@@ -320,8 +342,9 @@ public class ThanhToanFM extends Fragment {
                                         @Override
                                         public void onPaymentSucceeded(final String transactionId, final String transToken, final String appTransID) {
                                             Toast.makeText(getActivity(), "Thanh toán thành công", Toast.LENGTH_SHORT).show();
-                                            NavDirections action = ThanhToanFMDirections.actionMenuThanhToanToThanhToanThanhCongFM(fmBinding.txtTongTienThanhToan.getText().toString());
-                                            Navigation.findNavController(getView()).navigate(action);
+//                                            NavDirections action = ThanhToanFMDirections.actionMenuThanhToanToThanhToanThanhCongFM(fmBinding.txtTongTienThanhToan.getText().toString());
+//                                            Navigation.findNavController(getView()).navigate(action);
+                                            getActivity().finish();
                                         }
 
                                         @Override
@@ -335,7 +358,7 @@ public class ThanhToanFM extends Fragment {
                                         }
                                     });
                                 }
-
+//                                getActivity().finish();
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
@@ -376,5 +399,4 @@ public class ThanhToanFM extends Fragment {
         navbar.setVisibility(View.VISIBLE);
 
     }
-
 }

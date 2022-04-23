@@ -41,13 +41,11 @@ dependencies {
     implementation 'androidx.navigation:navigation-runtime:2.4.1'
     implementation 'com.google.android.gms:play-services-nearby:18.0.0'
     implementation 'com.google.android.gms:play-services-cast-framework:21.0.1'
-    implementation fileTree(dir: 'C:\\Users\\quyen\\Downloads\\DemoZPDK_Android\\ZPDK-Android', include: ['*.aar', '*.jar'], exclude: [])
     implementation 'com.squareup.okhttp3:okhttp:5.0.0-alpha.6'
-    implementation fileTree(dir: 'C:\\Users\\quyen\\Downloads\\DemoZPDK_Android\\ZPDK-Android', include: ['*.aar', '*.jar'], exclude: [])
     implementation fileTree(dir: 'C:\\Users\\levan\\Downloads\\DemoZPDK_Android\\ZPDK-Android', include: ['*.aar', '*.jar'], exclude: [])
-    implementation fileTree(dir: 'C:\\Users\\quyen\\Downloads\\DemoZPDK_Android\\ZPDK-Android', include: ['*.aar', '*.jar'], exclude: [])
     implementation fileTree(dir: 'D:\\Github\\DemoZPDK_Android\\ZPDK-Android', include: ['*.aar', '*.jar'], exclude: [])
     implementation fileTree(dir: 'C:\\Users\\HOME\\OneDrive\\Documents\\FPT\\Du an 1\\DemoZPDK_Android\\DemoZPDK_Android\\ZPDK-Android', include: ['*.aar', '*.jar'], exclude: [])
+    implementation fileTree(dir: 'C:\\Users\\quyen\\Downloads\\zpdk_v2.0.4\\android', include: ['*.aar', '*.jar'], exclude: [])
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
