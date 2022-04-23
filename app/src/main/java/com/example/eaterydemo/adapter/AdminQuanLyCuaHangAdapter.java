@@ -98,6 +98,7 @@ public class AdminQuanLyCuaHangAdapter extends RecyclerView.Adapter<AdminQuanLyC
                     @Override
                     public void onClick(DialogInterface dialog, int i) {
                         XoaNhaHang(model.getMaNH());
+                        Toast.makeText(context, "Xóa nhà hàng thành công", Toast.LENGTH_SHORT).show();
                         notifyDataSetChanged();
                         dialog.dismiss();
                     }

@@ -103,6 +103,7 @@ public class AdminQuanLyTaiKhoanAdapter extends RecyclerView.Adapter<AdminQuanLy
                     @Override
                     public void onClick(DialogInterface dialog, int i) {
                         XoaTaiKhoan(DangNhapFM.TENTK, model.getTenTK());
+                        Toast.makeText(context, "Xóa tài khoản thành công", Toast.LENGTH_SHORT).show();
                         notifyDataSetChanged();
                         dialog.dismiss();
                     }

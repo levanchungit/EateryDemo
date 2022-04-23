@@ -242,8 +242,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="500" />
-                            <option name="y" value="1436" />
+                            <option name="x" value="916" />
+                            <option name="y" value="1364" />
                           </Point>
                         </option>
                         <option name="myPositions">
@@ -263,8 +263,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="256" />
-                            <option name="y" value="724" />
+                            <option name="x" value="467" />
+                            <option name="y" value="658" />
                           </Point>
                         </option>
                         <option name="myPositions">
@@ -284,9 +284,18 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="256" />
-                            <option name="y" value="12" />
+                            <option name="x" value="456" />
+                            <option name="y" value="13" />
                           </Point>
+                        </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_CCH_ItemQuanLyDanhSachMonAn_to_CCH_QuanLyNhaHangFM">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
                         </option>
                       </LayoutPositions>
                     </value>
@@ -296,9 +305,18 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="256" />
-                            <option name="y" value="1080" />
+                            <option name="x" value="473" />
+                            <option name="y" value="965" />
                           </Point>
+                        </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_CCH_LichSuDonHang_to_CCH_QuanLyNhaHangFM">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
                         </option>
                       </LayoutPositions>
                     </value>
@@ -308,13 +326,18 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="256" />
-                            <option name="y" value="1436" />
+                            <option name="x" value="460" />
+                            <option name="y" value="1356" />
                           </Point>
                         </option>
                         <option name="myPositions">
                           <map>
                             <entry key="action_CCH_QuanLyDonHangFM_to_CCH_ChiTietDonHangFM">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_CCH_QuanLyDonHangFM_to_CCH_QuanLyNhaHangFM">
                               <value>
                                 <LayoutPositions />
                               </value>
@@ -375,9 +398,18 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="256" />
-                            <option name="y" value="368" />
+                            <option name="x" value="451" />
+                            <option name="y" value="334" />
                           </Point>
+                        </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_maKhuyenMai_to_CCH_QuanLyNhaHangFM">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
                         </option>
                       </LayoutPositions>
                     </value>
@@ -387,8 +419,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="256" />
-                            <option name="y" value="1792" />
+                            <option name="x" value="-58" />
+                            <option name="y" value="1208" />
                           </Point>
                         </option>
                       </LayoutPositions>

@@ -67,7 +67,11 @@ public class ADM_ChinhSuaThongTinNhaHangFM extends Fragment {
                 String _TenNH = fmBinding.edtTenNhaHang.getText().toString().trim();
                 String _DiaChi = fmBinding.edtDiaChiEditQLNhaHang.getText().toString().trim();
                 String _MoTa = fmBinding.edtMoTaEditQLNhaHang.getText().toString().trim();
-                ChinhSuaThongTinNhaHang(new NhaHang(_MaNH,_TenNH,_DiaChi,_MoTa));
+                if (_TenNH.equals("")||_DiaChi.equals("")||_MoTa.equals("")){
+                    Toast.makeText(getContext(), "Cập nhật thông tin nhà hàng thất bại", Toast.LENGTH_SHORT).show();
+                } else {
+                    ChinhSuaThongTinNhaHang(new NhaHang(_MaNH,_TenNH,_DiaChi,_MoTa));
+                }
             }
         });
     }

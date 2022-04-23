@@ -86,10 +86,13 @@ public class DangKyFM extends Fragment {
                         | !validateEditText(fmBinding.tilSdtDangKy,fmBinding.edtSdtDangKy)
                         | !validateEditText(fmBinding.tilDiaChiDangKy,fmBinding.edtDiaChiDangKy)
                         | !validateEditTextEmail(fmBinding.tilEmailDangKy,fmBinding.edtEmailDangKy)
-                        | !validateEditTextMK(fmBinding.tilMatKhauDangKy,fmBinding.edtMatKhauDangKy,
-                            fmBinding.tilNhapLaiMatKhauDangKy, fmBinding.edtNhapLaiMatKhauDangKy)
                         | !validateEditTextSDT(fmBinding.tilSdtDangKy,fmBinding.edtSdtDangKy)){
                         return;
+                }
+
+                if(!validateEditTextMK(fmBinding.tilMatKhauDangKy,fmBinding.edtMatKhauDangKy,
+                        fmBinding.tilNhapLaiMatKhauDangKy, fmBinding.edtNhapLaiMatKhauDangKy)){
+                    return;
                 }
 
                 //load hình ảnh lên cloudinary
@@ -139,12 +142,12 @@ public class DangKyFM extends Fragment {
         call.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
-                dismissProgressDialog();
                 Message message = (Message) response.body();
                 Toast.makeText(getContext(), message.getNotification(), Toast.LENGTH_SHORT).show();
                 if (message.getStatus() == 1) {
                     NavDirections action = DangKyFMDirections.actionDangKyFMToDangNhapFM();
                     navController.navigate(action);
+                    dismissProgressDialog();
                 }
             }
 
@@ -181,7 +184,6 @@ public class DangKyFM extends Fragment {
             @Override
             public void onSuccess(String requestId, Map resultData) {
                 Log.d("CLOUDINARY","Task successful");
-                showProgressDialog(getContext(), "Đang đăng ký tài khoản");
                 String _email = fmBinding.edtEmailDangKy.getText().toString().trim();
                 String _mk = fmBinding.edtMatKhauDangKy.getText().toString().trim();
                 String _hoten = fmBinding.edtHoTenDangKy.getText().toString().trim();

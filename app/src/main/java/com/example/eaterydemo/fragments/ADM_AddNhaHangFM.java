@@ -235,6 +235,7 @@ public class ADM_AddNhaHangFM extends Fragment {
             MediaManager.get().upload(imagePath).callback(new UploadCallback() {
                 @Override
                 public void onStart(String requestId) {
+                    showProgressDialog(getContext(), "Đang đăng ký nhà hàng");
                     Log.d("CLOUDINARY", "Start");
                 }
 
@@ -246,13 +247,13 @@ public class ADM_AddNhaHangFM extends Fragment {
                 @Override
                 public void onSuccess(String requestId, Map resultData) {
                     Log.d("CLOUDINARY", "Task successful");
-                    showProgressDialog(getContext(), "Đang đăng ký nhà hàng");
                     String _tennh = fmBinding.edtTenNHAddNhaHang.getText().toString().trim();
                     String _diachi = fmBinding.edtDiaChiAddNhaHang.getText().toString().trim();
                     String _mota = fmBinding.edtMoTaAddNhaHang.getText().toString().trim();
                     String _hinhAnh = resultData.get("url").toString();
                     NhaHang nhaHang = new NhaHang(_tennh, _diachi, _hinhAnh, _mota, _tentk, _loainh);
                     AddNhaHang(nhaHang);
+                    dismissProgressDialog();
                 }
 
                 @Override
