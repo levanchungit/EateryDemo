@@ -5,6 +5,8 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
@@ -31,13 +33,16 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     }
 
     private void sendNotification(String strTitle, String strMessage) {
+        Bitmap rawBitmap = BitmapFactory.decodeResource(getResources(),
+                R.drawable.khuyenmai2);
         Intent intent = new Intent(this, DrawerLayoutActivity.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0,
                 intent, PendingIntent.FLAG_UPDATE_CURRENT);
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this, MyApplication.CHANNEL_ID)
                 .setContentTitle(strTitle)
                 .setContentText(strMessage)
-                .setSmallIcon(R.drawable.logo_light)
+                .setSmallIcon(R.drawable.avatar)
+                .setLargeIcon(rawBitmap)
                 .setContentIntent(pendingIntent);
 
         Notification notification = notificationBuilder.build();

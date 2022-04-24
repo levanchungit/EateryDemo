@@ -37,7 +37,7 @@
                 android:layout_below="@+id/tlChinhssua">
 
                 <ImageView
-                    android:id="@+id/imgMaKhuyen"
+                    android:id="@+id/imgdialogEditMaKM"
                     android:layout_width="70dp"
                     android:layout_height="70dp"
 
@@ -116,7 +116,7 @@
 
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btnChinhSuadialog"
+                    android:id="@+id/btnChinhSuaMaKMdialog"
                     android:layout_width="120dp"
                     android:layout_height="50dp"
                     android:background="@drawable/background_purple"
@@ -124,7 +124,7 @@
                     android:textColor="@color/white" />
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btnHuydialog"
+                    android:id="@+id/btnHuyChinhSuaMaKMdialog"
                     android:layout_width="120dp"
                     android:layout_height="50dp"
                     android:layout_marginLeft="20dp"

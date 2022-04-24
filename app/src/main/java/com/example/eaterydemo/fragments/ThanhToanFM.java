@@ -146,6 +146,7 @@ public class ThanhToanFM extends Fragment {
         fmBinding.imgThanhToanThanhToan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log.e("don hang", DONHANG.getCountSL() + "");
                 if (DONHANG != null) {
                     int _MaDH = DONHANG.getMaDonHang();
                     String _DiaChi = fmBinding.txtDiaChiThanhToan.getText().toString();
@@ -156,9 +157,17 @@ public class ThanhToanFM extends Fragment {
                     float _TongTien = Float.parseFloat(str);
                     Log.e("TT", _TongTien + "");
                     String _TenTK = DONHANG.getTenTK();
+                    Log.e("TT", DONHANG.getDONHANGCHITIETs() + "");
+                    if (DONHANG.getDONHANGCHITIETs() == null) {
+                        Toast.makeText(getContext(), "Vui lòng thêm món ăn vào giỏ hàng", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                    if (DONHANG.getDONHANGCHITIETs().size() == 0) {
+                        Toast.makeText(getContext(), "Vui lòng thêm món ăn vào giỏ hàng", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
                     CapNhatTrangThaiDonHangCuaTK(new DonHang(_MaDH, _DiaChi, _TrangThaiDH, _TongTien, _TenTK));
                     fmBinding.tvTranThaiMaKhuyenMai.setText("");
-
                 }
             }
         });
@@ -198,7 +207,7 @@ public class ThanhToanFM extends Fragment {
         });
     }
 
-    private void getDonHang () {
+    private void getDonHang() {
         ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
         Call call = serviceAPI.GetDonHangTheoTK(DangNhapFM.TENTK);
         call.enqueue(new Callback() {
@@ -209,6 +218,7 @@ public class ThanhToanFM extends Fragment {
                     DONHANG = donHang;
                 }
             }
+
             @Override
             public void onFailure(Call call, Throwable t) {
                 dismissProgressDialog();
@@ -230,7 +240,7 @@ public class ThanhToanFM extends Fragment {
             if (khuyenMai2.getMaKM().equals(maKM) && khuyenMai2.getSL() >= 1) {
                 int tienKM = khuyenMai2.getTienKM();
                 maKMDH = tienKM;
-                Log.d("tong tien :", DONHANG.getTongTien()+"");
+                Log.d("tong tien :", DONHANG.getTongTien() + "");
                 int i = (int) (DONHANG.getTongTien() - ((DONHANG.getTongTien() * tienKM) / 100));
                 //chuyển đổi đơn vị tiền tệ
                 Locale localeVN = new Locale("vi", "VN");

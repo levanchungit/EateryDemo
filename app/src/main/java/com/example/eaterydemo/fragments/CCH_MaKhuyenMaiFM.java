@@ -62,7 +62,7 @@ public class CCH_MaKhuyenMaiFM extends Fragment {
 
     EditText maKm, tenKm, TienKm, slKm;
     ImageView HinhAnhKm;
-    Button btnChinhSua;
+    Button btnChinhSua, btnHuy;
     //xu ly refr
     List<KhuyenMai> arrThem;
     MaKhuyenMaiAdapter adapter;
@@ -132,8 +132,9 @@ public class CCH_MaKhuyenMaiFM extends Fragment {
         tenKm = view.findViewById(R.id.txtTenKhuyenMaidialog);
         TienKm = view.findViewById(R.id.txtTienKhuyenMaidialog);
         slKm = view.findViewById(R.id.txtSoLuongKhuyenMaidialog);
-        HinhAnhKm = view.findViewById(R.id.imgMaKhuyen);
-        btnChinhSua = view.findViewById(R.id.btnChinhSuadialog);
+        HinhAnhKm = view.findViewById(R.id.imgdialogThemMaKM);
+        btnChinhSua = view.findViewById(R.id.btnThemMaKMdialog);
+        btnHuy = view.findViewById(R.id.btnHuyThemMaKMdialog);
 
         HinhAnhKm.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -148,6 +149,12 @@ public class CCH_MaKhuyenMaiFM extends Fragment {
             public void onClick(View view) {
                 uploadToCloudinary();
                 dialog.dismiss();
+            }
+        });
+        btnHuy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.cancel();
             }
         });
     }

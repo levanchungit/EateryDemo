@@ -119,7 +119,7 @@ public class CCH_Item_QuanLyDanhSachMonAnAdapter extends RecyclerView.Adapter<CC
 
         ten.setText(model.getTenMA());
         gia.setText(model.getGia()+"");
-
+        Glide.with(context).load(model.getHinhAnh()).centerCrop().placeholder(R.drawable.img_error).into(hinhanh);
         dialog.show();
         btnChinhSua.setOnClickListener(new View.OnClickListener() {
             @Override

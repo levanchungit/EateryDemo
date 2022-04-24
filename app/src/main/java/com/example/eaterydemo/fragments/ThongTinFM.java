@@ -92,7 +92,9 @@ public class ThongTinFM extends Fragment {
         fmProfileBinding.ivDangXuat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getActivity().finish();
+                NavDirections action = ThongTinFMDirections.actionMenuThongTinToDangNhapFM2();
+                navController.navigate(action);
+//                getActivity().finish();
             }
         });
     }

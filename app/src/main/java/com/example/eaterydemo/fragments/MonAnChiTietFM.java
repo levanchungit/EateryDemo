@@ -153,7 +153,7 @@ public class MonAnChiTietFM extends Fragment {
                 //1, "Thêm món ăn vào giỏ hàng thành công"
                 //3, "Món ăn đã tồn tại trong giỏ hàng" và cộng thêm SL mới
                 if(message.getStatus() != 2){
-                    Toast.makeText(getContext(), message.getNotification(), Toast.LENGTH_SHORT).show();
+                    Toast.     makeText(getContext(), message.getNotification(), Toast.LENGTH_SHORT).show();
                 }
 
                 if (message.getStatus() == 2) {
