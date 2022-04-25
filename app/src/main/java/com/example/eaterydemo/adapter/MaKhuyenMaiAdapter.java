@@ -38,7 +38,7 @@ public class MaKhuyenMaiAdapter extends RecyclerView.Adapter<MaKhuyenMaiAdapter.
     List<KhuyenMai> arr;
     List<KhuyenMai> arrRong;
     Context context;
-    KhuyenMai model;
+//    KhuyenMai model;
 
     public MaKhuyenMaiAdapter(List<KhuyenMai> arr, Context context) {
         this.arr = arr;
@@ -56,7 +56,7 @@ public class MaKhuyenMaiAdapter extends RecyclerView.Adapter<MaKhuyenMaiAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        model = arr.get(position);
+        KhuyenMai model = arr.get(position);
         Glide.with(context).load(model.getHinhAnh()).into(holder.ivImage_MaKhuyenMai);
         holder.txtTenKhuyenMai.setText(model.getTenKhuyenMai() + "");
         holder.txtTien.setText(model.getTienKM()+"");
@@ -74,7 +74,7 @@ public class MaKhuyenMaiAdapter extends RecyclerView.Adapter<MaKhuyenMaiAdapter.
         holder.ivDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                diaLogConfirm();
+                diaLogConfirm(model);
             }
         });
 
@@ -104,16 +104,16 @@ public class MaKhuyenMaiAdapter extends RecyclerView.Adapter<MaKhuyenMaiAdapter.
         ma.setText(khuyenMai.getMaKM());
         sl.setText(khuyenMai.getSL()+"");
         tien.setText(khuyenMai.getTienKM()+"");
-        Glide.with(context).load(model.getHinhAnh()).centerCrop().placeholder(R.drawable.img_error).into(ivMaKM);
+        Glide.with(context).load(khuyenMai.getHinhAnh()).centerCrop().placeholder(R.drawable.img_error).into(ivMaKM);
         dialog.show();
         btnChinhSua.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String maKm = model.getMaKM();
+                String maKm = khuyenMai.getMaKM();
                 String tenKM = ten.getText().toString().trim();
                 int slKM = Integer.parseInt(sl.getText().toString().trim());
                 int tien1 = Integer.parseInt(tien.getText().toString().trim());
-                int manh = model.getMaNH();
+                int manh = khuyenMai.getMaNH();
 
                 KhuyenMai khuyenMai1 = new KhuyenMai(maKm,tenKM,tien1,slKM,manh);
                 ChinhSuaMaKhuyenMaiTheoNH(khuyenMai1);
@@ -132,13 +132,13 @@ public class MaKhuyenMaiAdapter extends RecyclerView.Adapter<MaKhuyenMaiAdapter.
 
 
 
-    private void diaLogConfirm() {
+    private void diaLogConfirm(KhuyenMai khuyenMai) {
         AlertDialog.Builder b = new AlertDialog.Builder(context);
         b.setTitle("Thông báo");
         b.setMessage("Bạn có muốn xóa không?");
         b.setPositiveButton("Đồng ý", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
-                String makm = model.getMaKM();
+                String makm = khuyenMai.getMaKM();
                 XoaKhuyenMai(makm);
             }
         });
