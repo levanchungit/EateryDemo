@@ -66,8 +66,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/txtTenMon_ThemMonAn"
-                android:layout_marginLeft="9dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
+                android:inputType="number"
                 android:layout_toRightOf="@id/cv_ThemMonAn"
                 android:fontFamily="@font/montserrat_bold"
                 android:hint="Giá" />

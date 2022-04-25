@@ -94,15 +94,17 @@ public class MaKhuyenMaiAdapter extends RecyclerView.Adapter<MaKhuyenMaiAdapter.
         TextView ma = view.findViewById(R.id.txtMadialog);
         EditText sl = view.findViewById(R.id.txtSoLuongKhuyenMaidialog);
         EditText tien = view.findViewById(R.id.tienkhuyenmai);
+        ImageView ivMaKM = view.findViewById(R.id.imgdialogEditMaKM);
 
 
-        Button btnChinhSua = view.findViewById(R.id.btnChinhSuadialog);
+        Button btnChinhSua = view.findViewById(R.id.btnChinhSuaMaKMdialog);
+        Button btnHuyChinhSua = view.findViewById(R.id.btnHuyChinhSuaMaKMdialog);
 
         ten.setText(khuyenMai.getTenKhuyenMai());
         ma.setText(khuyenMai.getMaKM());
         sl.setText(khuyenMai.getSL()+"");
         tien.setText(khuyenMai.getTienKM()+"");
-
+        Glide.with(context).load(model.getHinhAnh()).centerCrop().placeholder(R.drawable.img_error).into(ivMaKM);
         dialog.show();
         btnChinhSua.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -119,7 +121,12 @@ public class MaKhuyenMaiAdapter extends RecyclerView.Adapter<MaKhuyenMaiAdapter.
                 dialog.dismiss();
             }
         });
-
+        btnHuyChinhSua.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.cancel();
+            }
+        });
     }
 
 

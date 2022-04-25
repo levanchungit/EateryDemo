@@ -16,15 +16,10 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.eaterydemo.R;
-import com.example.eaterydemo.fragments.CCH_ItemDangLamQuanLyDonHangFM;
-import com.example.eaterydemo.fragments.CCH_QuanLyDonHangFM;
 import com.example.eaterydemo.fragments.CCH_QuanLyDonHangFMDirections;
-import com.example.eaterydemo.fragments.DonHangFMDirections;
 import com.example.eaterydemo.model.DonHang;
-import com.example.eaterydemo.model.DonHangChiTiet;
 
 import java.text.DecimalFormat;
-import java.text.SimpleDateFormat;
 import java.util.List;
 
 public class CCH_ItemDangLam_QuanLyDonHangAdapter extends RecyclerView.Adapter<CCH_ItemDangLam_QuanLyDonHangAdapter.ViewHolder> {
@@ -115,14 +110,14 @@ public class CCH_ItemDangLam_QuanLyDonHangAdapter extends RecyclerView.Adapter<C
         TextView tvTrangThai = holder.getTvTrangThaiDH();
         ImageView ivTrangThai = holder.getIvTrangThaiDH();
 
-        tvMaDH.setText("#000"+model.getMaDonHang()+"");
-        tvTienSLDH.setText(df.format(model.getTongTien())+ "đ | " + model.getCountSL() + " món");
+        tvMaDH.setText("#000" + model.getMaDonHang() + "");
+        tvTienSLDH.setText(df.format(model.getTongTien()) + "đ | " + model.getCountSL() + " món");
         String ngay = model.getNgayMua();
         tvNgayDH.setText(ngay.substring(0, 10));
         tvTrangThai.setText("Chờ xác nhận");
         tvTrangThai.setTextColor(Color.RED);
         ivTrangThai.setImageResource(R.drawable.dahuydonhang);
-        }
+    }
 
     @Override
     public int getItemCount() {

@@ -1,7 +1,6 @@
 package com.example.eaterydemo.fragments;
 
 
-import static com.example.eaterydemo.fragments.DangNhapFM.validateEditText;
 import static com.example.eaterydemo.others.ShowNotifyUser.dismissProgressDialog;
 import static com.example.eaterydemo.others.ShowNotifyUser.showProgressDialog;
 import static com.example.eaterydemo.service.GetRetrofit.getRetrofit;
@@ -85,7 +84,14 @@ public class DangKyFM extends Fragment {
                         | !validateEditText(fmBinding.tilNhapLaiMatKhauDangKy,fmBinding.edtNhapLaiMatKhauDangKy)
                         | !validateEditText(fmBinding.tilHoTenDangKy,fmBinding.edtHoTenDangKy)
                         | !validateEditText(fmBinding.tilSdtDangKy,fmBinding.edtSdtDangKy)
-                        | !validateEditText(fmBinding.tilDiaChiDangKy,fmBinding.edtDiaChiDangKy)) {
+                        | !validateEditText(fmBinding.tilDiaChiDangKy,fmBinding.edtDiaChiDangKy)
+                        | !validateEditTextEmail(fmBinding.tilEmailDangKy,fmBinding.edtEmailDangKy)
+                        | !validateEditTextSDT(fmBinding.tilSdtDangKy,fmBinding.edtSdtDangKy)){
+                        return;
+                }
+
+                if(!validateEditTextMK(fmBinding.tilMatKhauDangKy,fmBinding.edtMatKhauDangKy,
+                        fmBinding.tilNhapLaiMatKhauDangKy, fmBinding.edtNhapLaiMatKhauDangKy)){
                     return;
                 }
 
@@ -141,8 +147,8 @@ public class DangKyFM extends Fragment {
                 if (message.getStatus() == 1) {
                     NavDirections action = DangKyFMDirections.actionDangKyFMToDangNhapFM();
                     navController.navigate(action);
+                    dismissProgressDialog();
                 }
-                dismissProgressDialog();
             }
 
             @Override
@@ -164,6 +170,7 @@ public class DangKyFM extends Fragment {
             Toast.makeText(getContext(), "Vui lòng chọn ảnh", Toast.LENGTH_SHORT).show();
             return;
         }
+        showProgressDialog(getContext(), "Đang đăng ký...");
         MediaManager.get().upload(imagePath).callback(new UploadCallback() {
             @Override
             public void onStart(String requestId) {
@@ -177,7 +184,6 @@ public class DangKyFM extends Fragment {
             @Override
             public void onSuccess(String requestId, Map resultData) {
                 Log.d("CLOUDINARY","Task successful");
-                showProgressDialog(getContext(), "Đang đăng ký tài khoản");
                 String _email = fmBinding.edtEmailDangKy.getText().toString().trim();
                 String _mk = fmBinding.edtMatKhauDangKy.getText().toString().trim();
                 String _hoten = fmBinding.edtHoTenDangKy.getText().toString().trim();
@@ -192,6 +198,7 @@ public class DangKyFM extends Fragment {
             @Override
             public void onError(String requestId, ErrorInfo error) {
                 Toast.makeText(getContext(), "Task Not successful " + error, Toast.LENGTH_SHORT).show();
+                dismissProgressDialog();
             }
 
             @Override
@@ -244,8 +251,7 @@ public class DangKyFM extends Fragment {
 
     public static boolean validateEditTextSDT(TextInputLayout til, TextInputEditText edt) {
         String _str = edt.getText().toString().trim();
-
-        if (_str.length()<10 | _str.length()>10) {
+            if (_str.length()<10 | _str.length()>10) {
             til.setError("Số điện thoại phải đúng 10 ký tự");
             return false;
         } else {

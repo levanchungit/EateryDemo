@@ -40,8 +40,6 @@ import com.example.eaterydemo.model.TaiKhoan;
 import com.example.eaterydemo.service.ServiceAPI;
 
 import java.util.Map;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -52,7 +50,6 @@ public class ADM_AddTaiKhoanFM extends Fragment {
     NavController navController;
     private static int IMAGE_REQ = 1;
     int isValid = 0;
-    //cái này là gì đây?
     private Uri imagePath;
 
 
@@ -86,9 +83,7 @@ public class ADM_AddTaiKhoanFM extends Fragment {
                 validate();
                 //load hình ảnh lên cloudinary
                 if(isValid == 1){
-                    showProgressDialog(getContext(), "Đang tải dữ liệu");
                     uploadToCloudinary();
-                    dismissProgressDialog();
 
                 }
             }
@@ -141,7 +136,6 @@ public class ADM_AddTaiKhoanFM extends Fragment {
                     NavDirections action = ADM_AddTaiKhoanFMDirections.actionADMAddTaiKhoanFMToAdminQuanLyTaiKhoanFM();
                     Navigation.findNavController(getView()).navigate(action);
                 }
-                dismissProgressDialog();
             }
 
             @Override
@@ -162,9 +156,13 @@ public class ADM_AddTaiKhoanFM extends Fragment {
 
     private void uploadToCloudinary() {
         try{
+            if(imagePath == null){
+                Toast.makeText(getContext(), "Vui lòng chọn ảnh", Toast.LENGTH_SHORT).show();
+            }
             MediaManager.get().upload(imagePath).callback(new UploadCallback() {
                 @Override
                 public void onStart(String requestId) {
+                    showProgressDialog(getContext(), "Đang đăng ký tài khoản");
                     Log.d("CLOUDINARY","Start");
                 }
 
@@ -176,7 +174,6 @@ public class ADM_AddTaiKhoanFM extends Fragment {
                 @Override
                 public void onSuccess(String requestId, Map resultData) {
                     Log.d("CLOUDINARY","Task successful");
-//                showProgressDialog(getContext(), "Đang đăng ký tài khoản");
                     String _email = fmBinding.edtEmailDangKy.getText().toString().trim();
                     String _mk = fmBinding.edtMatKhauDangKy.getText().toString().trim();
                     String _hoten = fmBinding.edtHoTenDangKy.getText().toString().trim();
@@ -185,11 +182,13 @@ public class ADM_AddTaiKhoanFM extends Fragment {
                     String _hinhAnh = resultData.get("url").toString();
                     TaiKhoan taiKhoan = new TaiKhoan(_email, _mk, _hoten, _sdt, _diachi, _hinhAnh, "user");
                     AddTaiKhoan(taiKhoan);
+                    dismissProgressDialog();
                 }
 
                 @Override
                 public void onError(String requestId, ErrorInfo error) {
                     Toast.makeText(getContext(), "Task Not successful " + error, Toast.LENGTH_SHORT).show();
+                    dismissProgressDialog();
                 }
 
                 @Override
@@ -207,6 +206,7 @@ public class ADM_AddTaiKhoanFM extends Fragment {
                 !validateEditText(fmBinding.tilHoTenDangKy, fmBinding.edtHoTenDangKy) |
                 !validateEditText(fmBinding.tilMatKhauDangKy, fmBinding.edtMatKhauDangKy) |
                 !validateEditText(fmBinding.tilDiaChiDangKy, fmBinding.edtDiaChiDangKy) |
+                !validateEditText(fmBinding.tilNhapLaiMatKhauDangKy, fmBinding.edtNhapLaiMatKhauDangKy) |
                 !validateEditText(fmBinding.tilHoTenDangKy, fmBinding.edtHoTenDangKy) |
                 !validateEditText(fmBinding.tilSdtDangKy, fmBinding.edtSdtDangKy) ){
             return;

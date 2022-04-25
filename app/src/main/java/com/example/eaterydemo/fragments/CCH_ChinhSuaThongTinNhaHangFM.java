@@ -52,7 +52,7 @@ public class CCH_ChinhSuaThongTinNhaHangFM extends Fragment {
             @Override
             public void onClick(View view) {
                 NavDirections action = ChinhSuaThongTinFMDirections.actionEditProfileFMToMenuThongTin();
-                navController.navigate(action);
+                Navigation.findNavController(view).navigate(action);
             }
         });
         fmEditProfileBinding.edtTenTKChuNhaHang.setEnabled(false);

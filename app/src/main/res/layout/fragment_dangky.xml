@@ -36,8 +36,8 @@
                 android:id="@+id/cvImage_DangKy"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
                 android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
                 android:layout_marginRight="12dp"
                 app:cardCornerRadius="100dp">
 
@@ -53,7 +53,7 @@
                 android:id="@+id/tilEmail_DangKy"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="300dp"
-                android:layout_height="75dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
                 android:textColor="@color/white"
                 app:boxBackgroundMode="outline"
@@ -79,7 +79,7 @@
                 android:id="@+id/tilMatKhau_DangKy"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="300dp"
-                android:layout_height="75dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:textColor="@color/white"
                 app:boxBackgroundMode="outline"
@@ -87,7 +87,8 @@
                 app:boxCornerRadiusBottomStart="10dp"
                 app:boxCornerRadiusTopEnd="10dp"
                 app:boxCornerRadiusTopStart="10dp"
-                app:boxStrokeColor="#000">
+                app:boxStrokeColor="#000"
+                app:endIconMode="password_toggle">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edtMatKhau_DangKy"
@@ -104,7 +105,7 @@
                 android:id="@+id/tilNhapLaiMatKhau_DangKy"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="300dp"
-                android:layout_height="75dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:textColor="@color/white"
                 app:boxBackgroundMode="outline"
@@ -112,7 +113,8 @@
                 app:boxCornerRadiusBottomStart="10dp"
                 app:boxCornerRadiusTopEnd="10dp"
                 app:boxCornerRadiusTopStart="10dp"
-                app:boxStrokeColor="#000">
+                app:boxStrokeColor="#000"
+                app:endIconMode="password_toggle">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edtNhapLaiMatKhau_DangKy"
@@ -129,7 +131,7 @@
                 android:id="@+id/tilHoTen_DangKy"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="300dp"
-                android:layout_height="75dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:textColor="@color/white"
                 app:boxBackgroundMode="outline"
@@ -154,7 +156,7 @@
                 android:id="@+id/tilSdt_DangKy"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="300dp"
-                android:layout_height="75dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:textColor="@color/white"
                 app:boxBackgroundMode="outline"
@@ -179,7 +181,7 @@
                 android:id="@+id/tilDiaChi_DangKy"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="300dp"
-                android:layout_height="75dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:textColor="@color/white"
                 app:boxBackgroundMode="outline"

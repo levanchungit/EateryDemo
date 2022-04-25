@@ -27,8 +27,6 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
-import androidx.navigation.NavDirections;
-import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.bumptech.glide.Glide;
@@ -36,18 +34,11 @@ import com.cloudinary.android.MediaManager;
 import com.cloudinary.android.callback.ErrorInfo;
 import com.cloudinary.android.callback.UploadCallback;
 import com.example.eaterydemo.R;
-import com.example.eaterydemo.adapter.CCH_ItemDangLam_QuanLyDonHangAdapter;
 import com.example.eaterydemo.adapter.CCH_Item_QuanLyDanhSachMonAnAdapter;
-
-import com.example.eaterydemo.adapter.MaKhuyenMaiAdapter;
 import com.example.eaterydemo.databinding.FragmentQuanlydanhsachmonanBinding;
-import com.example.eaterydemo.model.DonHang;
-import com.example.eaterydemo.model.KhuyenMai;
-import com.example.eaterydemo.model.Message;
 import com.example.eaterydemo.model.MonAn;
 import com.example.eaterydemo.service.ServiceAPI;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -73,7 +64,7 @@ public class CCH_ItemQuanLyDanhSachMonAnFM extends Fragment {
 
     EditText tenMa, giaMa;
     ImageView hinhanhMa;
-    Button btnThem;
+    Button btnThem, btnHuy;
 
     @Nullable
     @Override
@@ -132,6 +123,7 @@ public class CCH_ItemQuanLyDanhSachMonAnFM extends Fragment {
         giaMa = view.findViewById(R.id.txtPrice_ThemMonAn);
         hinhanhMa = view.findViewById(R.id.img_ThemMonAn);
         btnThem = view.findViewById(R.id.btn_ThemMonAn);
+        btnHuy = view.findViewById(R.id.btnHuyThemMonAn);
 
         hinhanhMa.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -147,6 +139,12 @@ public class CCH_ItemQuanLyDanhSachMonAnFM extends Fragment {
             public void onClick(View view) {
                 uploadToCloudinary();
                 dialog.dismiss();
+            }
+        });
+        btnHuy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.cancel();
             }
         });
     }
@@ -201,42 +199,47 @@ public class CCH_ItemQuanLyDanhSachMonAnFM extends Fragment {
         }
     }
     private void uploadToCloudinary() {
-        if (imagePath == null) {
-            Toast.makeText(getContext(), "Vui long them hinh anh", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        MediaManager.get().upload(imagePath).callback(new UploadCallback() {
-            @Override
-            public void onStart(String requestId) {
-                Toast.makeText(getContext(), "Start", Toast.LENGTH_SHORT).show();
+        try {
+            if (imagePath == null) {
+                Toast.makeText(getContext(), "Vui long them hinh anh", Toast.LENGTH_SHORT).show();
+                return;
             }
 
-            @Override
-            public void onProgress(String requestId, long bytes, long totalBytes) {
-            }
+            MediaManager.get().upload(imagePath).callback(new UploadCallback() {
+                @Override
+                public void onStart(String requestId) {
+                    Log.d("IMG", "Start");
+                }
 
-            @Override
-            public void onSuccess(String requestId, Map resultData) {
+                @Override
+                public void onProgress(String requestId, long bytes, long totalBytes) {
+                }
+
+                @Override
+                public void onSuccess(String requestId, Map resultData) {
 //                Toast.makeText(getContext(), "Task successful", Toast.LENGTH_SHORT).show();
-                showProgressDialog(getContext(), "Đang đăng ký tài khoản");
-                String TenMA = tenMa.getText().toString().trim() ;
-                double GiaMA = Double.parseDouble(giaMa.getText().toString().trim());
-                int MaNH = CCH_QuanLyNhaHangFM.MaNH;
-                String HinhAnh = resultData.get("url").toString();
-                ThemMonAn(new MonAn(TenMA, GiaMA,HinhAnh,MaNH));
-                dismissProgressDialog();
-            }
+                    showProgressDialog(getContext(), "Đang đăng ký tài khoản");
+                    String TenMA = tenMa.getText().toString().trim() ;
+                    double GiaMA = Double.parseDouble(giaMa.getText().toString().trim());
+                    int MaNH = CCH_QuanLyNhaHangFM.MaNH;
+                    String HinhAnh = resultData.get("url").toString();
+                    ThemMonAn(new MonAn(TenMA, GiaMA,HinhAnh,MaNH));
+                    dismissProgressDialog();
+                }
 
-            @Override
-            public void onError(String requestId, ErrorInfo error) {
-                Toast.makeText(getContext(), "Task Not successful " + error, Toast.LENGTH_SHORT).show();
-            }
+                @Override
+                public void onError(String requestId, ErrorInfo error) {
+                    Toast.makeText(getContext(), "Task Not successful " + error, Toast.LENGTH_SHORT).show();
+                }
 
-            @Override
-            public void onReschedule(String requestId, ErrorInfo error) {
+                @Override
+                public void onReschedule(String requestId, ErrorInfo error) {
 
-            }
-        }).dispatch();
+                }
+            }).dispatch();
+        }catch (Exception e){
+
+        }
     }
 
 }

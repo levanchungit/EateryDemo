@@ -36,7 +36,7 @@ import retrofit2.Response;
 public class CCH_Item_QuanLyDanhSachMonAnAdapter extends RecyclerView.Adapter<CCH_Item_QuanLyDanhSachMonAnAdapter.ViewHolder> {
     Context context;
 
-    MonAn model;
+//    MonAn model;
     List<MonAn> arr;
     List<MonAn> arrRong = new ArrayList<>();
 
@@ -58,7 +58,7 @@ public class CCH_Item_QuanLyDanhSachMonAnAdapter extends RecyclerView.Adapter<CC
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-         model = arr.get(position);
+        MonAn model = arr.get(position);
         Log.d("arrtrc : ", arr.size()+"");
 
         Glide.with(context).load(model.getHinhAnh()).into(holder.ivImage);
@@ -72,14 +72,14 @@ public class CCH_Item_QuanLyDanhSachMonAnAdapter extends RecyclerView.Adapter<CC
         holder.imgUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                dialogupdate();
+                dialogupdate(model);
             }
         });
 
         holder.imgDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                diaLogConfirm();
+                diaLogConfirm(model);
             }
         });
 
@@ -104,7 +104,7 @@ public class CCH_Item_QuanLyDanhSachMonAnAdapter extends RecyclerView.Adapter<CC
         }
     }
 
-    private void dialogupdate() {
+    private void dialogupdate(MonAn model) {
         AlertDialog.Builder b = new AlertDialog.Builder(context);
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.dialog_chinhsuaquanlydanhsachmonan,null);
@@ -115,11 +115,11 @@ public class CCH_Item_QuanLyDanhSachMonAnAdapter extends RecyclerView.Adapter<CC
         EditText gia = view.findViewById(R.id.edtPrice_QuanLyDanhSachMonAn);
         ImageView hinhanh = view.findViewById(R.id.img_ChinhSuaMonAn);
         Button btnChinhSua = view.findViewById(R.id.btnChinhMonAn);
-        Button btnhuy = view.findViewById(R.id.btnHuydialog);
+        Button btnhuy = view.findViewById(R.id.btnHuyMonAn);
 
         ten.setText(model.getTenMA());
         gia.setText(model.getGia()+"");
-
+        Glide.with(context).load(model.getHinhAnh()).centerCrop().placeholder(R.drawable.img_error).into(hinhanh);
         dialog.show();
         btnChinhSua.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -133,19 +133,19 @@ public class CCH_Item_QuanLyDanhSachMonAnAdapter extends RecyclerView.Adapter<CC
             }
         });
 
-//        btnhuy.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//                dialog.dismiss();
-//            }
-//        });
+        btnhuy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                dialog.dismiss();
+            }
+        });
 
 
 
 
     }
-    private void diaLogConfirm() {
+    private void diaLogConfirm(MonAn model) {
         AlertDialog.Builder b = new AlertDialog.Builder(context);
         b.setTitle("Xác nhận");
         b.setMessage("Bạn có chắc chắn muốn xóa món ăn này không");
@@ -195,6 +195,7 @@ public class CCH_Item_QuanLyDanhSachMonAnAdapter extends RecyclerView.Adapter<CC
                 refreshRecycler();
                 dismissProgressDialog();
             }
+
             @Override
             public void onFailure(Call call, Throwable t) {
                 dismissProgressDialog();

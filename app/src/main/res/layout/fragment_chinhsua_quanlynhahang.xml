@@ -36,7 +36,7 @@
             android:layout_marginBottom="10dp"
             android:fontFamily="@font/montserrat_regular"
             android:gravity=""
-            android:hint="Tên nhà hàng"
+            android:hint="Tên tài khoản"
             android:inputType="textAutoComplete"
             android:padding="10dp"
             android:singleLine="true"
@@ -58,7 +58,7 @@
             android:inputType="textAutoComplete"
             android:padding="10dp"
             android:singleLine="true"
-            android:text="Họ Tên Chủ Cửa Hàng"
+            android:hint="Tên nhà hàng"
             android:textColor="@color/black"
             android:textColorHint="@color/black" />
 

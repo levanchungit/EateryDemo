@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/menu_TrangChu">
-                       <fragment
+    <fragment
         android:id="@+id/menu_ThongTin"
-        tools:layout="@layout/fragment_thongtin"
         android:name="com.example.eaterydemo.fragments.ThongTinFM"
-        android:label="ProfileFM">
+        android:label="ProfileFM"
+        tools:layout="@layout/fragment_thongtin">
         <action
             android:id="@+id/action_profileFM_to_homeFM"
             app:destination="@id/menu_TrangChu" />
@@ -24,15 +24,18 @@
         <action
             android:id="@+id/action_menu_ThongTin_to_DonHangFM"
             app:destination="@id/DonHangFM" />
-          <action
-              android:id="@+id/action_menu_ThongTin_to_veChungToiFM"
-              app:destination="@id/veChungToiFM" />
-      </fragment>
+        <action
+            android:id="@+id/action_menu_ThongTin_to_veChungToiFM"
+            app:destination="@id/veChungToiFM" />
+        <action
+            android:id="@+id/action_menu_ThongTin_to_dangNhapFM2"
+            app:destination="@id/dangNhapFM2" />
+    </fragment>
     <fragment
         android:id="@+id/editProfileFM"
-        tools:layout="@layout/fragment_chinhsua_thongtin"
         android:name="com.example.eaterydemo.fragments.ChinhSuaThongTinFM"
-        android:label="EditProfileFM">
+        android:label="EditProfileFM"
+        tools:layout="@layout/fragment_chinhsua_thongtin">
         <action
             android:id="@+id/action_editProfileFM_to_menu_ThongTin"
             app:destination="@id/menu_ThongTin"
@@ -41,10 +44,10 @@
     </fragment>
     <fragment
         android:id="@+id/menu_TrangChu"
-        tools:layout="@layout/fragment_trangchu"
         android:name="com.example.eaterydemo.fragments.TrangChuFM"
+        android:label="HomeFM"
 
-        android:label="HomeFM" >
+        tools:layout="@layout/fragment_trangchu">
         <action
             android:id="@+id/action_homeFM_to_NhaHangFM"
             app:destination="@id/NhaHangFM" />
@@ -57,15 +60,15 @@
         <action
             android:id="@+id/action_menu_TrangChu_to_nhaHangChiTietFM"
             app:destination="@id/nhaHangChiTietFM" />
-         <action
+        <action
             android:id="@+id/action_menu_TrangChu_to_CCH_QuanLyDonHangFM"
             app:destination="@id/CCH_QuanLyDonHangFM" />
     </fragment>
     <fragment
         android:id="@+id/NhaHangFM"
-        tools:layout="@layout/fragment_nhahang"
         android:name="com.example.eaterydemo.fragments.NhaHangFM"
-        android:label="LoaiNhaHangFM" >
+        android:label="LoaiNhaHangFM"
+        tools:layout="@layout/fragment_nhahang">
         <argument
             android:name="maLoaiNH"
             app:argType="string" />
@@ -75,9 +78,9 @@
     </fragment>
     <fragment
         android:id="@+id/doiMatKhauFM"
-        tools:layout="@layout/fragment_doimatkhau"
         android:name="com.example.eaterydemo.fragments.DoiMatKhauFM"
-        android:label="DoiMatKhauFM" >
+        android:label="DoiMatKhauFM"
+        tools:layout="@layout/fragment_doimatkhau">
         <action
             android:id="@+id/action_doiMatKhauFM_to_menu_ThongTin"
             app:destination="@id/menu_ThongTin"
@@ -86,9 +89,9 @@
     </fragment>
     <fragment
         android:id="@+id/timKiemNhaHangFM"
-        tools:layout="@layout/fragment_timkiemnhahang"
         android:name="com.example.eaterydemo.fragments.TimKiemNhaHangFM"
-        android:label="TimKiemNhaHangFM" >
+        android:label="TimKiemNhaHangFM"
+        tools:layout="@layout/fragment_timkiemnhahang">
         <action
             android:id="@+id/action_timKiemNhaHangFM_to_nhaHangChiTietFM2"
             app:destination="@id/nhaHangChiTietFM" />
@@ -100,9 +103,9 @@
     </fragment>
     <fragment
         android:id="@+id/nhaHangChiTietFM"
-        tools:layout="@layout/fragment_nhahangchitiet"
         android:name="com.example.eaterydemo.fragments.NhaHangChiTietFM"
-        android:label="NhaHangChiTietFM" >
+        android:label="NhaHangChiTietFM"
+        tools:layout="@layout/fragment_nhahangchitiet">
         <argument
             android:name="maNh"
             app:argType="integer" />
@@ -113,9 +116,9 @@
     </fragment>
     <fragment
         android:id="@+id/menu_YeuThich"
-        tools:layout="@layout/fragment_nhahangyeuthich"
         android:name="com.example.eaterydemo.fragments.NhaHangYeuThichFM"
-        android:label="NhaHangYeuThichFM" >
+        android:label="NhaHangYeuThichFM"
+        tools:layout="@layout/fragment_nhahangyeuthich">
         <action
             android:id="@+id/action_menu_YeuThich_to_nhaHangChiTietFM"
             app:destination="@id/nhaHangChiTietFM"
@@ -125,21 +128,21 @@
     </fragment>
     <fragment
         android:id="@+id/menu_ThanhToan"
-        tools:layout="@layout/fragment_thanhtoan"
         android:name="com.example.eaterydemo.fragments.ThanhToanFM"
-        android:label="ThanhToanFM" >
+        android:label="ThanhToanFM"
+        tools:layout="@layout/fragment_thanhtoan">
         <action
             android:id="@+id/action_menu_ThanhToan_to_thanhToanThanhCongFM"
             app:destination="@id/thanhToanThanhCongFM" />
     </fragment>
     <fragment
         android:id="@+id/thanhToanThanhCongFM"
-        tools:layout="@layout/fragment_thanhtoanthanhcong"
         android:name="com.example.eaterydemo.fragments.ThanhToanThanhCongFM"
-        android:label="ThanhToanThanhCongFM" >
+        android:label="ThanhToanThanhCongFM"
+        tools:layout="@layout/fragment_thanhtoanthanhcong">
         <argument
-            android:name="DonHang"
-            app:argType="com.example.eaterydemo.model.DonHang" />
+            android:name="TongTien"
+            app:argType="string" />
         <action
             android:id="@+id/action_thanhToanThanhCongFM_to_menu_ThanhToan"
             app:destination="@id/menu_ThanhToan"
@@ -148,9 +151,9 @@
     </fragment>
     <fragment
         android:id="@+id/DonHangFM"
-        tools:layout="@layout/fragment_donhang"
         android:name="com.example.eaterydemo.fragments.DonHangFM"
-        android:label="DonHangFM" >
+        android:label="DonHangFM"
+        tools:layout="@layout/fragment_donhang">
         <action
             android:id="@+id/action_DonHangFM_to_DonHangChiTietFM"
             app:destination="@id/DonHangChiTietFM" />
@@ -161,11 +164,11 @@
             app:popUpToInclusive="true" />
     </fragment>
 
-      <fragment
+    <fragment
         android:id="@+id/DonHangChiTietFM"
-        tools:layout="@layout/fragment_chitietdonhang_nguoidung"
         android:name="com.example.eaterydemo.fragments.DonHangChiTietFM"
-        android:label="DonHangChiTietFM" >
+        android:label="DonHangChiTietFM"
+        tools:layout="@layout/fragment_chitietdonhang_nguoidung">
         <argument
             android:name="donhangchitiet"
             app:argType="com.example.eaterydemo.model.DonHang" />
@@ -177,9 +180,9 @@
     </fragment>
     <fragment
         android:id="@+id/phuongThucThanhToanFM"
-        tools:layout="@layout/fragment_phuongthucthanhtoan"
         android:name="com.example.eaterydemo.fragments.PhuongThucThanhToanFM"
-        android:label="PhuongThucThanhToanFM" >
+        android:label="PhuongThucThanhToanFM"
+        tools:layout="@layout/fragment_phuongthucthanhtoan">
         <action
             android:id="@+id/action_phuongThucThanhToanFM_to_menu_ThongTin"
             app:destination="@id/menu_ThongTin"
@@ -188,22 +191,22 @@
     </fragment>
     <fragment
         android:id="@+id/veChungToiFM"
-        tools:layout="@layout/fragment_vechungtoi"
         android:name="com.example.eaterydemo.fragments.VeChungToiFM"
-        android:label="VeChungToiFM" >
+        android:label="VeChungToiFM"
+        tools:layout="@layout/fragment_vechungtoi">
         <action
             android:id="@+id/action_veChungToiFM_to_menu_ThongTin"
             app:destination="@id/menu_ThongTin"
             app:popUpTo="@id/menu_ThongTin"
             app:popUpToInclusive="true" />
     </fragment>
-            
-            
+
+
     <fragment
         android:id="@+id/monAnChiTietFM"
-        tools:layout="@layout/fragment_monanchitiet"
         android:name="com.example.eaterydemo.fragments.MonAnChiTietFM"
-        android:label="MonAnChiTietFM" >
+        android:label="MonAnChiTietFM"
+        tools:layout="@layout/fragment_monanchitiet">
         <argument
             android:name="maNH"
             app:argType="integer" />
@@ -216,5 +219,11 @@
             app:popUpTo="@id/monAnChiTietFM"
             app:popUpToInclusive="true" />
     </fragment>
+    <fragment
+        android:id="@+id/dangNhapFM2"
+        tools:layout="@layout/fragment_dangnhap"
+        android:name="com.example.eaterydemo.fragments.DangNhapFM"
+        android:label="DangNhapFM" />
+
 
 </navigation>

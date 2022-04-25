@@ -8,7 +8,6 @@ import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -28,7 +27,6 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
-import androidx.navigation.NavDirections;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.bumptech.glide.Glide;
@@ -39,11 +37,8 @@ import com.example.eaterydemo.R;
 import com.example.eaterydemo.adapter.MaKhuyenMaiAdapter;
 import com.example.eaterydemo.databinding.FragmentQuanlykhuyenmaiBinding;
 import com.example.eaterydemo.model.KhuyenMai;
-import com.example.eaterydemo.model.Message;
-import com.example.eaterydemo.model.TaiKhoan;
 import com.example.eaterydemo.service.ServiceAPI;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -62,12 +57,10 @@ public class CCH_MaKhuyenMaiFM extends Fragment {
 
     EditText maKm, tenKm, TienKm, slKm;
     ImageView HinhAnhKm;
-    Button btnChinhSua;
+    Button btnChinhSua, btnHuy;
     //xu ly refr
     List<KhuyenMai> arrThem;
     MaKhuyenMaiAdapter adapter;
-
-
 
     @Nullable
     @Override
@@ -84,8 +77,6 @@ public class CCH_MaKhuyenMaiFM extends Fragment {
             }
         });
         return fmBinding.getRoot();
-
-
     }
 
     @Override
@@ -132,8 +123,9 @@ public class CCH_MaKhuyenMaiFM extends Fragment {
         tenKm = view.findViewById(R.id.txtTenKhuyenMaidialog);
         TienKm = view.findViewById(R.id.txtTienKhuyenMaidialog);
         slKm = view.findViewById(R.id.txtSoLuongKhuyenMaidialog);
-        HinhAnhKm = view.findViewById(R.id.imgMaKhuyen);
-        btnChinhSua = view.findViewById(R.id.btnChinhSuadialog);
+        HinhAnhKm = view.findViewById(R.id.imgdialogThemMaKM);
+        btnChinhSua = view.findViewById(R.id.btnThemMaKMdialog);
+        btnHuy = view.findViewById(R.id.btnHuyThemMaKMdialog);
 
         HinhAnhKm.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -148,6 +140,12 @@ public class CCH_MaKhuyenMaiFM extends Fragment {
             public void onClick(View view) {
                 uploadToCloudinary();
                 dialog.dismiss();
+            }
+        });
+        btnHuy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.cancel();
             }
         });
     }
@@ -211,7 +209,7 @@ public class CCH_MaKhuyenMaiFM extends Fragment {
         MediaManager.get().upload(imagePath).callback(new UploadCallback() {
             @Override
             public void onStart(String requestId) {
-                Toast.makeText(getContext(), "Start", Toast.LENGTH_SHORT).show();
+                Log.d("IMG","Start");
             }
 
             @Override

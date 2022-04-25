@@ -85,6 +85,22 @@ public class DrawerLayoutActivity extends AppCompatActivity {
             case R.id.menu_ThongTin:
                 navBot.getMenu().findItem(R.id.menu_ThongTin).setChecked(true);
                 break;
+
+            case R.id.menu_ThanhToan:
+                navBot.getMenu().findItem(R.id.menu_ThanhToan).setChecked(true);
+                break;
+
+
+            case R.id.menu_YeuThich:
+                navBot.getMenu().findItem(R.id.menu_YeuThich).setChecked(true);
+                break;
+
+            case R.id.menu_TrangChu:
+                navBot.getMenu().findItem(R.id.menu_TrangChu).setChecked(true);
+                break;
+
+            default: navBot.getMenu().findItem(R.id.menu_TrangChu).setChecked(true);
+                break;
         }
 
         return super.onOptionsItemSelected(item);

@@ -99,9 +99,10 @@ public class ADM_ChinhSuaThongTinTaiKhoanFM extends Fragment {
             public void onResponse(Call call, Response response) {
                 Message message = (Message) response.body();
                 Toast.makeText(getContext(), message.getNotification(), Toast.LENGTH_SHORT).show();
-                Log.e("LOGIN",message.getNotification());
-                NavDirections action = ADM_ChinhSuaThongTinTaiKhoanFMDirections.actionADMChinhSuaThongTinTaiKhoanFMToAdminQuanLyTaiKhoanFM();
-                navController.navigate(action);
+                if (message.getStatus() == 1){
+                    NavDirections action = ADM_ChinhSuaThongTinTaiKhoanFMDirections.actionADMChinhSuaThongTinTaiKhoanFMToAdminQuanLyTaiKhoanFM();
+                    navController.navigate(action);
+                }
                 dismissProgressDialog();
             }
 

@@ -17,6 +17,9 @@ public class MonAn {
         TenNH = tenNH;
     }
 
+    public MonAn() {
+    }
+
     public MonAn(int maMA, String tenMA, double gia, String hinhAnh, int maNH) {
         MaMA = maMA;
         TenMA = tenMA;
