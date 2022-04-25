@@ -14,14 +14,10 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.eaterydemo.adapter.CCH_ItemDangLam_QuanLyDonHangAdapter;
-import com.example.eaterydemo.adapter.DonHangAdapter;
 import com.example.eaterydemo.databinding.FragmentCchItemdanglamQuanlydonhangBinding;
-import com.example.eaterydemo.databinding.FragmentDonhangBinding;
 import com.example.eaterydemo.model.DonHang;
 import com.example.eaterydemo.service.ServiceAPI;
 
@@ -34,7 +30,6 @@ import retrofit2.Response;
 
 public class CCH_ItemDangLamQuanLyDonHangFM extends Fragment {
     FragmentCchItemdanglamQuanlydonhangBinding fmBinding;
-    NavController navController;
     View _view;
     private  List<DonHang> arr;
     CCH_ItemDangLam_QuanLyDonHangAdapter adapter;
@@ -43,7 +38,6 @@ public class CCH_ItemDangLamQuanLyDonHangFM extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         fmBinding = FragmentCchItemdanglamQuanlydonhangBinding.inflate(getLayoutInflater());
-//        initNavController(container);
         _view = container;
         return fmBinding.getRoot();
     }
@@ -51,19 +45,13 @@ public class CCH_ItemDangLamQuanLyDonHangFM extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-//        initNavController(_view);
         showProgressDialog(getContext(), "Đang tải dữ liệu");
         getAllDonHang();
     }
 
-//    private void initNavController(View viewFmProfileBinding) {
-//        navController = Navigation.findNavController(viewFmProfileBinding);
-//    }
-
-
         private void getAllDonHang() {
         ServiceAPI serviceAPI = getRetrofit().create(ServiceAPI.class);
-        Call call = serviceAPI.GetAllDonHangTheoMaNHDuaVaoTrangThai(0, 1);
+        Call call = serviceAPI.GetAllDonHangTheoMaNHDuaVaoTrangThai(CCH_QuanLyNhaHangFM.MaNH, 1);
         call.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {

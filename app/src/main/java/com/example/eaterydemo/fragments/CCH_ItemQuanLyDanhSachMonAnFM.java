@@ -27,8 +27,6 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
-import androidx.navigation.NavDirections;
-import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.bumptech.glide.Glide;
@@ -36,18 +34,11 @@ import com.cloudinary.android.MediaManager;
 import com.cloudinary.android.callback.ErrorInfo;
 import com.cloudinary.android.callback.UploadCallback;
 import com.example.eaterydemo.R;
-import com.example.eaterydemo.adapter.CCH_ItemDangLam_QuanLyDonHangAdapter;
 import com.example.eaterydemo.adapter.CCH_Item_QuanLyDanhSachMonAnAdapter;
-
-import com.example.eaterydemo.adapter.MaKhuyenMaiAdapter;
 import com.example.eaterydemo.databinding.FragmentQuanlydanhsachmonanBinding;
-import com.example.eaterydemo.model.DonHang;
-import com.example.eaterydemo.model.KhuyenMai;
-import com.example.eaterydemo.model.Message;
 import com.example.eaterydemo.model.MonAn;
 import com.example.eaterydemo.service.ServiceAPI;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -217,7 +208,7 @@ public class CCH_ItemQuanLyDanhSachMonAnFM extends Fragment {
             MediaManager.get().upload(imagePath).callback(new UploadCallback() {
                 @Override
                 public void onStart(String requestId) {
-                    Toast.makeText(getContext(), "Start", Toast.LENGTH_SHORT).show();
+                    Log.d("IMG", "Start");
                 }
 
                 @Override

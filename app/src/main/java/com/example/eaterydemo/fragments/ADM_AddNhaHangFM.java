@@ -92,13 +92,14 @@ public class ADM_AddNhaHangFM extends Fragment {
             @Override
             public void onClick(View view) {
 
-                validate();
-                if (isValid == 1){
-                    //load hình ảnh lên cloudinary
-
-                    uploadToCloudinary();
-                    dismissProgressDialog();
+                if (!validateEditText(fmBinding.tlTenNHAddNhaHang, fmBinding.edtTenNHAddNhaHang) |
+                        !validateEditText(fmBinding.tlDiaChiAddNhaHang, fmBinding.edtDiaChiAddNhaHang) |
+                        !validateEditText(fmBinding.tlMoTaAddNhaHang, fmBinding.edtMoTaAddNhaHang) ){
+                    return;
                 }
+
+                uploadToCloudinary();
+                dismissProgressDialog();
             }
         });
         fmBinding.spnChuNhaHangAddNhaHang.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -231,6 +232,11 @@ public class ADM_AddNhaHangFM extends Fragment {
     //Thêm nhà hàng
     private void uploadToCloudinary() {
         try{
+            if(imagePath == null){
+                Toast.makeText(getContext(), "Vui lòng chọn ảnh", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
             MediaManager.get().cancelAllRequests();
             MediaManager.get().upload(imagePath).callback(new UploadCallback() {
                 @Override
@@ -268,19 +274,6 @@ public class ADM_AddNhaHangFM extends Fragment {
             }).dispatch();
         } catch (Exception e){
             Log.e("Error: ", e + "");
-        }
-    }
-
-    private void validate(){
-        if (!validateEditText(fmBinding.tlTenNHAddNhaHang, fmBinding.edtTenNHAddNhaHang) |
-                !validateEditText(fmBinding.tlDiaChiAddNhaHang, fmBinding.edtDiaChiAddNhaHang) |
-                !validateEditText(fmBinding.tlMoTaAddNhaHang, fmBinding.edtMoTaAddNhaHang) ){
-            return;
-        } else if(imagePath == null){
-            Toast.makeText(getContext(), "Vui lòng chọn ảnh", Toast.LENGTH_SHORT).show();
-
-        } else {
-            isValid = 1;
         }
     }
 }

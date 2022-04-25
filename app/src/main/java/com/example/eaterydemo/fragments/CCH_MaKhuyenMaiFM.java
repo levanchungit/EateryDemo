@@ -8,7 +8,6 @@ import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -28,7 +27,6 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
-import androidx.navigation.NavDirections;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.bumptech.glide.Glide;
@@ -39,11 +37,8 @@ import com.example.eaterydemo.R;
 import com.example.eaterydemo.adapter.MaKhuyenMaiAdapter;
 import com.example.eaterydemo.databinding.FragmentQuanlykhuyenmaiBinding;
 import com.example.eaterydemo.model.KhuyenMai;
-import com.example.eaterydemo.model.Message;
-import com.example.eaterydemo.model.TaiKhoan;
 import com.example.eaterydemo.service.ServiceAPI;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -67,8 +62,6 @@ public class CCH_MaKhuyenMaiFM extends Fragment {
     List<KhuyenMai> arrThem;
     MaKhuyenMaiAdapter adapter;
 
-
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -84,8 +77,6 @@ public class CCH_MaKhuyenMaiFM extends Fragment {
             }
         });
         return fmBinding.getRoot();
-
-
     }
 
     @Override
@@ -218,7 +209,7 @@ public class CCH_MaKhuyenMaiFM extends Fragment {
         MediaManager.get().upload(imagePath).callback(new UploadCallback() {
             @Override
             public void onStart(String requestId) {
-                Toast.makeText(getContext(), "Start", Toast.LENGTH_SHORT).show();
+                Log.d("IMG","Start");
             }
 
             @Override

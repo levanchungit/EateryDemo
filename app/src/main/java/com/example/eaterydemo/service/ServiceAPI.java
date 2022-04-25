@@ -12,7 +12,6 @@ import com.example.eaterydemo.model.TaiKhoan;
 import com.example.eaterydemo.model.ThongKe;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -82,24 +81,20 @@ public interface ServiceAPI {
     Call<ArrayList<KhuyenMai>> GetAllMaKhuyenMaiTheoNH(@Query("MaNH") int MaNH);
 
     @POST("api/ThemMaKhuyenMai")
-    Call<ArrayList<KhuyenMai>> ThemMaKhuyenMai(@Body KhuyenMai khuyenMai) ;
+    Call<ArrayList<KhuyenMai>> ThemMaKhuyenMai(@Body KhuyenMai khuyenMai);
 
 
     @POST("api/XoaMaKhuyenMai")
     Call<ArrayList<KhuyenMai>> XoaMaKhuyenMai(@Query("MaKM") String MaKM);
-    //MÓN ĂN
-    //truyen param thi k có cái đuôi {...} và cái @Query
-//    @GET("api/monantheonhahang")
-//    Call<ArrayList<MonAn>> GetAllMonAnTheoNhaHang(@Query("MaNH") int MaNH);
 
     @GET("api/GetAllMonAnTheoNhaHang")
     Call<ArrayList<MonAn>> GetAllMonAnTheoNhaHang(@Query("MaNH") int MaNH);
 
     @POST("api/ThemMonAnTrongNhaHang")
-    Call<ArrayList<MonAn>> ThemMonAnTrongNhaHang(@Body MonAn monAn) ;
+    Call<ArrayList<MonAn>> ThemMonAnTrongNhaHang(@Body MonAn monAn);
 
     @POST("api/ChinhSuaMonAnTrongNhaHang")
-    Call<ArrayList<MonAn>> ChinhSuaMonAnTrongNhaHang(@Body MonAn monAn) ;
+    Call<ArrayList<MonAn>> ChinhSuaMonAnTrongNhaHang(@Body MonAn monAn);
 
     @GET("api/monantheomama")
     Call<MonAn> GetMonAnTheoMaMA(@Query("MaMA") int MaMA);
@@ -123,12 +118,7 @@ public interface ServiceAPI {
 
     @GET("api/taikhoan")
     Call<ArrayList<TaiKhoan>> GetAllTaiKhoan();
-//
-//    @GET("api/taikhoan/{TenTK}")
-//    Call<TaiKhoan> GetTaiKhoanTheoTenTK(@Path("TenTK") String TenTK);
 
-    //truyền k có đuôi api/.../{}, k có dấu {} này thì phải là @query
-    //thì check api trên postman thì phải check thế này
     @GET("api/doimatkhau")
     Call<Message> DoiMatKhau(@Query("TenTK") String TenTK, @Query("MatKhauCu") String MatKhauCu, @Query("MatKhauMoi") String MatKhauMoi);
 
@@ -168,8 +158,9 @@ public interface ServiceAPI {
 
     @POST("api/CapNhatTrangThaiDonHangCuaTK")
     Call<Message> CapNhatTrangThaiDonHangCuaTK(@Body DonHang donHang);
+
     @GET("api/LichSuNhungDonHangTrong1NgayCuaNH")
-    Call<ArrayList<DonHang>> LichSuNhungDonHangTrong1NgayCuaNH(@Query("MaNH")int MaNH,@Query("NgayMua") String NgayMua);
+    Call<ArrayList<DonHang>> LichSuNhungDonHangTrong1NgayCuaNH(@Query("MaNH") int MaNH, @Query("NgayMua") String NgayMua);
 
 
     @GET("api/getDonHangTheoTK")
@@ -201,7 +192,7 @@ public interface ServiceAPI {
     @GET("api/GetTongDoanhThuDonHangTheoNH")
     Call<Double> GetTongDoanhThuDonHangTheoNH(@Query("MaNH") int MaNH, @Query("TuNgay") String TuNgay, @Query("DenNgay") String DenNgay);
 
-    @GET("api/GetTongDoanhThuCuaTungMonAnTheoNH ")
+    @GET("api/GetTongDoanhThuCuaTungMonAnTheoNH")
     Call<ArrayList<ThongKe>> GetTongDoanhThuCuaTungMonAnTheoNH(@Query("MaNH") int MaNH, @Query("ngaybatdau") String ngaybatdau, @Query("ngayketthuc") String ngayketthuc);
 
 

@@ -22,12 +22,14 @@ import androidx.navigation.NavController;
 import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 
+import com.example.eaterydemo.R;
 import com.example.eaterydemo.activities.AdminActivity;
 import com.example.eaterydemo.activities.ChuCuaHangActivity;
 import com.example.eaterydemo.activities.DrawerLayoutActivity;
 import com.example.eaterydemo.databinding.FragmentDangnhapBinding;
 import com.example.eaterydemo.model.Message;
 import com.example.eaterydemo.service.ServiceAPI;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -47,8 +49,12 @@ public class DangNhapFM extends Fragment {
         initClick();
         initNavController(container);
 
-        fmBinding.edtEmailDangNhap.setText("user1@gmail.com");
-        fmBinding.edtMatKhauDangNhap.setText("111");
+        //tắt bottom navigation
+        BottomNavigationView navbar = getActivity().findViewById(R.id.navBot);
+        if(navbar != null){
+            navbar.setVisibility(View.GONE);
+        }
+
 
         return fmBinding.getRoot();
     }
@@ -136,9 +142,7 @@ public class DangNhapFM extends Fragment {
 
     public static void hideKeyboard(Activity activity) {
         InputMethodManager imm = (InputMethodManager) activity.getSystemService(Activity.INPUT_METHOD_SERVICE);
-        //Find the currently focused view, so we can grab the correct window token from it.
         View view = activity.getCurrentFocus();
-        //If no view currently has focus, create a new one, just so we can grab a window token from it
         if (view == null) {
             view = new View(activity);
         }
