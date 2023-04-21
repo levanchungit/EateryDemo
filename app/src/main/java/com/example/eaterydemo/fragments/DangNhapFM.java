@@ -73,9 +73,12 @@ public class DangNhapFM extends Fragment {
                     return;
                 }
 
-                String _TenTK = fmBinding.edtEmailDangNhap.getText().toString().trim();
-                String _MatKhau = fmBinding.edtMatKhauDangNhap.getText().toString().trim();
-                DangNhap(_TenTK, _MatKhau);
+//                String _TenTK = fmBinding.edtEmailDangNhap.getText().toString().trim();
+//                String _MatKhau = fmBinding.edtMatKhauDangNhap.getText().toString().trim();
+//                DangNhap(_TenTK, _MatKhau);
+
+                startActivity(new Intent(requireContext(), DrawerLayoutActivity.class));
+
             }
         });
 

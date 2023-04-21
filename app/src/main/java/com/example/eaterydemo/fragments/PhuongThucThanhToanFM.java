@@ -1,13 +1,11 @@
 package com.example.eaterydemo.fragments;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -16,16 +14,13 @@ import androidx.navigation.NavController;
 import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 
-import com.example.eaterydemo.Helper.CreateOrder;
 import com.example.eaterydemo.R;
 import com.example.eaterydemo.databinding.FragmentPhuongthucthanhtoanBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import org.json.JSONObject;
-
-import vn.zalopay.sdk.ZaloPayError;
-import vn.zalopay.sdk.ZaloPaySDK;
-import vn.zalopay.sdk.listeners.PayOrderListener;
+//import vn.zalopay.sdk.ZaloPayError;
+//import vn.zalopay.sdk.ZaloPaySDK;
+//import vn.zalopay.sdk.listeners.PayOrderListener;
 
 
 public class PhuongThucThanhToanFM extends Fragment {

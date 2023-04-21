@@ -13,14 +13,13 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import com.example.eaterydemo.Helper.AppInfo;
 import com.example.eaterydemo.R;
 import com.example.eaterydemo.databinding.DrawerLayoutActivityBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 
-import vn.zalopay.sdk.Environment;
-import vn.zalopay.sdk.ZaloPaySDK;
+//import vn.zalopay.sdk.Environment;
+//import vn.zalopay.sdk.ZaloPaySDK;
 
 
 public class DrawerLayoutActivity extends AppCompatActivity {
@@ -48,7 +47,7 @@ public class DrawerLayoutActivity extends AppCompatActivity {
                 StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
 
-        ZaloPaySDK.init(AppInfo.APP_ID, Environment.SANDBOX);
+//        ZaloPaySDK.init(AppInfo.APP_ID, Environment.SANDBOX);
     }
 
 
@@ -109,6 +108,6 @@ public class DrawerLayoutActivity extends AppCompatActivity {
     @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        ZaloPaySDK.getInstance().onResult(intent);
+//        ZaloPaySDK.getInstance().onResult(intent);
     }
 }

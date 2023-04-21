@@ -47,9 +47,9 @@ import java.util.Locale;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import vn.zalopay.sdk.ZaloPayError;
-import vn.zalopay.sdk.ZaloPaySDK;
-import vn.zalopay.sdk.listeners.PayOrderListener;
+//import vn.zalopay.sdk.ZaloPayError;
+//import vn.zalopay.sdk.ZaloPaySDK;
+//import vn.zalopay.sdk.listeners.PayOrderListener;
 
 public class ThanhToanFM extends Fragment {
     FragmentThanhtoanBinding fmBinding;
@@ -348,25 +348,25 @@ public class ThanhToanFM extends Fragment {
 
                                     String token = data.getString("zptranstoken");
 
-                                    ZaloPaySDK.getInstance().payOrder(getActivity(), token, "demozpdk://app", new PayOrderListener() {
-                                        @Override
-                                        public void onPaymentSucceeded(final String transactionId, final String transToken, final String appTransID) {
-                                            Toast.makeText(getActivity(), "Thanh toán thành công", Toast.LENGTH_SHORT).show();
-//                                            NavDirections action = ThanhToanFMDirections.actionMenuThanhToanToThanhToanThanhCongFM(fmBinding.txtTongTienThanhToan.getText().toString());
-//                                            Navigation.findNavController(getView()).navigate(action);
-                                            getActivity().finish();
-                                        }
-
-                                        @Override
-                                        public void onPaymentCanceled(String zpTransToken, String appTransID) {
-                                            Toast.makeText(getActivity(), "Thanh toán bị hủy", Toast.LENGTH_SHORT).show();
-                                        }
-
-                                        @Override
-                                        public void onPaymentError(ZaloPayError zaloPayError, String zpTransToken, String appTransID) {
-                                            Toast.makeText(getActivity(), "Thanh toán thất bại", Toast.LENGTH_SHORT).show();
-                                        }
-                                    });
+//                                    ZaloPaySDK.getInstance().payOrder(getActivity(), token, "demozpdk://app", new PayOrderListener() {
+//                                        @Override
+//                                        public void onPaymentSucceeded(final String transactionId, final String transToken, final String appTransID) {
+//                                            Toast.makeText(getActivity(), "Thanh toán thành công", Toast.LENGTH_SHORT).show();
+////                                            NavDirections action = ThanhToanFMDirections.actionMenuThanhToanToThanhToanThanhCongFM(fmBinding.txtTongTienThanhToan.getText().toString());
+////                                            Navigation.findNavController(getView()).navigate(action);
+//                                            getActivity().finish();
+//                                        }
+//
+//                                        @Override
+//                                        public void onPaymentCanceled(String zpTransToken, String appTransID) {
+//                                            Toast.makeText(getActivity(), "Thanh toán bị hủy", Toast.LENGTH_SHORT).show();
+//                                        }
+//
+//                                        @Override
+//                                        public void onPaymentError(ZaloPayError zaloPayError, String zpTransToken, String appTransID) {
+//                                            Toast.makeText(getActivity(), "Thanh toán thất bại", Toast.LENGTH_SHORT).show();
+//                                        }
+//                                    });
                                 }
 //                                getActivity().finish();
                             } catch (Exception e) {
